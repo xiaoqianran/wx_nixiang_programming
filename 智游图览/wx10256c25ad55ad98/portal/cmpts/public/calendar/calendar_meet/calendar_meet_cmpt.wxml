@@ -1,0 +1,43 @@
+<view class="cal-container">
+    <view bindtap="bindLastTap" class="left">
+        <text class="icon-back"></text>
+    </view>
+    <view class="cal-main">
+        <view class="text-center cal-nav">
+            <view bindtap="bindToNowTap" class="to-now">本月</view>
+            <view class="select-item">
+                <view class="text-lg">{{year}}年{{month}}月</view>
+            </view>
+            <block wx:if="{{mode=='one'}}">
+                <view bindtap="bindFoldTap" class="fold text-grey" wx:if="{{!fold}}">
+                    <text class="icon-fold calendar-text"></text>
+                </view>
+                <view bindtap="bindFoldTap" class="fold" wx:if="{{fold}}">
+                    <text class="icon-unfold calendar-text"></text>
+                </view>
+            </block>
+        </view>
+        <view class="cal-title">
+            <view>一</view>
+            <view>二</view>
+            <view>三</view>
+            <view>四</view>
+            <view>五</view>
+            <view class="text-orange text-bold">六</view>
+            <view class="text-red text-bold">日</view>
+        </view>
+        <view class="cal-center {{!fold?'cur':''}}">
+            <view bindtap="bindDayMultiTap" class="cube {{glow}} {{isLunar?'lunar':''}} {{item.full<fullToday?'timeout':''}} {{tools.includes(multiDoDay,item.full)?'calendar-bg text-white data-checked':''}} {{tools.includes(hasDays,item.full)?'data-has':''}} {{tools.includes(hasJoinDays,item.full)?'join-has':''}}" data-fullday="{{item.full}}" wx:if="{{mode=='multi'}}" wx:for="{{dayArr}}" wx:key="key">
+                <view class="num-grid {{fullToday==item.full?'now-day-cur':''}} ">
+                    <view class="num {{!item.curMonth?'text-no-month':''}} ">
+                        <text class="dd">{{item.show}}</text>
+                        <text class="lunar {{tools.includes(multiDoDay,item.full)?'text-white':''}} {{item.holiday?'text-red':''}}" wx:if="{{isLunar}}">{{item.lunar}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="bindNextTap" class="left">
+        <text class="icon-right"></text>
+    </view>
+</view>

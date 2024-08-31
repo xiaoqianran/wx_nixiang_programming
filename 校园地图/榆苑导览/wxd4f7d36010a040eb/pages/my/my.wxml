@@ -1,0 +1,17 @@
+<view class="all">
+    <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" mode="cover" src="{{userInfo.avatarUrl}}"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+</view>
+<view class="qq">
+    <view bindtap="guanli" class="guanli">注册信息</view>
+    <view bindtap="teacher" class="guanli">教师管理</view>
+    <view bindtap="jiaru" class="guanli">团队介绍</view>
+    <view bindtap="jiaru2" class="guanli">人员管理</view>
+    <view bindtap="jiaru3" class="guanli">添加点位</view>
+</view>
+<block wx:if="{{!hasUserInfo}}">
+    <button bindtap="getUserProfile" class="button" type="warn" wx:if="{{canIUseGetUserProfile}}">欢迎登陆 </button>
+    <button bindgetuserinfo="getUserInfo" openType="getUserInfo" wx:else> 欢迎登录 </button>
+</block>

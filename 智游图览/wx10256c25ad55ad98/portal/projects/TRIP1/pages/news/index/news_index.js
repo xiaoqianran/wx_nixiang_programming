@@ -1,0 +1,1 @@
+var e=require("../../../../../comm/behavior/news_index_bh.js"),i=require("../../../biz/project_biz.js"),t=getApp();Page({behaviors:[e],onLoad:function(e){i.initPage(this),this._setCate(t.indexData.newsType,e)}});

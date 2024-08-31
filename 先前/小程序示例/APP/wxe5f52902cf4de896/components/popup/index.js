@@ -1,0 +1,1 @@
+Component({properties:{maskClosable:{type:Boolean,value:!0},mask:{type:Boolean,value:!0},maskStyle:{type:String,value:""},show:{type:Boolean,value:!1}},data:{enable:!0},methods:{close:function(){var e=this.data;console.log("@@@ close",e.maskClosable),e.maskClosable&&(this.setData({enable:!this.data.enable}),this.triggerEvent("close",{},{}))}}});

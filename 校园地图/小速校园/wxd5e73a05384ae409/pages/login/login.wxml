@@ -1,0 +1,50 @@
+<view class="top-area">
+    <text class="top-area-title">登录 - 广东财经大学</text>
+    <text class="top-area-tip">开启便捷校园生活</text>
+</view>
+<view class="main-area">
+    <image alt="avatarUrl" class="avatar" src="https://quickdo.top/images/plan/IP.png"></image>
+    <view class="input-box">
+        <radio-group bindchange="{{b}}" class="chooseCampus-wrapper">
+            <view class="chooseCampus-title">所在校区：</view>
+            <view class="radio-wrapper">
+                <label class="chooseCampus-box" wx:for="{{a}}" wx:key="d">
+                    <view>
+                        <radio checked="{{item.b}}" color="#148f77" value="{{item.a}}"></radio>
+                    </view>
+                    <view>{{item.c}}</view>
+                </label>
+            </view>
+        </radio-group>
+        <view class="hr"></view>
+        <view class="input-wrapper">
+            <input bindinput="{{d}}" id="account" placeholder="请输入学号" style="width:100%" type="number" value="{{c}}"></input>
+        </view>
+        <view class="hr"></view>
+        <view class="input-wrapper">
+            <input bindinput="{{g}}" class="password-input" id="password" password="{{e}}" placeholder="请输入教务系统密码" type="text" value="{{f}}"></input>
+            <uni-icons bind:__l="__l" bindclick="{{h}}" uI="0dc8e657-0" uP="{{i}}" wx:if="{{i}}"></uni-icons>
+        </view>
+        <view class="hr"></view>
+        <view class="login-remember-me">
+            <checkbox-group bindchange="{{k}}">
+                <label>
+                    <checkbox checked="{{j}}" value="记住账号密码">记住账号密码</checkbox>
+                </label>
+            </checkbox-group>
+        </view>
+    </view>
+    <view class="login-clause">
+        <checkbox-group bindchange="{{m}}">
+            <label>
+                <checkbox checked="{{l}}" value="阅读并同意">阅读并同意</checkbox>
+            </label>
+        </checkbox-group>
+        <text bindtap="{{n}}" class="login-privacy">《用户协议》</text>
+        <text bindtap="{{o}}" class="login-privacy">《隐私政策》</text>
+    </view>
+    <button bindtap="{{p}}" class="login-btn" id="goLoggedIn">绑定账号</button>
+    <view bindtap="{{q}}" class="forget">
+        <text>忘记密码？</text>
+    </view>
+</view>

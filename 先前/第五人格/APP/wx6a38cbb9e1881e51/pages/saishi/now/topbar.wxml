@@ -1,0 +1,8 @@
+<view class="topbar" data-active="{{active}}">
+    <view class="inner">
+        <view bindtap="topbarJump" class="li {{active==idx?'':'big'}}" data-index="{{idx}}" wx:for="{{btnList}}" wx:for-index="idx" wx:for-item="btn" wx:key="key">
+            <image class="bg" src="{{active==idx?imgUrl+'/saishi/now/topbar_s.png':imgUrl+'/saishi/now/topbar_b.png'}}"></image>
+            <text class="des">{{btn.name}}</text>
+        </view>
+    </view>
+</view>

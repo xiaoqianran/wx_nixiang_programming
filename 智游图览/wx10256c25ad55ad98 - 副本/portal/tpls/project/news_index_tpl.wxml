@@ -1,0 +1,14 @@
+<template name="newsIndexTpl">
+    <view class="margin-top load loading text-l load-project" wx:if="{{!_params}}"></view>
+    <block wx:else>
+        <import src="../../tpls/public/base_list_tpl.wxml"></import>
+        <import src="../../tpls/public/list_load_tpl.wxml"></import>
+        <cmpt-comm-list _items="{{sortItems}}" _menus="{{sortMenus}}" _params="{{_params}}" bind:list="bindCommListCmpt" isTotalMenu="{{isTotalMenu}}" placeholder="搜索标题" route="news/list" search="{{search}}" topBottom="120" type="news-list">
+            <view class="up-project" wx:if="{{showUp}}">
+                <image lazyLoad mode="widthFix" src="{{upImg}}" wx:if="{{upImg}}"></image>
+            </view>
+            <template is="baseListTpl" data="{{mediaSrvUrl:mediaSrvUrl,dataList:dataList.list,listMode:listMode||'leftpic'}}"></template>
+            <template is="listLoadTpl" data="{{skin:'load-project',dataList:dataList}}"></template>
+        </cmpt-comm-list>
+    </block>
+</template>

@@ -1,0 +1,1 @@
+var r=require("~/r");r("+bWk",Object.assign({},require("~/v.js").modules,{"+bWk":function(e,i,r){r.r(i);var t={name:"activity-price",props:{label:String,activityPrice:Array,priceTag:Object,preText:String,isRange:Boolean,originPrice:String,depositPriceText:String,isCoupon:Boolean,showOriginPrice:Boolean,isEstimate:Boolean},ud:!0},n=r("9ZMt");i.default=n.default.component(t)}}));

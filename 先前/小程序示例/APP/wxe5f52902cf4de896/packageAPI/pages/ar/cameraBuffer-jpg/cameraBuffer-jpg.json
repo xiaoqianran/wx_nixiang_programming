@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "相机帧获取jpg图片",
+  "disableScroll": true,
+  "renderer": "webview"
+}

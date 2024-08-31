@@ -1,0 +1,1 @@
+.image-previewer{height:100vh;overflow:hidden;width:100vw}.swiper-cnt{display:-webkit-flex;display:flex;flex-direction:row;height:100vh;left:0;position:absolute;top:0;width:100vw;z-index:20}.image{display:block;height:100%;width:100%}

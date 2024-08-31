@@ -1,0 +1,1 @@
+var n=require("../../../utils/media");Page({data:{map:"../"+n.map},onLoad:function(n){},onReady:function(){},onShow:function(){},onShareAppMessage:function(){},onShareTimeline:function(n){return{title:"沈工大电子导航"}},tosite:function(){wx.switchTab({url:"../../site/site"})},tomap:function(){wx.switchTab({url:"../../map/map"})}});

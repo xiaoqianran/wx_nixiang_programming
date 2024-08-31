@@ -1,0 +1,1 @@
+.cnt{display:-webkit-flex;display:flex;flex-direction:column;height:100%;position:absolute;top:0;width:100%}.album{flex:1;height:0;margin-bottom:12px}.safe-area-inset-bottom{height:env(safe-area-inset-bottom)}

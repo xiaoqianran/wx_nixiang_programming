@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "照片OCR检测",
+  "disableScroll": true,
+  "renderer": "webview"
+}

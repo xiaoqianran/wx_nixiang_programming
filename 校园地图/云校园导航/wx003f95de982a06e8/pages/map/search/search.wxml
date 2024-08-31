@@ -1,0 +1,16 @@
+<view class="root">
+    <input bindinput="getContent" class="input" placeholder="请输入要搜索的地点" type="text"></input>
+    <view bindtap="goSearch" class="input_search" type="primary"> 搜索 </view>
+</view>
+<view class="result">
+    <view wx:if="{{result&&result.length>0}}">
+        <view class="middle"> 搜索结果如下 </view>
+        <view bindtap="tapback" class="result-list" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" data-name="{{item.name}}" wx:for="{{result}}" wx:key="*this">
+            <view class="item">
+                <view>{{item.name}}</view>
+                <view style="color: grey;font-size: small;">{{item.aliases}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="middle" wx:if="{{result&&result.length==0}}"> 抱歉，没有找到您想找的地点 </view>
+</view>

@@ -1,0 +1,1 @@
+.text-box{align-items:center;color:#353535;display:-webkit-flex;display:flex;font-size:15px;justify-content:center;line-height:2em;margin-bottom:35px;min-height:150px;padding:20px 0;text-align:center}

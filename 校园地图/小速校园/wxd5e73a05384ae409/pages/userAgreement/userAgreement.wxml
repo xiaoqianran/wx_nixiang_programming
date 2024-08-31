@@ -1,0 +1,799 @@
+<view class="main">
+    <view style="margin:0pt 0pt 7.5pt;text-align:center;text-indent:21pt">
+        <label style="color:#333333;font-family:黑体;font-size:14pt;font-weight:bold">小速校园用户服务协议</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">更新时间</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">：</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2023</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">年</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">月</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">10</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">日</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">生效时间</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">：</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2023</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">年</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">月</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">10</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">日</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">特别提示</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">欢迎</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您注册</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">并使用由</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办项目团队运营的</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">平台</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">！</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">我们将根据本《用户服务协议》（以下简称</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">本协议</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">）提供您在</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、小程序（以下简称</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">“i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">）</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">的服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">为使用我们的服务，请您务必审慎阅读、充分理解本协议各条款内容，特别是</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">免除或者限制责任</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办责任</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">的条款、对用户权利进行限制的条款</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、约定法律适用与管辖的条款</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">等。限制、免责条款或者其他涉及</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您重大</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">权益的条款可能以加粗形式提示</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您重点</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">注意。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">如果您因年龄、智力等因素而不具有完全民事行为能力，请在法定监护人的陪同</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、指导</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">下阅读和签署本协议</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">，并确保法定监护人同意本协议内容后使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办平台。您及您的法定监护人应依照法律法规规定，承担同意本协议及使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办平台而导致的相应后果。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">除非您已充分阅读、完全理解并接受本协议所有条款，否则你无权使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">校速办平台。</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">如果您不同意本协议的条款，请停止注册、登录</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办。</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">您点击</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">校速办页面上的</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">我已阅读并同意遵守《用户服务协议》和《隐私政策》</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">或您进行注册、使用、获取用户账号、登录及使用相关服务的行为或者以其他任何明示表示接受本协议的，均视为您已阅读并同意签署本协议，本协议即构成对您和我们有约束力的法律文件。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">一、定义与解释</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt;text-indent:21pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">如无特别说明，下列术语在本协议中的定义为：</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">1.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">用户</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">：</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">指注册、登录、使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办的个人或组织，在本协议中更多地称为</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">1.2 i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">：</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您通过</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您所在学校教务系统账号进行</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">身份认证核验，即可</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">使用服务的校园服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">平台，平台形式包括</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序（以下简称</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">“i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">或者“我们”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">）。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">1.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">账号</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">：</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">指您通过</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">所在学校提供的教务系统</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">注册的，用于登录</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">所在学校相关教务教学系统，可用于登录</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">的</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">账号。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">二、协议适用范围</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本协议是我们制定的关于您获取和使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办账号的相关规则。本规则适用于由</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序以及</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办提供的需要注册或使用账号的全部软件或服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本协议项下的登录服务包括以下情况：</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2.2.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">我们向您提供的通过账号登录使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办的服务；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2.2.2</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本协议中的</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">第三方</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">若无特别说明，均指为您提供相应网站、应用或其他服务的政府部门、公用企事业单位或其他公共服务组织，我们将在具体应用页面底部提示提供方。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您通过本平台提供的账号使用相关的软件和服务时，须同时遵守各项服务的单独协议。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">三、账号注册及管理</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">账号注册</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.1.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您可</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">直接使用所在学校的教务系统账号进行登录</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">，系统将为您自动匹配一个账号，账号密码</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">与您所在学校的教务系统账号密码一致</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">并由您负责保管。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.1.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您不得</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">冒用他人（包括个人、组织）身份信息</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">申请非</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本人的用户账号。如有违反，经核实后，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">我们或第三</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">方服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">平台有权删除其账号。对于冒用他人身份信息</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">申请非</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">本人的用户账号而引起的一切责任，由冒用者承担。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.1.</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">若您为企业用户，您同意并确认凭账号密码、第三方账号等方式登录</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办后，其在使用服务和第三方应用（包括第三方省市政府机构或法律法规授权管理公共事务的组织或司法部门网站、系统或导出的数据等）的服务时，均视为企业的行为。</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">企业用户合并、解散、注销、宣布破产或倒闭，或被吊销营业执照等主体资格终止的，应于上述情况发生的</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">5</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">个工作日内通过书面形式告知</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办，终止使用您以该企业用户注册的</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办账号，否则，我们有权随时注销您的账号而不承担任何违约责任。因您未尽该通知义务给</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办造成损失的，由您负责全部赔偿。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">账号管理</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.2.1 i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办账号的所有权归</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办项目团队所有，用户完成申请注册手续后，仅获得账号的使用权，且该使用权仅属于初始申请注册人。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.2.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您有责任妥善保管注册账号信息及账号密码的安全，您需要对</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您注册</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">账号以及密码下的行为承担法律责任。当在您知悉您的账号已经失密或者可能已经失密时，您应立即在</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">对应学校</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">平台上修改密码。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.2.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您确认只有您本人可以使用您的账号，用户账号和密码不得出借、转让、继承或者赠与。在您决定不再使用该账号时，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">您应在</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">对应学校系统</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">申请注销该账号</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">。您应对因您未能遵守本款约定而发生的任何损失、损毁及其他不利后果负责。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.2.</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">如果</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您当前</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">使用的账号并不是您初始申请注册的或者非通过正规途径获得的，您应立即停止使用该账号登录或进行任何操作，并请您在第一时间通知我们，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">若由于您未及时通知</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办且违规操作所产生一切的不利后果，将由</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">您承担</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">全部责任。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">3.2.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">如您违反相关法律法规、本协议或其他相关协议、规则，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">我们有权限制、中止、冻结或终止您对账号全部或部分服务内容的使用，且根据实际情况决定是否恢复您对账号的正常使用，而由此产生的损失由您自行承担。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">四、用户个人信息保护</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">1</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">一般情况下，您可随时浏览、修改自己提交的信息，但出于安全性和身份识别的考虑，您可能无法修改注册时提供的初始注册信息及其他验证信息。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">2</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">我们将运用各种安全技术和程序建立完善的管理制度来保护您的个人信息，以免遭受未经授权的访问、使用或披露。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">4</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">.</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">3</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">您在使用</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">本服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">时，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">须通过本平台提供的技术接口、登录页面及其他合法通道等进行平台或第三方账号和密码输入、个人信息授权等操作；否则，可能造成的账号、密码泄漏或其他损失等由您自行承担。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">我们承诺未经过您的同意不将您的个人信息任意披露。但在以下情形下，我们将无法</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">作出</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">前述保证并披露您的相关信息。这些情形包括但不限于</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">:</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">为了您的服务顺利完成，您同意我们把您的某些用户信息提供给相关服务方，以便于他们及时与</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您取得</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">联系，提供服务</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">当您在</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办的行为违反服务条款，或可能损害他人权益或导致他人遭受损害，只要我们相信披露您的用户信息是为了辨识、联络或采取法律行动所必要的行动时</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">根据法律法规规定必须披露或公开的用户信息</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">有权机关依法执行公务，要求提供特定用户信息</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您与我们及合作单位之间就用户信息的使用公开达成约定，我们因此向合作单位公开用户信息</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.4.6 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">任何由于黑客攻击电脑病毒侵入或其他不可抗力事件导致用户信息的泄露。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您同意我们在以下事项中使用用户信息</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">:</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5.1</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">向您及时发送重要的通知，如软件更新、本协议条款的变更</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">进行审计数据分析和研究等，以改进产品服务及与用户之间的沟通</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">依照本协议约定，我们管理、审查用户信息及采取处理的措施</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">为了保护您或他人的生命、财产等重大合法权益，但又难以获得您的事先同意时</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">出于维护国家安全、国防安全、公共安全、公共卫生、重大公共利益有关的目的</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">;</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.5.6 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">适用法律法规规定的其他事项。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">除上述事项外，未取得您事先同意，我们不会将用户信息用于其他任何用途。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">4.6 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">如您认为您的个人信息被超出使用目的范围收集、使用、或被其他用户侵权，请立即与我们联系，并按照要求提供相应的证明资料，我们将及时调查核实处理。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">4.7 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">我们非常重视对您个人信息的保护。我们将按照本协议及</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">校速办《隐私政策》的规定收集、使用、存储、分享和披露您的个人信息。</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">本协议对个人信息保护规定的内容与上述《隐私政策》有相冲突的，及本协议对个人信息保护相关内容未作明确规定的，均应以单独制定的《隐私政策》内容为准。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">4.</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">8</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">对于我们会如何收集、使用、存储和保护您的个人信息及您享有何种权利，您还可以阅读《隐私政策》予以进一步了解，请您知悉，《隐私政策》为本协议重要的组成部分。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">五、用户行为规范</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您不得</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">因非正常使用服务之目的恶意注册、获取账号。</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">若经过我们判断，认为您使用的账号是恶意注册、获取的账号，我们有权对相应账号采取限制、中止、冻结或终止使用等措施。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您在使用服务时，须通过我们提供的技术接口、登录页面及其他合法通道等进行</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办或第三方账号和密码输入、个人信息授权等操作；否则，由此所造成的账号、密码泄漏或其他损失等由您自行承担。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.3</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">第三方负责其提供的具体网站、应用或其他服务的合法性、安全性以及真实性，若因任何第三方原因，造成</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">您损失</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">的，</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold;text-decoration:underline">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">校速办不承担任何责任，您可向第三方进行追责。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您通过</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办或第三方账号登录、使用的网站、应用或服务等，应遵循您与第三方之间的协议、约定或第三</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">方相关</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">的规则等。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您理解并同意：我们在服务中仅提供了登录接口的技术服务，您通过</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办或第三方账号登录、使用的网站、应用或服务等，均是由第三方提供的。</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"> </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold;text-decoration:underline">第三方网站、应用或服务等的质量和安全等由第三方独立负责、承担，请您自行进行判断、甄别，并自行承担相关损失、责任。</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">若您因使用第三方网站、应用或服务等产生的任何纠纷，您应与第三方通过协商或其他合法途径解决，必要时，我们将提供配合和支持。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您在使用我们提供的服务过程中，必须遵循法律法规、规章、规范性文件及政策要求的规定，遵守所有与平台、网络服务有关的网络协议、规定和程序，并不得利用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序以及</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办从事以下行为：</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">发布、传送、传播违反国家法律、危害国家安全统一、社会稳定、公序良俗、社会公德以及侮辱、诽谤、淫秽、暴力的内容</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">发布、传送、传播侵害他人名誉权、肖像权、知识产权、商业秘密等合法权利的内容；</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"> </label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">虚构事实、隐瞒真相以误导、欺骗他人；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">发表、传送、传播广告信息及垃圾信息；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">利用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办传输、发布违反国家法律法规政策的任何内容（信息）、涉及国家秘密和</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">/</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">或安全的信息、</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">防碍</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">互联网运行安全的信息；侵害他人合法权益的信息和</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">/</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">或其他有损于社会秩序、社会治安、公共道德的信息或内容、任何骚扰性的、中伤他人的、辱骂性的、恐吓性的、庸俗淫秽的或其他任何非法的信息资料等，且不得为他人实施上述行为提供任何便利；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">5.6.6 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">以任何技术手段或其他方式干扰平台</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">及其</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">服务系统的正常运行或干扰其他用户对平台服务的使用；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">5.6.7 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">通过任何方式搜集</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办服务中其他用户的用户名、电子邮件等相关信息，并以发送垃圾邮件、连锁邮件、垃圾短信、即时消息等方式干扰、骚扰其他用户；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.6.8 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">从事其他违反法律法规、政策及公序良俗、社会公德等的行为或对互联网的正常运转造成不利影响的行为。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.7 i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办服务仅供您个人使用，除非经我们书面许可，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您不得</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">进行以下行为：</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.7.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">通过</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办发布包含广告、宣传、促销等内容的信息；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.7.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">将</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办提供的服务再次许可他人使用；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.7.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">其他超出</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办正常服务功能之外的行为。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">5.8 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您充分了解并同意，您必须为自己注册账号下的一切行为负责，包括您所发表的任何内容、您进行的各项操作、您进行的授权以及由此产生的任何后果。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">5.9 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">如果</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">校速办发现或收到他人</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">举报您发布</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">的信息违反前述约定或本协议其他约定的，我们有权进行独立判断并采取技术手段予以删除、屏蔽或断开相关的信息链接。同时，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">我们</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">有权视您的</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">行为性质，采取包括但不限于暂停或终止本服务、追究法律责任等措施。如果我们认为您违背了本协议、法律法规政策等规定，我们有权随时变更、中断或终止部分或全部服务，且无需事先告知，由此产生的一切不利的后果由您自行承担。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">六、用户许可</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">6.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">内容浏览</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">我们为用户提供包括查询课表、学业成绩、获取校园资讯等服务。服务项目和内容可能不时调整，并可能根据用户类别、使用权限等因素存在一定差异。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">6.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">内容转发与分享</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您可对</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办平台的信息内容进行分享、转发，但未经我们的书面许可，您不得复制、读取、采用、统计</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办平台的信息内容及相关数据，或者进行任何形式的销售和商业使用，或者向第三方泄露、提供或允许第三方为任何方式的使用。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">七、第三方提供的服务</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">7.1 i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办服务可能会使用第三方软件或技术，这种使用已经获得合法授权，您对本协议的签署及继续使用行为视为对接受第三方软件或技术服务的认可。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">7.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">如因</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办使用的第三方软件或技术引发的任何纠纷，应由该第三方负责解决，您使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办上由第三方提供的产品或服务时，除遵守本协议约定外，还应遵守第三方的服务或用户协议。</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办和第三方之间对出现的纠纷在法律规定和约定的范围内各自承担相应的责任。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">八</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、知识产权声明</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">8</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.1 i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办在服务中提供的任何软件、网站、商业标识、版面设计、排版方式、文字、图片、图形、音频、视频、有关数据等内容、功能和服务的著作权、商标权、专利权、商业秘密等知识产权均受中华人民共和国法律法规和相应的国际条约保护，</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办项目团队享有上述知识产权，但相关权利人依照法律规定应享有的权利除外。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">8</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您在使用我们提供的服务过程中，可能会使用到由第三方省市政府机构或法律法规授权管理公共事务的组织或司法部门开发的在</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序以及</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办运行的功能、软件或服务，您除遵守本协议相关规定以外，还应遵守第三</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">方相关</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">规定，并尊重第三方权利人对其功能、软件、服务及其所包含内容的相关权利。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">8</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">未经我们或相关权利人书面同意，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您不得</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">为任何商业或非商业目的自行或许可任何第三方实施、利用、转让上述知识产权。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">九</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、风险及免责</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您理解并同意：为了向您提供有效的服务，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">会利用您终端设备的处理器和带宽等资源。在使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办过程中可能产生数据流量的费用，您需自行向运营商了解相关资费信息，并自行承担相关费用。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">由于互联网本身所具有的不稳定性，</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办无法保证服务不会中断。您在使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办提供的服务时，须自行承担如下</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办不可掌控的风险内容，包括但不限于：</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">系统停机维护期间；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">电信设备出现故障不能进行数据传输的；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">由于网络供应商技术调整或故障、网站升级方面的问题等原因而造成的服务中断或延迟；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您的电脑软件、系统、硬件和通信线路出现故障；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您操作不当或通过非</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办授权的方式使用本服务；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.6 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">因受到计算机病毒、木马或其他恶意程序、黑客攻击的破坏、台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力之因素，造成系统障碍不能执行业务的。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.2.7 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">其他无法控制或合理预见的情形。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.3</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">因您的过错导致的任何损失由您自行承担，该过错包括但不限于：不按照提示操作，未及时进行操作，遗忘或泄漏密码、校验码等，密码被他人破解，您使用的计算机或其他硬件、终端等被他人侵入或丢失，或您使用的软件被他人侵入，或者您的个人生物识别信息被他人利用等。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您理解并同意，因业务发展需要，我们有权在提前告知的前提下，对</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序以及</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办的全部或部分服务内容进行变更、暂停、限制、终止或撤销。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.5 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">我们会根据您选择的服务类型向您提供相应的服务。您理解并同意，</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办有权选择提供服务或开展合作的对象，有权决定功能开放、数据接口等，并有权视具体情况中止或终止</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">向存在</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">包括但不限于以下情形的用户提供本服务：</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.5.1</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">违反法律法规或本协议规定的；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.5.2</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">侵害其他用户合法权益的；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.5.3</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">存在安全隐患的；</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">9.5.4</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">违背</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">运营原则，或不符合</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办其他管理要求的。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">十</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">违约</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">责任</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">10</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您理解并同意，我们有权</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">依合理</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">判断对违反有关法律法规或本协议规定的行为追究责任，对违法违规的任何人士采取适当的法律行动，并依据法律法规保存有关信息向有关部门报告等，您应独自承担由此而产生的一切法律责任。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">10</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:normal">.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:normal">您理解并同意，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">因您使用或不当使用</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">APP</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">、违反本协议条款或侵犯第三方的任何权利所引起的任何及所有索赔、诉讼、损害、费用、法律诉讼、罚款、罚金、责任和开支（包括律师费用）</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">，</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">您同意为</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办及其负责人进行抗辩、向其</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">作出</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">赔偿并使其免受损失。对于我们用户赔偿的任何事项，我们保留独家抗辩权和控制权，在此情况下，用户应配合我们向相关第三方主张任何可行的抗辩；</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt;font-weight:bold">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">校速办因此遭受损失的，您也应当一并赔偿。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">10</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">您理解并同意，您可向</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办进行的任何索赔均限于已经发生的直接损失。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">十一、法律适用及管辖</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">11.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本协议的订立、变更、执行和解释，以及与本协议有关的争议解决，均应适用中华人民共和国</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">大陆地区</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">法律。如与本协议有关的某一特定事项没有法律规定或规定不明确，则应参照通用的国际商业惯例和行业惯例。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">11.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">如因本协议或</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">所引起或与其有关的任何争议</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">，由双方友好协商解决。协商不成的，双方均有权向被告所在地人民法院提起诉讼。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">十二、通知与送达</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">12.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">所有发给您的通知都可通过您在平台提交身份证地址、电话号码、邮箱通讯方式，以电子邮件、常规的信件或在网站显著位置公告等方式进行传送。我们将通过上述方法之一将消息传递给您，告知您服务条款的修改、服务变更、或其它重要事情。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">12.2</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt"></label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">您应当保证和维持资料的有效性，您的资料若存在虚假、无效等任何可能导致您无法及时获取业务通知、客户服务、投诉处理、纠纷协调、技术支持等情况的，由您自行承担相应责任。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">12.3 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">我们将不定期以网页公告、电子邮件、手机短信、即时通讯工具等方式中的一种或多种向您发送与</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本服务</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">有关的业务通知、服务提示、验证消息等各种业务通知。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">12.4 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">各方均应保证其联系方式真实、有效，通知自发送之日视为已送达收件人。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt;font-weight:bold">十三、其他</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">13.1 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本协议自您点击</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">同意</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">或</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">接受</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">或</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">“</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">注册</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">”</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">按钮并成功注册为用户之日起生效，除非我们终止本协议或者您丧失</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">App</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">、小程序或者</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办用户资格，或您选择注销</label>
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">i</label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">校速办账号，否则本协议始终有效。本协议终止并不免除您根据本协议或其他有关协议、规则所应承担的义务和责任。</label>
+    </view>
+    <view style="margin:0pt 0pt 7.5pt">
+        <label style="color:#333333;font-family:Helvetica;font-size:10.5pt">13.2 </label>
+        <label style="color:#333333;font-family:宋体;font-size:10.5pt">本协议条款无论因何种原因部分无效或不可执行，其余条款仍然有效，对双方都有约束力。</label>
+    </view>
+</view>
+<view style="height:15px"></view>

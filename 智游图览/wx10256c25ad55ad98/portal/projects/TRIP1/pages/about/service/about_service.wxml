@@ -1,0 +1,48 @@
+<view class="main-service">
+    <view class="pic">
+        <image mode="aspectFill" src="{{svsbgimg==null?'':mediaSrvUrl+svsbgimg}}"></image>
+    </view>
+    <view class="service-title">游玩保障服务</view>
+    <view class="service-list">
+        <view bindtap="url" class="item" data-type="phone" data-url="12301">
+            <view class="item-inner bg1">
+                <view class="left">
+                    <view class="line1">旅游咨询</view>
+                    <view class="line2">12301</view>
+                </view>
+                <view class="right">
+                    <text class="icon-phone"></text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="url" class="item" data-type="phone" data-url="12315">
+            <view class="item-inner bg5">
+                <view class="left">
+                    <view class="line1">投诉求助</view>
+                    <view class="line2">投诉有门 实时高效</view>
+                </view>
+                <view class="right">
+                    <text class="icon-edit"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="service-title">旅游公共服务</view>
+    <view class="service-list">
+        <view bindtap="url" class="item" data-url="../../about/index/about_index?id={{item.id}}&key=PUBLIC_SERVICE&title=公共服务" wx:for="{{svs}}" wx:key="id">
+            <view class="item-inner" style="background-image: linear-gradient(45deg, {{item.bgcolor1}}, {{item.bgcolor2}});">
+                <view class="left">
+                    <view class="line1">{{item.title}}</view>
+                    <view class="line2">{{item.subtitle}}</view>
+                </view>
+                <view class="right">
+                    <image src="{{mediaSrvUrl+item.icon}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{skin.IS_SUB}}">
+    <import src="../../tpls/menu_tpl.wxml"></import>
+    <template is="menuTpl" data="{{curMenu:'service',returnHome:false}}"></template>
+</block>

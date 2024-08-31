@@ -1,0 +1,44 @@
+{
+  "permission": {
+    "scope.userFuzzyLocation": {
+      "desc": "展示当前打卡时用户所在地"
+    }
+  },
+  "plugins": {
+    "wxPano": {
+      "version": "2.1.4",
+      "provider": "wx386c038238531f87",
+      "subpackage": "__APP__"
+    }
+  },
+  "style": "v2",
+  "requiredPrivateInfos": [
+    "getFuzzyLocation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#6BA960"
+  },
+  "pages": [
+    "pages/newmap/newmap",
+    "pages/index/index",
+    "pages/test/test",
+    "pages/logs/logs",
+    "pages/webtweet/webtweet",
+    "pages/dormitoryRecord/dormitoryRecord",
+    "pages/VRPicture/VRPicture",
+    "pages/login/loginPage/login",
+    "pages/login/updataUserInfo/updataUserInfo",
+    "pages/clock/check/check",
+    "pages/clock/newmap/newmap",
+    "pages/story/story",
+    "pages/clock/checkHistory/checkHistory",
+    "pages/clock/checkReward/checkReward",
+    "pages/clock/clockRule/clockRule",
+    "pages/clock/clockRank/clockRank",
+    "pages/clock/clockRank/userRank/userRank"
+  ]
+}

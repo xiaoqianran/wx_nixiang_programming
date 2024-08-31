@@ -1,0 +1,1 @@
+.share-element{height:100%;position:relative;width:100%}.img-cut-cnt{background-color:initial;left:0;overflow:hidden;top:0}.img,.img-cut-cnt{height:100%;position:absolute;width:100%}.img{left:50%;top:50%;transform:translate(-50%,-50%);transform-origin:center;z-index:5}

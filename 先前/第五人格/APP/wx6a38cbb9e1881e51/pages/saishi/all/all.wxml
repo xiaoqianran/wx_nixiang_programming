@@ -1,0 +1,101 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view bindtap="hidePop" class="pop-zz" hidden="{{!popSelectShow}}"></view>
+    <view class="page select {{popSelectShow?'on':''}}">
+        <view class="sele_btn">
+            <view bindtap="chSelect" class="select_ch {{select.id==selectIndex?'on':''}}" data-index="{{select.id}}" wx:for="{{selectList}}" wx:for-item="select" wx:key="key">
+                <text>{{select.name}}</text>
+            </view>
+        </view>
+        <view class="sele_des {{selectIndex==2?'on':''}}">
+            <view class="select_detail zdlist {{selectIndex==0?'on':''}}">
+                <view bindtap="chComTap" class="li {{i==comChIndex?'on':''}}" data-index="{{i}}" data-name="{{item.wyId}}" data-url="{{item.eventNameEn}}" wx:for="{{allComData}}" wx:for-index="i" wx:key="key">
+                    <text>{{item.eventName}}</text>
+                </view>
+            </view>
+            <view class="select_detail iclist {{selectIndex==1?'on':''}}">
+                <view bindtap="chZdTap" class="role {{i==zdChIndex?'on':''}}" data-index="{{i}}" data-name="{{item.teamName}}" wx:for="{{allZdData}}" wx:for-index="i" wx:key="key">
+                    <image class="ic_bg" src="{{imgUrl}}/saishi/all/ic_bl.png"></image>
+                    <image class="ic" src="{{item.teamAvatarUrl}}"></image>
+                </view>
+            </view>
+            <view class="select_detail datalist {{selectIndex==2?'on':''}}">
+                <view class="gradient">
+                    <view class="box">
+                        <view class="spaceAroundCenter">
+                            <view class="flex-item">
+                                <view bindtap="doDay" class="item-content" data-key="left">
+                                    <text class="glyphicon glyphicon-triangle-left" decode="true">&lt;上个月</text>
+                                </view>
+                            </view>
+                            <view class="flex-item item-content-current-day">
+                                <view class="item-content">{{currentDate}}</view>
+                            </view>
+                            <view class="flex-item">
+                                <view bindtap="doDay" class="item-content" data-key="right">
+                                    <text class="glyphicon glyphicon-triangle-right" decode="true">下个月&gt;</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="spaceAroundCenter mon">
+                            <view>MON</view>
+                            <view>TUE</view>
+                            <view>WED</view>
+                            <view>THU</view>
+                            <view>FRI</view>
+                            <view>SAT</view>
+                            <view>SUN</view>
+                        </view>
+                        <view class="spaceAroundCenter day">
+                            <view class="flex-item" wx:for="{{currentDayList}}" wx:for-index="key" wx:for-item="vo" wx:key="key">
+                                <view bindtap="onClickItem" class="item-content bk-color-day {{nowDay==currentDay?'on':''}}" id="{{key}}" wx:if="{{vo==currentDay&&nowYear==currentYear&&nowMonth==currentMonth}}">{{vo}}</view>
+                                <view bindtap="onClickItem" class="item-content bk-color-dayClick" id="{{key}}" wx:elif="{{key==currentClickKey&&currentClickKey!=''&&vo!=''}}">{{vo}}</view>
+                                <view bindtap="onClickItem" class="item-content" id="{{key}}" wx:else>{{vo}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <image bindtap="selectByTimeOrZd" class="submit" src="{{imgUrl}}/revision/okBtn.png"></image>
+        </view>
+    </view>
+    <view class="page main" wx:if="{{!firstLoad}}">
+        <view class="tips" wx:if="{{allVsData==''&&already}}">暂无数据</view>
+        <view wx:else>
+            <view class="day" wx:for="{{allVsData}}" wx:for-index="i" wx:key="key">
+                <view class="innerBox">
+                    <view class="inner">
+                        <view class="h4" wx:if="{{item.zbDate!=allVsData[i-1].zbDate}}">{{item.zbDate}}</view>
+                        <view class="h6" wx:if="{{item.zbDate!=allVsData[i-1].zbDate}}">{{item.competitionName+' '+item.competitionStageName}}</view>
+                        <view class="_inner">
+                            <view class="zd">
+                                <view class="des">
+                                    <image class="ic" src="{{item.teamALogoUrl}}"></image>
+                                    <view class="p">{{item.teamANameEng}}</view>
+                                    <view class="sf {{item.loseTeamID==item.teamAID?'lose':'win'}}"></view>
+                                </view>
+                                <view class="des">
+                                    <image class="ic" src="{{item.teamBLogoUrl}}"></image>
+                                    <view class="p">{{item.teamBNameEng}}</view>
+                                    <view class="sf {{item.loseTeamID==item.teamBID?'lose':'win'}}"></view>
+                                </view>
+                            </view>
+                            <view class="det">
+                                <view class="status now">{{item.state}}</view>
+                                <image class="clock" src="{{imgUrl}}/revision/clock.png"></image>
+                                <text class="time">{{item.zbDate+'\n'+item.zbTime+':00'}}</text>
+                            </view>
+                            <view bindtap="goVideoList" class="video" data-name="{{thisComId}}">
+                                <image class="video_img" src="{{imgUrl}}/p1/test.jpg"></image>
+                                <view class="zz">
+                                    <image class="video_play" src="{{imgUrl}}/p1/video-play.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <bottom-dh active="1"></bottom-dh>
+</view>

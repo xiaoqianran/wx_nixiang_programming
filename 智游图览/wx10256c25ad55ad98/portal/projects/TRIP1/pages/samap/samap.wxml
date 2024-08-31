@@ -1,0 +1,3 @@
+<view class="container">
+    <v-zhgeo bind:changeScenic="changeScenic" bind:redirectScenic="redirectScenic" bind:updateBarTitle="updateBarTitle" id="mapCmpt-{{item}}" rootScenicId="{{rootScenicId}}" wx:for="{{mapCmpt}}" wx:key="*this"></v-zhgeo>
+</view>

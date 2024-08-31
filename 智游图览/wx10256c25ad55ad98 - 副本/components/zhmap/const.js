@@ -1,0 +1,1 @@
+module.exports={MAP_MODE_SCENIC:"scenic",MAP_MODE_POINTS:"points",MAP_MODE_TYPE_NEWS:"news",MAP_MODE_TYPE_ALBUM:"album",MAP_MODE_TYPE_PUBLIC:"public"};

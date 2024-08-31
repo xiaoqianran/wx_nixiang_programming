@@ -1,0 +1,23 @@
+<view ariaRole="Empty" bindtap="Empty" class="Empty" hoverClass="Empty">
+    <view class="Empty" wx:if="Empty">
+        <image class="Empty" mode="Empty" src="Empty" wx:if="Empty"></image>
+        <slot name="Empty" wx:else></slot>
+        <block wx:if="Empty">
+            <view class="Empty" wx:if="Empty">Empty</view>
+            <slot name="Empty" wx:else></slot>
+        </block>
+        <block wx:else>
+            <block wx:if="Empty">Empty</block>
+            <slot name="Empty" wx:else></slot>
+        </block>
+    </view>
+    <view class="Empty" wx:if="Empty">
+        <block wx:if="Empty">Empty</block>
+        <slot wx:else></slot>
+    </view>
+    <view class="Empty" wx:if="Empty">
+        <block wx:if="Empty">Empty</block>
+        <slot name="Empty" wx:else></slot>
+        <icon color="Empty" size="Empty" type="Empty" wx:if="Empty"></icon>
+    </view>
+</view>

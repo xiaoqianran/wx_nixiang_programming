@@ -1,0 +1,216 @@
+<view class="home-page page-reset-container-tabBar">
+    <navBar background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" iconTheme="black" title="">
+        <view class="topbar-logo" slot="left"></view>
+        <view bindtap="search" class="topbar-search" slot="center"></view>
+    </navBar>
+    <view class="main">
+        <view class="record">
+            <view class="record-top">
+                <view class="record-top-inner">
+                    <view class="user-info">
+                        <view catchtap="handleDing" class="head-portrait">
+                            <block wx:if="{{userInfo&&userInfo.idvId}}">
+                                <image class="user-avatar" src="{{imgUrl+'/greed/'+userPlayerStatis.use_portrait_path}}" wx:if="{{userPlayerStatis&&userPlayerStatis.use_portrait_path}}"></image>
+                                <image class="user-avatar-frame" src="{{imgUrl+'/greed/'+userPlayerStatis.user_frame_path}}" wx:if="{{userPlayerStatis&&userPlayerStatis.user_frame_path}}"></image>
+                            </block>
+                            <view class="un_login" wx:else></view>
+                        </view>
+                        <view class="head-bind">
+                            <view class="name-honoraryTitle-toggleName" wx:if="{{userInfo&&userInfo.idvId}}">
+                                <view class="name">{{userPlayerStatis.role_name}}</view>
+                                <view class="honoraryTitle" wx:if="{{userRecord&&userRecord.dev_max_badeg&&userRecord.dev_max_badeg.badge!==-1&&userRecord.dev_max_badeg.badge!==undefined&&userRecord.dev_max_badeg.badge!==null}}">
+                                    <image class="image" src="{{imgUrl}}/vsrecord/ic/rank_{{userRecord.dev_max_badeg.card}}.png"></image>
+                                    <view class="txt">{{userRecord.dev_max_badeg.badge}}th{{userRecord.dev_max_badeg.hero_name}}</view>
+                                </view>
+                                <view class="small">{{userInfo.idvId}}</view>
+                                <view catchtap="handleToggleRoles" class="toggle-identity"></view>
+                            </view>
+                            <view class="un-bind" wx:else>未绑定</view>
+                        </view>
+                    </view>
+                    <view class="page p2 swpbox">
+                        <view class="nav_list">
+                            <view class="col">
+                                <picker bindchange="bindPickerChange" data-id="1" range="{{array}}" value="{{index}}">
+                                    <view class="chres">{{arrayVal1}}</view>
+                                </picker>
+                            </view>
+                            <view class="col">
+                                <picker bindchange="bindPickerChange2" data-id="1" range="{{array2}}" value="{{index}}">
+                                    <view class="chres">{{arrayVal2}}</view>
+                                </picker>
+                            </view>
+                        </view>
+                        <view class="out">
+                            <view catchtap="handleBindUserDialog" class="un_login_btn" wx:if="{{!(userPlayerStatis&&userPlayerStatis.role_id)}}"> 绑定角色后可查看 </view>
+                            <view class="pwsj" wx:else>
+                                <view class="li">
+                                    <view class="dwbox">
+                                        <image class="dw" src="{{chartData.imgUrl}}" wx:if="{{chartData.pvp_part_duan}}"></image>
+                                    </view>
+                                    <view class="tt">{{chartData.label}}</view>
+                                    <view class="jw">{{chartData.pvp_part_duanWei}}{{chartData.pvp_part_jie}}</view>
+                                    <view class="xing" wx:if="{{chartData.pvp_part_duan<7}}">
+                                        <view class="i qsz" wx:for="{{chartData.pvp_part_xing}}" wx:key="key"></view>
+                                    </view>
+                                    <view class="xing" wx:else>
+                                        <view class="bigxin"></view>
+                                        <text class="dess">x{{chartData.pvp_part_xing}}</text>
+                                    </view>
+                                </view>
+                                <view class="leidabox">
+                                    <view class="leida">
+                                        <view class="inner">
+                                            <ec-canvas canvasId="lchart" ec="{{ec}}" id="lchart"></ec-canvas>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="desc" wx:if="{{userPlayerStatis&&userPlayerStatis.role_id}}">
+                            <view bindtap="getMore" class="change" data-type="1">查看更多数据 > </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="record-new-top" wx:if="{{userPlayerrecord.length&&canShowOneVs}}">
+                <view class="record-new-inner">
+                    <view class="lleft">
+                        <view class="title-image">
+                            <image class="image" src="{{imgUrl}}/vsrecord/headimg2/{{userPlayerrecord[userPlayerrecord.length-1].heroId}}.jpg"></image>
+                        </view>
+                        <view class="info">
+                            <view class="record-info pd">
+                                <view class="status">{{userPlayerrecord[userPlayerrecord.length-1].selfResultValue}}</view>
+                            </view>
+                            <view class="time">
+                                <text class="m-d">{{homeWXS.toggleTime(userPlayerrecord[userPlayerrecord.length-1].twhen)}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="rright">
+                        <view class="total-score record-new-item">
+                            <view class="top-score">总分</view>
+                            <view class="bottom-score">{{userPlayerrecord[userPlayerrecord.length-1].score}}</view>
+                        </view>
+                        <view class="record-new-item rank-matching">
+                            <view class="rank">{{userPlayerrecord[userPlayerrecord.length-1].teamResultValue}}</view>
+                            <view class="matching">{{userPlayerrecord[userPlayerrecord.length-1].battleModeValue}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="vajra-poster">
+            <view class="vajra">
+                <view catchtap="hanleJump" class="vajra-part vajra-part1 {{icNew?'new':''}}" data-path="/pages_user/pages/signin/index"></view>
+                <view catchtap="hanleJump" class="vajra-part vajra-part2" data-path="/pages_user/pages/user/collect"></view>
+                <view catchtap="hanleJump" class="vajra-part vajra-part5" data-path="/pages_user/pages/saishi/dh/index"></view>
+                <view catchtap="hanleJump" class="vajra-part vajra-part3" data-path="/pages_user/pages/draw/list"></view>
+                <view catchtap="hanleJump" class="vajra-part vajra-part4" data-path="/pages/out/out?url=https://id5.163.com/card/"></view>
+            </view>
+            <swiper autoplay="true" bindchange="swiperChange" circular="true" class="swp-banner" duration="500" indicatorDots="true" interval="4000">
+                <swiper-item bindtap="goDetails" data-appid="{{item.jumpAppid}}" data-from="banner" data-newsid="{{item.id}}" data-title="{{item.title}}" data-type="{{item.jumpType}}" data-url="{{item.jumpPath}}" wx:for="{{bannerList}}" wx:key="idx">
+                    <image class="in" src="{{item.picUrl}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="active-information-list">
+            <view class="information-head">
+                <view bindtap="clearData" class="information-head-title">推荐资讯</view>
+                <view catchtap="hanleJump" class="information-more" data-path="/pages/index/index"> 全部 </view>
+            </view>
+            <news-list bindCustomListChange="handleCustomListChange" newsList="{{newsList}}" wxToken="{{wxToken}}"></news-list>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{adviserFlag}}">
+        <view catchtouchmove="" class="imgbox {{rqpm>0.6?'son':''}}" wx:for="{{adviserUrlList}}" wx:key="index">
+            <view class="adviser">
+                <view bindtap="goTransfer" class="answerbtn" data-appid="{{item.jumpAppid}}" data-id="{{item.id}}" data-index="{{index}}" data-path="{{item.jumpPath}}" data-type="{{item.jumpType}}">
+                    <image class="in" src="{{item.picUrl}}" style="z-index:{{10-index}}; display:{{!item.show?'block':'none'}};"></image>
+                </view>
+            </view>
+            <view bindtap="closeTcboxAD" class="cclose" data-index="{{index}}" style="z-index:{{10-index}}; display:{{!item.show?'block':'none'}};"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{checkRoleFlag}}">
+        <view class="checkRole">
+            <view class="title">切换角色</view>
+            <view class="context">
+                <view class="cc">
+                    <view class="user-info">
+                        <view catchtap="handleDing" class="head-portrait">
+                            <block wx:if="{{userInfo&&userInfo.idvId}}">
+                                <image class="user-avatar" src="{{imgUrl+'/greed/'+userPlayerStatis.use_portrait_path}}" wx:if="{{userPlayerStatis&&userPlayerStatis.use_portrait_path}}"></image>
+                                <image class="user-avatar-frame" src="{{imgUrl+'/greed/'+userPlayerStatis.user_frame_path}}" wx:if="{{userPlayerStatis&&userPlayerStatis.user_frame_path}}"></image>
+                            </block>
+                            <view class="un_login" wx:else></view>
+                        </view>
+                        <view class="head-bind">
+                            <block wx:if="{{userInfo&&userInfo.idvId}}">
+                                <view class="name-honoraryTitle-toggleName">
+                                    <view class="name">{{userPlayerStatis.role_name}}</view>
+                                    <view class="small">{{userInfo.idvId}}</view>
+                                    <view class="honoraryTitle" wx:if="{{userRecord&&userRecord.dev_max_badeg&&userRecord.dev_max_badeg.badge!==-1&&userRecord.dev_max_badeg.badge!==undefined&&userRecord.dev_max_badeg.badge!==null}}">
+                                        <image class="image" src="{{imgUrl}}/vsrecord/ic/rank_{{userRecord.dev_max_badeg.card}}.png"></image>
+                                        <view class="txt">{{userRecord.dev_max_badeg.badge}}th{{userRecord.dev_max_badeg.hero_name}}</view>
+                                    </view>
+                                </view>
+                                <view bindtap="handUnBindProcess" class="cbtn">解绑</view>
+                            </block>
+                            <view class="un-bind" wx:else>未绑定</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="cc check">
+                    <view class="user-info">
+                        <view class="head-bind">
+                            <view class="name-honoraryTitle-toggleName" wx:if="{{userInfo&&userInfo.idvId}}">
+                                <view class="name">{{userPlayerStatis.role_name}}</view>
+                                <view class="small">{{userInfo.idvId}}</view>
+                                <view class="honoraryTitle" wx:if="{{userRecord&&userRecord.dev_max_badeg&&userRecord.dev_max_badeg.badge!==-1&&userRecord.dev_max_badeg.badge!==undefined&&userRecord.dev_max_badeg.badge!==null}}">
+                                    <image class="image" src="{{imgUrl}}/vsrecord/ic/rank_{{userRecord.dev_max_badeg.card}}.png"></image>
+                                    <view class="txt">{{userRecord.dev_max_badeg.badge}}th{{userRecord.dev_max_badeg.hero_name}}</view>
+                                </view>
+                            </view>
+                            <view class="un-bind" wx:else>未绑定</view>
+                        </view>
+                    </view>
+                    <view class="cchoose"></view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="closeTcbox" class="out"></view>
+    </view>
+    <view class="tcbox" wx:if="{{bindVisibleDialog}}">
+        <view class="dialog-unbind">
+            <view class="unbind-add">
+                <view class="add-title">问卷解绑流程</view>
+                <view class="add-tips">填写并提交解绑申请问卷，等待工作人员审核确认即可完成解绑</view>
+                <view bindtap="goAsk" class="add-go">＞＞ 点我前往问卷 ＜＜</view>
+            </view>
+            <view class="title">游戏解绑流程</view>
+            <view class="inner">
+                <view class="step-text">
+                    <text class="t1">步骤1：</text>
+                    <text class="t2">游戏内点击设置→安全→绑定码</text>
+                </view>
+                <view class="image-tip image-tip1"></view>
+                <view class="step-text">
+                    <text class="t1">步骤2：</text>
+                    <text class="t2">如需解除绑定，则点击绑定码，选择
+角色进行解绑即可</text>
+                </view>
+                <view class="image-tip image-tip2"></view>
+            </view>
+            <view bindtap="handleBindUserClose" class="define"></view>
+        </view>
+    </view>
+    <view class="friendbox {{showAddfri?'on':''}}">
+        <view bindtap="addFrishow" class="popzz"></view>
+        <image bindlongpress="finishAddfri" bindtap="addFrishow" class="small" mode="aspectFit" showMenuByLongpress="true" src="{{imgUrl}}/home/qwhb_bg3.jpg"></image>
+    </view>
+    <bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/home/home/home" visible="{{!bindUserVisible}}"></bind-user>
+    <bottom-dh active="0"></bottom-dh>
+</view>
+<wxs module="homeWXS" src="home.wxs"/>

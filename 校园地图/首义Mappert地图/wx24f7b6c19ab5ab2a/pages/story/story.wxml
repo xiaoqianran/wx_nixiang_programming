@@ -1,0 +1,92 @@
+<TDS-topbar Threshold="0" bgColor="255,255,255" data-theme="SMP" immersion="true" speed="2" title="精选故事">
+    <swiper autoplay="true" circular="true" class="banner" indicatorDots="true" style="top: {{-navBarHeight}}px;">
+        <swiper-item wx:for="{{bannerList}}" wx:key="index">
+            <image class="banner-photo fill" mode="aspectFill" src="{{item.img}}"></image>
+            <view class="banner-mask">
+                <view class="banner-mask--top"></view>
+                <view class="banner-mask--bottom"></view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="flex-center">
+        <image class="pendant" src="{{insetListUrl.mapPendantUrl}}"></image>
+    </view>
+    <view class="flex-center">
+        <view class="story-content">
+            <view class="story-place">
+                <view class="H2">{{place}}</view>
+                <view class="flex story-records">
+                    <view class="story-records__tag flex-center" wx:for="{{storyListPath}}" wx:key="index">
+                        <image class="story-records__icon" src="{{item.icon}}"></image>
+                        <text class="Paragraphs1 story-records__text">{{item.text}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="intro">
+                <view class="flex-spacebetween">
+                    <view class="H2 intro--H2"> 简介 <view class="backgound-bar intro-label"></view>
+                    </view>
+                    <image class="double-quotation" mode="aspectFit" src="{{iconListUrl.doubleQuotationIconUrl}}"></image>
+                </view>
+                <view class="intro-details">
+                    <text class="intro-typeface intro-details__content">{{storyIntro}}</text>
+                    <text bindtap="unfoldView" class="intro-typeface intro-unfold" hidden="{{showIntro}}">read more</text>
+                </view>
+            </view>
+            <view bind:tap="jumpTweet" class="reminder" hidden="{{showBlank}}">
+                <view class="reminder-title flex-spacebetween">
+                    <view class="flex">
+                        <image class="mini" mode="aspectFit" src="{{iconListUrl.featuredStoryIconUrl}}"></image>
+                        <view class="Paragraphs2 reminder-title--highlight">精选故事</view>
+                    </view>
+                    <view class="Paragraphs2 comment-num">已有{{featuredReviews}}人评论</view>
+                </view>
+                <view class="reminder-tip flex-spacebetween">
+                    <view class="flex">
+                        <view class="reminder-sign">
+                            <view class="reminder-line" style="{{isSystem=='Android'?'padding-top: 1rpx;':''}}"></view>
+                        </view>
+                        <view class="reminder-hint Paragraphs2">欢迎去推文留言区评论，点赞数靠前的评论将有机会入选为下方的精选故事哟~</view>
+                    </view>
+                    <view class="go-see flex-spacebetween">
+                        <view class="Paragraphs2 go-see__label">去看看</view>
+                        <image class="mini plane-icon" mode="aspectFit" src="{{iconListUrl.planeIconUrl}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="featured-story">
+                <view class="flex-spacebetween">
+                    <view class="H2 featured-story--H2"> 精选故事 <view class="backgound-bar featured-story__label"></view>
+                    </view>
+                    <image class="double-quotation" mode="aspectFit" src="{{iconListUrl.doubleQuotationIconUrl}}"></image>
+                </view>
+                <view class="flex-center" wx:if="{{showBlank}}">
+                    <view class="inset flex column">
+                        <view class="flex-center">
+                            <image class="inset-size" mode="aspectFit" src="{{commentResErr?insetListUrl.nanNanLetGoUrl:insetListUrl.naNnanRubHands}}"></image>
+                        </view>
+                        <view class="flex-center">
+                            <view class="Paragraphs1">{{commentResErr?'南南暂无该地点故事，试试探索其他地点吧~':'精选故事正在加载中...'}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="comment" wx:else>
+                    <view wx:for="{{commentList}}" wx:key="index">
+                        <view class="comment-info flex-spacebetween">
+                            <view class="flex">
+                                <image class="user-icon" mode="aspectFit" src="{{item.userIcon}}"></image>
+                                <view class="user-name">{{item.nickName}}</view>
+                            </view>
+                            <view class="Paragraphs2 comment-time">{{item.pushTime}}</view>
+                        </view>
+                        <view class="comment-section">
+                            <view class="comment-content">
+                                <text class="comment-text">{{item.commentContent}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</TDS-topbar>

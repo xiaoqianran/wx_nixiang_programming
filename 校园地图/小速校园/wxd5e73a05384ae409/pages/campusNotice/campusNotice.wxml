@@ -1,0 +1,27 @@
+<view class="pagebox">
+    <view class="campusNotice-title">{{a}}</view>
+    <view class="timebox">
+        <view>
+            <view class="campusNotice-publish">
+                <uni-icons bind:__l="__l" uI="191b6523-0" uP="{{b}}" wx:if="{{b}}"></uni-icons> {{c}}</view>
+            <view class="campusNotice-publish">
+                <uni-icons bind:__l="__l" uI="191b6523-1" uP="{{d}}" wx:if="{{d}}"></uni-icons> {{e}}</view>
+        </view>
+        <view>
+            <text class="notice-sign" style="{{'background-color:'+g+';'+'color:'+h}}">{{f}}</text>
+        </view>
+    </view>
+    <view class="hr"></view>
+    <view class="main-area">
+        <rich-text nodes="{{i}}"></rich-text>
+    </view>
+    <view class="campusNotice-files" hidden="{{!l}}">
+        <view class="campusNotice-files-title">
+            <uni-icons bind:__l="__l" uI="191b6523-2" uP="{{j}}" wx:if="{{j}}"></uni-icons> 附件下载： </view>
+        <view class="campusNotice-files-detail" wx:for="{{k}}" wx:key="f">
+            <text bindtap="{{item.e}}">
+                <text class="campusNotice-files-detail-left" hidden="{{!item.b}}">[{{item.a}}]</text>
+                <text class="campusNotice-files-detail-left" hidden="{{!item.c}}">🔷</text> {{item.d}}</text>
+        </view>
+    </view>
+</view>

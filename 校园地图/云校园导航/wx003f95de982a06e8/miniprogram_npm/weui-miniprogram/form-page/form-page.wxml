@@ -1,0 +1,26 @@
+<view class="Empty">
+    <view class="Empty" wx:if="Empty">
+        <view class="Empty">Empty</view>
+        <view class="Empty">Empty</view>
+    </view>
+    <view class="Empty" wx:else>
+        <slot name="Empty"></slot>
+    </view>
+    <view class="Empty">
+        <slot></slot>
+    </view>
+    <view class="Empty">
+        <slot name="Empty"></slot>
+    </view>
+    <view class="Empty">
+        <slot name="Empty"></slot>
+    </view>
+    <view class="Empty">
+        <slot name="Empty"></slot>
+    </view>
+    <view class="Empty">
+        <view class="Empty">
+            <slot name="Empty"></slot>
+        </view>
+    </view>
+</view>

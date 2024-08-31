@@ -1,0 +1,7 @@
+<view class="container">
+    <view style="font-weight:normal">"校速办"团队十分注重用户体验，如您在使用过程中遇到任何问题，或者有任何意见或建议，欢迎给我们来信，我们会认真处理用户反馈。</view>
+</view>
+<view class="container">
+    <view class="hr"></view>
+    <view> 关注小速校园公众号-小速校园 </view>
+    <image alt="公众号二维码" bindtap="{{b}}" showMenuByLongpress="true" src="{{a}}" style="width:200px;height:200px"></image>> 点击公众号菜单栏“意见反馈”填写问卷 <image alt="操作截图" src="{{c}}" style="width:100%;height:600rpx;border-radius:10px;margin:10px 0px;object-fit:contain"></image> 我们将会认真对待每一条反馈，感谢您的支持！ </view>

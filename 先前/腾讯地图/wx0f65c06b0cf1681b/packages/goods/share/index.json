@@ -1,0 +1,14 @@
+{
+  "navigationStyle": "custom",
+  "disableScroll": true,
+  "navigationBarTextStyle": "white",
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_",
+    "e": "_",
+    "g": "_",
+    "h": "_",
+    "k": "_",
+    "l": "_"
+  }
+}

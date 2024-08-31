@@ -1,0 +1,21 @@
+<view bindtap="{{c}}" class="campusTip-wrap">
+    <view class="campus">{{a}}</view>
+    <uni-icons bind:__l="__l" uI="e6319a4c-0" uP="{{b}}" wx:if="{{b}}"></uni-icons>
+</view>
+<view class="toolbar-box">
+    <view class="toolbar-box-secondline">
+        <view bindtap="{{item.d}}" class="toolbar-box-secondline-btn-box" wx:for="{{d}}" wx:key="c">
+            <image alt="" class="toolbar-box-secondline-btn-box-icon" src="{{item.a}}"></image>
+            <view class="toolbar-box-secondline-btn-box-text">{{item.b}}</view>
+        </view>
+        <view class="toolbar-schoolBus" wx:if="{{e}}">
+            <view bindtap="{{f}}" class="lineOne">
+                <image alt="" class="line-img" src="https://quickdo.top/images/travel/up-arrow.png"></image> 一号线 </view>
+            <view bindtap="{{g}}" class="lineTwo">
+                <image alt="" class="line-img" src="https://quickdo.top/images/travel/down-arrow.png"></image> 二号线 </view>
+        </view>
+    </view>
+</view>
+<view>
+    <map showLocation bindlabeltap="{{k}}" bindmarkertap="{{l}}" bindtap="{{m}}" enable3D="{{true}}" enablePoi="{{false}}" latitude="{{h}}" longitude="{{i}}" markers="{{j}}" polyline="{{o}}" scale="{{n}}" style="width:100%;height:110%;position:absolute;z-index:0"></map>
+</view>

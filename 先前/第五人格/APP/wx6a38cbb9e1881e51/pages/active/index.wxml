@@ -1,0 +1,22 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="活动专区"></navBar>
+<view class="container">
+    <view class="btns">
+        <view bindtap="goDh" class="dh">
+            <view class="img"></view>
+        </view>
+        <view bindtap="goDraw" class="draw">
+            <view class="img"></view>
+        </view>
+        <view bindtap="goMyList" class="hd">
+            <view class="img"></view>
+        </view>
+    </view>
+    <view class="hdzxbox">
+        <view class="tit">活动资讯</view>
+        <news-list newsList="{{newsList}}" titKind="活动"></news-list>
+    </view>
+    <bind-user bindCustomClose="handleBind" bindbindCol="bindCol" visible="{{!bindUserVisible}}"></bind-user>
+    <view wx:if="{{!videoHidden}}">
+        <video-play bind:callHideVideo="callHideVideo" videoSrc="{{videoSrc}}"></video-play>
+    </view>
+</view>

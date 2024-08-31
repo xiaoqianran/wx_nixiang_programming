@@ -1,0 +1,5 @@
+<view class="bottom-dh {{active==3?'nobl':''}}" data-active="{{active}}">
+    <view class="inner">
+        <view bindtap="dhJump" class="dh {{active==idx?'on':''}}" data-index="{{idx}}" data-notshow="{{item.notshow}}" wx:for="{{btnList}}" wx:for-index="idx" wx:key="key"></view>
+    </view>
+</view>

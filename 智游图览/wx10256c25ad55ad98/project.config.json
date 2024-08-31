@@ -1,0 +1,24 @@
+{
+  "miniprogramRoot": "",
+  "__compileDebugInfo__": {
+    "useSummer": true
+  },
+  "appid": "wxeb69c8797a8b0ccb",
+  "compileType": "miniprogram",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

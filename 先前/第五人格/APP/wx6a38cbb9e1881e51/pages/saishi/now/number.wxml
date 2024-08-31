@@ -1,0 +1,27 @@
+<view class="container">
+    <image class="bigbg" src="{{imgUrl}}/bg.jpg"></image>
+    <topbar active="1"></topbar>
+    <view class="page main">
+        <image class="bg" src="{{imgUrl}}/saishi/now/jf_bg.jpg"></image>
+        <view class="list">
+            <view class="tr">
+                <view class="th">排名</view>
+                <view class="th">战队</view>
+                <view class="th">胜</view>
+                <view class="th">负</view>
+                <view class="th">净胜局数</view>
+            </view>
+            <image class="line" src="{{imgUrl}}/saishi/now/line.png"></image>
+            <view class="tr" wx:for="{{numberData}}" wx:for-index="idx" wx:key="key">
+                <view class="td">{{idx+1}}</view>
+                <view class="td">
+                    <image class="ic" src="{{item.teamLogoUrl}}"></image>
+                    <text>{{item.teamNameEng}}</text>
+                </view>
+                <view class="td">{{item.scheduleWinAmount}}</view>
+                <view class="td">{{item.scheduleLoseAmount}}</view>
+                <view class="td">{{item.matchRoundWinAmountDiff}}</view>
+            </view>
+        </view>
+    </view>
+</view>

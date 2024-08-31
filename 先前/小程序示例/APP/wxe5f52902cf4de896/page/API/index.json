@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "小程序接口能力展示",
+  "navigationStyle": "custom",
+  "componentFramework": "glass-easel",
+  "renderer": "skyline",
+  "disableScroll": true
+}

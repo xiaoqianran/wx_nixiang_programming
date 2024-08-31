@@ -1,0 +1,4 @@
+<view ariaRole="Empty" class="Empty" wx:if="Empty">
+    <block wx:if="Empty">Empty</block>
+    <slot wx:else></slot>
+</view>

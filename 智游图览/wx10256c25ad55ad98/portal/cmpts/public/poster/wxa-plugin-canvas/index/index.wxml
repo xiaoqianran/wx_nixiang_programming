@@ -1,0 +1,3 @@
+<view class="container">
+    <canvas class="canvas {{debug?'debug':'pro'}}" id="canvasid" style="width: {{pxWidth}}px; height: {{pxHeight}}px;" type="2d"></canvas>
+</view>

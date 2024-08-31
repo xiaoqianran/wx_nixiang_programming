@@ -1,0 +1,1 @@
+Page({data:{theme:"light"},onShareAppMessage:function(){return{title:"open-data",path:"packageComponent/pages/open/open-data/open-data"}},onUnload:function(){wx.offThemeChange&&wx.offThemeChange()},onLoad:function(){var e=this;this.setData({theme:wx.getSystemInfoSync().theme||"light"}),wx.onThemeChange&&wx.onThemeChange((function(t){var a=t.theme;e.setData({theme:a})}))}});

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "权益卡",
+  "navigationBarBackgroundColor": "#FFF",
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "componentPlaceholder": {
+    "van-icon": "_",
+    "salesman-cube": "_",
+    "van-loading": "_",
+    "van-toast": "_",
+    "van-dialog": "_"
+  }
+}

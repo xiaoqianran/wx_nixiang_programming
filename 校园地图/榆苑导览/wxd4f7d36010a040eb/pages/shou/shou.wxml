@@ -1,0 +1,5 @@
+<view>
+    <view class="head-bg">
+        <cover-view bindtap="tiao" class="font">点击进入</cover-view>
+    </view>
+</view>

@@ -1,0 +1,470 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" id="navBar" title="网易第五人格"></navBar>
+<view class="container" hidden="{{pageCount!=1}}">
+    <view class="header"></view>
+    <view class="center">
+        <view class="centerBox">
+            <view class="centerBoxTitle"></view>
+            <view class="drawTitle">完成下方任务，获得抽卡券</view>
+            <view class="drawCard">
+                <view class="drow_bubble bubble bubble5" wx:if="{{kpcount==7}}"></view>
+                <view class="drow_bubble bubble bubble4" wx:if="{{kpcount==8}}"></view>
+                <view class="drow_bubble bubble bubble3" wx:if="{{kpcount==9}}"></view>
+                <view class="drow_bubble bubble bubble2" wx:if="{{kpcount==10}}"></view>
+                <view class="drow_bubble bubble bubble1" wx:if="{{kpcount==11}}"></view>
+                <view class="drow_bubble" wx:if="{{kpcount>=12||kpcount<7}}"></view>
+                <view class="btnbox">
+                    <text bindtap="catGameId">{{userInfo.idvId!=''&&!!userInfo.idvId?userInfo.nickname+'[切换]':'[请先绑定角色]'}}</text>
+                </view>
+                <button bindgetphonenumber="getPhoneNumber" class="draw_btn" openType="getPhoneNumber" wx:if="{{!userPhone}}">
+                    <view class="drowRollsText">
+                        <text>抽卡券: {{drowRolls}}</text>
+                    </view>
+                </button>
+                <view bindtap="drawcard" class="draw_btn" wx:else>
+                    <view class="drowRollsText">
+                        <text>抽卡券: {{drowRolls}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="cardFace">
+                <view class="cardFaceTitle">
+                    <view class="cardSm">
+                        <text>每集齐<text class="number">3</text>张科普卡，能解锁<text class="number">1</text>张限定卡</text>
+                        <text class="right">解锁<text class="number">4</text>张限定卡，即可领取<text class="boldtext">限定涂鸦</text>
+                        </text>
+                        <view class="zanti"></view>
+                    </view>
+                    <view class="cardTotal">
+                        <text class="green">当前科普卡数：{{kpcount}}</text>
+                    </view>
+                </view>
+                <view class="cardBox">
+                    <view class="card {{kpcount>=item.count?'':'card2'}}" wx:for="{{c}}" wx:key="key">
+                        <view class="mc" wx:if="{{!item.ifGet}}">
+                            <view bindtap="changeifget" class="mcimg" data-index="{{index}}" wx:if="{{kpcount>=item.count}}">
+                                <image src="{{cardFaceImg.mc1}}"></image>
+                                <text class="jstext">可解锁</text>
+                            </view>
+                            <view bindtap="changeifget" class="mcimg2" data-index="{{index}}" wx:else>
+                                <image src="{{cardFaceImg.mc2}}"></image>
+                                <view class="">累计<text class="yellow">{{item.count}}张</text>科普卡可解锁</view>
+                            </view>
+                        </view>
+                        <view class="card_label card_label{{index}}"></view>
+                        <image catchtap="handlePreview" class="limitCard{{index}}" data-index="{{index}}" src="{{unBindTipImgList[index].pic}}"></image>
+                    </view>
+                    <view bindtap="getPandaGraffiti" class="get_btn get_btn1" wx:if="{{limitList.length<4}}"></view>
+                    <block wx:else>
+                        <view class="get_btn get_btn2" wx:if="{{isPanda}}"></view>
+                        <view class="get_btn" wx:else>
+                            <view bindtap="getPandaGraffiti" class="getBtn"></view>
+                        </view>
+                    </block>
+                </view>
+                <view class="framebox">
+                    <text>领取同时有机会获得<text class="green">首批小程序专属头像框</text>
+                    </text>
+                    <view class="prize_frame"></view>
+                </view>
+                <view class="cardTask">
+                    <view class="taskTitle">（每天24点任务重置）</view>
+                    <button bindgetphonenumber="getPhoneNumber" class="opbtn" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+                    <view class="itembox" wx:for="{{taskList}}" wx:key="key">
+                        <view class="item">{{item.taskName}}<text class="text">（抽卡券x1）</text>
+                        </view>
+                        <view wx:if="{{index==0}}">
+                            <view class="btn btn5" wx:if="{{item.status==2}}"></view>
+                            <view class="btn btn4" wx:elif="{{item.status==1}}"></view>
+                            <view bindtap="doWork" class="btn btn1" data-index="{{index}}" data-task="{{item.id}}" wx:elif="{{item.status==0}}"></view>
+                        </view>
+                        <view wx:if="{{index==1}}">
+                            <view class="btn btn5" wx:if="{{item.status==2}}"></view>
+                            <view class="btn btn4" wx:elif="{{item.status==1}}"></view>
+                            <view bindtap="doWork" class="btn btn2" data-index="{{index}}" data-task="{{item.id}}" wx:elif="{{item.status==0}}"></view>
+                        </view>
+                        <view wx:if="{{index==2}}">
+                            <view class="btn btn5" wx:if="{{item.status==2}}"></view>
+                            <view class="btn btn4" wx:elif="{{item.status==1}}"></view>
+                            <view bindtap="doWork" class="btn btn3" data-index="{{index}}" data-task="{{item.id}}" wx:elif="{{item.status==0}}"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="helpCard">
+                <view class="headBox">
+                    <button bindgetphonenumber="getPhoneNumber" class="headLike" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+                    <block wx:else>
+                        <block wx:if="{{userHelpInfo.userList.length<1}}">
+                            <view bindtap="judgeHead" class="headLike" wx:if="{{!jall||!userInfo.userAvatarUrl||!userInfo.wxName}}"></view>
+                            <button class="headLike" data-btntype="2" openType="share" wx:else></button>
+                        </block>
+                        <view class="headLike" wx:else>
+                            <image src="{{userHelpInfo.userList[0].userAvatarUrl}}" wx:if="{{userHelpInfo.userList[0].userAvatarUrl}}"></image>
+                            <image src="{{imgUrl}}/panda/help_user_head.png" wx:else></image>
+                        </view>
+                    </block>
+                    <button bindgetphonenumber="getPhoneNumber" class="headLike" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+                    <block wx:else>
+                        <block wx:if="{{userHelpInfo.userList.length<2}}">
+                            <view bindtap="judgeHead" class="headLike" wx:if="{{!jall||!userInfo.userAvatarUrl||!userInfo.wxName}}"></view>
+                            <button class="headLike" data-btntype="2" openType="share" wx:else></button>
+                        </block>
+                        <view class="headLike" wx:else>
+                            <image src="{{userHelpInfo.userList[1].userAvatarUrl}}" wx:if="{{userHelpInfo.userList[1].userAvatarUrl}}"></image>
+                            <image src="{{imgUrl}}/panda/help_user_head.png" wx:else></image>
+                        </view>
+                    </block>
+                    <button bindgetphonenumber="getPhoneNumber" class="headLike" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+                    <block wx:else>
+                        <block wx:if="{{userHelpInfo.userList.length<3}}">
+                            <view bindtap="judgeHead" class="headLike" wx:if="{{!jall||!userInfo.userAvatarUrl||!userInfo.wxName}}"></view>
+                            <button class="headLike" data-btntype="2" openType="share" wx:else></button>
+                        </block>
+                        <view class="headLike" wx:else>
+                            <image src="{{userHelpInfo.userList[2].userAvatarUrl}}" wx:if="{{userHelpInfo.userList[2].userAvatarUrl}}"></image>
+                            <image src="{{imgUrl}}/panda/help_user_head.png" wx:else></image>
+                        </view>
+                    </block>
+                </view>
+                <view class="msg">3人助力成功解锁5银币</view>
+                <button bindgetphonenumber="getPhoneNumber" class="helpBtn" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+                <block wx:else>
+                    <block wx:if="{{userHelpInfo.userList.length<3}}">
+                        <view bindtap="judgeHead" class="helpBtn" wx:if="{{!jall||!userInfo.userAvatarUrl||!userInfo.wxName}}"></view>
+                        <button class="helpBtn" data-btntype="1" openType="share" wx:else></button>
+                    </block>
+                    <block wx:else>
+                        <view bindtap="getAward" class="help_btn_get" wx:if="{{!userHelpInfo.hadPrize}}"></view>
+                        <view class="gray" wx:else></view>
+                    </block>
+                </block>
+                <view class="msg2">已有{{helpPeople>=50000?'超过'+helpPeople:helpPeople}}人助力了熊猫公益</view>
+            </view>
+            <view class="pandaRules">
+                <view class="rules_title"></view>
+                <view class="rules">
+                    <view class="title2"></view>
+                    <view class="rulestime">2022年8月16日 10:30~2022年9月2日 23:59</view>
+                    <view class="title"></view>
+                    <view class="textbox">
+                        <view>
+                            <text>①<text class="red">绑定游戏角色</text>后每完成1次任务即可获得1张抽卡券，可用于抽取大小熊猫科普卡；</text>
+                        </view>
+                        <view>
+                            <text>②完成活动任务可获得抽卡券，<text class="red">每人至多获得12张抽卡券，</text>每天0点任务将自动刷新，每天各任务至多得到1张抽卡券，任务与抽卡券关系如下表：</text>
+                        </view>
+                        <view class="tasktable"></view>
+                        <view>
+                            <text>③使用抽卡券，可获得熊猫科普卡，卡内含有关于大小熊猫的科普知识（不会抽取到重复的熊猫科普卡），同时每次抽卡<text class="red">100%附赠随机数量的银币；</text>
+                            </text>
+                        </view>
+                        <view>
+                            <text>④每获得3张熊猫科普卡可解锁1张限定卡，集齐4张限定卡，即可领取<text class="red">[限定—熊猫公益园丁涂鸦]，</text>涂鸦将在48小时内以邮件的形式发放至绑定的发送至绑定的游戏角色邮箱内；</text>
+                        </view>
+                        <view class="rulesfive">
+                            <text>⑤领取限定涂鸦的同时</text>
+                            <text bindtap="showTitle">
+                                <text decode class="question {{showremind?'pop':''}}" space="emsp">有概率 </text>
+                            </text>
+                            <text>获得<text class="red">[小程序专属头像框]，</text>头像框将在48小时内发放至绑定的游戏角色邮箱内；</text>
+                        </view>
+                        <view>
+                            <text>⑥邀请朋友助力可领取[银币]奖励，每位玩家上限邀请3位玩家帮自己助力，3人助力完成后必得5[银币]；</text>
+                        </view>
+                        <view>
+                            <text>⑦每位玩家有3次帮其他玩家助力的机会，不可为其他玩家重复助力也无法为自己助力；</text>
+                        </view>
+                        <view>
+                            <text>⑧关于银币使用说明：获得[银币]后可点击上方[兑换商城]兑换游戏奖励，兑换后奖励将在48小时内发放至绑定的游戏角色邮箱内；</text>
+                        </view>
+                        <view>
+                            <text>⑨单个微信所绑定的游戏角色仅可获得1次参与本活动的机会，单个微信更换游戏角色将无法重复参与本活动；</text>
+                        </view>
+                        <view>
+                            <text>⑩<text class="red">为防止恶意刷取奖励，活动期间可能会出现第五人格小助手官方微信认证弹窗，用于人工认证，添加官方微信后即可正常参与活动。</text>活动期间，如发现有通过不正当手段（包括但不限于侵犯第三人合法权益权益、作弊、扰乱系统、实施网络攻击、恶意套现、批量注册、用机器模拟客户端进行的各类操作等）参加活动而有碍其他用户公平参加本次活动或有违反活动目的之行为。活动举办方有权取消此类用户获奖资格并追回活动过程中获取的赠品或权益，同时有权临时或永久禁止此类用户使用本小程序。若违规行为对活动举办方造成损失，举办方将通过法律途径追责。</text>
+                        </view>
+                        <view class="teshu">
+                            <text>
+                                <text class="red">特别说明：</text>如参与活动期间有相关疑问，可</text>
+                            <text bindtap="addFriend">
+                                <text class="red under">点击此处</text>
+                            </text>
+                            <text>添加第五人格小助手官方微信进行询问。</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="endImg"></view>
+    </view>
+    <view class="prizeMall" style="top: {{nbHeight}}px;">
+        <view class="prizebtn" wx:if="{{!userPhone}}">
+            <button bindgetphonenumber="getPhoneNumber" class="btn" openType="getPhoneNumber"></button>
+        </view>
+        <view bindtap="showPraize" class="prizebtn" wx:else></view>
+        <view bindtap="handleShoppingMall" class="mallbtn"></view>
+    </view>
+    <view class="tcbox" wx:if="{{tcPrize}}">
+        <view class="tc_prize">
+            <view class="prizelist" wx:if="{{prizeList.length>0}}">
+                <view class="prize" wx:for="{{prizeList}}" wx:key="key">
+                    <view class="pleft">
+                        <view class="image">
+                            <image class="img{{item.prizeType}}" mode="widthFix" src="{{prizePic[item.prizeType]}}"></image>
+                        </view>
+                        <view class="ptext">
+                            <view>{{item.prizeName}}</view>
+                            <view class="htime">获奖时间：{{item.winTime}}</view>
+                        </view>
+                    </view>
+                    <view class="pright">{{item.receiveStatus==1?'已发放':'游戏邮件发放'}}</view>
+                </view>
+            </view>
+            <view class="prizelist2" wx:else>暂未获得奖品</view>
+            <view bindtap="closePraize" class="close1"></view>
+        </view>
+    </view>
+    <view class="knowledgebtn" wx:if="{{!userPhone}}">
+        <button bindgetphonenumber="getPhoneNumber" class="btn" openType="getPhoneNumber"></button>
+    </view>
+    <view bindtap="showTcPanda_knowledge" class="knowledgebtn" wx:else></view>
+    <view class="tcbox tcbox1" wx:if="{{tcPanda_knowledge}}">
+        <view class="panda_knowledge" style="height: calc(100vh - {{nbHeight}}px); margin-top: {{nbHeight}}px;">
+            <view class="title">
+                <view bindtap="showTcPanda_knowledge" class="back"></view>
+                <view class="header"></view>
+            </view>
+            <view class="list">
+                <view class="listbox" wx:if="{{kplist.length>0}}">
+                    <view class="item" wx:for="{{kplist}}" wx:key="key">
+                        <view class="img">
+                            <image bindtap="showimg" data-index="{{index}}" src="{{kpcardlist[item-1].pic}}"></image>
+                        </view>
+                        <view class="text">科普卡{{listNumber[kplist.length-index-1]}}</view>
+                    </view>
+                </view>
+                <view class="listbox2" wx:else>你暂未获得科普卡</view>
+            </view>
+            <view bindtap="showTcPanda_knowledge" class="knowledge_btn1">回到主页</view>
+        </view>
+    </view>
+    <view class="chuantoubg"></view>
+    <view class="tcbox" wx:if="{{tcbindPart}}">
+        <view class="tc1">
+            <view class="tctitle pa">当前参与绑定的游戏账号是{{userInfo.idvId}}，确定用此游戏账号继续参与吗？（注：同个微信和同个游戏账号只能参与一次哦）</view>
+            <view catchtap="joinPart" class="tcbtn pa">确定参加</view>
+            <view catchtap="closeTcbindPart" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcbindid}}">
+        <view class="tc1">
+            <view class="tctitle1">请先完成游戏ID绑定</view>
+            <view class="tctitle2">方便我们发放游戏奖励哦~~</view>
+            <view catchtap="catGameId" class="tcbtn">立即绑定</view>
+            <view catchtap="closeTcbindid" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcAddFriend}}">
+        <view class="tc1">
+            <view class="tctitle1">为保证活动的真实性和公平性</view>
+            <view class="tctitle2">请侦探先添加第五人格官方小助手</view>
+            <view catchtap="addFriend" class="tcbtn">立即添加</view>
+            <view catchtap="showTcAddFriend" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcDrowcard}}">
+        <view class="tc1">
+            <view class="tctitle">任务已完成，获得1张抽卡券</view>
+            <view catchtap="drawcard" class="tcbtn">立即抽卡</view>
+            <view catchtap="showTcDrowcard" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcToShop}}">
+        <view class="tc1">
+            <view class="tctitle">领取成功，请到兑换商城查看</view>
+            <view catchtap="" class="tcbtn">立即查看</view>
+            <view catchtap="showTcToShop" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcCardTask}}">
+        <view class="cardTask1">
+            <view class="taskTitle">你的抽卡券为0，请完成下方任务获取</view>
+            <view class="itembox">
+                <view class="item">分享熊猫公益海报<text class="text">（抽卡券x1）</text>
+                </view>
+                <view class="btn btn5" wx:if="{{ifActivity}}"></view>
+                <view class="btn {{ifShare?'btn4':'btn1'}}" wx:else></view>
+            </view>
+            <view class="itembox">
+                <view class="item">完成一场游戏对局<text class="text">（抽卡券x1）</text>
+                </view>
+                <view class="btn btn5" wx:if="{{ifActivity}}"></view>
+                <view bindtap="doWork" class="btn btn4" wx:elif="{{ifGameOver}}"></view>
+                <view class="btn btn2" wx:elif="{{!ifGameOver}}"></view>
+            </view>
+            <view class="itembox">
+                <view class="item">生成战绩海报并分享<text class="text">（抽卡券x1）</text>
+                </view>
+                <view class="btn btn5" wx:if="{{ifActivity}}"></view>
+                <view class="btn {{ifRecordShare?'btn4':'btn3'}}" wx:else></view>
+            </view>
+            <view catchtap="showTcCardTask" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tckpcard}}">
+        <view class="tc2">
+            <view class="cardbox {{tckpcard?'anime-flip':''}}">
+                <view class="kpcard4"></view>
+                <view class="kpcard {{cardId%2==0?'kpcard2':''}}" wx:if="{{cardId<6}}">
+                    <view class="title">
+                        <view class="content">
+                            <view>
+                                <text userSelect="true">{{kpcardlist[cardId].text}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="kpcard {{cardId%2==0?'kpcard3':'kpcard1'}}" wx:else>
+                    <view class="title">
+                        <view class="content">
+                            <view class="{{cardId==11?'textbox':''}}">
+                                <text userSelect="true">{{kpcardlist[cardId].text}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="close2 mclose" wx:if="{{d}}">立即领取<text class="btntext">{{btntext}}</text>
+            </view>
+            <view catchtap="showTckpcard" class="close2" wx:else>立即领取</view>
+        </view>
+    </view>
+    <view bindtap="closeBigCard" class="tcbox" wx:if="{{bigkpcard}}">
+        <view class="tc2">
+            <view class="cardbox">
+                <view class="kpcard bigcard {{cardId%2==0?'kpcard2':''}}" wx:if="{{cardId<6}}">
+                    <view class="title">
+                        <view class="content">
+                            <view>
+                                <text userSelect="true">{{kpcardlist[cardId].text}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="kpcard bigcard {{cardId%2==0?'kpcard1':'kpcard3'}}" wx:else>
+                    <view class="title">
+                        <view class="content">
+                            <view class="{{cardId==11?'textbox':''}}">
+                                <text userSelect="true">{{kpcardlist[cardId].text}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcCoin}}">
+        <view class="tccoin">
+            <view class="head_pic">
+                <view class="coin"></view>
+            </view>
+            <view class="getCoin">恭喜你获得<text class="coin_num">{{prizename}}</text>
+            </view>
+            <view class="rulesText">(商城兑换游戏道具使用)</view>
+            <view bindtap="showTcCoin" class="close1"></view>
+        </view>
+    </view>
+    <view class="tcbox tch" wx:if="{{tcHeadPic}}">
+        <view class="tc_head_pic">
+            <view class="head_pic">
+                <view class="frame"></view>
+            </view>
+            <view catchtap="showTcHeadPic" class="close2">开心收下</view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcxdty}}">
+        <view class="tcxdty">
+            <view class="head_pic">
+                <image src="{{prizePic[4]}}"></image>
+            </view>
+            <view catchtap="showTcxdty" class="close2 close3">开心收下</view>
+        </view>
+    </view>
+    <view class="tcbox" wx:if="{{tcSubMsg}}">
+        <view class="submsgbg">
+            <view class="text">小程序第一批专属头像框数量有限，建议开启【接收活动通知】，及时提醒您参与活动，完成任务参与头像框抽奖~</view>
+            <view class="msgtext"> 每天有100+侦探，因未及时接收订阅消息， 错失小程序专属头像框 <view class="light"></view>
+            </view>
+            <view catchtap="subscribeMsg" class="tcbtn">开启通知</view>
+            <view catchtap="closeTcSubMag" class="close1"></view>
+        </view>
+    </view>
+</view>
+<view class="friendbox {{limitBigCard[listIndex].showBigImg?'on':''}}">
+    <view catchtap="closeBigImg" class="popzz"></view>
+    <view catchtap="closeBigImg">
+        <image catchlongpress="noneShow" class="small" mode="aspectFit" showMenuByLongpress="true" src="{{limitBigCard[listIndex].pic}}"></image>
+    </view>
+</view>
+<view class="friendbox {{showAddfri?'on':''}}">
+    <view bindtap="addFriend" class="popzz"></view>
+    <image bindlongpress="tagQwFriend" bindtap="addFriend" class="small" mode="aspectFit" showMenuByLongpress="true" src="{{imgUrl}}/panda/card_qw3.jpg"></image>
+</view>
+<image class="friendbox {{showShare?'on':''}}">
+    <image bindlongpress="doWork" bindtap="shareShow" class="small" data-index="0" mode="aspectFit" showMenuByLongpress="true" src="{{shareImgUrl}}"></image>
+</image>
+<canvas canvasId="mycanvas" class="mycanvas" id="mycanvas" style="width: {{_canvasw}}px; height: {{_canvasH}}px"></canvas>
+<bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/panda/panda" visible="{{!bindUserVisible}}"></bind-user>
+<view class="helpPage" hidden="{{pageCount!=2}}">
+    <view class="pagebg">
+        <view class="help_content_bg">
+            <view class="help_head">
+                <image src="{{info.userHead}}"></image>
+            </view>
+            <view class="pop"></view>
+            <view class="center_content">
+                <view class="title">参与活动有机会获得</view>
+                <view class="gift_list">
+                    <view class="gift"></view>
+                    <view class="gift gift1"></view>
+                    <view class="gift gift2"></view>
+                </view>
+                <view class="msg">已有{{helpPeople>=50000?'超过'+helpPeople:helpPeople}}人助力了熊猫公益</view>
+                <button bindgetphonenumber="getPhoneNumber" class="help_btn" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+                <view bindtap="helpNow" class="help_btn" wx:if="{{!helpready&&userPhone}}"></view>
+                <view class="help_btn hb2" wx:if="{{helpready&&userPhone}}"></view>
+            </view>
+        </view>
+        <view bindtap="goPanda" class="gopanda"></view>
+        <view class="bottom_bg"></view>
+    </view>
+    <view wx:if="{{tcHelp}}">
+        <view bindtap="colsetc" class="tcbox"></view>
+        <view class="tc1" wx:if="{{helpSelf}}">
+            <view class="tctitle">你不能给自己助力呢~</view>
+            <view bindtap="goPanda" class="tcbtn">返回活动主页</view>
+            <view catchtap="colsetc" class="close1"></view>
+        </view>
+        <view class="tc1" wx:if="{{helpBindGame}}">
+            <view class="tctitle1">请先完成游戏ID绑定</view>
+            <view class="tctitle2">才能进行助力哦~</view>
+            <view catchtap="catGameId" class="tcbtn">立即绑定</view>
+            <view catchtap="colsetc" class="close1"></view>
+        </view>
+        <view class="tc1" wx:if="{{helplimit}}">
+            <view class="tctitle">每人只能助力3次哦~~</view>
+            <view bindtap="colsetc" class="tcbtn">我知道了</view>
+            <view catchtap="colsetc" class="close1"></view>
+        </view>
+        <view class="tc1" wx:if="{{helpready}}">
+            <view class="tctitle">助力成功</view>
+            <view bindtap="goPanda" class="tcbtn">我也要参与</view>
+            <view catchtap="colsetc" class="close1"></view>
+        </view>
+        <view class="tc1" wx:if="{{helpFull}}">
+            <view class="tctitle">TA的助力已满，无需再助力哦～</view>
+            <view bindtap="colsetc" class="tcbtn">我知道了</view>
+            <view catchtap="colsetc" class="close1"></view>
+        </view>
+    </view>
+</view>

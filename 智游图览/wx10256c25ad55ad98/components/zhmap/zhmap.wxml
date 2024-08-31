@@ -1,0 +1,81 @@
+<view class="container" style="width: {{mapWidth}}px; height: {{mapHeight}}px; background-color: {{mapBgColor}};">
+    <v-zhgeo id="zhmap-container"></v-zhgeo>
+    <view class="leaflet-top leaflet-right">
+        <image bindtap="openPoiHalfScreen" class="leaflet-right-top leaflet-control-zoom" src="{{zhgeoIcons.roadSign}}" style="top: 10px;"></image>
+        <picker bindchange="bindRoudMultiPickerChange" bindcolumnchange="bindRoudMultiPickerColumnChange" mode="multiSelector" range="{{roadMultiArray}}" value="{{roadMultiIndex}}" wx:if="{{showRoadControl}}">
+            <image bindtap="" class="leaflet-right-top leaflet-control-zoom" src="{{zhgeoIcons.road}}" style="top: 50px;"></image>
+        </picker>
+        <image bindtap="openScenicShowHalfScreen" class="leaflet-right-top leaflet-control-zoom" src="{{zhgeoIcons.show}}" style="top: 90px;" wx:if="{{scenicShowControl}}"></image>
+    </view>
+    <view class="leaflet-bottom leaflet-right">
+        <block wx:for="{{multimap}}" wx:key="id">
+            <image bindtap="routerNavToMultimap" class="leaflet-right-bottom leaflet-control-zoom leaflet-control-circle {{item.scenic_area==rootScenicId?'leafletwx-multimap-btn-checked':''}}" data-scenicid="{{item.scenic_area}}" src="{{baseUrl+item.icon}}" style="bottom: {{100+index*(item.icon_height+2)}}px;; width: {{item.icon_width}}px; height: {{item.icon_height}}px;" wx:if="{{item.icon!=null}}"></image>
+            <view bindtap="routerNavToMultimap" class="leaflet-right-bottom leafletwx-multimap-btn {{item.scenic_area==rootScenicId?'leafletwx-multimap-btn-checked':''}}" data-scenicid="{{item.scenic_area}}" style="bottom: {{100+index*(item.icon_height==null?26:item.icon_height+2)}}px; width: {{item.icon_width}}px; height: {{item.icon_height}}px;" wx:else>{{item.name}}</view>
+        </block>
+    </view>
+</view>
+<mp-half-screen-dialog closabled="{{false}}" show="{{poiHalfScreenShow}}">
+    <view slot="title">
+        <text>选择显示内容</text>
+    </view>
+    <view slot="desc" style="height: 400rpx;">
+        <mp-form>
+            <mp-cells>
+                <mp-checkbox-group bindchange="scenicTypeCheckboxChange" multi="{{true}}" prop="checkbox">
+                    <mp-checkbox checked="{{item.show}}" label="{{item.name}}" value="{{item.id}}" wx:for="{{scenicTypeList}}" wx:key="id"></mp-checkbox>
+                </mp-checkbox-group>
+            </mp-cells>
+        </mp-form>
+    </view>
+</mp-half-screen-dialog>
+<mp-half-screen-dialog bindclose="closeDetailHalfScreen" closabled="{{false}}" show="{{poiDetailHalfScreenShow}}">
+    <view slot="title">
+        <view class="poi-detail-half-screen-audio-pane" wx:if="{{poiOfPoiDetail.show_audio&&poiOfPoiDetail.audio_file!=null}}">
+            <view bindtap="playAudio" class="poi-detail-half-screen-play-pane" wx:if="{{!isAudioPlay}}">
+                <image class="poi-detail-half-screen-play-bg" src="{{zhgeoIcons.audioCover}}"></image>
+                <mp-loading class="poi-detail-half-screen-play-control" style="top: -20rpx;" tips="" type="circle" wx:if="{{loadingAudio}}"></mp-loading>
+                <image class="poi-detail-half-screen-play-control" src="{{zhgeoIcons.playStart}}" wx:else></image>
+            </view>
+            <view bindtap="stopAudio" class="poi-detail-half-screen-play-pane" wx:else>
+                <image class="poi-detail-half-screen-play-bg" src="{{zhgeoIcons.audioCover}}"></image>
+                <image class="poi-detail-half-screen-play-control" src="{{zhgeoIcons.playStop}}"></image>
+            </view>
+            <view style="position: absolute; left: 120rpx; top: 0rpx;">
+                <text style="font-size: 32rpx;">{{poiOfPoiDetail.name}}</text>
+            </view>
+            <view style="position: absolute; left: 120rpx; bottom: 0rpx;">
+                <mp-loading style="width:70rpx; height:70rpx; position:absolute;" tips="" type="dot-gray" wx:if="{{loadingAudio}}"></mp-loading>
+                <text style="font-size: 28rpx; font-weight: 100;" wx:else>{{audioRemainingTime}}</text>
+            </view>
+        </view>
+        <view class="poi-detail-half-screen-audio-pane" wx:else>
+            <text>{{poiOfPoiDetail.name}}</text>
+        </view>
+        <image bindtap="navigateToPoi" src="{{zhgeoIcons.navigation}}" style="float: right; width:70rpx; height:70rpx;" wx:if="{{poiOfPoiDetail.show_nav}}"></image>
+        <image bindtap="routerNavToChildScenic" src="{{zhgeoIcons.enterScenic}}" style="float: right; width:80rpx; height:80rpx; margin-right: 30rpx;" wx:if="{{poiOfPoiDetail.show_map}}"></image>
+    </view>
+    <view slot="desc" style="height: 400rpx;">
+        <text style="border:1px solid red;color:green;" wx:if="{{poiOfPoiDetail.recent_show_time_str!=null}}">{{'最近演出时间: '+poiOfPoiDetail.recent_show_time_str}}</text>
+        <mp-html content="{{poiOfPoiDetail.detail}}"></mp-html>
+    </view>
+</mp-half-screen-dialog>
+<mp-half-screen-dialog closabled="{{false}}" show="{{scenicShowHalfScreenShow}}">
+    <view slot="title">
+        <text>最近表演时间</text>
+    </view>
+    <view slot="desc" style="height: 400rpx;">
+        <mp-form>
+            <mp-cells wx:if="{{targetShowTimeScenic==null}}">
+                <mp-cell hover link bindtap="showTargetScenicShowTimeList" data-scenicid="{{item.id}}" wx:for="{{scenicShowList}}" wx:key="id">
+                    <view>{{item.name}}</view>
+                    <view slot="footer">{{item.recent_show_time_str}}</view>
+                </mp-cell>
+            </mp-cells>
+            <mp-cells bindtap="showAllScenicShowTimeList" footer="" title="< ㅤ{{targetShowTimeScenic.name}} 今日剩余演出时间表" wx:else>
+                <mp-cell wx:for="{{targetShowTimeScenic.show_time_str_list}}" wx:key="*this">
+                    <view>{{item}}</view>
+                </mp-cell>
+            </mp-cells>
+        </mp-form>
+    </view>
+</mp-half-screen-dialog>

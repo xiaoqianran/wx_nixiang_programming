@@ -1,0 +1,43 @@
+<TDS-topbar BackIcon="../../static/left_black_line.svg" title="修改资料">
+    <view class="user-info flex column">
+        <view class="user-info__avatar flex-center column Paragraphs1">
+            <button bindchooseavatar="changeHead" openType="chooseAvatar">
+                <image mode="" src="{{loginHead}}"></image>
+            </button>
+            <text>点击更换头像</text>
+        </view>
+        <view class="user-info__choose flex column">
+            <view class="user-info__name flex-spacebetween H3">
+                <text>昵称：</text>
+                <input bindinput="inputUname" bindtap="tapInput" class="Paragraphs1" placeholder="请输入昵称" placeholderClass="placeholder_copy" type="nickname" value="{{name}}"></input>
+            </view>
+            <view class="user-info__name__tip flex fill Paragraphs2">昵称限1~10字</view>
+            <view bind:tap="showSelect" class="user-info__sex flex-spacebetween H3">
+                <view>性别：</view>
+                <input class="Paragraphs1" disabled="{{true}}" placeholder="点击选择" placeholderClass="placeholder_copy" value="{{sex}}"></input>
+                <view>
+                    <image mode="" src="../../../static/down_gray_line.svg"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="user-info__submit">
+        <TDS-button Label="确定" bindtap="userIfonSubmit" class="fill"></TDS-button>
+    </view>
+    <TDS-halfscreen-dialog bindtapBg="selectCancel" showDialog="{{showSelectDialog}}" showHint="{{false}}" showLabel="{{false}}">
+        <view class="fill flex-center" slot="avatar">
+            <view class="year-selecty__title H3">性别</view>
+        </view>
+        <view class="fill flex-center" slot="slot1">
+            <picker-view bindchange="bindSexChange" immediateChange="{{true}}" indicatorStyle="height: 56px; text-align: center;" style="width: 100%;height: 198px; text-align:center; line-height: 112rpx;" value="{{selectedSexIndex}}">
+                <picker-view-column class="flex-center">
+                    <view wx:for="{{sexList}}" wx:key="index">{{item}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
+        <view class="button-group-horizon button-group-padding" slot="slot2">
+            <TDS-button Label="取消" bindtap="selectCancel" buttonStyle="tertiary" class="fill"></TDS-button>
+            <TDS-button Label="确认" bindtap="selectConfirm" class="fill"></TDS-button>
+        </view>
+    </TDS-halfscreen-dialog>
+</TDS-topbar>

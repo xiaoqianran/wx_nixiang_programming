@@ -1,0 +1,16 @@
+<view class="margin-top load notexist text-l load-project" wx:if="{{isLoad===null}}"></view>
+<view class="margin-top load loading text-l load-project" wx:if="{{isLoad===false}}"></view>
+<block wx:if="{{isLoad}}">
+    <view class="main padding-project">
+        <view class="article-box margin-top-xs">
+            <view class="article card-project shadow-project">
+                <view class="title">
+                    <text userSelect="true">{{news.title}}</text>
+                </view>
+                <view class="time"> {{news.updateTime}} {{news.typeName}} </view>
+                <mp-html content="{{news.content}}"></mp-html>
+            </view>
+        </view>
+    </view>
+    <cmpt-detail bg="{{skin.PROJECT_COLOR}}" cover="{{news.coverpic}}" desc="查看详情" favType="{{news.favType}}" mapMode="points" mapModeType="news" mapOid="{{news.scenic_map}}" mode="mode1" oid="{{news.id}}" showMap="{{news.scenic_map!=null}}" title="{{news.title}}" topBtnShow="{{topBtnShow}}"></cmpt-detail>
+</block>

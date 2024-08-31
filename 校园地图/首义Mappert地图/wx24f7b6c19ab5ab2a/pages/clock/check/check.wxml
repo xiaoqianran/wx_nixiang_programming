@@ -1,0 +1,211 @@
+<topbar BackIcon="/static/back_white.svg" Threshold="0.1" back="{{true}}" bgColor="185,185,185" class="topbar fill flex column" immersion="{{true}}" title="{{topbarTitle}}" titleColor="--Foreground-Low">
+    <view class="box_page fill flex-center column">
+        <view bind:tap="gotoRewardPage" class="clock-history-bookmark Paragraphs1" style="position: fixed;top: {{196/rpx}}px;left: -{{14/rpx}}px;">
+            <text>获奖记录</text>
+            <text>{{clockReward?clockReward.length:0}}</text>
+        </view>
+        <view class="fixed--width-box_page flex column">
+            <view bind:tap="gotoMini" class="box_gift flex-center column fill" data-id="sy-product">
+                <view class="image_gift fill flex-center">
+                    <image src="{{pngUrlList.gift}}"></image>
+                    <image mode="" src="{{svgUrlList.bubblingText}}"></image>
+                </view>
+                <view class="label_gift flex-spacebetween fill">
+                    <image mode="" src="{{svgUrlList.labelText}}"></image>
+                    <image mode="" src="{{svgUrlList.arrow}}"></image>
+                </view>
+            </view>
+            <view class="box--status-bar fill flex-center">
+                <image mode="" src="{{svgUrlList.twillGreenLine}}"></image>
+                <image mode="" src="{{svgUrlList.twillGreenLine}}"></image>
+                <image mode="" src="{{svgUrlList[calendarInformation.status+'StatusBarText']}}"></image>
+                <image mode="" src="{{svgUrlList[ cycleName[calendarInformation.cycleName] ]}}" style="position: absolute;left: {{14/rpx}}px;top: {{8/rpx}}px;" wx:if="{{calendarInformation.status!=='end'}}"></image>
+            </view>
+            <view class="box-card-clock column flex fill">
+                <view class="tip_card-clock column flex fill">
+                    <view class="title-tip_card-clock flex-spacebetween fill">
+                        <image class="statu_title-tip" mode="" src="{{calendarInformation.status=='clock'?clockingDayNum?svgUrlList[ clockingDay[clockingDayNum] ]:svgUrlList.clockStatuText:svgUrlList.noClockStatuText}}" style="width:{{calendarInformation.status=='clock'?clockingDayNum?184/rpx:228/rpx:190/rpx}}px;"></image>
+                        <view bind:tap="gotoHistoryPage" class="record_title-tip flex">
+                            <text class="Paragraphs2">我的打卡记录</text>
+                            <image mode="" src="{{svgUrlList.greenArrowLineIcon}}"></image>
+                        </view>
+                    </view>
+                    <view class="stitle-tip_card-clock fill flex column">
+                        <text class="Paragraphs2">{{clockStatuKey[calendarInformation.nextStartTime=='活动已结束'?'end':clockingDayNum==7?'prize':calendarInformation.status]['punchTitle'][0]}}</text>
+                        <text class="Paragraphs2">{{clockStatuKey[calendarInformation.nextStartTime=='活动已结束'?'end':clockingDayNum==7?'prize':calendarInformation.status]['punchTitle'][1]}}</text>
+                    </view>
+                </view>
+                <view class="time_card-clock flex-center column">
+                    <view class="for--date-time_card-clock flex-spacebetween fill">
+                        <view bind:tap="{{item.statusText=='漏签'?calendarInformation.makeupNum||!(userId.length&&uname.length)?'makeUpClock':'':''}}" class="{{dateCardCss[item.statusText]}} {{calendarInformation.makeupNum?'':userId&&item.statusText=='漏签'?'gray-make-up':''}} item--date-time_card-clock flex-center column" data-id="{{item.id}}" wx:for="{{calendarInformation.data}}" wx:key="id">
+                            <view class="{{dateCardCss[item.statusText]}}-item--date-time_card-clock Paragraphs2 text-item--date-time_card-clock flex-center">{{item.statusText}}</view>
+                            <view class="{{item.status?'has':dateCardCss[item.statusStext]}}-item--date-time_card-clock {{calendarInformation.makeupNum?'':userId&&item.statusText=='漏签'?'gray-make-up':''}} Paragraphs3 little--text-item--date-time_card-clock flex-center ">{{item.statusStext&&!item.status?userId?calendarInformation.makeupNum?item.statusStext:item.date:item.statusStext:item.date}}</view>
+                            <image mode="" src="{{svgUrlList.tickGreen}}" wx:if="{{item.status}}"></image>
+                        </view>
+                    </view>
+                    <view class="for--day-time_card-clock flex-center column ">
+                        <view class="flex icon--item--day-time_card-clock" style="width: {{546/rpx}}px;">
+                            <view class="flex-center" wx:for="{{calendarInformation.data}}" wx:key="id">
+                                <view class="noactive-cycle-icon-item--day-time_card-clock" style="background-color:var({{item.id<clockingDayNum?'--Foreground-Primary':'--Background-Low'}});width: {{12/rpx}}px;height: {{12/rpx}}px;"></view>
+                                <view class="noactive-cycle-date-item--day-time_card-clock fill" style="background-color:var({{item.id<clockingDayNum-1?'--Foreground-Primary':'--Background-Low'}});width: {{76/rpx}}px;" wx:if="{{item.id!==6}}"></view>
+                            </view>
+                        </view>
+                        <view class="text--item--day-time_card-clock flex-spacebetween fill">
+                            <view class="flex" wx:for="{{calendarInformation.data}}" wx:key="id">
+                                <view class="height--text--item--day-time_card-clock Paragraphs3">{{item.id+1}}天</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="mask-time_card-clock flex-center" hidden="{{calendarInformation.status=='clock'}}">
+                        <text class="H3">{{calendarInformation.nextStartTime}}</text>
+                    </view>
+                </view>
+                <TDS-button Label="{{userId?calendarInformation.dailyNum?'打卡（剩余'+calendarInformation.dailyNum+'次）':'今日打卡次数已用尽':'打卡（剩余3次)'}}" bindtap="tapClockButton" buttonStyle="{{userId?calendarInformation.dailyNum?'primary':'tertiary':'primary'}}" class="fill" wx:if="{{calendarInformation.status=='clock'}}"></TDS-button>
+            </view>
+            <view class="flex-center">
+                <view class="card">
+                    <view class="flex-spacebetween card-title">
+                        <image class="card-title__img" mode="" src="{{svgUrlList.clockRanking}}"></image>
+                        <view bindtap="jumpToRank" class="flex-center">
+                            <view class="Paragraphs2 highlight">{{rightTopTips}}</view>
+                            <image class="mini card-title__icon" hidden="{{currentCycle=='第一期'&&currentCycleState=='clock'||currentCycleState=='inactive'}}" mode="" src="{{svgUrlList.greenArrowLineIcon}}"></image>
+                        </view>
+                    </view>
+                    <view class="card-tips Paragraphs2">{{leftTopTips}}</view>
+                    <view class="flex-center fill">
+                        <image class="{{mapMan==pngUrlList.mapManHoldCup?'map-man--hold':'map-man--raise'}}" mode="" src="{{mapMan}}"></image>
+                    </view>
+                    <view class="flex-center fill">
+                        <view class="card-hint">
+                            <rich-text class="Paragraphs3" nodes="{{bottomTips}}"></rich-text>
+                        </view>
+                    </view>
+                    <image class="card-background" mode="" src="{{pngUrlList.cardBackgroundLawn}}"></image>
+                </view>
+            </view>
+            <view class="box--clock-activity flex-center column">
+                <view class="title-tip_card-clock flex-spacebetween fill">
+                    <image class="statu_title-tip" mode="" src="{{svgUrlList.activityText}}" style="width:{{128/rpx}}px"></image>
+                </view>
+                <view class="fill flex column">
+                    <view class="content_clock-activity gap8 flex-center fill stretch" wx:for="{{workList}}" wx:key="index">
+                        <image mode="" src="{{svgUrlList[item.icon]}}"></image>
+                        <view class="text-content_clock-activity flex column stretch fit">
+                            <text class="Paragraphs1">{{item.title}}</text>
+                            <text class="Paragraphs3">{{item.stitle}}</text>
+                        </view>
+                        <TDS-button Label="去查看" Size="small" bindtap="tapViewButton" buttonStyle="primary" class="fill" data-id="{{item.id}}" style="width: 140rpx;"></TDS-button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</topbar>
+<view catch:tap="closeMakeupDialog" class="mask--make-up-card fill flex-center" wx:if="{{makeUpToastShow}}">
+    <view class="box--make-up-card flex column">
+        <image class="background--image_make-up-card " mode="" src="{{svgUrlList.replenishmentToastImage}}"></image>
+        <view class="title_make-up-card H3 ">「首义首义」问答补签</view>
+        <view class="gap-box-tip-make-up-card flex fill column">
+            <view class="tip-make-up-card flex-center">
+                <image class="logo_tip-make-up-card" mode="" src="{{svgUrlList.nannanFriendsLogo}}"></image>
+                <view class="title_tip-make-up-card flex column">
+                    <text class="Paragraphs2">每个周期可以补签两次(剩{{calendarInformation.makeupNum}}次)</text>
+                    <text class="Paragraphs2">每次答对一道题即可完成补签</text>
+                    <text class="Paragraphs2">每道题只有两次回答机会哦~</text>
+                </view>
+            </view>
+            <view>
+                <TDS-button Label="开始答题" Size="medium" buttonStyle="primary" catch:tap="askShow" class="fill"></TDS-button>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="mask--make-up-card fill flex-center" wx:if="{{questionToastShow}}">
+    <view class="box--ask-make-up-card flex-center column">
+        <image class="top--image-ask-make-up-card" mode="" src="{{questionIcon}}" style="position: absolute;right: {{136/rpx}}px;top: -{{120/rpx}}px;"></image>
+        <view class="box--question_ask-make-up-card flex-center column">
+            <view class="text-question_ask-make-up-card flex-center column">
+                <text class="Paragraphs3">{{makeupTitle}}</text>
+                <text class="Paragraphs1">{{clockQuestion.stem}}</text>
+            </view>
+            <view class="flex-center column box--option-question_ask-make-up-card fill">
+                <view catch:tap="chooseOption" class="option-question_ask-make-up-card flex-center Paragraphs2 fill {{item.color}}-status" data-id="{{item.key}}" wx:for="{{clockQuestionArray}}" wx:key="index">{{clockQuestion[item.key]}}</view>
+            </view>
+        </view>
+        <view catch:tap="gotoMini" class="skip-mini_ask-make-up-card fill flex-spacebetween" data-id="sy">
+            <image class="logo-skip-mini_ask-make-up-card" mode="" src="{{svgUrlList.nannanFriendsLogo}}"></image>
+            <view class="text-skip-mini_ask-make-up-card flex-center">
+                <text class="Paragraphs2">前往首义首义一探究竟</text>
+                <image mode="" src="{{svgUrlList.rightArrow}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="mask--make-up-card fill flex-center" wx:if="{{askToastShow}}">
+    <view class="box-toast-make-up-card flex-center column">
+        <image mode="" src="{{toastQuestionIcon}}" style="flex-shrink: 0"></image>
+        <text class="Paragraphs1">{{toastQuestionTitle}}</text>
+    </view>
+</view>
+<view catch:tap="closeToast" class="box--clock-card fill flex-center column" data-id="clock" wx:if="{{toastCard}}">
+    <view class="clock-card flex-center column">
+        <view class="title_clock-card flex-center column fill">
+            <view class="H2" wx:if="{{type=='MakeUp'}}">补签成功，本周期还可补签{{postClockApiRecord.makeupNum}}次</view>
+            <view class="H2" wx:else>打卡成功，今日还可打卡{{calendarInformation.dailyNum}}次</view>
+            <view class="Paragraphs1">{{titleTimeText}}</view>
+        </view>
+        <view class="user_clock-card flex-center column">
+            <view class="uid-user_clock-card flex-center column">
+                <image mode="" src="{{loginHead}}"></image>
+                <text class="H3">{{uname}}</text>
+                <text class="Paragraphs1">{{userId}}</text>
+            </view>
+            <view class="place-user_clock-card" wx:if="{{type!=='MakeUp'}}"> {{isFuzzyLocation}} </view>
+            <view class="precedence-user_clock-card" wx:if="{{type!=='MakeUp'}}">
+                <text class="H3">{{place}}</text>
+                <text class="Paragraphs1">第</text>
+                <text class="H3">{{postClockApiRecord.dailyRank}}</text>
+                <text class="Paragraphs1">位打卡者</text>
+            </view>
+        </view>
+        <view class="button-group-vertical">
+            <TDS-button Label="我知道了" bindtap="konwButton" buttonStyle="primary" class="fill"></TDS-button>
+        </view>
+    </view>
+</view>
+<view catch:tap="closeToast" class="box--clock-card flex-center column fill" data-id="prize" wx:if="{{toastPrizeCard}}">
+    <view class="clock-card flex-center column">
+        <view class="title_clock-card flex-center column fill">
+            <view class="H2">恭喜你获得周边抽奖机会*1</view>
+            <view class="Paragraphs1">{{titleTimeText}}</view>
+        </view>
+        <view class="user_clock-card flex-center column">
+            <view class="uid-user_clock-card flex-center column">
+                <image mode="" src="{{loginHead}}"></image>
+                <text class="H3">{{uname}}</text>
+                <text class="Paragraphs1">{{userId}}</text>
+            </view>
+            <view class="Paragraphs1 prizes-user_clock-card flex-center column">
+                <text>将该卡片或获奖记录截图</text>
+                <text>点击下方按钮复制南南微信</text>
+                <text>就可以联系南南前往抽奖啦~</text>
+            </view>
+        </view>
+        <view class="button-group-vertical">
+            <TDS-button Label="点击复制南南微信" bindtap="copyButton" class="fill"></TDS-button>
+            <TDS-button Label="我知道了" bindtap="closeToast" buttonStyle="tertiary" class="fill" data-id="prize"></TDS-button>
+        </view>
+    </view>
+</view>
+<toast backgroundColorType="normol" id="toast"></toast>
+<fmin-dialog bindtapBg="closeDialog" font="H3" sfont="paragraphs1" showDialog="{{dialog}}" showSchoolBuiltSrc="{{false}}" stitle="{{dialogStitle}}" title="{{dialogTitle}}" unusual="consult-clock">
+    <view class="button-group-horizon">
+        <TDS-button Label="取消" Size="medium" bindtap="closeDialog" buttonStyle="tertiary" class="fill"></TDS-button>
+        <TDS-button Label="{{userId?'前往设置':'授权'}}" Size="medium" bindtap="toLoginPage" class="fill"></TDS-button>
+    </view>
+</fmin-dialog>
+<dialogTitle bindtapBg="closeLogoutDialog" schoolBuiltSrc="http://introduce.mcdd.top/schoolBuilt/zhonglou.svg" showDialog="{{uidDialog||loginDialog}}" title="{{toastTitle}}">
+    <view class="button-group-horizon  fill-available">
+        <TDS-button Label="前往绑定" Size="medium" bindtap="gotoLogin" class="fill-available"></TDS-button>
+    </view>
+</dialogTitle>

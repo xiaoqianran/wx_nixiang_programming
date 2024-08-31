@@ -1,0 +1,24 @@
+<view>
+    <view wx:for="{{zong}}" wx:key="id">
+        <view class="cu-card article {{isCard?'no-card':''}}">
+            <view class="cu-item shadow">
+                <view class="title">
+                    <view class="text-cut">{{item.name}}</view>
+                    <view class="text-content" style="height: 200rpx;font-size: smaller;">{{item.nt}}</view>
+                </view>
+                <view class="content">
+                    <image mode="aspectFill" src="{{item.src}}" style="height: 300rpx;"></image>
+                    <view class="desc">
+                        <view class="text-content" style="height: 200rpx;font-size: smaller;">{{item.pp}}</view>
+                        <view>
+                            <view class="cu-tag bg-red light sm round">{{item.id}}</view>
+                            <view class="cu-tag bg-green light sm round">{{item.latitude}}</view>
+                            <view class="cu-tag bg-green light sm round">{{item.longitude}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+>

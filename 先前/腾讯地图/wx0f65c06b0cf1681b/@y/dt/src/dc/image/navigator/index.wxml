@@ -1,0 +1,11 @@
+<button bind:contact="_p" businessId="{{extra.businessId||''}}" class="navigator btn class weapp-chat-btn" data-t="{{ contact:{en:'handleContactBack'} }}" disabled="{{!extra.sourceParam}}" openType="contact" sessionFrom="{{extra.sourceParam||''}}" style="{{customStyle}}" wx:if="{{item.linkType==='chat'}}">
+    <slot></slot>
+</button>
+<a bind:_init="_tic" bind:auth-popup-allow="_p" bind:auth-popup-show="_p" bind:next="_p" customStyle="height: 100%; width: 100%" data-t="{{ next:{en:'handleTap'},authPopupAllow:{en:'handleAuthPopShow'},authPopupShow:{en:'handleAuthPopShow'} }}" kdtId="{{kdtId}}" scene="get_coupon" type="separate" wx:elif="{{item.linkType==='coupon'||item.linkType==='platform_coupon'}}">
+    <view class="navigator class" style="{{customStyle}}">
+        <slot></slot>
+    </view>
+</a>
+<view bind:tap="_p" class="navigator class" data-t="{{ tap:{en:'handleTap'} }}" style="{{customStyle}}" wx:else>
+    <slot></slot>
+</view>

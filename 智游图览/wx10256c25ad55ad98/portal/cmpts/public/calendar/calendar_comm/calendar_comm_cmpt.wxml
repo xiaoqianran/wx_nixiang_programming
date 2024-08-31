@@ -1,0 +1,53 @@
+<view class="cal-container">
+    <view class="cal-main">
+        <view class="text-center cal-nav">
+            <view bindtap="bindToNowTap" class="to-now">本月</view>
+            <view class="select-item">
+                <view bindtap="bindLastTap" class="arrow">
+                    <text class="icon-back"></text>
+                </view>
+                <view class="text-lg">{{year}}年{{month}}月</view>
+                <view bindtap="bindNextTap" class="arrow">
+                    <text class=" icon-right"></text>
+                </view>
+            </view>
+            <block wx:if="{{mode=='one'}}">
+                <view bindtap="bindFoldTap" class="fold" wx:if="{{!fold}}">
+                    <text class="icon-fold"></text>
+                </view>
+                <view bindtap="bindFoldTap" class="fold" wx:if="{{fold}}">
+                    <text class="icon-unfold"></text>
+                </view>
+            </block>
+        </view>
+        <view class="cal-title">
+            <view class="cal-title-view">一</view>
+            <view class="cal-title-view">二</view>
+            <view class="cal-title-view">三</view>
+            <view class="cal-title-view">四</view>
+            <view class="cal-title-view">五</view>
+            <view class="cal-title-view text-orange">六</view>
+            <view class="cal-title-view text-red">日</view>
+        </view>
+        <view class="cal-center {{!fold?'cur':''}} ">
+            <view bindtap="bindDayOneTap" class="cube {{isLunar?'lunar':''}} " data-fullday="{{item.full}}" wx:if="{{mode=='one'&&(weekNo>0&&item.weekNo==weekNo&&utils.compareYearMonth(oneDoDay,year,month)||item.weekNo==1&&!utils.compareYearMonth(oneDoDay,year,month)||!fold)}}" wx:for="{{dayArr}}" wx:key="key">
+                <view class="num-grid  {{fullToday==item.full?'now-day-cur':''}}  {{oneDoDay==item.full?'calendar-bg text-white shadow ':''}} ">
+                    <view class="num  {{!item.curMonth?'text-no-month':''}}">
+                        <text class="data-has" wx:if="{{tools.includes(hasDays,item.full)}}">{{item.show}}</text>
+                        <text class="dd" wx:else>{{item.show}}</text>
+                        <text class="lunar {{oneDoDay==item.full?'text-white':''}} {{item.holiday?'text-red':''}}" wx:if="{{isLunar}}">{{item.lunar}}</text>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="bindDayMultiTap" class="cube {{isLunar?'lunar':''}}" data-fullday="{{item.full}}" wx:if="{{mode=='multi'}}" wx:for="{{dayArr}}" wx:key="key">
+                <view class="num-grid  {{fullToday==item.full?'now-day-cur':''}}  {{tools.includes(multiDoDay,item.full)?'calendar-bg text-white data-checked':''}} ">
+                    <view class="num  {{!item.curMonth?'text-no-month':''}} ">
+                        <text class="data-has" wx:if="{{tools.includes(hasDays,item.full)}}">{{item.show}}</text>
+                        <text class="dd" wx:else>{{item.show}}</text>
+                        <text class="lunar {{tools.includes(multiDoDay,item.full)?'text-white':''}} {{item.holiday?'text-red':''}}" wx:if="{{isLunar}}">{{item.lunar}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

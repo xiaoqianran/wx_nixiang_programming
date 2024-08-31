@@ -1,0 +1,9 @@
+<template name="head">
+    <view class="page-head">
+        <view class="page-head-title">
+            <text>{{title}}</text>
+        </view>
+        <view class="page-head-line"></view>
+        <view class="page-head-desc" wx:if="{{desc}}">{{desc}}</view>
+    </view>
+</template>

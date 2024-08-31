@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "实时手势检测",
+  "disableScroll": true,
+  "renderer": "webview"
+}

@@ -1,0 +1,21 @@
+<view class="weeksBox">
+    <view class="monthbox">{{a}}月 </view>
+    <view class="week-box">
+        <view class="week-title">
+            <text>一</text>
+            <text>二</text>
+            <text>三</text>
+            <text>四</text>
+            <text>五</text>
+            <text>六</text>
+            <text>日</text>
+        </view>
+        <view bindtouchend="{{f}}" bindtouchmove="{{e}}" bindtouchstart="{{d}}" class="week-day">
+            <view class="{{['day-body',c]}}">
+                <view class="{{['day',item.d]}}" wx:for="{{b}}" wx:key="e">
+                    <text bindtap="{{item.c}}" class="{{item.b}}">{{item.a}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

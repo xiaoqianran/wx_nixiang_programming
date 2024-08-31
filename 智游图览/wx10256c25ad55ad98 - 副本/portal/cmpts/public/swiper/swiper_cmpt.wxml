@@ -1,0 +1,5 @@
+<swiper autoplay="{{autoplay}}" circular="{{circular}}" class="swiper" duration="{{duration}}" indicatorActiveColor="{{indicatorActiveColor}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}" nextMargin="{{nextMargin}}rpx" previousMargin="{{previousMargin}}rpx" style="height:{{height}}rpx" vertical="{{vertical}}" wx:if="{{images.length>0}}">
+    <swiper-item wx:for="{{images}}" wx:key="key">
+        <image showMenuByLongpress bindtap="url" class="swiper-item-images loading" data-type="image" data-url="{{item}}" lazyLoad="{{true}}" mode="{{mode}}" src="{{item}}" style="height:{{height}}rpx"></image>
+    </swiper-item>
+</swiper>

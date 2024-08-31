@@ -1,0 +1,38 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page list">
+        <view bindtap="teamShow" class="li" data-ic="{{item.teamAvatarUrl}}" data-id="{{item.id}}" data-index="{{i}}" data-name="{{item.teamName}}" data-remark="{{item.remark}}" wx:for="{{allZdData}}" wx:for-index="i" wx:key="key">
+            <image class="img" src="{{item.teamAvatarUrl}}"></image>
+            <view class="name"></view>
+            <image class="det" src="{{imgUrl}}/revision/details.png"></image>
+        </view>
+    </view>
+    <view class="pop-zz {{popShow?'on':''}}"></view>
+    <view class="pop-team {{popShow?'on':''}}">
+        <image bindtap="hidePop" class="close" src="{{imgUrl}}/revision/close.png"></image>
+        <view class="inner">
+            <view class="title">
+                <image class="ic_zd" src="{{teamIc}}"></image>
+                <view class="desc">
+                    <text class="h6">{{teamName}}</text>
+                    <text class="p">{{teamRemark}}</text>
+                </view>
+            </view>
+            <image class="line" src="{{imgUrl}}/saishi/team/line.png"></image>
+            <view class="_inner">
+                <view class="li" data-index="{{i}}" wx:if="{{item.playerAvatarUrl}}" wx:for="{{mebData}}" wx:for-index="i" wx:key="key">
+                    <image class="ic" src="{{item.playerAvatarUrl}}"></image>
+                    <view class="desc">
+                        <view class="fi">
+                            <text class="name">{{item.playerName}}</text>
+                            <text class="lv" wx:if="{{item.rank}}">{{item.rank}}</text>
+                        </view>
+                        <view class="se"> {{item.goodAtRole}} </view>
+                    </view>
+                    <image class="line" src="{{imgUrl}}/saishi/team/line.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <bottom-dh active="1"></bottom-dh>
+</view>

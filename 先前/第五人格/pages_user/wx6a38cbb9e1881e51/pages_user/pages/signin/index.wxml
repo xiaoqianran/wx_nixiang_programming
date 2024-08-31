@@ -1,0 +1,205 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" iconTheme="black" id="navBar" title="每日签到福利广场"></navBar>
+<view class="container">
+    <view class="header"></view>
+    <view class="page">
+        <view class="signin_box">
+            <view class="box_header">
+                <view>
+                    <text class="t1">签到缤纷好礼</text>
+                </view>
+                <view bindtap="getAllPrize" class="draw_all">一键领取</view>
+            </view>
+            <view class="draw_list">
+                <view class="list" wx:for="{{signinList}}" wx:for-index="idx" wx:key="key">
+                    <view class="list_img">
+                        <image binderror="" bindload="" class="image{{item.prizeId}}" lazyLoad="false" mode="widthFix"></image>
+                    </view>
+                    <view class="list_centent">
+                        <view class="l1">{{item.title}}</view>
+                        <view class="l2">{{item.prize}}</view>
+                    </view>
+                    <view class="draw_btn btn2" wx:if="{{item.getType==2}}">已领取</view>
+                    <view bindtap="getOne" class="draw_btn" data-index="{{idx}}" data-prizeid="{{item.prizeId}}" data-tit="{{item.title}}" data-type="week" wx:else>领取</view>
+                </view>
+            </view>
+            <view class="sum_signin_box">
+                <view class="sum_title2"> 已累计签到<text class="totalSignin">{{totalSignin}}</text>天 </view>
+                <view class="biao1" hidden="{{!scrollBiao1}}"></view>
+                <view class="biao2" hidden="{{!scrollBiao2}}"></view>
+                <scroll-view bindscroll="innerOnScroll" class="inner" enhanced="true" scrollX="true">
+                    <view class="jdtbox">
+                        <view class="jdt" style="width: {{jdt}};"></view>
+                        <view class="icbox">
+                            <view bindtap="getSumPrize" class="ic ic{{idx+1}} {{totalSignin>=item.total?'ic_recive':''}} {{item.ifget?'ic_isget':''}}" data-index="{{idx+1}}" data-prizeid="{{item.prizeId}}" data-tt="{{item.tt}}" data-type="lq" wx:for="{{guijiList}}" wx:for-index="idx" wx:key="key">
+                                <div class="tian">{{item.total}}天</div>
+                                <div class="pr pr{{item.total}}"></div>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="footerBtn">
+            <view bindtap="signin" class="btn" wx:if="{{!edaySignin}}">立即签到</view>
+            <view class="btn btn_su" wx:else>
+                <text class="su">已签到</text>
+            </view>
+        </view>
+        <swiper autoplay="true" class="banner" indicatorActiveColor="#ffffff" indicatorDots="{{bannerList.length>1?true:false}}" interval="3000">
+            <swiper-item bindtap="goDetails" data-appid="{{item.jumpAppid}}" data-from="banner" data-newsid="{{item.id}}" data-title="{{item.title}}" data-type="{{item.jumpType}}" data-url="{{item.jumpPath}}" wx:for="{{signBanner}}" wx:key="idx">
+                <image class="in" src="{{item.picUrl}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="calendar">
+        <dk-calendar bind:nextShow="onNextShow" bind:preShow="onPreShow" originActiveData="{{user_date_log}}"></dk-calendar>
+    </view>
+</view>
+<view hidden="{{!showpop}}">
+    <view catchtap="closeRule" catchtouchmove="return" class="mask {{showpop&&!showMsgTips||showPopGetOne?'show':''}}" data-type="sp"></view>
+    <view class="pop pop1" wx:if="{{showSigninSuccess}}">
+        <view class="sum_title2"> 已累计签到<text class="totalSignin">{{totalSignin}}</text>天 </view>
+        <view catchtap="close" class="close" data-index="1"></view>
+    </view>
+    <view class="pop pop2" wx:if="{{showPopGetAll&&!showPrize}}">
+        <view class="gift"></view>
+        <view class="tit">正在努力领取中(<text class="tit2">{{count}}</text>/{{getNum}})...</view>
+    </view>
+    <view class="pop pop3" wx:if="{{showPopGetAll&&showPrize&&!showMsgTips}}">
+        <view class="title"> 已为你领取到{{count2}}个礼包 </view>
+        <view>请到游戏邮件查看</view>
+        <view class="title_icon"></view>
+        <view class="prizr_list">
+            <view class="list" wx:for="{{prizelist}}" wx:for-index="idx" wx:key="key">
+                <view class="imgbox">
+                    <view class="image{{item}}"></view>
+                </view>
+                <view class="text" wx:if="{{item==110}}">每日签到 礼包</view>
+                <view class="text" wx:if="{{item==120}}">每周首签 礼包</view>
+                <view class="text" wx:if="{{item==130}}">一周累签 3天礼包</view>
+                <view class="text" wx:if="{{item==140}}">一周连签 7天礼包</view>
+            </view>
+        </view>
+        <view class="instructions">(道具将于2小时内以游戏邮件形式发放)</view>
+        <view catchtap="close" class="btn btn2" data-index="2">开心收下</view>
+        <view catchtap="close" class="close" data-index="2"></view>
+    </view>
+    <view class="pop" wx:if="{{showPopGetOne}}">
+        <view class="title" wx:if="{{thispid==110}}">恭喜获得每日首签礼包</view>
+        <view class="title" wx:if="{{thispid==120}}">恭喜获得每周首签礼包</view>
+        <view class="title" wx:if="{{thispid==130}}">恭喜获得一周累计签到3天礼包</view>
+        <view class="title" wx:if="{{thispid==140}}">恭喜获得一周连续签到7天礼包</view>
+        <view class="title_icon"></view>
+        <view class="prizr_list2">
+            <view class="prize_box" wx:if="{{thispid==110||thispid==120}}">
+                <view class="img_box">
+                    <view class="image110"></view>
+                </view>
+                <view>线索x10</view>
+            </view>
+            <view class="prize_box" wx:if="{{thispid==130||thispid==140}}">
+                <view class="img_box">
+                    <view class="image5"></view>
+                </view>
+                <view>线索x20</view>
+            </view>
+            <view class="prize_box" wx:if="{{thispid==130}}">
+                <view class="img_box">
+                    <view class="image6"></view>
+                </view>
+                <view>1天角色体验卡</view>
+            </view>
+            <view class="prize_box" wx:if="{{thispid==140}}">
+                <view class="img_box">
+                    <view class="image7"></view>
+                </view>
+                <view>碎片x20</view>
+            </view>
+            <view class="prize_box" wx:if="{{thispid==140}}">
+                <view class="img_box">
+                    <view class="image8"></view>
+                </view>
+                <view>1天独特时装</view>
+                <view>体验卡</view>
+            </view>
+        </view>
+        <view class="instructions">(道具将于2小时内以游戏邮件形式发放)</view>
+        <view catchtap="close" class="btn" data-index="3">开心收下</view>
+        <view catchtap="close" class="close" data-index="3"></view>
+    </view>
+    <view class="pop pop_leiqian lq{{thispid}}" wx:if="{{showPopleiqian&&!showMsgTips}}">
+        <view class="tt"></view>
+        <text class="title tt210">恭喜获得28线索</text>
+        <text class="title tt220">恭喜获得58线索</text>
+        <text class="title tt230">88线索、奇珍时装体验卡3天</text>
+        <text class="title tt240 pa">188线索、奇珍时装体验卡3天、
+5窥镜</text>
+        <text class="title tt250">100碎片、30灵感、装扮残影30</text>
+        <text class="title tt260">小程序活动头像框</text>
+        <text class="title tt270">小程序活动头像</text>
+        <view class="title_icon"></view>
+        <view class="prizr_list2">
+            <view class="prize_box">
+                <view class="img_box">
+                    <view class="image"></view>
+                </view>
+                <view class="stt tt210">28线索</view>
+                <view class="stt tt220">58线索</view>
+                <view class="stt tt230">88线索、奇珍时装体验卡3天</view>
+                <view class="stt tt240">188线索、奇珍时装体验卡3天、5窥镜</view>
+                <view class="stt tt250">100碎片、30灵感、装扮残影30</view>
+                <view class="stt tt260">小程序活动头像框</view>
+                <view class="stt tt270">小程序活动头像</view>
+            </view>
+        </view>
+        <view class="instructions">(道具将于2小时内以游戏邮件形式发放)</view>
+        <view catchtap="closePop" class="btn" data-name="showPopleiqian">开心收下</view>
+        <view catchtap="closePop" class="close" data-name="showPopleiqian"></view>
+    </view>
+    <view class="pop pop4" wx:if="{{shareSuccess}}">
+        <view class="title alignbox" wx:if="{{!isSignShared}}">
+            <view class="share_text">分享成功!</view>
+            <view>获得<text class="chance">1次</text>抽限量周边的机会</view>
+        </view>
+        <view class="title alignbox" wx:else>
+            <view class="share_text">今日分享已完成，</view>
+            <view>是否跳转抽奖页面？</view>
+        </view>
+        <view catchtap="closePop" class="close" data-name="shareSuccess"></view>
+        <view catchtap="goTransfer" class="btn btn2" wx:if="{{!isSignShared}}">立即抽奖</view>
+        <view class="btns" wx:else>
+            <view catchtap="closePop" class="b c" data-name="shareSuccess">取消</view>
+            <view catchtap="goTransfer" class="b">确认</view>
+        </view>
+    </view>
+    <view class="pop pop5" wx:if="{{showRule}}">
+        <view class="_inner">
+            <view class="title">规则说明</view>
+            <view class="title_icon"></view>
+            <view class="inner">
+                <text>活动规则：</text>
+                <text>1.日常奖励：侦探每日签到即得10线索，在小程序首次完成签到的侦探再额外奖励10线索，线索将于2小时内以邮件的形式发放；</text>
+                <text>2.周签到奖励：每周一到周日为一个自然周期，周累计签到奖励只统计每个自然周内侦探的实际签到天数；另外，签到任务需从周一开始签直到周日，否则无法完成每周7日签到任务，不可获得7日连续签到奖励哦，具体规则以活动页面展示为准；</text>
+                <text>3.累计签到奖励如下表所示：</text>
+                <view class="table"></view>
+                <text>4.分享签到活动抽限量周边：侦探每日可通过分享签到活动给好友，获得1次抽奖机会，有机会获得限量周边大奖；抽奖机会可以累计，每日最多获得1次抽奖机会。</text>
+                <text>活动资格：</text>
+                <text>1.参与签到的侦探需为绑定了手机号和游戏角色且添加了第五人格小助手企微的侦探；</text>
+                <text>2.一个微信账号可以换绑多个游戏角色，重复参与签到活动。</text>
+                <text>3.在参与活动过程中，如果出现违规行为，第五人格小程序有权取消侦探参与本次活动的资格及其中奖资格，不予发奖，并收回活动中已发放的奖励（包含已使用的部分）等。</text>
+                <text>其他信息：</text>
+                <text>1.如因不可抗力以及活动中存在大面积恶意套利行为、通讯路线故障或者计算机大规模瘫痪等原因致使难以继续开展本活动的，第五人格小程序有权修改、暂停或取消本活动；</text>
+                <text>2.在法律许可的范国内，第五人格小程序保留调整、暂停和终止本活动的权利，并经公告后生效。</text>
+            </view>
+        </view>
+        <view catchtap="close" class="close" data-index="4"></view>
+    </view>
+</view>
+<view class="friendbox {{showAddfri?'on':''}}">
+    <view bindtap="addFriend" class="popzz"></view>
+    <image bindlongpress="tagQwFriend" bindtap="addFriend" class="small" mode="aspectFit" showMenuByLongpress="true" src="{{imgUrl}}/signin/qwhb2.jpg"></image>
+</view>
+<view class="dialog" wx:if="{{messageTipGif}}">
+    <image class="datails_message-tip-gif" mode="widthFix" src="{{messageTipGifUrl}}"></image>
+</view>
+<bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/signin/index" visible="{{!bindUserVisible}}"></bind-user>

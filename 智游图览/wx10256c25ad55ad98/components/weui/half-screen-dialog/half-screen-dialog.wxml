@@ -1,0 +1,32 @@
+<view class="{{show?'weui-show':'weui-hidden'}}">
+    <view bindtap="close" catch:touchmove="onMaskMouseMove" class="weui-mask init" data-type="tap" wx:if="{{mask}}"></view>
+    <view class="weui-half-screen-dialog {{extClass}}">
+        <view class="weui-half-screen-dialog__hd">
+            <view bindtap="close" class="weui-half-screen-dialog__hd__side" data-type="close" wx:if="{{closabled}}">
+                <view class="weui-icon-btn weui-icon-btn_close" hoverClass="weui-active">关闭</view>
+            </view>
+            <view class="weui-half-screen-dialog__hd__main">
+                <block wx:if="{{title}}">
+                    <text class="weui-half-screen-dialog__title">{{title}}</text>
+                    <text class="weui-half-screen-dialog__subtitle">{{subTitle}}</text>
+                </block>
+                <view class="weui-half-screen-dialog__title" wx:else>
+                    <slot name="title"></slot>
+                </view>
+            </view>
+        </view>
+        <view class="weui-half-screen-dialog__bd">
+            <block wx:if="{{desc}}">
+                <view class="weui-half-screen-dialog__desc">{{desc}}</view>
+                <view class="weui-half-screen-dialog__tips">{{tips}}</view>
+            </block>
+            <slot name="desc" wx:else></slot>
+        </view>
+        <view class="weui-half-screen-dialog__ft">
+            <block wx:if="{{buttons&&buttons.length}}">
+                <button bindtap="buttonTap" class="weui-btn {{item.className}}" data-index="{{index}}" type="{{item.type}}" wx:for="{{buttons}}" wx:key="index">{{item.text}}</button>
+            </block>
+            <slot name="footer" wx:else></slot>
+        </view>
+    </view>
+</view>

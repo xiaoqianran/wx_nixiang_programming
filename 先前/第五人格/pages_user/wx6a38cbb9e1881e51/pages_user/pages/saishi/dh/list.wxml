@@ -1,0 +1,33 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="订单列表"></navBar>
+<view class="container">
+    <view>
+        <view class="page page_topbar">
+            <view class="search">
+                <input bindconfirm="confirmSearch" bindinput="search" class="input" confirmType="search" placeholder="搜索订单" placeholderClass="phcolor" type="text" value="{{searchOrder}}"></input>
+            </view>
+        </view>
+        <view class="page page_order">
+            <view class="po_list" wx:for="{{historyList}}" wx:key="key">
+                <view bindtap="goDetail" class="po_item" data-id="{{item.id}}">
+                    <view class="item_show">
+                        <view class="show_left">
+                            <image src="{{item.prizeImage}}"></image>
+                            <view class="sl_txt">
+                                <view class="tit">{{item.prizeName}}</view>
+                                <view class="txt" wx:if="{{item.coinType=='silver'}}">银币 {{item.unitAmount}}</view>
+                                <view class="txt" wx:else> 时装券 {{item.unitAmount}}</view>
+                            </view>
+                        </view>
+                        <view class="show_right">x {{item.totalNum}}</view>
+                    </view>
+                    <view class="item_bottom">
+                        <view class="ib_left">交易成功</view>
+                        <view class="ib_right"> 实付款：<text wx:if="{{item.coinType=='silver'}}">银币 {{item.totalAmount}}</text>
+                            <text wx:else> 时装券 {{item.totalAmount}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

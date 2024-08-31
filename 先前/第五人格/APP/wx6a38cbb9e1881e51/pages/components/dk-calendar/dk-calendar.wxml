@@ -1,0 +1,44 @@
+<view class="dkDate-sm" wx:if="{{size=='m'}}">
+    <view bindtap="goDateDK" class="row1">
+        <view wx:for="{{row1}}" wx:for-index="row1Index" wx:for-item="row1" wx:key="row1Index">{{row1}}</view>
+        <view>
+            <image src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/more.png"></image>
+        </view>
+    </view>
+    <view class="row2">
+        <view bindtap="changeCurrDay" data-click="{{row2Index>3}}" data-day="{{row2}}" wx:for="{{row2}}" wx:for-index="row2Index" wx:for-item="row2" wx:key="row2Index">
+            <text class="{{row2Index>3?'gray':''}}">{{row2}}</text>
+            <view class="yellow" wx:if="{{currDay==row2}}"></view>
+        </view>
+        <view>
+            <text class="gray">...</text>
+        </view>
+    </view>
+    <view class="row3">
+        <view wx:for="{{row3}}" wx:for-index="row3Index" wx:for-item="row3" wx:key="row3Index">
+            <image src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/active.png" wx:if="{{row3}}"></image>
+        </view>
+        <view></view>
+    </view>
+</view>
+<view class="dkDate" wx:if="{{!size}}">
+    <view class="pnBox">
+        <image bindtap="preDate" class="pre" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/pre.png" wx:if="{{isPre}}"></image>
+        <image bindtap="preDate" class="pre" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/pre_gray.png" wx:if="{{!isPre}}"></image>
+        <text>{{chooseYear}}年 {{chooseMonth}}月</text>
+        <image bindtap="nextDate" class="next" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/next.png" wx:if="{{isNext}}"></image>
+        <image bindtap="nextDate" class="next" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/next_gray.png" wx:if="{{!isNext}}"></image>
+    </view>
+    <view bindtap="goDateDK" class="row1 gray-p">
+        <view wx:for="{{row1}}" wx:for-index="row1Index" wx:for-item="row1" wx:key="row1Index">{{row1}}</view>
+    </view>
+    <view class="row2">
+        <view bindtap="changeCurrDay" data-click="{{checkedColor.gray(chooseYear,chooseMonth,row2)}}" data-day="{{row2}}" wx:for="{{row2}}" wx:for-index="row2Index" wx:for-item="row2" wx:key="row2Index">
+            <text class="{{checkedColor.gray(chooseYear,chooseMonth,row2)?'gray-p':''}}">{{row2}}</text>
+            <view class="yellow" wx:if="{{checkedColor.yellow(currDayDetail,chooseYear,chooseMonth,row2)}}"></view>
+            <image src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/signin/jdt/active.png" wx:if="{{row3[row2Index]}}"></image>
+            <view wx:if="{{!row3[row2Index]}}"></view>
+        </view>
+    </view>
+</view>
+<wxs module="checkedColor">var gray = (function (year,month,day){var inputDate = year + '/' + month + '/' + day;var currYear = getDate().getFullYear();var currMonth = getDate().getMonth() + 1;var currDay = getDate().getDate();if (year > currYear)return(true); else if (year == currYear && month > currMonth)return(true); else if (year == currYear && month == currMonth && day > currDay)return(true); else return(false)});var yellow = (function (detail,year,month,day){var newMonth = '';var newDay = '';var currDateDetail = '';if (month < 10)newMonth = '0' + month; else newMonth = month;if (day < 10)newDay = '0' + day; else newDay = day;currDateDetail = year + '/' + newMonth + '/' + newDay;if (!detail || !day)return(false); else if (detail == currDateDetail)return(true); else return(false)});module.exports = ({gray:gray,yellow:yellow,});</wxs>

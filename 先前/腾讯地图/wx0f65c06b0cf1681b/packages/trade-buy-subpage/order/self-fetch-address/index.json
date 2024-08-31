@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "选择提货地点",
+  "componentPlaceholder": {
+    "a": "_",
+    "b": "_",
+    "c": "_"
+  }
+}

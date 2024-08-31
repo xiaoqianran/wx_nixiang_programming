@@ -1,0 +1,1 @@
+@import "/common/reset.wxss";.page-section{margin-bottom:10px}.placeholder{color:#f76260}.weui-input{background-color:initial;border:0;color:inherit;font-size:inherit;height:24px;line-height:1.41176471;outline:0;width:100%}

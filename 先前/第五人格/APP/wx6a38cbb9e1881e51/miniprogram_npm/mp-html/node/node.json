@@ -1,0 +1,1 @@
+{"component":true,"usingComponents":{"node":"./node","bind-user":"/pages/components/bind-user/bind-user","dk-calendar":"/pages/components/dk-calendar/dk-calendar","ec-canvas":"/pages/components/ec-canvas/ec-canvas","navBar":"/pages/components/navBar/navBar","news-list":"/pages/components/news-list/news-list","privacy-popup":"/pages/components/privacyPopup/privacyPopup"}}

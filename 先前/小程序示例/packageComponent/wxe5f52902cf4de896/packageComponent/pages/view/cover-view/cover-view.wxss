@@ -1,0 +1,1 @@
+.cover-view{left:calc(50% - 150px);position:absolute;top:calc(50% - 75px)}.flex-wrp{display:-webkit-flex;display:flex}.flex-item{font-size:13px;height:150px;width:100px}.demo-text-1{background:rgba(26,173,25,.7)}.demo-text-2{background:rgba(39,130,215,.7)}.demo-text-3{background:hsla(0,0%,100%,.7)}

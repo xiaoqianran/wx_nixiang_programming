@@ -1,0 +1,82 @@
+<view class="top-box">
+    <view class="top-box-content">
+        <view class="top-box-left">
+            <view>
+                <image alt="" class="top-box-Img" src="https://quickdo.top/images/grade/平均绩点.png"></image>
+            </view>
+            <view class="content">
+                <text class="top-box-title">平均绩点</text>
+                <text class="top-box-detail" style="color:#fff">{{a}}</text>
+            </view>
+        </view>
+        <view class="top-box-right" style="{{'background-color:'+d}}">
+            <view>
+                <image alt="" class="top-box-Img02" src="https://quickdo.top/images/grade/年级排名.png"></image>
+            </view>
+            <view class="content">
+                <text class="top-box-title">年级排名</text>
+                <text class="top-box-detail">{{b}}/{{c}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="scores-area" hidden="{{!f}}">
+    <uni-collapse bind:__l="__l" uI="6f3929e3-0" uS="{{['d']}}">
+        <uni-collapse-item bind:__l="__l" uI="{{score.f}}" uS="{{['title','d']}}" wx:for="{{e}}" wx:for-item="score" wx:key="e">
+            <view class="scores-title" slot="title">
+                <view class="scores-title-tip"> GPA:{{score.a}} | 学分:{{score.b}}</view>
+                <view class="scores-title-term">{{score.c}}学期</view>
+            </view>
+            <view class="scores-box" wx:for="{{score.d}}" wx:key="o">
+                <view class="scores-box-left">
+                    <view class="scores-box-lesson">
+                        <view class="classtype" style="{{'background-color:'+item.b+';'+'color:'+item.c}}">{{item.a}}</view>
+                        <view class="classname">{{item.d}}</view>
+                    </view>
+                    <view class="scores-box-totalPoints green" style="{{'color:'+item.f}}">{{item.e}}</view>
+                </view>
+                <view class="scores-box-right">
+                    <view class="scores-box-credits"> 学分:{{item.g}} | 绩点:{{item.h}}</view>
+                    <view class="scores-box-pointsDetail" wx:if="{{item.i}}"> 平时：{{item.j}} | 实验：{{item.k}} | 期末:{{item.l}}</view>
+                    <view class="scores-box-pointsDetail" wx:else> 平时：{{item.m}} | 期末:{{item.n}}</view>
+                </view>
+            </view>
+        </uni-collapse-item>
+    </uni-collapse>
+</view>
+<kevy-empty bind:__l="__l" data-c-h="{{!g}}" uI="6f3929e3-2" uP="{{h}}" wx:if="{{h}}"></kevy-empty>
+<view style="height:10px">
+    <view></view>
+</view>
+<view style="font-size:30rpx;color:#000000;margin-left:10px;font-weight:bold;margin-bottom:10rpx"> 累积已修学分：{{i}}分    实时累积平均绩点：{{j}}</view>
+<view style="font-size:12px;color:#9d9d9d;margin-left:10px;font-weight:bold">*实时累积平均绩点记录所有学期的成绩数据。 </view>
+<view style="font-size:12px;margin-left:10px;font-weight:bold;color:red"> 成绩会在每次进入本页后在后台自动更新，请在1-3分钟后重新进入本页方可查看最新成绩。 </view>
+<view style="font-size:12px;margin-left:10px;font-weight:bold;color:red"> 你也可以 <text bindtap="{{l}}" style="color:blue;text-decoration:underline" wx:if="{{k}}">点此立即刷新</text>
+    <text style="color:gray;text-decoration:underline" wx:else>点此立即刷新({{m}}s)</text> ，可能需要等待约1分钟。 </view>
+<view style="height:10px">
+    <view></view>
+</view>
+<view style="font-size:12px;color:#9d9d9d;margin-left:10px;font-weight:bold">*仅显示主修绩点排名，但以上会显示辅修成绩。 </view>
+<view style="font-size:12px;color:#9d9d9d;margin-left:10px;font-weight:bold">*页面顶部的绩点及排名为教务处数据，并非实时绩点及排名。 </view>
+<view style="font-size:12px;color:#9d9d9d;margin-left:10px;font-weight:bold">*评教提示：</view>
+<view style="font-size:12px;color:#9d9d9d;margin-left:10px">   若出现“请评教”(即期末时未评教或评教系统出错)则教务系统无法查询成绩，在企业微信“教务通-成绩查询”中查询成绩</view>
+<view style="height:10px">
+    <view></view>
+</view>
+<uni-card bind:__l="__l" uI="6f3929e3-3" uP="{{n}}" uS="{{['d']}}" wx:if="{{n}}">
+    <view>*单科绩点：</view>
+    <view>  总评成绩大于等于60分：5.0-(100-分数)*0.1</view>
+    <view>  总评成绩小于60分：0.0</view>
+    <view>  缺考：无补考机会（需重修）</view>
+    <view>*平均绩点：</view>
+    <view>  学分绩点：该课程的绩点数×该课程的学分数</view>
+    <view>  本学期平均绩点：该学期每门课程的学分绩点总和/该学期修读学分数总和 </view>
+    <view>  实时累积平均绩点：学分绩点总和/学分数总和</view>
+    <view>*五级记分制：</view>
+    <view>   优:95分      良:85分       中:75分 </view>
+    <view>   及格:65分  不及格:55分  缺考 </view>
+    <view>*常见平时分与期末分比例：</view>
+    <view>  专业课：3:7  4:6</view>
+    <view>  基础课：3:7  4:6  5:5 </view>
+    <view>  通识课：4:6  5:5</view>
+</uni-card>

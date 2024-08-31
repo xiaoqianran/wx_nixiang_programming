@@ -1,0 +1,1 @@
+<map bindtap="onTapMap" id="myMap" latitude="23.105562128174608" longitude="113.32424842327879" markers="{{markers}}"></map>

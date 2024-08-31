@@ -1,0 +1,1 @@
+.feature-container{padding-bottom:calc(var(--buy-button-iphone-safe-area, 0px) + var(--buy-button-height, 0px) + var(--bottom-nav-height, 0px))}.copyright-container{text-align:center;font-size:0}

@@ -1,0 +1,16 @@
+<view class="margin-top load loading text-l load-project" wx:if="{{!_params}}"></view>
+<block wx:else>
+    <import src="../../../../../tpls/public/base_list_tpl.wxml"></import>
+    <import src="../../../../../tpls/public/list_load_tpl.wxml"></import>
+    <cmpt-comm-list _items="" _menus="" _params="{{_params}}" bind:list="bindCommListCmpt" isTotalMenu="{{true}}" placeholder="搜索" route="meet/list" search="{{search}}" topBottom="120" type="meet-list">
+        <view class="up-project" wx:if="{{showUp}}">
+            <image lazyLoad mode="widthFix" src="{{upImg}}" wx:if="{{upImg}}"></image>
+        </view>
+        <template is="baseListTpl" data="{{skin:skin,dataList:dataList.list,listMode:listMode}}"></template>
+        <template is="listLoadTpl" data="{{skin:'load-project',dataList:dataList}}"></template>
+    </cmpt-comm-list>
+    <block wx:if="{{skin.IS_SUB}}">
+        <import src="../../tpls/menu_tpl.wxml"></import>
+        <template is="menuTpl" data="{{skin:skin,curMenu:'meet_index',returnHome:returnHome}}"></template>
+    </block>
+</block>

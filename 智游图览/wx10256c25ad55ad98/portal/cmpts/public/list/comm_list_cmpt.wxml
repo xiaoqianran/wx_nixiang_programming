@@ -1,0 +1,77 @@
+<view class="top_bar bar search fixed flex-direction" wx:if="{{isTotalMenu}}">
+    <view class="bar search bg-white " style="width:100%">
+        <view class="search-date" wx:if="{{doDate}}">
+            <view class="date-group">
+                <picker class="search-date-picker" mode="date" value="{{startDate}}">
+                    <view class="picker">
+                        <text class="{{!startDate?'text-line1':'text-line2'}}">{{startDate||'开始日期'}}</text>
+                    </view>
+                </picker>
+                <text class="text-line1">~</text>
+                <picker mode="date" value="{{endDate}}">
+                    <view class="picker">
+                        <text class="{{!endDate?'text-line1':'text-line2'}}">{{endDate||'结束日期'}}</text>
+                    </view>
+                </picker>
+            </view>
+            <view bindtap="bindDateSearchTap" class="date-btn btn mid bg-gray margin-left-xs" style="width:130rpx">搜索</view>
+            <view bindtap="bindDateClearTap" class="date-btn btn mid bg-grey light margin-left-xs" style="width:130rpx">清空</view>
+        </view>
+        <view class="search-form round" wx:if="{{!doDate}}">
+            <text class="icon-search text-l text-grey"></text>
+            <input bindtap="bindSearchTap" disabled="true" maxlength="30" placeholder="{{placeholder}}" type="text" value="{{search}}"></input>
+            <view bindtap="bindSearchClearTap" class="text-xl" wx:if="{{search}}">
+                <text class="icon-roundclose text-right  text-gray"></text>
+            </view>
+        </view>
+        <slot name="searchEnd"></slot>
+    </view>
+    <view class="tabs bg-white" style="width:100%;padding:0 20rpx;" wx:if="{{sortItems.length||sortMenus.length}}">
+        <view bindtap="bindSortTap" class="tab {{sortIndex==index?'text-orange cur  ':''}} " data-index="{{index}}" wx:for="{{sortItems}}" wx:key="key">
+            <text class="pulldown-text">{{index==sortIndex&&item.items[sortItemIndex]?item.items[sortItemIndex].label:item.items[0].label}}</text>
+            <text class="icon-{{item.show?'fold':'unfold'}} large text-black"></text>
+        </view>
+        <scroll-view scrollLeft="0" scrollX="true" style="white-space: nowrap;width:100%;overflow:scroll">
+            <view bindtap="bindSortTap" class="list-scroll-view tab tab-menu {{sortIndex==index+5||sortMenusDefaultIndex==index&&!search&&sortIndex==-1?'text-orange cur ':''}}  " data-index="{{index+5}}" wx:for="{{sortMenus}}" wx:key="key">{{item.label}}</view>
+        </scroll-view>
+        <slot name="menuEnd"></slot>
+        <block wx:if="{{pulldownType[index]=='list'}}" wx:for="{{sortItems}}" wx:key="key">
+            <view bindtap="bindSortItemTap" catchtouchmove="move" class="sort" wx:if="{{item.show}}">
+                <scroll-view class="pulldown-scroll-view" scrollIntoView="pulldown-{{sortIndex}}-{{sortItemIndex-9}}" scrollY="{{true}}">
+                    <view class="sort-item  {{idx==sortItemIndex&&index==sortIndex?'text-orange cur':''}}  " data-idx="{{idx}}" id="pulldown-{{index}}-{{idx}}" wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="its" wx:key="key">
+                        <text wx:if="{{idx==0}}">全部</text>{{its.label}}</view>
+                </scroll-view>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="box-list" style="height:{{listHeight?listHeight:'(100vh)'}};margin-top:0rpx;" wx:if="{{!isTotalMenu}}">
+    <scroll-view bindrefresherrefresh="bindPullDownRefresh" bindscroll="bindScrollTop" bindscrolltolower="bindReachBottom" class="box-list-scroll" refresherEnabled="true" refresherTriggered="{{refresherTriggered}}" scrollTop="{{topNum}}" scrollY="true">
+        <slot></slot>
+    </scroll-view>
+</view>
+<view class="box-list" style="height:calc(100vh - {{!sortItems.length&&!sortMenus.length?'110':'190'}}rpx);margin-top:{{!sortItems.length&&!sortMenus.length?'110':'190'}}rpx" wx:if="{{isTotalMenu}}">
+    <scroll-view bindrefresherrefresh="bindPullDownRefresh" bindscroll="bindScrollTop" bindscrolltolower="bindReachBottom" class="box-list-scroll" refresherEnabled="true" refresherTriggered="{{refresherTriggered}}" scrollTop="{{topNum}}" scrollY="true">
+        <slot></slot>
+    </scroll-view>
+</view>
+<button bindtap="bindTopTap" class="btn-fixed bg-gray text-gray btn-top" style="bottom:{{topBottom}}rpx;margin-bottom: constant(safe-area-inset-bottom);margin-bottom: env(safe-area-inset-bottom);" wx:if="{{topShow}}">
+    <text class="icon-top"></text>
+</button>
+<block wx:if="{{pulldownType[index]=='modal'}}" wx:for="{{sortItems}}" wx:key="key">
+    <view class="modal bottom-modal show" wx:if="{{item.show}}">
+        <view class="dialog">
+            <view class="bar bg-white">
+                <view bindtap="bindSortTap" class="action text-blue" data-index="{{index}}">取消</view>
+                <view bindtap="bindSortTap" class="action text-green" data-index="{{index}}" style="font-size:30rpx;">确定</view>
+            </view>
+            <view class="grid col-3 padding-sm" style="margin-bottom:120rpx;">
+                <view class="padding-xs" wx:for="{{item.items}}" wx:for-index="idx" wx:for-item="its" wx:key="key">
+                    <button bindtap="bindSortItemTap" class="pulldown-btn btn lg block {{idx==sortItemIndex&&index==sortIndex?'bg-orange light border-orange':''}}" data-idx="{{idx}}" data-value="{{item.value}}">
+                        <text wx:if="{{idx==0}}">全部</text>{{its.label}} </button>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+<view class="pulldown-mask" hidden="{{!pulldownMaskShow}}"></view>

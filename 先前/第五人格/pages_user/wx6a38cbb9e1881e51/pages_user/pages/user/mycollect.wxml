@@ -1,0 +1,347 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view bindtap="hideTips" class="popTips" wx:if="{{showTips}}">
+        <view class="i"></view>
+    </view>
+    <view class="pageheadbg">
+        <view class="page top">
+            <image class="headimg" src="{{user.headimg}}" wx:if="{{user.headimg}}"></image>
+            <image class="headcover" src="{{user.headcover}}" wx:if="{{user.headcover}}"></image>
+            <text class="name">{{!!gameId?user.role_name:'请先绑定游戏角色'}}</text>
+            <text class="id" wx:if="{{gameId}}">ID:{{gameId}}</text>
+            <text class="join" wx:if="{{dayDesc}}">{{dayDesc}}</text>
+            <view class="changeCard">
+                <picker bindchange="changeCard" range="{{cardArray}}" rangeKey="name" value="{{cardIndex}}">
+                    <view class="block">{{cardArray[cardIndex].name}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="page page_co">
+            <view class="inner">
+                <view class="li">
+                    <view class="bq">
+                        <view class="ic">{{user.skin?user.skin:0}}</view>
+                        <text>时装</text>
+                    </view>
+                    <view class="num">
+                        <view class="skin {{skinList[0].quality==5?'gold':''}} {{skinList[0].quality==6?'rainbow':''}}" wx:if="skinList!=''">
+                            <image src="{{imgUrl}}/greed{{skinList[0].iconPath}}"></image>
+                            <text>{{skinList[0].useName}}</text>
+                            <view class="bz bz{{skinList[0].discontinuedSignInt}}" wx:if="{{skinList[0].discontinuedSignInt}}"></view>
+                        </view>
+                    </view>
+                    <view class="det">
+                        <view class="sli">
+                            <text class="ail">稀世</text>
+                            <text class="ber">{{user.skin_quality5?user.skin_quality5:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">奇珍</text>
+                            <text class="ber">{{user.skin_quality4?user.skin_quality4:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">独特</text>
+                            <text class="ber">{{user.skin_quality3?user.skin_quality3:0}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="bq">
+                        <view class="ic">{{user.pet?user.pet:0}}</view>
+                        <text>随从</text>
+                    </view>
+                    <view class="num">
+                        <view class="entourage {{entourageList[0].quality==4?'gold':''}} {{entourageList[0].quality==3?'iron':''}}" wx:if="entourageList!=''">
+                            <image src="{{imgUrl}}/greed{{entourageList[0].iconPath}}"></image>
+                        </view>
+                    </view>
+                    <view class="det">
+                        <view class="sli">
+                            <text class="ail">稀世</text>
+                            <text class="ber">{{user.pet_quality5?user.pet_quality5:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">奇珍</text>
+                            <text class="ber">{{user.pet_quality4?user.pet_quality4:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">独特</text>
+                            <text class="ber">{{user.pet_quality3?user.pet_quality3:0}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="bq">
+                        <view class="ic">{{user.carry?user.carry:0}}</view>
+                        <text>随身物品</text>
+                    </view>
+                    <view class="num">
+                        <view class="additions  {{additionsList[0].quality==5?'gold':additionsList[0].quality==6?'rainbow':''}}" wx:if="additionsList!=''">
+                            <image src="{{imgUrl}}/greed{{additionsList[0].iconPath}}"></image>
+                            <view class="bz bz{{additionsList[0].discontinuedSign}}" wx:if="{{additionsList[0].discontinuedSign}}"></view>
+                        </view>
+                    </view>
+                    <view class="det">
+                        <view class="sli">
+                            <text class="ail">稀世</text>
+                            <text class="ber">{{user.carry_quality5?user.carry_quality5:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">奇珍</text>
+                            <text class="ber">{{user.carry_quality4?user.carry_quality4:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">独特</text>
+                            <text class="ber">{{user.carry_quality3?user.carry_quality3:0}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="eights">
+                <view class="li {{user.hero==user.allHero?'allhave':''}}">
+                    <view class="ic ic1"></view>
+                    <text class="des">角色数</text>
+                    <text class="num">{{user.hero?user.hero:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic2"></view>
+                    <text class="des">涂鸦</text>
+                    <text class="num">{{user.graffiti?user.graffiti:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic3"></view>
+                    <text class="des">头像</text>
+                    <text class="num">{{user.portrait?user.portrait:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic4"></view>
+                    <text class="des">头像框</text>
+                    <text class="num">{{user.frame?user.frame:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic5"></view>
+                    <text class="des">等待动作</text>
+                    <text class="num">{{user.wait_act?user.wait_act:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic6"></view>
+                    <text class="des">个性动作</text>
+                    <text class="num">{{user.per_act?user.per_act:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic7"></view>
+                    <text class="des">追击音乐</text>
+                    <text class="num">{{user.music?user.music:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic8"></view>
+                    <text class="des">归宿分</text>
+                    <text class="num">{{user.home_score?user.home_score:0}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page greed">
+        <view class="greedbox">
+            <view class="skinbigbox">
+                <view class="boxtop" id="imglist">
+                    <view class="cott">角色时装展示区</view>
+                    <view class="textTips">长按时装可自由拽动位置</view>
+                </view>
+                <view class="boxcenter" hidden="{{cardIndex!=0}}">
+                    <view class="skinUl" wx:for="{{skinListByQuality}}" wx:for-index="index1" wx:for-item="skinChild" wx:key="key">
+                        <view class="bar">
+                            <view class="tit">{{skinChild.name}}</view>
+                            <view class="btns">
+                                <view bindtap="showSkinChoose" class="add" data-index="{{index1}}">添加</view>
+                                <view bindtap="showSkinClear" class="clear" data-index="{{index1}}">一键清空</view>
+                            </view>
+                        </view>
+                        <view bindlongpress="skinlongpress" class="skinbox spical" data-index="{{index1}}" hidden="{{skinChild.list==''}}">
+                            <drag bind:click="itemClick" bind:del="skindel" bind:scroll="scroll" bind:sortend="sortEnd" columns="{{size}}" id="drag{{index1+2}}" itemHeight="{{itemHeight}}" itemWrapClass="drag-item-wrap" liIndex="{{index1}}" listData="{{skinChild.list}}" scrollTop="{{scrollTop}}"></drag>
+                        </view>
+                        <view bindtap="showSkinChoose" class="addskin" data-index="{{index1}}" hidden="{{skinChild.list!=''}}"></view>
+                    </view>
+                </view>
+                <view class="boxcenter" hidden="{{cardIndex!=1}}">
+                    <view class="skinUl" wx:for="{{skinListByCamp}}" wx:for-index="index1" wx:for-item="skinChild" wx:key="key">
+                        <view class="bar">
+                            <view class="tit">{{skinChild.name}}</view>
+                            <view class="btns">
+                                <view bindtap="showSkinChoose" class="add" data-index="{{index1}}">添加</view>
+                                <view bindtap="showSkinClear" class="clear" data-index="{{index1}}">一键清空</view>
+                            </view>
+                        </view>
+                        <view bindlongpress="skinlongpress" class="skinbox spical" data-index="{{index1}}" hidden="{{skinChild.list==''}}">
+                            <drag bind:click="itemClick" bind:del="skindel" bind:scroll="scroll" bind:sortend="sortEnd" columns="{{size}}" id="drag{{index1}}" itemHeight="{{itemHeight}}" itemWrapClass="drag-item-wrap" liIndex="{{index1}}" listData="{{skinChild.list}}" scrollTop="{{scrollTop}}"></drag>
+                        </view>
+                        <view bindtap="showSkinChoose" class="addskin" data-index="{{index1}}" hidden="{{skinChild.list!=''}}"></view>
+                    </view>
+                </view>
+                <view class="boxcenter" hidden="{{cardIndex!=2}}">
+                    <view class="skinUl" data-index="{{index1}}" wx:for="{{skinListByDiscontinuedSign}}" wx:for-index="index1" wx:for-item="skinChild" wx:key="key">
+                        <view wx:if="{{skinListTemporaryByDiscontinuedSign[index1].list!=''}}">
+                            <view class="bar">
+                                <view class="tit">{{skinChild.name}}</view>
+                                <view class="btns">
+                                    <view bindtap="showSkinChoose" class="add" data-index="{{index1}}">添加</view>
+                                    <view bindtap="showSkinClear" class="clear" data-index="{{index1}}">一键清空</view>
+                                </view>
+                            </view>
+                            <view bindlongpress="skinlongpress" class="skinbox spical" data-index="{{index1}}" hidden="{{skinChild.list==''}}">
+                                <drag bind:click="itemClick" bind:del="skindel" bind:scroll="scroll" bind:sortend="sortEnd" columns="{{size}}" id="drag{{skinChild.sign+10}}" itemHeight="{{itemHeight}}" itemWrapClass="drag-item-wrap" liIndex="{{index1}}" listData="{{skinChild.list}}" scrollTop="{{scrollTop}}"></drag>
+                            </view>
+                            <view bindtap="showSkinChoose" class="addskin" data-index="{{index1}}" hidden="{{skinChild.list!=''}}"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view class="additionsbigbox">
+                <view class="boxtop">
+                    <view class="cott">随身物品展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="additionsbox">
+                        <view class="li {{item.quality==5?'gold':item.quality==6?'rainbow':''}}" wx:for="{{additionsList}}" wx:key="key">
+                            <image lazyLoad="true" src="{{imgUrl}}/greed{{item.iconPath}}"></image>
+                            <view class="bz bz{{item.discontinuedSign}}" wx:if="{{item.discontinuedSign}}"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view class="entouragebigbox">
+                <view class="boxtop">
+                    <view class="cott">随从展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="entouragebox">
+                        <view class="li {{item.quality==4?'gold':''}} {{item.quality==3?'iron':''}}" wx:for="{{entourageList}}" wx:key="key">
+                            <image lazyLoad="true" src="{{imgUrl}}/greed{{item.iconPath}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view class="framebigbox">
+                <view class="boxtop">
+                    <view class="cott">头像框展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="framebox">
+                        <view class="li" wx:for="{{frameList}}" wx:key="key">
+                            <image lazyLoad="true" src="{{imgUrl}}/greed{{item.iconPath}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+        </view>
+    </view>
+    <view class="fixbtns">
+        <view class="tips">生成图鉴后可长按点击屏幕保存图片至手机相册</view>
+        <view bindtap="getSysInfo" class="buildImg">一键生成图鉴</view>
+    </view>
+    <view class="pop-skinChoose" hidden="{{!skinChooseShow}}">
+        <view class="out">
+            <view bindtap="hideSkinChoose" class="close"></view>
+            <view class="colbar">
+                <view class="changeSearch">
+                    <view class="l">选择时装</view>
+                    <view class="r2" wx:if="{{cardIndex==0}}">
+                        <picker bindchange="changeSkinType" range="{{skinListByQualityChoose}}" value="{{byQualityIndex}}">
+                            <view class="r">{{skinListByQualityChoose[byQualityIndex]}}</view>
+                        </picker>
+                    </view>
+                    <view class="r2" wx:if="{{cardIndex==1}}">
+                        <picker bindchange="changeSkinType" range="{{skinListByCampChoose}}" value="{{byCampIndex}}">
+                            <view class="r">{{skinListByCampChoose[byCampIndex]}}</view>
+                        </picker>
+                    </view>
+                    <view class="r2" wx:if="{{cardIndex==2}}">
+                        <picker bindchange="changeSkinType" range="{{skinListByDiscontinuedSignChoose}}" rangeKey="name" value="{{byDiscontinuedSignIndex}}">
+                            <view class="r">{{skinListByDiscontinuedSignChoose[byDiscontinuedSignIndex].name}}</view>
+                        </picker>
+                    </view>
+                </view>
+                <view bindtap="tapAllChoose" class="allChoose {{allChoose?'on':''}}">
+                    <text>全选</text>
+                </view>
+            </view>
+            <view class="line"></view>
+            <view class="skinUlOut" hidden="{{cardIndex!=0}}">
+                <view class="skinUl" wx:for="{{skinListTemporaryByQuality}}" wx:for-index="index1" wx:for-item="skinChild" wx:key="key">
+                    <view hidden="{{skinChild.list==''||skinChild.hide}}">
+                        <view class="bar">
+                            <view class="tit">{{skinChild.name}}</view>
+                        </view>
+                        <view class="skinbox">
+                            <view bindtap="skinChoose" class="li {{item.quality==5?'gold':''}} {{item.quality==6?'rainbow':''}}" data-faindex="{{index1}}" data-index="{{index2}}" wx:if="{{item.quality==4||item.quality==5||item.quality==6}}" wx:for="{{skinChild.list}}" wx:for-index="index2" wx:key="key">
+                                <view class="bz bz{{item.discontinuedSignInt}}" wx:if="{{item.discontinuedSignInt}}"></view>
+                                <image lazyLoad="true" src="{{imgUrl}}/greed{{item.iconPath}}"></image>
+                                <text>{{item.useName}}</text>
+                                <view class="isCh" wx:if="{{item.choose}}">
+                                    <view class="i"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="skinUlOut" hidden="{{cardIndex!=1}}">
+                <view class="skinUl" wx:for="{{skinListTemporaryByCamp}}" wx:for-index="index1" wx:for-item="skinChild" wx:key="key">
+                    <view hidden="{{skinChild.list==''||skinChild.hide}}">
+                        <view class="bar">
+                            <view class="tit">{{skinChild.name}}</view>
+                        </view>
+                        <view class="skinbox">
+                            <view bindtap="skinChoose" class="li {{item.quality==5?'gold':''}} {{item.quality==6?'rainbow':''}}" data-faindex="{{index1}}" data-index="{{index2}}" wx:if="{{item.quality==4||item.quality==5||item.quality==6}}" wx:for="{{skinChild.list}}" wx:for-index="index2" wx:key="key">
+                                <view class="bz bz{{item.discontinuedSignInt}}" wx:if="{{item.discontinuedSignInt}}"></view>
+                                <image lazyLoad="true" src="{{imgUrl}}/greed{{item.iconPath}}"></image>
+                                <text>{{item.useName}}</text>
+                                <view class="isCh" wx:if="{{item.choose}}">
+                                    <view class="i"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="skinUlOut" hidden="{{cardIndex!=2}}">
+                <view class="skinUl" wx:for="{{skinListTemporaryByDiscontinuedSign}}" wx:for-index="index1" wx:for-item="skinChild" wx:key="key">
+                    <view hidden="{{skinChild.list==''||skinChild.hide}}">
+                        <view class="bar">
+                            <view class="tit">{{skinChild.name}}</view>
+                        </view>
+                        <view class="skinbox">
+                            <view bindtap="skinChoose" class="li {{item.quality==5?'gold':''}} {{item.quality==6?'rainbow':''}}" data-faindex="{{index1}}" data-index="{{index2}}" wx:if="{{item.quality==4||item.quality==5||item.quality==6}}" wx:for="{{skinChild.list}}" wx:for-index="index2" wx:key="key">
+                                <view class="bz bz{{item.discontinuedSignInt}}" wx:if="{{item.discontinuedSignInt}}"></view>
+                                <image lazyLoad="true" src="{{imgUrl}}/greed{{item.iconPath}}"></image>
+                                <text>{{item.useName}}</text>
+                                <view class="isCh" wx:if="{{item.choose}}">
+                                    <view class="i"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="skinAffirm" class="submit">确认</view>
+        </view>
+    </view>
+    <view class="canvasbox {{showCanvas?'on':''}}">
+        <image bindtap="canvasHide" mode="widthFix" showMenuByLongpress="true" src="{{loadImagePath}}" wx:if="{{loadImagePath&&timeEights}}"></image>
+    </view>
+    <view class="saveTips" hidden="{{!showCanvas||timeEights}}">
+        <view class="tips">图鉴生成中，生成后请按以下步骤操作保存哦~</view>
+        <image class="gif" src="{{imgUrl}}/precious/save.gif"></image>
+    </view>
+    <canvas canvasId="mycanvas" id="mycanvas" style="width: {{_canvasw}}px; height: {{_canvasH}}px"></canvas>
+    <view class="loading" wx:if="{{isLoading}}"></view>
+    <bindgame bindPopShow="{{bindPopShow}}" bindbindCol="bindCol" userName="{{user.role_name}}" wxToken="{{wxToken}}"></bindgame>
+    <view class="dialog" wx:if="{{messageTipGif}}">
+        <image class="datails_message-tip-gif" mode="widthFix" src="{{messageTipGifUrl}}"></image>
+    </view>
+    <bottom-dh active="3"></bottom-dh>
+</view>

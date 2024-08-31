@@ -1,0 +1,365 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" iconTheme="black" title="战绩详情"></navBar>
+<view class="more_container">
+    <view class="more_banner">
+        <view class="banner_inner">
+            <view class="more_title">个人数据</view>
+            <view class="more_list">
+                <view class="more_item">
+                    <view class="ms_left pkzs"></view>
+                    <view class="ms_right">
+                        <view class="mr_num">{{personData.battle_num}}</view>
+                        <view class="mr_font">对战数</view>
+                    </view>
+                </view>
+                <view class="more_item">
+                    <view class="ms_left getzs"></view>
+                    <view class="ms_right">
+                        <view class="mr_num">{{personData.praise}}</view>
+                        <view class="mr_font">得赞数</view>
+                    </view>
+                </view>
+                <view class="more_item">
+                    <view class="ms_left rpz"></view>
+                    <view class="ms_right">
+                        <view class="mr_num">{{personData.credit}}</view>
+                        <view class="mr_font">人品值</view>
+                    </view>
+                </view>
+            </view>
+            <view class="more_list">
+                <view class="more_item">
+                    <view class="ms_left qczj"></view>
+                    <view class="ms_right">
+                        <view class="mr_num">{{personData.mvp}}</view>
+                        <view class="mr_font">全场最佳</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="more_data">
+        <view class="nav_list">
+            <view class="col">
+                <picker bindchange="bindPickerChange" data-id="1" range="{{array}}" value="{{index}}">
+                    <view class="chres">{{arrayVal1}}</view>
+                </picker>
+            </view>
+            <view class="col">
+                <picker bindchange="bindPickerChange2" data-id="1" range="{{array2}}" value="{{index}}">
+                    <view class="chres">{{arrayVal2}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="data_canvas">
+            <view class="page p2 swpbox">
+                <view class="out">
+                    <view class="pwsj">
+                        <view class="li">
+                            <view class="dwbox">
+                                <image class="dw" src="{{chartData.imgUrl}}" wx:if="{{chartData.pvp_part_duan}}"></image>
+                            </view>
+                            <view class="tt">{{chartData.label}}</view>
+                            <view class="jw">{{chartData.pvp_part_duanWei}}{{chartData.pvp_part_jie}}</view>
+                            <view class="xing" wx:if="{{chartData.pvp_part_duan<7}}">
+                                <view class="i qsz" wx:for="{{chartData.pvp_part_xing}}" wx:key="key"></view>
+                            </view>
+                            <view class="xing" wx:else>
+                                <view class="bigxin"></view>
+                                <text class="dess">x{{chartData.pvp_part_xing}}</text>
+                            </view>
+                        </view>
+                        <view class="leidabox">
+                            <view class="leida">
+                                <view class="inner">
+                                    <ec-canvas canvasId="lchart" ec="{{ec}}" id="lchart"></ec-canvas>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="qsz_show" wx:if="{{arrayVal2=='求生者'}}">
+            <view class="data_block block1">
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left ljtt"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.escape_battle}}</view>
+                            <view class="mr_font">累计逃脱</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left zbmz"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.board_hit}}</view>
+                            <view class="mr_font">砸板命中</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left pyts"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.fix}}</view>
+                            <view class="mr_font">破译台数</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left ljjr"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.save}}</view>
+                            <view class="mr_font">累计救人</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left zlcs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.cure}}</view>
+                            <view class="mr_font">治疗次数</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left ljqz"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.tease}}</view>
+                            <view class="mr_font">累计牵制</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list two">
+                    <view class="more_item">
+                        <view class="ms_left pwcc"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.rank}}</view>
+                            <view class="mr_font">排位场次</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left zjyy"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.mvp}}</view>
+                            <view class="mr_font">最佳演绎</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="data_block block2">
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left ttl"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.escape_rate}}</view>
+                            <view class="mr_font">逃脱率</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left cjpy"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.avg_fix}}</view>
+                            <view class="mr_font">场均破译</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left cjjr"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.avg_save}}</view>
+                            <view class="mr_font">场均救人</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list two">
+                    <view class="more_item">
+                        <view class="ms_left cjqz"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.avg_tease}}</view>
+                            <view class="mr_font">场均牵制</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left cjyyf"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataQS.avg_score}}</view>
+                            <view class="mr_font">场均演绎分</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="data_block block3">
+                <view class="more_title">五排数据</view>
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left scs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.winNum}}</view>
+                            <view class="mr_font">胜场数</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left sl"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.winRate}}</view>
+                            <view class="mr_font">胜率</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left zcs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.battleNum}}</view>
+                            <view class="mr_font">总场数</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left wpdw">
+                            <image class="dw_small" src="{{showFiveData.icon}}" wx:if="{{showFiveData.icon}}"></image>
+                        </view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.partDuanWei}}{{showFiveData.partJie}}</view>
+                            <view class="mr_font">五排段位</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="jgz_show" wx:else>
+            <view class="data_block block1">
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left ljtt"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.kill_num}}</view>
+                            <view class="mr_font">累计淘汰</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left cs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.killall}}</view>
+                            <view class="mr_font">四抓场数</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left pbzs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.break_board}}</view>
+                            <view class="mr_font">破板总数</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left ljjd"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.attack_down}}</view>
+                            <view class="mr_font">累计击倒</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left ljzs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.terror_shock}}</view>
+                            <view class="mr_font">累计恐惧震慑</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left szl"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.killall_rate}}</view>
+                            <view class="mr_font">四抓率</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list two">
+                    <view class="more_item">
+                        <view class="ms_left zjyy"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.mvp}}</view>
+                            <view class="mr_font">最佳演绎</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="data_block block2">
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left cjtt"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.avg_kill}}</view>
+                            <view class="mr_font">场均淘汰</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left cjpb"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.avg_break_board}}</view>
+                            <view class="mr_font">场均破板</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left cjjd"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.avg_attack_down}}</view>
+                            <view class="mr_font">场均击倒</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list two">
+                    <view class="more_item">
+                        <view class="ms_left cjzs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.avg_terror_shock}}</view>
+                            <view class="mr_font">场均恐惧震慑</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left yyjf"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showDataJG.avg_score}}</view>
+                            <view class="mr_font">场均演绎积分</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="data_block block3">
+                <view class="more_title">五排数据</view>
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left scs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.winNum}}</view>
+                            <view class="mr_font">胜场数</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left sl"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.winRate}}</view>
+                            <view class="mr_font">胜率</view>
+                        </view>
+                    </view>
+                    <view class="more_item">
+                        <view class="ms_left zcs"></view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.battleNum}}</view>
+                            <view class="mr_font">总场数</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="more_list">
+                    <view class="more_item">
+                        <view class="ms_left wpdw">
+                            <image class="dw_small" src="{{showFiveData.icon}}" wx:if="{{showFiveData.icon}}"></image>
+                        </view>
+                        <view class="ms_right">
+                            <view class="mr_num">{{showFiveData.partDuanWei}}{{showFiveData.partJie}}</view>
+                            <view class="mr_font">五排段位</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="detailsWXS" src="index.wxs"/>

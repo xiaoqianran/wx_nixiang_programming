@@ -1,0 +1,48 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="pop-dh2" wx:if="{{type==2}}">
+        <view class="inner">
+            <view class="inputbox">
+                <text class="left">收货人</text>
+                <input bindinput="nameVal" class="input" maxlength="20" placeholder="收货人姓名" placeholderClass="phcolor" type="text" value="{{addressInfo.name}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">手机号码</text>
+                <input bindinput="telVal" class="input" maxlength="11" placeholder="手机号" placeholderClass="phcolor" type="number" value="{{addressInfo.phoneNo}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">VX号</text>
+                <input bindinput="wechatNumberVal" class="input" maxlength="30" placeholder="如有特殊情况可及时与您联系" placeholderClass="phcolor" type="text" value="{{addressInfo.wechatNumber}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">地区</text>
+                <picker bindchange="bindRegionChange" class="picker" customItem="{{customItem}}" mode="region" value="{{region}}">
+                    <view>{{region[0]}} {{region[1]}} {{region[2]}}</view>
+                </picker>
+            </view>
+            <view class="inputbox big">
+                <text class="left">详细地址</text>
+                <textarea adjustPosition="{{false}}" bindinput="addressVal" class="textarea" maxlength="100" placeholder="请输入详细地址" placeholderClass="phcolor2" showConfirmBar="{{false}}" type="text" value="{{addressInfo.detailedAddress}}"></textarea>
+            </view>
+        </view>
+    </view>
+    <view class="pop-dh2" wx:elif="{{type==3}}">
+        <view class="inner">
+            <view class="inputbox">
+                <text class="left">真实姓名</text>
+                <input bindinput="nameVal" class="input" maxlength="20" placeholder="支付宝打款需要" placeholderClass="phcolor" type="text" value="{{addressInfo.name}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">支付宝账号</text>
+                <input bindinput="alipayVal" class="input" maxlength="30" placeholder="确保可被搜索到" placeholderClass="phcolor" type="text" value="{{addressInfo.alipay}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">VX号</text>
+                <input bindinput="wechatNumberVal" class="input" maxlength="30" placeholder="如有特殊情况可及时与您联系" placeholderClass="phcolor" type="text" value="{{addressInfo.wechatNumber}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="bottomBar">
+        <view bindtap="priceDh" class="submit">保存</view>
+    </view>
+</view>

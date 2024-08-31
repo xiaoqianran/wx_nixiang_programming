@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "待付款的订单",
+  "navigationStyle": "custom",
+  "backgroundColor": "#f9f9f9",
+  "componentPlaceholder": {
+    "i": "_",
+    "n": "_",
+    "p": "_",
+    "s": "_",
+    "t": "_"
+  }
+}

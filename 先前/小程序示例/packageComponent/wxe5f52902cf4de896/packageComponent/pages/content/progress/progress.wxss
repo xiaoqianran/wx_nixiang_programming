@@ -1,0 +1,1 @@
+progress{width:100%}.progress-box{display:-webkit-flex;display:flex;height:25px;margin-bottom:30px}.progress-cancel{margin-left:20px}

@@ -1,0 +1,27 @@
+<view>
+    <view wx:for="{{zong}}" wx:key="id">
+        <view class="cu-card article {{isCard?'no-card':''}}">
+            <view class="cu-item shadow">
+                <view class="title">
+                    <view class="text-cut">{{item.name}}</view>
+                </view>
+                <view class="content">
+                    <image mode="aspectFill" src="{{item.src}}" style="height: 300rpx;"></image>
+                    <view class="desc">
+                        <view class="text-content" style="height: 200rpx;font-size: smaller;">{{item.address}}</view>
+                        <view>
+                            <view class="cu-tag bg-red light sm round">{{item.age}}</view>
+                            <view class="cu-tag bg-green light sm round">{{item.number}}</view>
+                            <view class="cu-tag bg-green light sm round">{{item.xuehao}}</view>
+                            <view class="cu-tag bg-red light sm round">{{item.fenlei}}</view>
+                            <view class="anniu">
+                                <button bindtap="huopi" data-id="{{item.name}}" size="mini" type="warn">获批</button>
+                                <button bindtap="tuihui" data-id="{{item.name}}" size="mini" type="warn">退回</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

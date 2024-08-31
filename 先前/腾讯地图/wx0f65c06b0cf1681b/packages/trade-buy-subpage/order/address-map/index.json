@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "选择收货地址",
+  "disableScroll": true,
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_"
+  }
+}

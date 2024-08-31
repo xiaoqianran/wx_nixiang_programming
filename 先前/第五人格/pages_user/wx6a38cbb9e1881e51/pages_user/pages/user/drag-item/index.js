@@ -1,0 +1,1 @@
+var e=getApp();Component({properties:{columns:{type:Number,value:1},itemData:{type:Object,value:{}},liIndex:{type:Number,value:0}},data:{imgUrl:e.globalData.imgUrl},methods:{itemClick:function(e){this.triggerEvent("click",{test:"文案"})},skindel:function(e){this.triggerEvent("del",{test:this.properties.liIndex})}},ready:function(){}});

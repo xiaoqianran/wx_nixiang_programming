@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "实时人脸检测",
+  "disableScroll": true,
+  "renderer": "webview"
+}

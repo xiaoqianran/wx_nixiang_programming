@@ -1,0 +1,80 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="订单详情"></navBar>
+<view class="container">
+    <view class="detail_show">
+        <view class="detail_top">
+            <image src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/success.png"></image> 交易成功 </view>
+        <view class="detail_main">
+            <view class="main_item">
+                <view class="item_top">交易成功</view>
+                <view class="item_show">
+                    <view class="show_left">
+                        <image src="{{detailInfo.prizeImage}}"></image>
+                        <view class="sl_txt">
+                            <view class="tit">{{detailInfo.prizeName}}</view>
+                            <view class="txt" wx:if="{{detailInfo.prizeType=='virtual'}}">
+                                <text wx:if="{{detailInfo.coinType=='silver'}}">银币{{detailInfo.unitAmount}}</text>
+                                <text wx:else>时装券{{detailInfo.unitAmount}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="show_right">
+                        <view class="right_num">x {{detailInfo.totalNum}}</view>
+                        <view bindtap="doAddInfo" class="right_btn" wx:if="{{detailInfo.prizeType=='physicals'}}">查看补充信息</view>
+                        <view bindtap="dhmInfo" class="right_btn" wx:elif="{{detailInfo.prizeType=='cdk'}}">商品兑换码</view>
+                    </view>
+                </view>
+                <view class="item_total">
+                    <view class="tit">商品总计：</view>
+                    <view class="txt">
+                        <text wx:if="{{detailInfo.coinType=='silver'}}">银币{{detailInfo.totalAmount}}</text>
+                        <text wx:else>时装券{{detailInfo.totalAmount}}</text>
+                    </view>
+                </view>
+                <view class="item_pay"> 实付款： <text wx:if="{{detailInfo.coinType=='silver'}}">银币{{detailInfo.totalAmount}}</text>
+                    <text wx:else>时装券{{detailInfo.totalAmount}}</text>
+                </view>
+                <view class="item_info">
+                    <view class="info_tit">订单信息</view>
+                    <view class="info_txt">
+                        <view class="txt">订单编号：{{detailInfo.id}} <text bindtap="copyCode" data-code="{{detailInfo.id}}">复制</text>
+                        </view>
+                        <view class="txt">兑换时间：{{detailInfo.createTime}} </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="closeAddInfo" class="detail_dialog" wx:if="{{addInfoFlag}}">
+        <view class="dialog_content">
+            <view class="dialog_main dialog_info">
+                <view class="main_tit">补充信息</view>
+                <view class="info_txt_show">
+                    <view class="info_txt">
+                        <view class="it1">姓名</view>
+                        <view class="it2">{{detailInfo.recordAddress.deliveryConsignee}}</view>
+                    </view>
+                    <view class="info_txt">
+                        <view class="it1">手机</view>
+                        <view class="it2">{{detailInfo.recordAddress.deliveryPhone}}</view>
+                    </view>
+                    <view class="info_txt">
+                        <view class="it1">地区</view>
+                        <view class="it2">{{detailInfo.recordAddress.deliveryAddress}}</view>
+                    </view>
+                </view>
+                <view bindtap="closeAddInfo" class="dialog_btn">关闭</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="dhmInfo" class="detail_dialog" wx:if="{{dhmFlag}}">
+        <view class="dialog_content">
+            <view class="dialog_main dialog_dhm">
+                <view class="main_tit">商品兑换码：</view>
+                <view class="dhm_num">
+                    <text wx:for="{{detailInfo.cdkList}}" wx:key="idx">{{item.content}};</text>
+                </view>
+                <view bindtap="copyDHM" class="dialog_btn" data-code="{{detailInfo.cdkList}}"> 一键复制 </view>
+            </view>
+        </view>
+    </view>
+</view>

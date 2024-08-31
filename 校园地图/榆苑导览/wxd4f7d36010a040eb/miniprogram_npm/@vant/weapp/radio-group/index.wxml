@@ -1,0 +1,4 @@
+<view class="{{utils.bem( 'radio-group',[direction] )}}">
+    <slot></slot>
+</view>
+<wxs module="utils" src="../wxs/utils.wxs"/>

@@ -1,0 +1,198 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="bg"></view>
+    <view class="header">
+        <view class="logo"></view>
+        <view class="logo_zn"></view>
+        <view class="right_btns">
+            <view bindtap="openPop" class="btn_rule" data-key="voiceTip"></view>
+            <view bindtap="handleGoQuestionnaire" class="btn_fk"></view>
+            <view bindtap="openPop" class="btn_gg" data-key="gonggao"></view>
+        </view>
+        <view class="slogan"></view>
+        <view class="active_time">活动时间:3月28日10:30-4月3日23:59</view>
+    </view>
+    <view class="main">
+        <view class="top_box">
+            <view class="bind_user">
+                <view bindtap="handleBindGame" wx:if="{{!bindUserInfo||bindUserInfo.bind==0}}"> 绑定游戏角色>> </view>
+                <view bindtap="openPop" data-key="notBind" wx:else> {{bindUserInfo.idvName||userInfo.nickname||'庄园访客'}} </view>
+            </view>
+            <view class="today_voice" wx:if="{{bindUserInfo&&bindUserInfo.bind==1}}"> 今日剩余声量： <text>{{bindUserInfo.reputation}}份</text>
+            </view>
+            <view bindtap="openTask" class="btn_getmore"></view>
+        </view>
+        <view class="list_wrap">
+            <view class="title" data-typename="{{typeName}}">{{typeName}}</view>
+            <view class="tips">（榜单每两分钟进行刷新）</view>
+            <view class="list">
+                <view class="bg"></view>
+                <view class="item" data-index="{{index}}" wx:for="{{bdList}}" wx:key="index">
+                    <block wx:if="{{item!='{}'}}">
+                        <view class="player">
+                            <view class="no" data-no="{{item.top?item.top:index+1}}"> {{item.top?item.top:index+1}} </view>
+                            <view class="head" data-no="{{item.top?item.top:index+1}}">
+                                <image src="{{item.icon}}"></image>
+                            </view>
+                            <view class="info">
+                                <view class="name">{{item.teamName}}</view>
+                                <view class="desc" data-text="{{item.msg}}" wx:if="{{item.msg}}"> {{item.msg}} </view>
+                                <view class="voice">声量：{{item.score-0}}</view>
+                            </view>
+                        </view>
+                        <view class="btns">
+                            <view class="btn_yjs" wx:if="{{!isInTime}}"></view>
+                            <block wx:else>
+                                <view bindtap="handleBindGame" class="btn_ssl" wx:if="{{!bindUserInfo||bindUserInfo.bind==0}}"></view>
+                                <view class="btn_yjs" wx:elif="{{bindUserInfo.open==1}}"></view>
+                                <view bindtap="openSendVoice" class="btn_mrzl" data-id="{{item.id}}" data-typeid="{{item.typeId}}" wx:elif="{{bindUserInfo.reputation==0&&isOverTask}}"></view>
+                                <view bindtap="openSendVoice" class="btn_ssl" data-id="{{item.id}}" data-typeid="{{item.typeId}}" wx:else></view>
+                            </block>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="arrow"></view>
+    </view>
+    <view class="btmbar">
+        <view bindtap="backIndex" class="btn_back"></view>
+        <view bindtap="openTask" class="btn_getmore"></view>
+    </view>
+    <view class="popup" wx:if="{{showPopupMask}}">
+        <view class="pop_gonggao" wx:if="{{popup.gonggao}}">
+            <view class="inner"></view>
+            <view bindtap="closePop" class="close" data-key="gonggao"></view>
+        </view>
+        <view class="pop_bind_confirm" wx:if="{{popup.bindConfirm}}">
+            <view class="title"></view>
+            <div class="inner">
+                <view class="nickname" data-text="{{bindUserInfo.idvName||userInfo.nickname||'庄园访客'}}"> {{bindUserInfo.idvName||userInfo.nickname||'庄园访客'}} </view>
+                <view class="tips">*请确认是否使用当前小程序绑定角色参与活动，一旦绑定后无法换绑。</view>
+                <view class="btns">
+                    <view bindtap="openPop" class="btn_hb" data-key="unBindVisible">换绑</view>
+                    <view bindtap="handleBindConfirm" class="btn_qr">确认</view>
+                </view>
+            </div>
+            <view bindtap="closePop" class="close" data-key="bindConfirm"></view>
+        </view>
+        <view class="pop_voice_tip" wx:if="{{popup.voiceTip}}">
+            <view class="title"></view>
+            <view class="inner">
+                <view class="scroll">
+                    <view class="img"></view>
+                </view>
+            </view>
+            <view bindtap="closePop" class="close" data-key="voiceTip"></view>
+        </view>
+        <view class="pop_change_bind" wx:if="{{popup.changeBind}}">
+            <view class="inner">
+                <view class="tips">当前角色已绑定其他微信号参与活动，请在游戏内解除小程序绑定后，使用未参与过活动角色进行绑定。</view>
+                <view class="btns">
+                    <view bindtap="openPop" class="btn_hb" data-key="unBindVisible">换绑</view>
+                    <view bindtap="closePop" class="btn_qr" data-key="changeBind">确认</view>
+                </view>
+            </view>
+            <view bindtap="closePop" class="close" data-key="changeBind"></view>
+        </view>
+        <view class="pop_unbind_visible" wx:if="{{popup.unBindVisible}}">
+            <view class="title"></view>
+            <view class="inner">
+                <view bindtap="closePop" class="btn_qr" data-key="unBindVisible"></view>
+                <view bindtap="closePop" class="close" data-key="unBindVisible"></view>
+            </view>
+        </view>
+        <view class="pop_not_bind" wx:if="{{popup.notBind}}">
+            <view class="inner">
+                <view class="tips">活动期间，当前页面不支持换绑操作</view>
+                <view bindtap="closePop" class="btn_qr" data-key="notBind">确认</view>
+            </view>
+            <view bindtap="closePop" class="close" data-key="notBind"></view>
+        </view>
+        <view class="pop_daily_remind" wx:if="{{popup.dailyRemind}}">
+            <view class="inner">
+                <view class="renwu"></view>
+                <view class="tips">
+                    <view>打开每日提醒，为自己心爱的</view>
+                    <view>选手/战队/解说/主播/创作者</view>
+                    <view>赠送声量冲榜助威</view>
+                </view>
+                <view bindtap="subscribeMsg" class="btn_qr">立即开启</view>
+            </view>
+            <view bindtap="closePop" class="close" data-key="dailyRemind"></view>
+        </view>
+        <view class="pop_give_voice" wx:if="{{popup.giveVoice}}">
+            <view class="inner">
+                <view class="top">
+                    <view class="user">
+                        <view class="head">
+                            <image src="{{bindUserInfo.header}}" wx:if="{{bindUserInfo&&bindUserInfo.bind==1&&bindUserInfo.header}}"></image>
+                            <image src="{{defaultHead}}" wx:else></image>
+                        </view>
+                        <text class="nickname">{{bindUserInfo.idvName||userInfo.nickname||'庄园访客'}}</text>
+                    </view>
+                    <view class="player">
+                        <view class="head">
+                            <image src="{{giveParams.playerInfo.icon}}"></image>
+                        </view>
+                        <text class="nickname">{{giveParams.playerInfo.teamName}}</text>
+                    </view>
+                </view>
+                <view class="wa"></view>
+                <view class="select">
+                    <view bindtap="handleVoiceNum" class="btn_minus  {{giveParams.sum<=1?'disable':''}}" data-type="minus"></view>
+                    <view class="num">
+                        <text>{{giveParams.sum}}</text>
+                    </view>
+                    <view bindtap="handleVoiceNum" class="btn_add  {{giveParams.sum>=bindUserInfo.reputation?'disable':''}}" data-type="add"></view>
+                </view>
+                <button bindtap="handleShare" class="wa2" openType="share" style="padding: 0;border-radius: 0;"></button>
+                <view bindtap="handleGiveVolume" class="btn_ssl {{bindUserInfo.reputation==0?'grey':''}}"> 送声量 </view>
+            </view>
+            <view bindtap="closePop" class="close" data-key="giveVoice"></view>
+        </view>
+        <view class="pop_succ" wx:if="{{popup.succ}}">
+            <view class="inner">
+                <view class="renwu"></view>
+            </view>
+            <view bindtap="closePop" class="close" data-key="succ"></view>
+        </view>
+        <view bindtap="closePop" class="pop_task_prog" data-key="taskProg" wx:if="{{popup.taskProg}}">
+            <div class="inner">
+                <view class="top_box">
+                    <view class="bind_user">
+                        <view bindtap="handleBindGame" wx:if="{{bindUserInfo.bind==0}}">绑定游戏角色>></view>
+                        <view bindtap="openPop" data-key="notBind" wx:else> {{bindUserInfo.idvName||userInfo.nickname||'庄园访客'}} </view>
+                    </view>
+                    <view bindtap="handleRefreshTask" class="btn_refresh"></view>
+                </view>
+                <view class="task_list">
+                    <view class="item" wx:for="{{task}}" wx:key="index">
+                        <view class="task_desc">
+                            <view class="name">{{index+1}}.{{item.name}}</view>
+                            <view class="tip" wx:if="{{item.tips}}">（{{item.tips}}）</view>
+                        </view>
+                        <view class="rig">
+                            <text>声量+{{item.voice}}</text>
+                            <block wx:if="{{item.isShare}}">
+                                <button bindtap="handleShare" class="btn_share" openType="share" wx:if="{{item.state==0}}"> 分享 </button>
+                                <view bindtap="getVolume" class="btn_lq" data-key="{{item.key}}" wx:elif="{{item.state==1}}"> 领取 </view>
+                                <view class="btn_ylq" wx:elif="{{item.state==2}}">已领取</view>
+                            </block>
+                            <block wx:else>
+                                <view class="btn_wwc" wx:if="{{item.state==0}}">未完成</view>
+                                <view bindtap="getVolume" class="btn_lq" data-key="{{item.key}}" wx:elif="{{item.state==1}}"> 领取 </view>
+                                <view class="btn_ylq" wx:elif="{{item.state==2}}">已领取</view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="tips">
+                    <text>#任务进度每日零点刷新，请及时领取任务奖励</text>
+                    <text>#游戏对局任务刷新有延迟，请耐心等待</text>
+                </view>
+            </div>
+        </view>
+    </view>
+    <bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/home/home/home" visible="{{!bindUserVisible}}"></bind-user>
+</view>

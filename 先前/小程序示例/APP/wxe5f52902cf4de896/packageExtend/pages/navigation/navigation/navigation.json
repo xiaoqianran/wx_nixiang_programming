@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "navigation",
+  "navigationStyle": "custom",
+  "renderer": "webview"
+}

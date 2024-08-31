@@ -1,0 +1,28 @@
+<view bindtap="{{J}}" class="{{[G&&'uni-list-item--disabled','uni-list-item']}}" hoverClass="{{I}}" style="{{'background-color:'+H}}">
+    <view class="{{['border--left',b&&'uni-list--border']}}" wx:if="{{a}}"></view>
+    <view class="{{['uni-list-item__container',y&&'container--right',z&&'flex--direction']}}" style="{{'padding-top:'+A+';'+'padding-left:'+B+';'+'padding-right:'+C+';'+'padding-bottom:'+D}}">
+        <slot name="header" wx:if="{{$slots.header}}"></slot>
+        <view class="uni-list-item__header" wx:else>
+            <view class="uni-list-item__icon" wx:if="{{c}}">
+                <image class="{{['uni-list-item__icon-img',e]}}" src="{{d}}"></image>
+            </view>
+            <view class="uni-list-item__icon" wx:elif="{{f}}">
+                <uni-icons bind:__l="__l" uI="9cddf904-0" uP="{{g}}" wx:if="{{g}}"></uni-icons>
+            </view>
+        </view>
+        <slot name="body" wx:if="{{$slots.body}}"></slot>
+        <view class="{{['uni-list-item__content',m&&'uni-list-item__content--center']}}" wx:else>
+            <text class="{{['uni-list-item__content-title',j]}}" wx:if="{{h}}">{{i}}</text>
+            <text class="uni-list-item__content-note" wx:if="{{k}}">{{l}}</text>
+        </view>
+        <slot name="footer" wx:if="{{$slots.footer}}"></slot>
+        <block wx:else>
+            <view class="{{['uni-list-item__extra',x&&'flex--justify']}}" wx:if="{{n}}">
+                <text class="uni-list-item__extra-text" wx:if="{{o}}">{{p}}</text>
+                <uni-badge bind:__l="__l" uI="9cddf904-1" uP="{{r}}" wx:if="{{q}}"></uni-badge>
+                <switch bindchange="{{w}}" checked="{{v}}" disabled="{{t}}" wx:if="{{s}}"></switch>
+            </view>
+        </block>
+    </view>
+    <uni-icons bind:__l="__l" class="uni-icon-wrapper" uI="9cddf904-2" uP="{{F}}" wx:if="{{E}}"></uni-icons>
+</view>

@@ -1,0 +1,3 @@
+__wxCodeSpace__.batchAddCompiledTemplate(function(G,R,D,Q,gdc,X,Y,Z,RG={}){var P=RG.P||function(a){return typeof a==='function'?a:()=>{}};return {'packageComponent/pages/canvas/canvas/canvas':(()=>{var H={};var S;var I=(P)=>{if(!S)S=Object.assign({},H);return S[P]};H[""]=(R,C,D,U)=>{var L=R.c,M=R.m,O=R.r,A={},K=U===true,b=(C,T)=>{C?T("packageComponent/pages/canvas/canvas/canvas.wxml"):T()},a=(C,T,E)=>{E("text",{},(N,C)=>{},b)};;return {C:a,B:A}};return Object.assign(function(R){return H[R]},{_:H})})(),}});
+var noCss=typeof __vd_version_info__!=='undefined'&&__vd_version_info__.noCss===true;if(!noCss){__wxAppCode__['packageComponent/pages/canvas/canvas/canvas.wxss'] = setCssToHead([],undefined,{path:"./packageComponent/pages/canvas/canvas/canvas.wxss"});
+}

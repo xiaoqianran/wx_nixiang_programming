@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "实时深度图检测",
+  "disableScroll": true,
+  "renderer": "webview"
+}

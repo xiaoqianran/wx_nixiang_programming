@@ -1,0 +1,166 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<scroll-view bindscrolltolower="atComBottom" class="container {{!!ifshowSeLvCom?'fixed':''}}" scrollIntoView="{{toView}}" scrollY="true">
+    <image class="bannerBox" mode="widthFix" src="{{newsDet.banner}}"></image>
+    <view class="page page_det page_details_container">
+        <view class="center">
+            <view class="main">
+                <view class="detail-title" wx:if="{{newsDet.title}}">{{newsDet.title}}</view>
+                <view class="fen_ge_xian"></view>
+                <view class="dai {{textSize}}">
+                    <video autoplay="autoplay" class="play" customCache="{{false}}" id="myVideo" src="{{newsDet.videoUrl}}" wx:if="{{newsDet.videoUrl!=null}}"></video>
+                    <mp-html content="{{newsDet.content}}" errorImg="{{imgErr}}" loadingImg="{{imgLoading}}" tagStyle="{{tagStyle}}"></mp-html>
+                </view>
+            </view>
+            <view class="comment-container" id="comment" wx:if="{{comNum&&comList&&comList.length}}">
+                <view class="comment-text">评论（{{comNum>999?'999+':comNum}}）</view>
+                <view bindtap="showSeLvCom" class="comment-item" data-comid="{{item.id}}" data-h5url="{{item.h5Url}}" data-index="{{index}}" wx:for="{{comList}}" wx:key="key">
+                    <image class="user-title" src="{{item.headPicUrl}}"></image>
+                    <view class="comment-item-text">
+                        <view class="nick_name_title">
+                            <view class="nick_name">{{item.nickName?item.nickName:'游客'}}</view>
+                            <view class="bq" wx:if="{{item.ranking}}">
+                                <image class="ic" src="{{imgUrl}}/vsrecord/ic/{{detailsWXS.levelToClass(item)}}.png"></image>
+                                <text class="title"> {{item.ranking}} </text>
+                            </view>
+                            <view class="bq2" wx:if="{{item.usBackFlag&&item.usBackFlag===1&&item.officeFlag}}"></view>
+                            <view class="bq3" wx:if="{{item.usBackFlag&&item.usBackFlag===2&&item.officeFlag}}"></view>
+                        </view>
+                        <view class="description">{{item.content}}</view>
+                        <view catchtap="previewImage" class="imagebox" data-src="{{item.imgUrl}}" wx:if="{{item.imgUrl}}">
+                            <image class="comPic" data-src="{{item.imgUrl}}" mode="widthFix" src="{{item.imgUrl}}"></image>
+                        </view>
+                        <view class="reply" wx:if="{{item.commentNum}}">
+                            <view>
+                                <text class="blue">{{item.firstChildName}}</text>等人 <text class="blue">共{{item.commentNum}}条回复></text>
+                            </view>
+                        </view>
+                        <view class="time-operation">
+                            <view class="time">{{item.createTime}}</view>
+                            <view class="operation">
+                                <view catchtap="deleteCom" class="delete" data-comid="{{item.id}}" data-index="{{index}}" wx:if="{{item.own==1||isCommentAdmin}}">删除</view>
+                                <view catchtap="doMylike" class="likeNum {{item.isOwnLike==1?'on':''}}" data-id="{{item.id}}" data-index="{{index}}" data-item="{{item}}">{{item.like}}</view>
+                                <view class="comNum">{{item.commentNum}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="null-comment" wx:else>暂无评论，快来抢占沙发吧</view>
+        </view>
+    </view>
+    <view catchtouchmove="return" class="secondLvCom" wx:if="{{!!ifshowSeLvCom}}">
+        <view bindtap="seClose" class="sezz"></view>
+        <view class="seout">
+            <view class="topCol">
+                <view bindtap="seReget" class="reget"></view>
+                <text class="center">{{faCom.commentNum}}条回复</text>
+                <view bindtap="seClose" class="close"></view>
+            </view>
+            <scroll-view bindscrolltolower="seisBo" class="biggest" scrollTop="{{seTop}}" scrollY="true">
+                <view class="bigout comment-item">
+                    <image class="user-title" src="{{faCom.headPicUrl}}"></image>
+                    <view class="comment-item-text">
+                        <view class="nick_name_title">
+                            <view class="nick_name">{{faCom.nickName?faCom.nickName:'游客'}}</view>
+                            <view class="bq" wx:if="{{faCom.ranking}}">
+                                <image class="ic" src="{{imgUrl}}/vsrecord/ic/{{detailsWXS.levelToClass(faCom)}}.png"></image>
+                                <text class="title"> {{faCom.ranking}} </text>
+                            </view>
+                        </view>
+                        <view class="description">{{faCom.content}}</view>
+                        <view catchtap="previewImage" class="imagebox" data-src="{{faCom.imgUrl}}" wx:if="{{faCom.imgUrl}}">
+                            <image class="comPic" data-src="{{faCom.imgUrl}}" mode="widthFix" src="{{faCom.imgUrl}}"></image>
+                        </view>
+                        <view class="time-operation">
+                            <view class="time">{{faCom.createTime}}</view>
+                            <view class="operation">
+                                <view catchtap="doMylike" class="likeNum {{faCom.isOwnLike==1?'on':''}}" data-id="{{faCom.id}}" data-index="{{faCom.index}}">{{faCom.like}}</view>
+                                <view class="comNum">{{faCom.commentNum}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <block wx:if="{{seComList&&seComList.length}}">
+                    <view bindtap="showChCom" class="comment-item" data-comid="{{subItem.id}}" data-index="{{subIndex}}" data-name="{{subItem.nickName}}" wx:for="{{seComList}}" wx:for-index="subIndex" wx:for-item="subItem" wx:key="id">
+                        <image class="user-title" src="{{subItem.headPicUrl}}"></image>
+                        <view class="comment-item-text">
+                            <view class="nick_name_title">
+                                <view class="nick_name">{{subItem.nickName?subItem.nickName:'游客'}}</view>
+                            </view>
+                            <view class="description">{{subItem.content}}</view>
+                            <view catchtap="previewImage" class="imagebox" data-src="{{subItem.imgUrl}}" wx:if="{{subItem.imgUrl}}">
+                                <image class="comPic" data-src="{{subItem.imgUrl}}" mode="widthFix" src="{{subItem.imgUrl}}"></image>
+                            </view>
+                            <view catchtap="showImg" class="showImg" data-index="{{index}}" wx:elif="{{item.imgUrl&&!item.imgshow}}">查看图片</view>
+                            <view class="time-operation">
+                                <view class="time">{{subItem.createTime}}</view>
+                                <view class="operation">
+                                    <view catchtap="deleteCom" class="delete" data-comid="{{subItem.id}}" data-index="{{subIndex}}" wx:if="{{subItem.own==1||isCommentAdmin}}">删除</view>
+                                    <view catchtap="doMylike" class="likeNum {{subItem.isOwnLike==1?'on':''}}" data-id="{{subItem.id}}" data-index="{{subIndex}}" data-item="{{subItem}}">{{subItem.like}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <view class="comTips" wx:else>暂无评论，快来抢占沙发吧</view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="combot {{isfocus?'focus_combot':''}} {{isIOS?'ios_combot':''}}" style="bottom: {{comInputPabot}}px;" wx:if="{{!showCom}}">
+        <view bindtap="roleIdHave" class="com_input {{isfocus?'on':''}} {{isIOS?'ios':''}}">
+            <textarea adjustPosition="{{false}}" bindblur="comblur" bindfocus="comfocus" bindinput="comVal" bindkeyboardheightchange="comkeyboardheightchange" bindlinechange="comlinechange" class="comtextarea" disabled="{{disabled}}" fixed="true" focus="{{textareaFocus}}" maxlength="300" placeholder="{{textareaPlaceholder}}" placeholderStyle="color: #949599; line-height: 28rpx;" style="height: {{(isfocus?comInputlineNum>3?comInputlineNum>6?7*28:comInputlineNum*28:3*28:28)+(isIOS?30:10)}}rpx;" type="text" value="{{comDes}}"></textarea>
+            <view class="imagebox" wx:if="{{!!comImg}}">
+                <view bindtap="comImgDelete" class="close"></view>
+                <image bindtap="previewImage" class="comPic" data-src="{{comImg}}" mode="widthFix" src="{{comImg}}"></image>
+            </view>
+        </view>
+        <view class="btns share_commit-like" wx:if="{{!isfocus}}">
+            <button bindtap="showShare" class="inline share" openType="share"></button>
+            <view bindtap="goCom" class="inline gocom">
+                <view class="num" wx:if="{{comNum>0}}">{{comNum>999?'999+':comNum}}</view>
+                <view class="num" wx:else> 0 </view>
+            </view>
+            <view bindtap="articleLike" class="inline like {{newsIsOwnLike==1?'on':''}}">
+                <view class="num" wx:if="{{likeNum>0}}">{{likeNum>999?'999+':likeNum}}</view>
+                <view class="num" wx:else> 0 </view>
+            </view>
+        </view>
+        <view class="btns upload-submit" wx:else>
+            <view bindtap="chooseImg" class="inline uploadPic"></view>
+            <view bindtap="sendCom" class="inline sendmsg">发送</view>
+        </view>
+    </view>
+    <view bindtap="hidecom" class="pop-comzz" wx:if="{{isfocus}}"></view>
+    <view class="pop-affirm">
+        <image class="bg" src="{{imgUrl}}/forum/details/pop_bg.png"></image>
+        <text class="des">确定要删除这篇内容吗？</text>
+        <view class="btns">
+            <view class="back">
+                <image class="bg" src="{{imgUrl}}/forum/details/btn_bg.png"></image>
+                <text>取消</text>
+            </view>
+            <view class="submit">
+                <image class="bg" src="{{imgUrl}}/forum/details/btn_bg.png"></image>
+                <text>确定</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="comment-pop" wx:if="{{!!showCommentPop}}">
+    <view class="pop"></view>
+    <view class="inner">
+        <view class="gift_head"></view>
+        <view catchtap="closeCommentPop" class="closeBtn">
+            <image class="image" src="{{imgUrl}}/draw/pop-close.png"></image>
+        </view>
+        <view class="title">评论奖励</view>
+        <view class="centent">评论成功，赠送一次幸运抽奖的机会！</view>
+        <view catchtap="goDraw" class="btn">马上抽奖</view>
+    </view>
+</view>
+<view class="dialog" wx:if="{{messageTipGif}}">
+    <image class="datails_message-tip-gif" mode="widthFix" src="{{messageTipGifUrl}}"></image>
+</view>
+<bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/home/home/home" visible="{{!bindUserVisible}}"></bind-user>
+<privacy-popup></privacy-popup>
+<wxs module="detailsWXS" src="index.wxs"/>

@@ -1,0 +1,60 @@
+<view bindtouchend="{{F}}" bindtouchmove="{{E}}" bindtouchstart="{{D}}" class="data-v-63995dbb">
+    <view class="uni-calendar data-v-63995dbb">
+        <view bindtap="{{c}}" class="{{['uni-calendar__mask','data-v-63995dbb',b&&'uni-calendar--mask-show']}}" wx:if="{{a}}"></view>
+        <view class="{{['uni-calendar__content','data-v-63995dbb',B&&'uni-calendar--fixed',C&&'uni-calendar--ani-show']}}" wx:if="{{d}}">
+            <view class="uni-calendar__header uni-calendar--fixed-top data-v-63995dbb" wx:if="{{e}}">
+                <view bindtap="{{g}}" class="uni-calendar__header-btn-box data-v-63995dbb">
+                    <text class="uni-calendar__header-text uni-calendar--fixed-width data-v-63995dbb">{{f}}</text>
+                </view>
+                <view bindtap="{{i}}" class="uni-calendar__header-btn-box data-v-63995dbb">
+                    <text class="uni-calendar__header-text uni-calendar--fixed-width data-v-63995dbb">{{h}}</text>
+                </view>
+            </view>
+            <view class="uni-calendar__header data-v-63995dbb">
+                <view catchtap="{{j}}" class="uni-calendar__header-btn-box data-v-63995dbb">
+                    <view class="uni-calendar__header-btn uni-calendar--left data-v-63995dbb"></view>
+                </view>
+                <picker bindchange="{{m}}" class="data-v-63995dbb" fields="month" mode="date" value="{{l}}">
+                    <text class="uni-calendar__header-text data-v-63995dbb">{{k}}</text>
+                </picker>
+                <view catchtap="{{n}}" class="uni-calendar__header-btn-box data-v-63995dbb">
+                    <view class="uni-calendar__header-btn uni-calendar--right data-v-63995dbb"></view>
+                </view>
+                <text bindtap="{{p}}" class="uni-calendar__backtoday data-v-63995dbb">{{o}}</text>
+            </view>
+            <view class="uni-calendar__box data-v-63995dbb">
+                <view class="uni-calendar__box-bg data-v-63995dbb" wx:if="{{q}}">
+                    <text class="uni-calendar__box-bg-text data-v-63995dbb">{{r}}</text>
+                </view>
+                <view class="uni-calendar__weeks data-v-63995dbb">
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{s}}</text>
+                    </view>
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{t}}</text>
+                    </view>
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{v}}</text>
+                    </view>
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{w}}</text>
+                    </view>
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{x}}</text>
+                    </view>
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{y}}</text>
+                    </view>
+                    <view class="uni-calendar__weeks-day data-v-63995dbb">
+                        <text class="uni-calendar__weeks-day-text data-v-63995dbb">{{z}}</text>
+                    </view>
+                </view>
+                <view class="uni-calendar__weeks data-v-63995dbb" wx:for="{{A}}" wx:key="b">
+                    <view class="uni-calendar__weeks-item data-v-63995dbb" wx:for="{{item.a}}" wx:for-item="weeks" wx:key="d">
+                        <calendar-item bind:__l="__l" bindchange="{{weeks.a}}" class="uni-calendar-item--hook data-v-63995dbb" uI="{{weeks.b}}" uP="{{weeks.c}}" wx:if="{{weeks.c}}"></calendar-item>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选择用餐人数",
+  "componentPlaceholder": {
+    "van-dialog": "_",
+    "van-loading": "_",
+    "van-toast": "_",
+    "van-notify": "_"
+  }
+}

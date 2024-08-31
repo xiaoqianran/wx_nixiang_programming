@@ -1,0 +1,41 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<scroll-view bindscrolltolower="atUlBottom" class="container" scrollY="true">
+    <view class="pop-addressList">
+        <view class="inner">
+            <view class="out">
+                <view class="tit">玩家7天内填写收货地址，中奖人填写地址后请及时发货。</view>
+                <view class="tips">点击文案可复制到剪切板</view>
+            </view>
+            <view class="ul">
+                <view class="li" data-idex="{{index}}" wx:for="{{addressList}}" wx:key="key">
+                    <view class="s c"> NO.{{index+1}} </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.nickName}}">
+                        <text class="l">昵称:</text>
+                        <text class="r">{{item.nickName}}</text>
+                    </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.prizeName}}">
+                        <text class="l">获得奖励:</text>
+                        <text class="r">{{item.prizeName}}</text>
+                    </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.name==null?'暂未填写':item.name}}">
+                        <text class="l">收货人:</text>
+                        <text class="r">{{item.name==null?'暂未填写':item.name}}</text>
+                    </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.phoneNo==null?'暂未填写':item.phoneNo}}">
+                        <text class="l">手机号码:</text>
+                        <text class="r">{{item.phoneNo==null?'暂未填写':item.phoneNo}}</text>
+                    </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.wechatId==null?'暂未填写':item.wechatId}}">
+                        <text class="l">VX号:</text>
+                        <text class="r">{{item.wechatId==null?'暂未填写':item.wechatId}}</text>
+                    </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.region==null?'暂未填写':item.region}}">
+                        <text class="l">地区:</text>
+                        <text class="r">{{item.region==null?'暂未填写':item.region}}</text>
+                    </view>
+                    <view bindtap="copyCode" class="s" data-code="{{item.detailedAddress==null?'暂未填写':item.detailedAddress}}">详细地址: {{item.detailedAddress==null?'暂未填写':item.detailedAddress}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

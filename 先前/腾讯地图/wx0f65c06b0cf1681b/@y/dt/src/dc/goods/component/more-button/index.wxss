@@ -1,0 +1,1 @@
+.t-text{display:inline-block;text-decoration:inherit}.more-btn-text{position:absolute;width:100%;color:#969799;display:-webkit-flex;display:flex;align-items:center;justify-content:center;background:rgba(50,50,51,.05);font-size:12px}.more-btn-text.circle{border-radius:8px}.more-btn{position:relative;flex:0 0 auto;height:100%}

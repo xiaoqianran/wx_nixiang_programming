@@ -1,0 +1,31 @@
+<view class="uni-content">
+    <uni-card bind:__l="__l" uI="0d7d0247-0" uP="{{a}}" uS="{{['d']}}" wx:if="{{a}}">
+        <text class="uni-h6">*学分信息来自教务系统，应修学分与已修学分与教务系统显示一致。如与培养方案有出入，请以培养方案为准。</text>
+    </uni-card>
+    <view class="allDetailBox" vShow="{{c}}" wx:for="{{b}}" wx:key="h">
+        <view class="title">
+            <view class="aBlock"></view>
+            <view class="title-type">{{item.a}}</view>
+            <view class="title-detail">{{item.b}}/{{item.c}}</view>
+        </view>
+        <view wx:for="{{item.d}}" wx:for-item="item1" wx:key="g">
+            <uni-collapse bind:__l="__l" uI="{{item1.g}}" uS="{{['d']}}">
+                <uni-collapse-item bind:__l="__l" uI="{{item1.e}}" uP="{{item1.f}}" uS="{{['d']}}" wx:if="{{item1.f}}">
+                    <view class="subTitle" wx:if="{{item1.a}}"> 已修课程  </view>
+                    <view class="lessonDetail" wx:for="{{item1.b}}" wx:for-item="item2" wx:key="e">
+                        <view class="code">{{item2.a}}</view>
+                        <view class="name">{{item2.b}}</view>
+                        <view class="score">{{item2.c}}</view>
+                    </view>
+                    <view class="subTitle" wx:if="{{item1.c}}"> 应修课程 </view>
+                    <view class="lessonDetail" wx:for="{{item1.d}}" wx:for-item="item3" wx:key="f">
+                        <view class="code">{{item3.a}}</view>
+                        <view class="name">{{item3.b}}</view>
+                        <view class="score">{{item3.c}}</view>
+                    </view>
+                </uni-collapse-item>
+            </uni-collapse>
+        </view>
+    </view>
+    <kevy-empty bind:__l="__l" uI="0d7d0247-3" uP="{{d}}" wx:if="{{d}}"></kevy-empty>
+</view>

@@ -1,0 +1,16 @@
+<view class="margin-top load notexist text-l load-project" wx:if="{{isLoad===null}}"></view>
+<view class="margin-top load loading text-l load-project" wx:if="{{isLoad===false}}"></view>
+<block wx:if="{{isLoad}}">
+    <view class="main padding-project">
+        <view class="article-box margin-top-xs">
+            <view class="article card-project shadow-project">
+                <view class="title">
+                    <text userSelect="true">{{album.title}}</text>
+                </view>
+                <view class="time"> {{album.typeName}} {{album.updateTime}}</view>
+                <mp-html content="{{album.content}}"></mp-html>
+            </view>
+        </view>
+    </view>
+    <cmpt-detail bg="{{skin.PROJECT_COLOR}}" cover="{{album.coverpic}}" desc="查看攻略详情" favType="{{album.favType}}" mapMode="points" mapModeType="album" mapOid="{{album.scenic_map}}" mode="mode1" oid="{{album.id}}" showMap="{{album.scenic_map!=null}}" title="{{album.title}}" topBtnShow="{{topBtnShow}}"></cmpt-detail>
+</block>

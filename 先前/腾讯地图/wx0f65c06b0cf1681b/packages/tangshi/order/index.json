@@ -1,0 +1,7 @@
+{
+  "componentPlaceholder": {
+    "van-dialog": "_",
+    "van-toast": "_",
+    "van-notify": "_"
+  }
+}

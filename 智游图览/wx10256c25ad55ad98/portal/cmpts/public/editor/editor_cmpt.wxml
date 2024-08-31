@@ -1,0 +1,23 @@
+<view class="editor-tab" wx:if="{{viewMode}}">
+    <button catchtap="url" class="btn round {{!isView?'bg-blue':'bg-grey light'}}  margin-right-xs" data-type="bool" data-url="isView">编辑</button>
+    <button catchtap="url" class="btn {{isView?'bg-blue':'bg-grey light'}} round" data-type="bool" data-url="isView">预览</button>
+</view>
+<view enableBackToTop scrollY class="editor-wrapper" style="min-height: 400px;{{viewMode?'margin-top:50rpx':''}}">
+    <block wx:for="{{nodeList}}" wx:for-item="node" wx:key="index">
+        <view class="editor-node-wrapper {{cur==index?'cur':''}} {{isView?'is-view':''}}">
+            <textarea autoHeight="true" bindinput="bindTextareaInput" class="editor-textarea" cursorSpacing="60" data-idx="{{index}}" disabled="{{isView}}" id="editor-node-{{index}}" maxlength="-1" value="{{node.val}}" wx:if="{{node.type==='text'}}"></textarea>
+            <image bindtap="url" class="loading editor-image" data-type="image" data-url="{{node.val}}" id="editor-node-{{index}}" lazyLoad="true" mode="widthFix" src="{{node.val}}" wx:if="{{node.type==='img'}}"></image>
+            <view class="editor-delete" wx:if="{{!isView}}">
+                <view bindtap="bindUpTap" class="iconfont icon-refresharrow up" data-idx="{{index}}" wx:if="{{index>0}}"></view>
+                <view bindtap="bindDownTap" class="iconfont icon-refresharrow" data-idx="{{index}}" wx:if="{{index<nodeList.length-1}}"></view>
+                <view bindtap="bidnDeleteNodeTap" class="iconfont icon-delete" data-idx="{{index}}"></view>
+            </view>
+        </view>
+        <view class="editor-add-wrapper" wx:if="{{!isView}}">
+            <view bindtap="bindAddTextTap" class="editor-add-wrapper-view" data-idx="{{index}}">
+                <text class="icon-roundadd margin-right-xs"></text>添加文本</view>
+            <view bindtap="bindAddImageTap" class="editor-add-wrapper-view" data-idx="{{index}}">
+                <text class="icon-pic margin-right-xs"></text>添加图片</view>
+        </view>
+    </block>
+</view>

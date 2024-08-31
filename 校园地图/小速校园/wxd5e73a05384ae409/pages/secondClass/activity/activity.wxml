@@ -1,0 +1,35 @@
+<view class="main">
+    <view class="top">
+        <picker bindchange="{{c}}" class="picker" range="{{d}}" value="{{e}}">
+            <label class="chooseWeek-content">{{a}} <uni-icons bind:__l="__l" uI="067147b8-0" uP="{{b}}" wx:if="{{b}}"></uni-icons>
+            </label>
+        </picker>
+        <picker bindchange="{{h}}" class="picker" range="{{i}}" value="{{j}}">
+            <label class="chooseWeek-content">{{f}} <uni-icons bind:__l="__l" uI="067147b8-1" uP="{{g}}" wx:if="{{g}}"></uni-icons>
+            </label>
+        </picker>
+    </view>
+    <view class="activity" hidden="{{!n}}" wx:for="{{k}}" wx:key="i">
+        <view class="top">
+            <view class="left">
+                <view class="tag" style="{{item.c}}">{{item.a}}({{item.b}}) </view>
+                <view class="tag">{{l}}</view>
+            </view>
+            <view class="status">
+                <view>{{m}}</view>
+            </view>
+        </view>
+        <view class="body">
+            <image class="left" mode="aspectFit" src="{{item.d}}"></image>
+            <view class="right">
+                <view class="title">{{item.e}}</view>
+                <view class="tip">
+                    <view>{{item.f}}~{{item.g}}</view>
+                    <view>{{item.h}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <uni-load-more bind:__l="__l" bindclickLoadMore="{{o}}" data-c-h="{{!p}}" uI="067147b8-2" uP="{{q}}" wx:if="{{q}}"></uni-load-more>
+    <kevy-empty bind:__l="__l" uI="067147b8-3" uP="{{r}}" wx:if="{{r}}"></kevy-empty>
+</view>

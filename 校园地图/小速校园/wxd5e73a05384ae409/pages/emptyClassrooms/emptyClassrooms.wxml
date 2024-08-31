@@ -1,0 +1,46 @@
+<view class="top">
+    <picker bindchange="{{b}}" class="chooseWeek" range="{{c}}" value="{{d}}">
+        <label class="chooseWeek-content">{{a}} <image alt="" class="chooseWeekImg" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+        </label>
+    </picker>
+    <picker bindchange="{{f}}" class="chooseWeek" range="{{g}}" value="{{h}}">
+        <label class="chooseWeek-content">{{e}} <image alt="" class="chooseWeekImg" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+        </label>
+    </picker>
+    <picker bindchange="{{j}}" class="chooseWeek" range="{{k}}" value="{{l}}">
+        <label class="chooseWeek-content"> 第{{i}}周 <image alt="" class="chooseWeekImg" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+        </label>
+    </picker>
+    <picker bindchange="{{n}}" class="chooseWeek" range="{{o}}" value="{{p}}">
+        <label class="chooseWeek-content">{{m}} <image alt="" class="chooseWeekImg" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+        </label>
+    </picker>
+</view>
+<view class="content-title">
+    <view class="type">教室</view>
+    <view class="content-title-right">
+        <view class="class">0102</view>
+        <view class="class">0304</view>
+        <view class="class">0506</view>
+        <view class="class">0708</view>
+        <view class="class">0910</view>
+        <view class="class">1112</view>
+    </view>
+</view>
+<view border stripe emptyText="暂无更多数据">
+    <view class="content" wx:for="{{q}}" wx:key="p">
+        <view class="left" wx:if="{{item.a}}">{{item.b}}</view>
+        <view class="right" wx:if="{{item.c}}">
+            <view class="{{item.e}}">{{item.d}}</view>
+            <view class="{{item.g}}">{{item.f}}</view>
+            <view class="{{item.i}}">{{item.h}}</view>
+            <view class="{{item.k}}">{{item.j}}</view>
+            <view class="{{item.m}}">{{item.l}}</view>
+            <view class="{{item.o}}">{{item.n}}</view>
+        </view>
+    </view>
+</view>
+<uni-card bind:__l="__l" uI="7507e05f-0" uP="{{r}}" uS="{{['d']}}" wx:if="{{r}}">
+    <view>* 空教室由教务系统全校课表计算得出，未显示的教室理论上整个学期空闲。</view>
+    <view>* 如遇临时调课、会议或各单位经办事大厅申请借用教室的，教室空闲状态可能不准确，请以实际教室空闲状态为准。</view>
+</uni-card>

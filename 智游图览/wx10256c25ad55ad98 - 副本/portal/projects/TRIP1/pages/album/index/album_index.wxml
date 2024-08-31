@@ -1,0 +1,25 @@
+<view class="margin-top load loading text-l load-project" wx:if="{{!_params}}"></view>
+<block wx:else>
+    <import src="../../../../../tpls/public/list_load_tpl.wxml"></import>
+    <cmpt-comm-list _items="{{sortItems}}" _menus="{{sortMenus}}" _params="{{_params}}" bind:list="bindCommListCmpt" placeholder="搜索" route="album/list" search="{{search}}" sortMenusDefaultIndex="0" topBottom="120" type="album-list">
+        <view class="album-list">
+            <view bindtap="url" class="item" data-url="../detail/album_detail?id={{item.id}}" wx:for="{{dataList.list}}" wx:key="key">
+                <view class="item-inner shadow">
+                    <image class="loading" lazyLoad="{{true}}" mode="aspectFill" src="{{mediaSrvUrl+item.pic}}">
+                        <view class="attention" wx:if="{{item.viewcnt}}">
+                            <text class="icon-attention margin-right-xxs"></text>{{item.viewcnt}}</view>
+                    </image>
+                    <view class="detail">
+                        <view class="title content-cut-one"> {{item.title}} </view>
+                        <view class="desc content-cut-two">{{item.desc}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <template is="listLoadTpl" data="{{skin:'load-project',dataList:dataList}}"></template>
+    </cmpt-comm-list>
+    <block wx:if="{{skin.IS_SUB}}">
+        <import src="../../tpls/menu_tpl.wxml"></import>
+        <template is="menuTpl" data="{{curMenu:'album_index',returnHome:false}}"></template>
+    </block>
+</block>

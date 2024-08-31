@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "水平面AR",
+  "disableScroll": true,
+  "renderer": "webview"
+}

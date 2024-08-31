@@ -1,0 +1,1 @@
+page{background-color:#f8f8f8}.top-box{color:#000;font-size:15px;margin:10px 0;padding:10px 15px}.QRbox,.top-box{background-color:#fff}.QRbox{align-items:center;border-radius:10px;display:-webkit-flex;display:flex;flex-direction:column;justify-content:center;margin:10px;padding:10px}.QRImg{height:250px;width:250px}.QRtitle{font-weight:700;margin:5px}

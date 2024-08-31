@@ -1,0 +1,79 @@
+<template name="baseListTpl">
+    <scroll-view class="comm-list-scroll" scrollX="{{true}}" wx:if="{{listMode=='scroll'}}">
+        <view bindtap="url" class="item-scroll" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:for="{{dataList}}" wx:key="key">
+            <image class="loading" lazyLoad="{{true}}" mode="aspectFill" src="{{item.pic}}"></image>
+            <view class="title text-cut">{{item.title}}</view>
+        </view>
+    </scroll-view>
+    <view class="sub-margin-bottom {{listMode=='flow'?'comm-list-flow':'comm-list-box'}}" wx:else>
+        <block wx:for="{{dataList}}" wx:key="key">
+            <view bindtap="url" class="item-line" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:if="{{listMode=='line'||listMode=='line-order'}}">
+                <view class="left">
+                    <view class="order bg-gray bg-project" wx:if="{{listMode=='line-order'}}">{{index+1}}</view>
+                    <view class="title content-cut-one">{{item.title}}</view>
+                </view>
+                <view class="right">
+                    <text class="icon-right"></text>
+                </view>
+            </view>
+            <view bindtap="url" class="item-flow" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:if="{{listMode=='flow'}}">
+                <view class="item-flow-inner">
+                    <image class="loading shadow" lazyLoad="{{true}}" mode="aspectFill" src="{{item.pic}}"></image>
+                    <view class="title-flow content-cut-one">{{item.title}}</view>
+                </view>
+            </view>
+            <view bindtap="url" class="item card-project shadow-project item-upimg" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:if="{{listMode=='upimg'}}">
+                <image class="loading" lazyLoad="{{true}}" mode="widthFix" src="{{item.pic}}"></image>
+                <view class="upimg-title content-cut-two">{{item.title}}</view>
+                <view class="data-desc content-cut-two">{{item.desc}}</view>
+                <view class="data-status">
+                    <text class="icon-remind margin-right-xxs" wx:if="{{item.type=='meet'}}"></text>{{item.ext}} </view>
+            </view>
+            <view bindtap="url" class="item card-project shadow-project item-rightpic" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:elif="{{listMode=='rightpic'}}">
+                <view class="title content-cut-two">{{item.title}}</view>
+                <view class="desc">
+                    <text class="content-cut-three">{{item.desc}}</text>
+                    <image class="pic loading" lazyLoad="{{true}}" mode="aspectFill" src="{{item.pic}}"></image>
+                </view>
+                <view class="data">
+                    <text class="margin-right">{{item.ext}}</text>
+                </view>
+            </view>
+            <view bindtap="url" class="item card-project shadow-project item-leftpic" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:elif="{{listMode=='leftpic'}}">
+                <view class="title content-cut-two">{{item.title}}</view>
+                <view class="desc">
+                    <image class="pic loading" lazyLoad="{{true}}" mode="aspectFill" src="{{item.pic}}"></image>
+                    <text class="content-cut-three">{{item.desc}}</text>
+                </view>
+                <view class="data">
+                    <text class="margin-right">{{item.ext}}</text>
+                </view>
+            </view>
+            <view bindtap="url" class="item card-project shadow-project item-{{listMode}}" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:elif="{{listMode=='leftbig'||listMode=='leftbig1'||listMode=='leftbig2'||listMode=='leftbig3'}}">
+                <image class="leftbig-left" lazyLoad="{{true}}" mode="aspectFill" src="{{mediaSrvUrl+item.pic}}"></image>
+                <view class="leftbig-right">
+                    <view class="leftbig-title content-cut-one">{{item.title}}</view>
+                    <view class="leftbig-desc">
+                        <text class="{{listMode=='leftbig1'||listMode=='leftbig3'?'content-cut-two':'content-cut-three'}}">{{item.desc}} </text>
+                    </view>
+                    <view class="data">
+                        <view class="bottom-tag-list text-cut"></view>
+                        <view class="bottom-status">
+                            <text class="icon-remind margin-right-xxs" wx:if="{{item.type=='meet'}}"></text>{{item.ext}}</view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="url" class="item card-project shadow-project item-bigtext" data-url="../../{{item.type}}/detail/{{item.type}}_detail?id={{item.id}}" wx:elif="{{listMode=='bigtext'}}">
+                <view class="left">
+                    <image class="{{item.pic?'loading':''}}" lazyLoad="{{true}}" mode="aspectFill" src="{{item.pic}}"></image>
+                </view>
+                <view class="right">
+                    <view class="bigtext-title content-cut-one">{{item.title}}</view>
+                    <view class="data-desc content-cut-one">{{item.desc}}</view>
+                </view>
+                <view class="data-status">
+                    <text class="icon-remind margin-right-xxs" wx:if="{{item.type=='meet'}}"></text>{{item.ext}} </view>
+            </view>
+        </block>
+    </view>
+</template>

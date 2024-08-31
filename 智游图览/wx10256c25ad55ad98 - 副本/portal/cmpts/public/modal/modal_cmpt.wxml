@@ -1,0 +1,69 @@
+<view class="modal {{show?'show':''}}" wx:if="{{type=='comm'}}">
+    <view class="dialog">
+        <view class="bar bg-white justify-end">
+            <view class="content">{{title}}</view>
+            <view bindtap="bindHideModalTap" class="action">
+                <text class="icon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            <slot></slot>
+        </view>
+    </view>
+</view>
+<view class="modal bottom-modal {{show?'show':''}}" wx:if="{{type=='bottom'}}">
+    <view class="dialog">
+        <view class="bar bg-white">
+            <view bindtap="bindHideModalTap" class="action text-gray text-xl">取消</view>
+            <view bindtap="bindComfirmTap" class="action text-green text-modal text-xl">确定</view>
+        </view>
+        <view class="padding-xl ">
+            <slot></slot>
+        </view>
+    </view>
+</view>
+<view catchtouchmove="nomove" class="modal {{show?'show':''}}" wx:if="{{type=='dialog'}}">
+    <view class="dialog modal-dialog">
+        <view class="bar bg-white justify-end" wx:if="{{title}}">
+            <view class="content">{{title}}</view>
+        </view>
+        <view class="subtitle" style="text-align:{{subtitleAlign}}" wx:if="{{subtitle}}">{{subtitle}}</view>
+        <view class="padding-xl slot-class" style="padding-top:0">
+            <slot></slot>
+        </view>
+        <view class="modal-bar">
+            <view bindtap="bindHideModalTap" class="modal-bar-view">{{cancelText}}</view>
+            <view bindtap="bindComfirmTap" class="modal-bar-view modal-bar-comfirm" wx:if="{{showConfirm}}">{{confirmText}}</view>
+        </view>
+    </view>
+</view>
+<view class="modal {{show?'show':''}}" wx:if="{{type=='longdialog'}}">
+    <view class="dialog modal-dialog">
+        <view class="bar bg-white justify-end" wx:if="{{title}}">
+            <view class="content">{{title}}</view>
+        </view>
+        <view class="subtitle" style="text-align:{{subtitleAlign}}" wx:if="{{subtitle}}">{{subtitle}}</view>
+        <view class="padding-xl slot-class" style="padding-top:0">
+            <slot></slot>
+        </view>
+        <view class="modal-bar">
+            <view bindtap="bindHideModalTap" class="modal-bar-view">{{cancelText}}</view>
+            <view bindtap="bindComfirmTap" class="modal-bar-view modal-bar-comfirm" wx:if="{{showConfirm}}">{{confirmText}}</view>
+        </view>
+    </view>
+</view>
+<view class="modal  {{show?'show':''}}" wx:if="{{type=='image'}}">
+    <view class="dialog">
+        <view class="bg-img" style="height:{{height}}rpx;">
+            <image class="bg-img-image" mode="aspectFill" src="{{imgURL}}"></image>
+            <view class="bar justify-end text-white">
+                <view bindtap="bindHideModalTap" class="action">
+                    <text class="icon-close"></text>
+                </view>
+            </view>
+        </view>
+        <view class="bar bg-white" wx:if="{{title}}">
+            <view class="action margin-0 flex-sub">{{title}}</view>
+        </view>
+    </view>
+</view>

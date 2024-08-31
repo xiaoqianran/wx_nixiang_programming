@@ -1,0 +1,77 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" id="navBar" title="网易第五人格"></navBar>
+<view class="container">
+    <view catchtap="gowenjuan" class="feedback"></view>
+    <view catchtap="showRule" class="btn-rule"></view>
+    <view class="part-video">
+        <view class="tit"></view>
+        <view class="video-bg">
+            <video controls autoplay="{{false}}" bindended="bindended" bindpause="bindpause" bindplay="bindplay" class="{{playbtn?'':'opac'}}" id="myVideo" objectFit="fill" pictureInPictureMode="{{[]}}" showCenterPlayBtn="{{false}}" showPlayBtn="{{true}}" src="https://nie.v.netease.com/nie/2024/0318/b02b960f49d52a8cec1c90831fc14ce0.mp4"></video>
+            <view catchtap="playVideo" class="video-play" wx:if="{{playbtn}}"></view>
+        </view>
+        <view class="video-time"></view>
+        <view class="video-post"></view>
+        <view catchtap="gokanfan" class="btn-fan" data-id="1"></view>
+    </view>
+    <view class="part-order">
+        <view class="tit"></view>
+        <view class="time"></view>
+        <view class="avator"></view>
+        <view catchtap="showbind" class="btn-bind" wx:if="{{!userInfo.uid||userInfo.bind===0}}">请先<label>绑定</label>角色</view>
+        <view class="btn-bind" wx:else>{{userInfo.nickName}}</view>
+        <view class="mission mission1">
+            <view class="txt">
+                <label>预约</label>泡面番更新({{userInfo.bindPhone===1?'1':'0'}}/1)</view>
+            <view catchtap="showbind" class="btn btn-order" wx:if="{{!userInfo.uid||userInfo.bind===0}}"></view>
+            <button bindgetphonenumber="getPhoneNumber" catchtap="subMsg" class="btn btn-order" openType="getPhoneNumber" wx:elif="{{userInfo.bindPhone!==1}}"></button>
+            <view class="btn btn-order btn-order-none" wx:else></view>
+        </view>
+        <view class="mission mission2">
+            <view class="txt">分享<label>小程序/活动海报</label>给好友({{userInfo.share===1?'1':'0'}}/1)</view>
+            <view catchtap="showbind" class="btn btn-share" wx:if="{{!userInfo.uid||userInfo.bind===0}}"></view>
+            <view catchtap="orderFirst" class="btn btn-share" wx:elif="{{userInfo.bindPhone!==1}}"></view>
+            <view catchtap="showShare" class="btn btn-share" wx:elif="{{userInfo.share!==1}}"></view>
+            <view class="btn btn-share btn-share-none" wx:else></view>
+        </view>
+        <view catchtap="receive" class="btn-lingqu btn-lingqu-none2" wx:if="{{userInfo.receive===1}}"></view>
+        <view catchtap="receive" class="btn-lingqu" wx:elif="{{userInfo.share===1&&userInfo.order===1}}"></view>
+        <view class="btn-lingqu btn-lingqu-none" wx:else></view>
+    </view>
+</view>
+<view catchtap="close" class="pop-layer" wx:if="{{popName}}">
+    <view catchtap="stopp" class="pop pop-bind" wx:if="{{popName==='popbind'}}">
+        <view catchtap="close" class="close"></view>
+        <image class="img" mode="aspectFill" src="{{imgUrl+'/greed/'+userInfo.header}}"></image>
+        <view class="nick">{{userInfo.nickName}}</view>
+        <view class="uid">{{userInfo.uid}}</view>
+        <view catchtap="changerole" class="btn-change-role"></view>
+        <view catchtap="bind" class="btn-sure"></view>
+    </view>
+    <view catchtap="stopp" class="pop getSucc" wx:if="{{popName==='getSucc'}}">
+        <view catchtap="close" class="close"></view>
+        <text class="txt">您已领取成功,
+请前往游戏邮箱查看！</text>
+    </view>
+    <view catchtap="stopp" class="pop poprule" wx:if="{{popName==='poprule'}}">
+        <view catchtap="close" class="close"></view>
+        <view class="tit"></view>
+        <scroll-view class="scroll-box" scrollY="true">
+            <view class="time-tit"></view>
+            <view class="p-center">3月21日10：00-5月5日23：59</view>
+            <view class="rule-tit"></view>
+            <view class="p">
+                <view class="serail">1</view>访客使用微信绑定第五人格小程序后，完成预约任务与分享任务，即可领取泡面番【活动头像】-好戏开场。</view>
+            <view class="p">
+                <view class="serail">2</view>【活动头像】-好戏开场将于领取48小时内发放至访客所绑定的游戏账户，请耐心等待。</view>
+            <view class="p">
+                <view class="serail">3</view>访客单微信绑定的第五人格游戏账号仅可参与1次活动，且参与确认后微信换绑游戏账号，或游戏账号换绑微信，均无法参与活动。</view>
+            <view class="p">
+                <view class="serail">4</view>如有参与问题请点击右上角【问题反馈】专区进行问题描述反馈。</view>
+        </scroll-view>
+    </view>
+    <view catchtap="stopp" class="pop popshare" wx:if="{{popName==='popshare'}}">
+        <view catchtap="close" class="close"></view>
+        <image bindlongpress="handleLongPress" class="post" mode="aspectFill" showMenuByLongpress="{{true}}" src="{{imgUrl}}/paomian/post2.jpg"></image>
+        <button class="btn-share-post" openType="share"></button>
+    </view>
+</view>
+<bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages_user/pages/paomian/index" unBindVisible="{{!unBindVisible}}" visible="{{!bindUserVisible}}"></bind-user>

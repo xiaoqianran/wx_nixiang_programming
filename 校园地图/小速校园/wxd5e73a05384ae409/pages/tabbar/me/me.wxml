@@ -1,0 +1,95 @@
+<view class="main">
+    <view class="top-box">
+        <view class="top-center" wx:if="{{a}}">
+            <view class="info-text">
+                <view class="name">{{b}}</view>
+                <view class="academy">{{c}} · {{d}}</view>
+            </view>
+        </view>
+        <view bindtap="{{e}}" wx:else>
+            <view class="top-box-info">
+                <view class="top-center">
+                    <view class="info-text">
+                        <view class="name">点击登录</view>
+                        <view class="academy">智慧校园，从速办开始 ></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="follow">
+        <button bindtap="{{f}}" class="followGZH">
+            <image class="followGZHPic" src="https://quickdo.top/images/me/follow.png"></image>
+        </button>
+        <button class="share" openType="share">
+            <image class="followGZHPic" src="https://quickdo.top/images/me/share.png"></image>
+        </button>
+    </view>
+    <view class="toolbar-box">
+        <view bindtap="{{item.d}}" class="btn" wx:for="{{g}}" wx:key="c">
+            <image alt="" class="btn-img" src="{{item.a}}"></image>
+            <text class="btn-title">{{item.b}}</text>
+        </view>
+    </view>
+    <view class="middle-box" wx:if="{{h}}">
+        <view class="middle-box-title"> 常用 </view>
+        <view class="middle-box-content">
+            <view>
+                <view bindtap="{{i}}" class="middle-box-li">
+                    <view class="left">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/me/myInfo.png"></image> 个人资料 · 校区切换 </view>
+                    <view class="right">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+                    </view>
+                </view>
+                <view bindtap="{{j}}" class="middle-box-li">
+                    <view class="left">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/me/feedback.png"></image> 意见反馈 </view>
+                    <view class="right">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="middle-box">
+        <view class="middle-box-title"> 其它 </view>
+        <view class="middle-box-content">
+            <view>
+                <view bindtap="{{k}}" class="middle-box-li">
+                    <view class="left">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/me/about.png"></image> 关于小程序 </view>
+                    <view class="right">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+                    </view>
+                </view>
+                <view bindtap="{{l}}" class="middle-box-li">
+                    <view class="left">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/me/cooperation.png"></image> 速办合作 </view>
+                    <view class="right">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+                    </view>
+                </view>
+                <view bindtap="{{n}}" class="middle-box-li" wx:if="{{m}}">
+                    <view class="left">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/me/quit.png"></image> 退出登录 </view>
+                    <view class="right">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+                    </view>
+                </view>
+                <view bindtap="{{o}}" class="middle-box-li" wx:else>
+                    <view class="left">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/me/quit.png"></image> 绑定教务系统 </view>
+                    <view class="right">
+                        <image alt="" class="middle-box--img" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="list-box" style="opacity:0">
+        <uni-list bind:__l="__l" uI="4a0b2f9a-0" uS="{{['d']}}">
+            <uni-list-item bind:__l="__l" uI="4a0b2f9a-1,4a0b2f9a-0"></uni-list-item>
+        </uni-list>
+    </view>
+</view>

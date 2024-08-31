@@ -1,0 +1,1 @@
+@import "/portal/projects/TRIP1/style/skin.wxss";.load.loading::after{content:"自助签到中，请稍候..."}

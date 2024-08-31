@@ -1,0 +1,1 @@
+.ellipsis-wrapper{position:relative;overflow:hidden}.ellipsis-wrapper .ellipsis{position:absolute;bottom:1px;right:2px;background:#fff;font-size:12px;padding-right:5px}

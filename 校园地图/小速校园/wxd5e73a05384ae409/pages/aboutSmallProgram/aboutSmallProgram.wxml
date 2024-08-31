@@ -1,0 +1,11 @@
+<view class="top-box">   “小速校园”小程序开发的初衷是便于师生学子查询诸如校园课程表、学业成绩、第二课堂成绩单等校园信息，同时提供便捷的校园服务，实现单一程序完成校园生活、出行、娱乐三件“大事”。我们非常希望您在使用过程中能给我们提出宝贵的建议和意见，如果您在使用中遇到问题，欢迎及时向我们反馈！关注“小速校园”微信公众号即可进行反馈。 </view>
+<view class="middle-box">
+    <view class="content">
+        <text class="content-left">小程序版本</text>
+        <text class="content-right">{{a}}</text>
+    </view>
+</view>
+<view class="end-box">
+    <view bindtap="{{b}}" class="feedback"> 意见反馈 <image alt="" class="feedbackImg" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+    </view>
+</view>

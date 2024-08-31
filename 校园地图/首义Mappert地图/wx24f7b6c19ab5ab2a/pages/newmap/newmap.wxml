@@ -1,0 +1,78 @@
+<topbar rgba="{{rgba}}" title="{{newmapTitle}}">
+    <view class="notice">
+        <view bindtap="openConsultDialog" class="notice-box">
+            <view class="notice-box-info">
+                <view class="notice-box-info__left">
+                    <image src="../../static/special_green_face.svg"></image>
+                    <view class="notice-box-info__left-content">
+                        <text>{{consultTweetWord}}</text>
+                    </view>
+                </view>
+                <view class="notice-box-info__right">
+                    <image mode="" src="../../static/arrow_grey_right_line.svg"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bg"></view>
+    <image bindtouchstart="touchStart" mode="widthFix" src="http://introduce.mcdd.top/sp-web-imageBank-202406252306-tqsg6m.png" style="width: 100%;"></image>
+    <view bindtap="jumpToDormitory" class="searchBox" style="opacity: {{rgba}};{{dormitoryRecord?'transition: opacity 0.2s ease;opacity: 0.9;':''}}">
+        <image class="searchIcon" src="../../static/search.svg"></image>
+        <view class="searchimage">搜索寝室</view>
+    </view>
+    <view bindtap="buttonHandling" class="{{place==item.locationName?'btnRed':'btn'}}" data-id="{{index}}" id="{{item.locationName}}" style="top: {{item.locationY+120}}rpx;left: {{item.locationX}}rpx;{{maxNum==index?'animation: glow-animation 1.5s infinite;':''}}" wx:if="{{item.locationName}}" wx:for="{{renderArr}}" wx:key="index">{{item.locationName=='宿舍楼A'||item.locationName=='宿舍楼B'?'宿舍楼':item.locationName}} <image mode="heightFix" src="../../static/text-e/{{item.locationName=='宿舍楼A'||item.locationName=='宿舍楼B'?'Dormitory.svg':placeEnglishList[item.locationName][1]}}" wx:if="{{place==item.locationName}}"></image>
+        <image mode="heightFix" src="../../static/text2/{{item.locationName=='宿舍楼A'||item.locationName=='宿舍楼B'?'Dormitory.svg':placeEnglishList[item.locationName][1]}}" wx:else></image>
+    </view>
+    <view bindtap="changeArr" catchtouchmove="changeArr" class="{{box?'popup':'popup--null'}} fill-available flex column" data-theme="SMP" style="height:{{box?showArr.length?ifOne&&showArr.length==2?'572':showArr.length<3?showArr.length*106+(showArr.length-1)*12+348:'690':'540':'0'}}rpx;">
+        <view class="popup-place flex fill-available">
+            <view class="popup-place-box flex column">
+                <view class="popup-place-Chinese flex">
+                    <image class="medium" src="{{pictureList.placeRedIconUrl}}"></image>
+                    <text class="popup-place-Chinese-title">{{placeTitleList[place][0]}}</text>
+                </view>
+                <view class="popup-place-English">
+                    <text>{{placeTitleList[place][1]}}</text>
+                </view>
+            </view>
+            <image class="popup-place-mapper" src="{{pictureList.superMapManUrl}}" wx:if="{{box}}"></image>
+        </view>
+        <view class="popup-function flex-spacebetween">
+            <view bind:tap="triggerFuntion" class="popup-function-box flex-center" data-name="{{item.functionName}}" wx:for="{{placeFunctionList}}" wx:key="index">
+                <view class="popup-function-inside column flex">
+                    <image class="medium" src="{{item.icon}}"></image>
+                    <text class="Button-Label popup-function-inside-name">{{item.functionName}}</text>
+                </view>
+                <view class="popup-function-box-label flex" wx:if="{{item.functionName=='打卡'}}">
+                    <image src="{{pictureList.giftWhiteIconUrl}}"></image>
+                    <text>赢周边</text>
+                </view>
+            </view>
+        </view>
+        <view class="popup-tweet fill-available flex column">
+            <view class="popup-tweet-title flex">
+                <image class="medium" src="{{pictureList.readBookUrl}}"></image>
+                <text class="Button-Label">实用攻略·新生必看</text>
+            </view>
+            <view catchtap="cardBind" class="popup-tweet-box" id="{{index}}" style="{{bindNum==index&&showArr.length!=0?'background-color: rgba(254,246,204,0.3);':''}}" wx:if="{{showArr.length<3||!showArr}}" wx:for="{{showArr.length?showArr:1}}" wx:key="index">
+                <view class="popup-tweet-box-card flex column">
+                    <view class="popup-tweet-box-card-title">{{showArr&&showArr.length?item.tweetTitle:'此地点相关内容 南南正在努力编辑中鸭！'}}</view>
+                    <view class="popup-tweet-box-card-subtitle">{{showArr&&showArr.length?item.tweetStitle:'点击其他地点发现更多惊喜内容叭～'}}</view>
+                </view>
+            </view>
+            <scroll-view class="scroll-block" scrollY="true" wx:if="{{showArr.length>2}}">
+                <view catchtap="cardBind" class="popup-tweet-box--scroll" id="{{index}}" style="{{index==0?'margin-top:0':''}};{{bindNum==index?'background-color:rgba(254,246,204,0.3)':''}}" wx:if="{{showArr.length>2}}" wx:for="{{showArr}}" wx:key="index">
+                    <view class="popup-tweet-box-card flex column">
+                        <view class="popup-tweet-box-card-title">{{showArr&&showArr.length?item.tweetTitle:'此地点相关内容 南南正在努力编辑中鸭！'}}</view>
+                        <view class="popup-tweet-box-card-subtitle">{{showArr&&showArr.length?item.tweetStitle:'点击其他地点发现更多惊喜内容叭～'}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <toast id="toast"></toast>
+    <fmin-dialog bindtapBg="closeConsultDialog" font="H3" sfont="paragraphs1" showDialog="{{consultDialog}}" showSchoolBuiltSrc="{{false}}" stitle="点击即可查看常见问题解答，留言区有热心学长学姐为你解惑哟~" title="新生咨询专区！解答你的疑问" unusual="consult">
+        <view bindtap="goToConsultTweet" class="button">
+            <view class="button-label">去看看</view>
+        </view>
+    </fmin-dialog>
+</topbar>

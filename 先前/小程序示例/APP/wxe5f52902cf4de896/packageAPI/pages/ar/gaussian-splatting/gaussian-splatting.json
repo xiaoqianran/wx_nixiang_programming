@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "Gaussian Splatting 预览",
+  "disableScroll": true,
+  "renderer": "webview"
+}

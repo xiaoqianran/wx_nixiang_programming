@@ -1,0 +1,1 @@
+var e=require("../../@babel/runtime/helpers/defineProperty");module.exports={model2Form:function(e){var r={};for(var t in e){for(var o=t.split("_"),a="",i=1;i<o.length;i++){var n=o[i].toLowerCase();a+=n=n.charAt(0).toUpperCase()+n.slice(1)}r["form"+a]=e[t]}return r},setOptions:function(r,t,o,a){var i=t.indexOf(a);i=i<0?0:i,r.setData(e({},o,i))}};

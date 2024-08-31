@@ -1,0 +1,1 @@
+Page({data:{theme:"light"},onUnload:function(){wx.offThemeChange&&wx.offThemeChange()},onLoad:function(){var e=this;this.setData({theme:wx.getSystemInfoSync().theme||"light"}),wx.onThemeChange&&wx.onThemeChange((function(t){var n=t.theme;e.setData({theme:n})}))},onShareAppMessage:function(){return{title:"view",path:"packageComponent/pages/view/view/view"}}});

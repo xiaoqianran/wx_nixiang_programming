@@ -1,0 +1,1 @@
+var e=require("../../utils/store");Component({properties:{imageid:{type:String,value:""},sourcepageid:{type:String,value:""}},data:{imageId:"",sourcePageId:"",list:[]},lifetimes:{attached:function(){var t=this.data,i=decodeURIComponent(t.imageid||""),a=decodeURIComponent(t.sourcepageid||""),d=(0,e.getAlbum)();this.setData({imageId:i,sourcePageId:a,list:d})}}});

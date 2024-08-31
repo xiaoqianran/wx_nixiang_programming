@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "结账",
+  "componentPlaceholder": {
+    "van-dialog": "_",
+    "van-icon": "_",
+    "van-toast": "_",
+    "van-notify": "_"
+  }
+}

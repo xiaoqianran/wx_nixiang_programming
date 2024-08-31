@@ -1,0 +1,84 @@
+<view class="news-list">
+    <view bindtap="handleJump" data-id="{{item.id}}" data-title="{{item.title}}" data-videoUrl="{{item.videoUrl}}" wx:for="{{newsList}}" wx:key="id">
+        <view wx:if="{{addIndex!==-1&&addIndex<index||minusIndex!==-1&&minusIndex>=index||addIndex==-1&&minusIndex==-1}}">
+            <view class="video-item" wx:if="{{item.layout=='large'}}">
+                <view class="header">
+                    <image class="img" src="{{newsListWxs.parsePath(imgUrl,item)}}"></image>
+                    <view class="header-info">
+                        <view class="title">{{item.author===null?'第五人格视频达人':item.author}}</view>
+                        <view class="grade-occupation">
+                            <view class="grade level{{item.level}}" wx:if="{{item.level}}">
+                                <view class="image"></view>
+                                <text>{{newsListWxs.levelToString(item.level)}}阶创作者</text>
+                            </view>
+                            <view class="occupation" wx:if="{{item.heroName}}">
+                                <image class="image" mode="aspectFill" src="{{imgUrl+'/vsrecord/headimg2/'+item.heroId+'.jpg'}}"></image>
+                                <text>常玩{{newsListWxs.occupation(item.heroName)}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="yctw" wx:if="{{item.videoMark===1}}">精彩视频</view>
+                    <view class="yctw" wx:else>原创图文</view>
+                </view>
+                <view class="description">{{item.title}} </view>
+                <view class="video-item-container">
+                    <view class="vedio-box" wx:if="{{item.videoMark===1}}">
+                        <image class="image" lazyLoad="true" mode="aspectFit" src="{{item.videoPictureUrl}}"></image>
+                        <view class="play" data-index="{{index}}" data-item="{{item}}"></view>
+                    </view>
+                    <view wx:else>
+                        <image class="image" lazyLoad="true" mode="aspectFit" src="{{item.videoPictureUrl}}"></image>
+                    </view>
+                </view>
+                <view catchtap="handleJump" class="first-comment" data-commentId="{{item.commentVO.id}}" data-id="{{item.id}}" data-title="{{item.title}}" data-videoUrl="{{item.videoUrl}}" wx:if="{{item.commentVO}}">
+                    <view class="comment-left">
+                        <text class="comment-name">{{item.commentVO.nickName}}</text>
+                        <view class="bq" wx:if="{{item.commentVO.ranking}}">
+                            <image class="ic" src="{{imgUrl}}/vsrecord/ic/{{newsListWxs.levelToClass(item.commentVO)}}.png"></image>
+                            <text class="ranking"> {{item.commentVO.ranking}} </text>
+                        </view>
+                        <text class="comment-content">
+                            <text class="content">： {{newsListWxs.commentContent(item.commentVO)}}</text>
+                        </text>
+                    </view>
+                </view>
+                <view class="bottom no_left">
+                    <view class="user_show-comment">
+                        <view class="show">
+                            <view class="image"></view>
+                            <text>{{item.clickNum||0}}</text>
+                        </view>
+                        <view class="comment">
+                            <view class="image"></view>
+                            <text>{{item.commentNum||0}}</text>
+                        </view>
+                        <view catchtap="handleVideoLike" class="comment-right {{item.isOwnLike==1?'on':''}}" data-cid="{{item.commentVO.id}}" data-id="{{item.id}}" data-index="{{index}}"> {{item.like||0}} </view>
+                    </view>
+                </view>
+            </view>
+            <view class="detail-item" wx:else>
+                <view class="detail-text-info">
+                    <view class="title-description">
+                        <text wx:if="{{item.topFlag===1}}">置顶</text>{{item.title}} </view>
+                    <view class="bottom">
+                        <view class="bottom-left">
+                            <text class="author {{item.author==='第五人格官方'&&'red'}}">{{item.author||'第五人格官方'}}</text>
+                        </view>
+                        <view class="user_show-comment">
+                            <view class="show">
+                                <view class="image"></view>
+                                <text>{{item.clickNum||0}}</text>
+                            </view>
+                            <view class="comment">
+                                <view class="image"></view>
+                                <text>{{item.commentNum||0}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <image class="detail-right-image" mode="scaleToFill" src="{{item.videoPictureUrl}}"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="newsListWxs" src="news-list.wxs"/>

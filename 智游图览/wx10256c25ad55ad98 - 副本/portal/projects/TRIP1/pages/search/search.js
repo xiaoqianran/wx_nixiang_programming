@@ -1,0 +1,1 @@
+var e=require("../../../../comm/behavior/search_bh.js"),r=require("../../biz/project_biz.js"),o=require("../../../../helper/page_helper.js");Page({behaviors:[e],onReady:function(){r.initPage(this);var e=o.getPrevPage(1);e&&e.options&&"admin"==e.options.source&&wx.setNavigationBarColor({backgroundColor:"#2499f2",frontColor:"#ffffff"})}});

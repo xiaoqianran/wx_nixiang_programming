@@ -1,0 +1,1 @@
+module.exports=Behavior({data:{theme:"light"},methods:{themeChanged:function(e){this.setData({theme:e})}}});

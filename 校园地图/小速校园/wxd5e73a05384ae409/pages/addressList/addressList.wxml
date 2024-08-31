@@ -1,0 +1,20 @@
+<view>
+    <view class="tips"> 校区：广东财经大学【{{a}}】 <view class=""> 来自公开数据，可能存在更新不及时的情况，请核对后拨打。如有误或需要新增，请在意见反馈联系我们新增。 </view>
+    </view>
+    <view class="content-title">
+        <view class="type">类型</view>
+        <view class="call">电话(区号{{b}})</view>
+        <view class="tip">备注</view>
+        <view class="doing">操作</view>
+    </view>
+    <view border stripe emptyText="暂无更多数据">
+        <view class="content" wx:for="{{c}}" wx:key="h">
+            <view bindtap="{{item.b}}" class="appartment">{{item.a}}</view>
+            <view bindtap="{{item.d}}" class="phone">{{item.c}}</view>
+            <view bindtap="{{item.f}}" class="address">{{item.e}}</view>
+            <view class="copy">
+                <button bindtap="{{item.g}}" class="uni-button" size="" type="">复制</button>
+            </view>
+        </view>
+    </view>
+</view>

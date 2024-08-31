@@ -1,0 +1,29 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view bindtap="hidePop" class="pop-zz" hidden="{{!popSelectShow}}"></view>
+    <view class="page select">
+        <view bindtap="chSelect" class="ch_btn">
+            <view class="dexBox {{popSelectShow?'on':''}}">
+                <text class="des {{popSelectShow?'on':''}}">{{tbChName_end}}</text>
+            </view>
+        </view>
+        <view class="sele_des {{popSelectShow?'on':''}}">
+            <view class="select_detail zdlist {{popSelectShow?'on':''}}">
+                <view bindtap="tableCh" class="li {{i==tbChIndex?'on':''}}" data-index="{{i}}" data-name="{{item.name}}" data-path="{{item.path}}" wx:for="{{tabBoxList}}" wx:for-index="i" wx:key="key">
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+            <image bindtap="selectByTimeOrZd" class="submit" src="{{imgUrl}}/revision/okBtn.png"></image>
+        </view>
+    </view>
+    <view class="page list">
+        <view bindtap="goOut" class="li" data-src="{{item.videoUrl}}" wx:for="{{videoData}}" wx:for-index="idx" wx:key="key">
+            <image class="img" src="{{item.videoImgUrl}}"></image>
+            <view class="zz">
+                <image class="video-play" src="{{imgUrl}}/saishi/video/video-play.png"></image>
+            </view>
+            <text class="des">{{item.titleValue}}</text>
+        </view>
+    </view>
+    <bottom-dh active="1"></bottom-dh>
+</view>

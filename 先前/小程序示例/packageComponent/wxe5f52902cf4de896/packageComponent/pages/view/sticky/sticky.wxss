@@ -1,0 +1,1 @@
+@import "/common/reset.wxss";.container{margin-top:150px;min-height:42%}.btn{line-height:42px;margin-top:15px}.grid-aligned-title{margin-bottom:80px}.grid-aligned-title,.grid-masonry-title{color:#999;font-size:16px;padding-left:15px}

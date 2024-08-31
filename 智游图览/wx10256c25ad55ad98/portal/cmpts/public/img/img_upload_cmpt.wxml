@@ -1,0 +1,22 @@
+<view class="form-group">
+    <view class="title">
+        <text class="text-red" wx:if="{{must}}">*</text>{{title}} <text class="text-gray text-normal" wx:if="{{isShowSize}}">(每张不超过{{imgUploadSize}}M)</text>
+    </view>
+    <view class="action" wx:if="{{isShowSize&&imgMax>1}}"> {{imgList.length}}/{{imgMax}} </view>
+</view>
+<view class="form-group padding">
+    <view class="upload-img">
+        <view bindtap="bindPreviewImgTap" class="bg-img" data-url="{{imgList[index]}}" wx:for="{{imgList}}" wx:key="index">
+            <image mode="aspectFill" src="{{imgList[index]}}"></image>
+            <view catchtap="catchDelImgTap" class="tag bg-red" data-index="{{index}}">
+                <text class="icon-close"></text>
+            </view>
+            <view class="bg-olive img-no" wx:if="{{isShowNo}}">
+                <text>#{{index}}</text>
+            </view>
+        </view>
+        <view bindtap="bindChooseImgTap" class="solid" wx:if="{{imgList.length<imgMax}}">
+            <text class="icon-cameraadd"></text>
+        </view>
+    </view>
+</view>

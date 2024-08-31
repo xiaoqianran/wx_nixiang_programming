@@ -1,0 +1,6 @@
+<checkbox-group bindchange="Empty" class="Empty" wx:if="Empty">
+    <slot></slot>
+</checkbox-group>
+<radio-group bindchange="Empty" class="Empty" wx:else>
+    <slot></slot>
+</radio-group>

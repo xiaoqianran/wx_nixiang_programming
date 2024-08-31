@@ -1,0 +1,37 @@
+<view class="Empty">
+    <view class="Empty">
+        <view class="Empty">
+            <view class="Empty">Empty</view>
+            <view class="Empty" wx:if="Empty">Empty</view>
+        </view>
+        <view class="Empty" wx:if="Empty">Empty</view>
+        <view wx:else>
+            <slot name="Empty"></slot>
+        </view>
+    </view>
+    <view class="Empty">
+        <view class="Empty">
+            <block wx:for="Empty" wx:key="*this">
+                <view bindtap="Empty" class="Empty" data-index="Empty" wx:if="Empty">
+                    <image class="Empty" mode="Empty" src="Empty"></image>
+                    <view class="Empty">
+                        <icon color="Empty" size="Empty" type="Empty"></icon>
+                    </view>
+                </view>
+                <view bindtap="Empty" class="Empty" data-index="Empty" wx:elif="Empty">
+                    <image class="Empty" mode="Empty" src="Empty"></image>
+                    <view class="Empty">
+                        <view class="Empty"></view>
+                    </view>
+                </view>
+                <view bindtap="Empty" class="Empty" data-index="Empty" wx:else>
+                    <image class="Empty" mode="Empty" src="Empty"></image>
+                </view>
+            </block>
+        </view>
+        <view class="Empty" hoverClass="Empty" wx:if="Empty">
+            <view bindtap="Empty" class="Empty"></view>
+        </view>
+    </view>
+</view>
+<mp-gallery binddelete="Empty" class="Empty" current="Empty" hideOnClick="Empty" imgUrls="Empty" show="Empty" showDelete="Empty"></mp-gallery>

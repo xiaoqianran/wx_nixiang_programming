@@ -1,0 +1,13 @@
+<scroll-view>
+    <view class="cu-list">
+        <view bindtap="jump" class="cu-item" data-id="{{index}}" wx:for="{{allWords}}" wx:key="index">
+            <view class="content">
+                <view>
+                    <text class="cuIcon-link">📖</text>
+                    <text class="text-grey">{{item.title}}</text>
+                </view>
+                <image src="{{green_arrow}}" style="height:40rpx;width:40rpx;"></image>
+            </view>
+        </view>
+    </view>
+</scroll-view>

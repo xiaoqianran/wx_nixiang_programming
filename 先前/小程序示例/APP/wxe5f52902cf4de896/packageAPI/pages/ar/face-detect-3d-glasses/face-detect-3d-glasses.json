@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "人脸三维识别-眼镜试戴",
+  "disableScroll": true,
+  "renderer": "webview"
+}

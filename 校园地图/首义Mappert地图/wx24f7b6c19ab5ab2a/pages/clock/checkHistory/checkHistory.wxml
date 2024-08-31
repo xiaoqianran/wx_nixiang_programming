@@ -1,0 +1,26 @@
+<topbar BackIcon="/static/back_white.svg" back="{{true}}" class="topbar fill flex column" immersion="{{true}}" title="{{topbarTitle}}" titleColor="--Foreground-Low">
+    <view class="box--page flex column fill-available">
+        <view class="box--user-info flex stretch">
+            <view class="flex--user-info flex-center">
+                <image mode="" src="{{userInfo.loginHead}}"></image>
+                <view class="text_user-info flex column">
+                    <view class="H3">{{userInfo.uname}}</view>
+                    <view class="Paragraphs1">{{userInfo.userId}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="box--history-check fill-available">
+            <image class="icon--no-history-check " mode="" src="{{svgUrlList.noCheckHistory}}" wx:if="{{!(clockHistory&&clockHistory.length)}}"></image>
+            <view class="height--history-check">
+                <view style="border-bottom: 2rpx solid var(--Border-Bounds)" wx:for="{{clockHistory}}" wx:key="index">
+                    <TDS-card SubTitle="{{item.createTime}}" Text2="{{item.clockLocation}}" showSubTitle="{{true}}" showText1="{{false}}">
+                        <view class="flex-center fit gap8" slot="swap2">
+                            <TDS-tag AdaptiveLabel="{{item.type}}" AdaptiveWidth="{{true}}" Color="{{typeKey[item.type]['backgroundColor']}}_Foreground-High" FixedWidth="{{false}}" IconPath="{{svgUrlList[ typeKey[item.type]['icon'] ]}}" class="fit"></TDS-tag>
+                            <TDS-tag AdaptiveLabel="{{item.alterUser}}" AdaptiveWidth="{{true}}" FixedWidth="{{false}}" IconPath="screw_gray_line" IconStyle="mini" class="fit" wx:if="{{item.alterUser}}"></TDS-tag>
+                        </view>
+                    </TDS-card>
+                </view>
+            </view>
+        </view>
+    </view>
+</topbar>

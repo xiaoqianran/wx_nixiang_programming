@@ -1,0 +1,115 @@
+<view catchtap="handleBindUserClose" class="dialog-bind-user dialog" hidden="{{visible}}">
+    <view catchtap="handleClick" class="dialog-wrapper" hidden="{{bindVisibleDialog}}">
+        <view class="dialog-container">
+            <text catchtap="handleCopyEncrypt" class="title">点击按钮复制绑定链接
+打开《第五人格》即可完成绑定</text>
+            <view class="part2">
+                <view class="part-title"> 按照提示在《第五人格》内点击确定即可完成 </view>
+                <view class="part-image"></view>
+            </view>
+            <view catchtap="handleCopyEncrypt" class="bind-user-copy-btn">
+                <view class="i" wx:if="{{showFirstbindTips}}"></view>
+            </view>
+            <view class="bind-user-tip">（若绑定失败，请重新复制绑定链接进入《第五人格》操作）</view>
+            <view catchtap="handleBindfail" class="bind_fail_tips">（仍无法绑定，请点击此处进行处理）</view>
+            <view catchtap="handleBindUserClose" class="bind-user-close"></view>
+        </view>
+    </view>
+    <view catchtap="handleClick" class="dialog-fail-bind" hidden="{{bindFailVisibleDialog}}">
+        <view class="fail-tit"></view>
+        <view class="fail-txt">
+            <view class="ft-nav">
+                <view bindtap="switchNav" class="nav-item ni1 {{currentNavIndex==0?'act':''}}" data-index="0"></view>
+                <view bindtap="switchNav" class="nav-item ni2 {{currentNavIndex==1?'act':''}}" data-index="1"></view>
+                <view bindtap="switchNav" class="nav-item ni3 {{currentNavIndex==2?'act':''}}" data-index="2"></view>
+            </view>
+            <view class="ft-show" wx:if="{{currentNavIndex==0}}">
+                <image class="fs-img1" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/user/bind_fail/bind_show1.png"></image>
+            </view>
+            <view class="ft-show" wx:elif="{{currentNavIndex==1}}">
+                <image class="fs-img2" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/user/bind_fail/bind_show2.png"></image>
+            </view>
+            <view class="ft-show" wx:elif="{{currentNavIndex==2}}">
+                <image class="fs-img3" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/user/bind_fail/bind_show3.png"></image>
+            </view>
+        </view>
+        <view bindtap="handleBindfail" class="close"></view>
+    </view>
+    <view catchtap="handleClick" class="dialog-unbind" hidden="{{unBindVisibleDialog}}">
+        <view class="title">解绑流程</view>
+        <view class="inner">
+            <view class="step-text">
+                <text class="t1">步骤1：</text>
+                <text class="t2">游戏内点击设置→安全→绑定码</text>
+            </view>
+            <view catchtap="handlePreview" class="image-tip image-tip1" data-index="0"></view>
+            <view class="step-text">
+                <text class="t1">步骤2：</text>
+                <text class="t2">如需解除绑定，则点击绑定码，选择
+角色进行解绑即可</text>
+            </view>
+            <view catchtap="handlePreview" class="image-tip image-tip2" data-index="1"></view>
+        </view>
+        <view bindtap="handUnBindProcess" class="define"></view>
+    </view>
+    <view class="friendbox" hidden="{{!showBindTips}}">
+        <view catchtap="bindTipsShow" class="popzz"></view>
+        <image bindlongpress="friLongpress" catchtap="bindTipsShow" class="small" mode="aspectFit" showMenuByLongpress="true" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/user/bindtips.jpg"></image>
+    </view>
+</view>
+<view catchtap="handleUnBindClose" class="dialog-bind-user dialog" hidden="{{unBindVisibleHtml}}">
+    <view catchtap="handleClick" class="dialog-unbind" hidden="{{unBindVisibleHtml}}">
+        <view class="title">解绑流程</view>
+        <view class="inner">
+            <view class="step-text">
+                <text class="t1">步骤1：</text>
+                <text class="t2">游戏内点击设置→安全→绑定码</text>
+            </view>
+            <view catchtap="handlePreview" class="image-tip image-tip1" data-index="0"></view>
+            <view class="step-text">
+                <text class="t1">步骤2：</text>
+                <text class="t2">如需解除绑定，则点击绑定码，选择
+角色进行解绑即可</text>
+            </view>
+            <view catchtap="handlePreview" class="image-tip image-tip2" data-index="1"></view>
+        </view>
+        <view bindtap="handleUnBindClose" class="define"></view>
+    </view>
+</view>
+<view class="pop pop-firstBind {{firstBindPopShow?'on':''}}">
+    <view class="firstBind">
+        <view bindtap="closeFirstBindPop" class="close"></view>
+        <view class="inner">
+            <view class="tit">
+                <text>恭喜获得58线索和1天奇珍时装体验卡！</text>
+                <text class="pa">（奖励48小时内将以游戏邮件形式发送）</text>
+            </view>
+            <view class="inblock">
+                <view class="_in">
+                    <view class="img img1"></view>
+                    <view class="des">58线索</view>
+                </view>
+                <view class="_in">
+                    <view class="img img2"></view>
+                    <view class="des">1天奇珍时装体验卡</view>
+                </view>
+            </view>
+            <view class="btns">
+                <view bindtap="closeFirstBindPop" class="jump">
+                    <text>确定</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="pop pop-copyUrl" wx:if="{{showCopyUrl}}">
+    <view class="pop_zz"></view>
+    <view class="inner">
+        <view class="_inner">
+            <text class="bind-user-copy-text" userSelect="true">{{copyCode}}</text>
+            <text class="tips">请长按全部选中复制</text>
+            <view bindtap="hidePop" class="close" data-name="showCopyUrl"></view>
+        </view>
+    </view>
+</view>
+<privacy-popup></privacy-popup>

@@ -1,0 +1,6 @@
+{
+  "pageOrientation": "auto",
+  "disableScroll": true,
+  "renderer": "webview",
+  "navigationBarTitleText": "躯体三维识别"
+}

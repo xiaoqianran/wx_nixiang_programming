@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "disableScroll": true,
+  "componentFramework": "glass-easel",
+  "renderer": "skyline"
+}

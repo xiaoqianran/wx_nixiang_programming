@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "订单详情页",
+  "componentPlaceholder": {
+    "van-icon": "_",
+    "van-toast": "_",
+    "van-notify": "_"
+  }
+}

@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.setAegis=function(s){e.aegis=s},exports.store=void 0;var e={aegis:null};exports.store=e;

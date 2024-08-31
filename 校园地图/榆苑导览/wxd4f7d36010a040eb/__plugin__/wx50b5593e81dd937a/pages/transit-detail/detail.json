@@ -1,0 +1,8 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "transit-route": "../../components/transit-route/transit-route",
+    "header": "../../components/header/header"
+  },
+  "navigationStyle": "custom"
+}

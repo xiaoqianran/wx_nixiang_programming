@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "单样本检测(OSD)",
+  "disableScroll": true,
+  "renderer": "webview"
+}

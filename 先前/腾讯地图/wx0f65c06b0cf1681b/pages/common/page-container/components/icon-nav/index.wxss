@@ -1,0 +1,1 @@
+.wsc-page-nav-icon{position:fixed;z-index:1}.wsc-page-nav-icon--right{right:15px;top:50%}.wsc-page-nav-icon--right-bottom{right:15px;bottom:30px}.wsc-page-nav-icon__btn{background:none;width:auto;height:auto;appearance:none;padding:0;line-height:0}.wsc-page-nav-icon__btn:after{border:0}.wsc-page-nav-icon__img{width:50px;height:50px}

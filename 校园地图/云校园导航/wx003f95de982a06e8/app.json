@@ -1,0 +1,63 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要获取你当前位置信息"
+    }
+  },
+  "style": "v2",
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "text": "地图",
+        "pagePath": "pages/map/map",
+        "iconPath": "images/tabbar/icon_map.png",
+        "selectedIconPath": "images/tabbar/icon_map_HL.png"
+      },
+      {
+        "text": "地点汇总",
+        "pagePath": "pages/site/site",
+        "iconPath": "images/tabbar/icon_collection.png",
+        "selectedIconPath": "images/tabbar/icon_collection_HL.png"
+      },
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/tabbar/icon_home.png",
+        "selectedIconPath": "images/tabbar/icon_home_HL.png"
+      },
+      {
+        "text": "校园指南",
+        "pagePath": "pages/school/school",
+        "iconPath": "images/tabbar/icon_school.png",
+        "selectedIconPath": "images/tabbar/icon_school_HL.png"
+      },
+      {
+        "text": "更多",
+        "pagePath": "pages/more/more",
+        "iconPath": "images/tabbar/icon_more.png",
+        "selectedIconPath": "images/tabbar/icon_more_HL.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "桂院校园导航",
+    "navigationBarTextStyle": "black"
+  },
+  "pages": [
+    "pages/home/home",
+    "pages/map/map",
+    "pages/more/more",
+    "pages/home/introduction/introduction",
+    "pages/map/instruction/instruction",
+    "pages/map/search/search",
+    "pages/site/site",
+    "pages/school/school",
+    "pages/school/word/word",
+    "pages/more/statement/statement"
+  ]
+}

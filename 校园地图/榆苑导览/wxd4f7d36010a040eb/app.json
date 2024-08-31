@@ -1,0 +1,67 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.18",
+      "provider": "wx50b5593e81dd937a",
+      "subpackage": "__APP__"
+    }
+  },
+  "style": "v2",
+  "tabBar": {
+    "backgroundColor": "#94d6da",
+    "selectedColor": "#8552a1",
+    "color": "FFF000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/首页_填充.png",
+        "selectedIconPath": "images/首页_填充.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图导航",
+        "iconPath": "images/定位打卡.png",
+        "selectedIconPath": "images/定位打卡.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的管理",
+        "iconPath": "images/我的.png",
+        "selectedIconPath": "images/我的.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff000",
+    "navigationBarTitleText": "榆苑导览",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/my/my",
+    "pages/zhu_ce/zhu_ce",
+    "pages/jsdl/jsdl",
+    "pages/haircut/haircut",
+    "pages/nearby10/bearby10",
+    "pages/BathCentre/BathCentre",
+    "pages/zhong/zhong",
+    "pages/ren/ren",
+    "pages/dian/dian",
+    "pages/dain_shen/dian_shen",
+    "pages/shou/shou",
+    "__plugin__/wx50b5593e81dd937a/pages/index/index",
+    "__plugin__/wx50b5593e81dd937a/pages/index/index",
+    "__plugin__/wx50b5593e81dd937a/pages/search/search",
+    "__plugin__/wx50b5593e81dd937a/pages/transit-detail/detail"
+  ]
+}

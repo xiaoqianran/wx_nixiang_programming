@@ -1,0 +1,1 @@
+root-portal{height:100%;width:100%}.popup,root-portal{display:-webkit-flex;display:flex}.popup{align-items:center;background:rgba(51,51,51,.65);bottom:0;flex-direction:row;height:200px;justify-content:center;opacity:1;pointer-events:auto;position:absolute;transform:scale3d(1,1,1);transition:all .2s ease-in;width:100vw;z-index:5000}

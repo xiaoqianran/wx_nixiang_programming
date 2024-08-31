@@ -1,0 +1,14 @@
+<topbar rgba="{{rgba}}" title="{{newmapTitle}}">
+    <view class="bg fill"></view>
+    <image bindtouchstart="touchStart" mode="widthFix" src="http://introduce.mcdd.top/sp-web-imageBank-202406252306-tqsg6m.png" style="width: 100%;"></image>
+    <view bindtap="buttonHandling" class="{{place==item.locationName?'btnRed':'btn'}} flex-center column" data-id="{{index}}" id="{{item.locationName}}" style="top: {{item.locationY}}rpx;left: {{item.locationX}}rpx;{{maxNum==index?'animation: glow-animation 1.5s infinite;':''}}" wx:if="{{item.locationName}}" wx:for="{{renderArr}}" wx:key="index">{{item.locationName=='宿舍楼A'||item.locationName=='宿舍楼B'?'宿舍楼':item.locationName}} <image class="fill" mode="heightFix" src="../../../static/text-e/{{item.locationName=='宿舍楼A'||item.locationName=='宿舍楼B'?'Dormitory.svg':placeEnglishList[item.locationName][1]}}" wx:if="{{place==item.locationName}}"></image>
+        <image class="fill" mode="heightFix" src="../../../static/text2/{{item.locationName=='宿舍楼A'||item.locationName=='宿舍楼B'?'Dormitory.svg':placeEnglishList[item.locationName][1]}}" wx:else></image>
+    </view>
+    <toast id="toast"></toast>
+    <fmin-dialog bindtapBg="closeDialog" font="H3" showDialog="{{showDialog}}" showSchoolBuiltSrc="{{false}}" title="确定在「{{place}}」打卡吗？" unusual="consult-clock">
+        <view class="button-group-horizon">
+            <TDS-button Label="取消" Size="medium" bindtap="closeDialog" buttonStyle="tertiary" class="fill"></TDS-button>
+            <TDS-button Label="确定" Size="medium" bindtap="clockInPlace" class="fill"></TDS-button>
+        </view>
+    </fmin-dialog>
+</topbar>

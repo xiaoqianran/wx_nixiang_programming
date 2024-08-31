@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "幸运大抽奖",
+  "navigationBarBackgroundColor": "#FFF",
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_",
+    "d": "_",
+    "e": "_"
+  }
+}

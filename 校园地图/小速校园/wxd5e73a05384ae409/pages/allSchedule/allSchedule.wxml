@@ -1,0 +1,187 @@
+<view style="width:100%;overflow-x:hidden">
+    <view class="choose">
+        <picker bindchange="{{b}}" class="chooseTerm" range="{{c}}" value="{{d}}">
+            <label>{{a}}></label>
+        </picker>
+        <picker bindchange="{{f}}" class="chooseWeek" range="{{g}}" value="{{h}}">
+            <label class="chooseWeek-content"> 第{{e}}周 <image alt="" class="chooseWeekImg" src="https://quickdo.top/images/rubLesson/icon/arrow.png"></image>
+            </label>
+        </picker>
+        <button bindtap="{{i}}" class="backToThisWeek">回到本周</button>
+    </view>
+    <view bindtouchend="{{C}}" bindtouchmove="{{B}}" bindtouchstart="{{A}}">
+        <view>
+            <week-time bind:__l="__l" bindback="{{j}}" uI="6dd99335-0"></week-time>
+        </view>
+        <view class="timetable-body">
+            <view class="timetable-SerialNum" wx:if="{{k}}">
+                <view class="timetable-classSerialNum"> 1 <view>
+                        <text class="classtime"> 08:30 </text>
+                        <text class="classtime"> 09:15 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 2 <view>
+                        <text class="classtime"> 09:15 </text>
+                        <text class="classtime"> 10:00 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 3 <view>
+                        <text class="classtime"> 10:20 </text>
+                        <text class="classtime"> 11:05 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 4 <view>
+                        <text class="classtime"> 11:05 </text>
+                        <text class="classtime"> 11:50 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 5 <view>
+                        <text class="classtime"> 14:00 </text>
+                        <text class="classtime"> 14:45 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 6 <view>
+                        <text class="classtime"> 14:45 </text>
+                        <text class="classtime"> 15:30 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 7 <view>
+                        <text class="classtime"> 15:50 </text>
+                        <text class="classtime"> 16:35 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 8 <view>
+                        <text class="classtime"> 16:35 </text>
+                        <text class="classtime"> 17:20 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 9 <view>
+                        <text class="classtime"> 18:30 </text>
+                        <text class="classtime"> 19:15 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 10 <view>
+                        <text class="classtime"> 19:15 </text>
+                        <text class="classtime"> 20:00 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 11 <view>
+                        <text class="classtime"> 20:20 </text>
+                        <text class="classtime"> 21:05 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 12 <view>
+                        <text class="classtime"> 21:05 </text>
+                        <text class="classtime"> 21:50 </text>
+                    </view>
+                </view>
+            </view>
+            <view class="timetable-SerialNum" wx:else>
+                <view class="timetable-classSerialNum"> 1 <view>
+                        <text class="classtime"> 08:00 </text>
+                        <text class="classtime"> 08:45 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 2 <view>
+                        <text class="classtime"> 08:55 </text>
+                        <text class="classtime"> 09:40 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 3 <view>
+                        <text class="classtime"> 10:00 </text>
+                        <text class="classtime"> 10:45 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 4 <view>
+                        <text class="classtime"> 10:55 </text>
+                        <text class="classtime"> 11:40 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 5 <view>
+                        <text class="classtime"> 14:10 </text>
+                        <text class="classtime"> 14:55 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 6 <view>
+                        <text class="classtime"> 15:05 </text>
+                        <text class="classtime"> 15:50 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 7 <view>
+                        <text class="classtime"> 16:10 </text>
+                        <text class="classtime"> 16:55 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 8 <view>
+                        <text class="classtime"> 17:05 </text>
+                        <text class="classtime"> 17:50 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 9 <view>
+                        <text class="classtime"> 18:40 </text>
+                        <text class="classtime"> 19:25 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 10 <view>
+                        <text class="classtime"> 19:35 </text>
+                        <text class="classtime"> 20:20 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 11 <view>
+                        <text class="classtime"> 20:30 </text>
+                        <text class="classtime"> 21:15 </text>
+                    </view>
+                </view>
+                <view class="timetable-classSerialNum"> 12 <view>
+                        <text class="classtime"> 21:25 </text>
+                        <text class="classtime"> 22:10 </text>
+                    </view>
+                </view>
+            </view>
+            <view class="timetable">
+                <view class="timetable-grid">
+                    <view bindtap="{{item.l}}" class="demo02" style="{{'justify-content:'+item.m}}" wx:for="{{l}}" wx:key="k">
+                        <view class="lessonDetailBox" style="{{'border-color:'+item.e+';'+'background-color:'+item.f+';'+'color:'+item.g+';'+'height:'+item.h+';'+'border-width:'+item.i+';'+'border-style:'+item.j}}">
+                            <view style="overflow:hidden" wx:if="{{item.a}}">
+                                <text class="timetable-detail-classname">{{item.b}}</text>
+                                <text class="timetable-detail-place">{{item.c}}</text>
+                            </view>
+                            <view style="overflow:hidden" wx:else>
+                                <view class="{{item1.d}}" wx:for="{{item.d}}" wx:for-item="item1" wx:key="c">
+                                    <text class="timetable-detail-conflictClassname">{{item1.a}}</text>
+                                    <text class="timetable-detail-conflictPlace">{{item1.b}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="allDetailBox" hidden="{{!z}}" ref="allDetailBoxheight">
+                    <view class="timetable-showDetil" ref="showDetilBoxHeight" style="{{'border-color:'+w+';'+'background-color:'+x+';'+'color:'+y}}">
+                        <view wx:if="{{m}}">
+                            <view class="{{item2.g}}" wx:for="{{n}}" wx:for-item="item2" wx:key="f">
+                                <view class="class-name">{{item2.a}}</view>
+                                <view class="class-other">老师：{{item2.b}}</view>
+                                <view class="class-other">教室：{{item2.c}}</view>
+                                <view class="class-other">节数：{{item2.d}}节</view>
+                                <view class="class-other">周数：{{item2.e}}</view>
+                            </view>
+                        </view>
+                        <view wx:else>
+                            <view class="class-name">{{o}}</view>
+                            <view class="class-other">老师：{{p}}</view>
+                            <view class="class-other">教室：{{q}}</view>
+                            <view class="class-other">节数：{{r}}节</view>
+                            <view class="class-other">周数：{{s}}</view>
+                        </view>
+                        <button bindtap="{{v}}" class="detail-btn" style="{{'background-color:'+t}}">确认</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <scroll-view class="termTip" scrollX="true">
+            <view class="termTipName"> 备注：未安排时间课程：{{D}}·{{E}}</view>
+        </scroll-view>
+    </view>
+</view>

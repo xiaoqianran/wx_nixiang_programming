@@ -1,0 +1,29 @@
+<view class="form-box shadow-project card-project">
+    <view class="form-group padding-top-s" wx:if="{{userRegCheck&&user.USER_STATUS==8}}">
+        <view class="hint-desc text-red" wx:if="{{!user.USER_CHECK_REASON}}">
+            <text class="icon-notice"></text>审核未通过：请修改资料后重新提交</view>
+        <view class="hint-desc text-red" wx:else>
+            <text class="icon-notice"></text>审核未通过：{{user.USER_CHECK_REASON}}。请修改资料后重新提交</view>
+    </view>
+    <view class="form-group padding-top-s" wx:elif="{{userRegCheck&&user.USER_STATUS==0}}">
+        <view class="hint-desc text-orange">
+            <text class="icon-notice"></text>您的注册资料已经提交，请耐心等待审核~</view>
+    </view>
+    <view class="form-group">
+        <view class="title must">昵称</view>
+        <input maxlength="30" value="{{formName}}" placeholder="填写您的昵称" placeholderClass="phc" type="nickname"></input>
+    </view>
+    <view class="hint-desc error" wx:if="{{formNameFocus}}">{{formNameFocus}}</view>
+    <view class="form-group">
+        <view class="title must">手机</view>
+        <input maxlength="11" value="{{formMobile}}" placeholder="填写您的手机号码" placeholderClass="phc" wx:if="{{!mobileCheck}}"></input>
+        <block wx:else>
+            <view class="mobile">{{formMobile||'未填写'}}</view>
+            <button bindgetphonenumber="bindGetPhoneNumber" class="btn phone-button" openType="getPhoneNumber">
+                <text wx:if="{{!formMobile}}">一键填写手机号</text>
+                <text wx:else>一键修改手机号</text>
+            </button>
+        </block>
+    </view>
+    <view class="hint-desc error" wx:if="{{formMobileFocus}}">{{formMobileFocus}}</view>
+</view>

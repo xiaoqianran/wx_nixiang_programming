@@ -1,0 +1,63 @@
+<view class="main">
+    <view bind:tap="selectCity" class="city-selector" wx:if="{{showCitySelector}}">
+        <view class="city-selector-item icon-location"></view>
+        <text class="city-selector-item">{{cityName}}</text>
+    </view>
+    <view class="swipper">
+        <cmpt-swiper height="400" images="{{slidepics}}" indicatorActiveColor="#00C176" mode="widthFix"></cmpt-swiper>
+    </view>
+    <view class="menu">
+        <view bindtap="url" class="item" data-url="../../news/index/news_index?id={{item.id}}&sid={{rootScenicId}}" wx:for="{{newsType}}" wx:key="id">
+            <view class="item-inner">
+                <view class="img">
+                    <image src="{{mediaSrvUrl+item.icon}}"></image>
+                </view>
+                <view class="title">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="guide">
+        <view class="title">游玩指南</view>
+        <view class="item">
+            <view bindtap="url" class="item-inner" data-url="../../about/index/about_index?id={{rootScenicId}}&key=SCENIC_CONTENT&title=景区概况">
+                <image lazyLoad="{{true}}" mode="aspectFill" src="{{summbgimg==null?'':summbgimg}}"></image>
+                <view class="txt1">景区概况</view>
+                <view class="txt2">服务游客 助力旅游 </view>
+            </view>
+            <view class="item-inner">
+                <view bindtap="url" class="line" data-url="../../album/index/album_index">
+                    <image lazyLoad="{{true}}" mode="aspectFill" src="{{albumbgimg==null?'':albumbgimg}}"></image>
+                    <view class="txt1">官方攻略</view>
+                    <view class="txt2">最具代表性的玩法</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="hot">
+        <view class="title">旅游人气榜</view>
+        <view class="item">
+            <view class="left bg1">
+                <view class="line1">景点</view>
+                <view class="line2">人气榜</view>
+            </view>
+            <view class="right">
+                <view bindtap="url" class="line text-cut" data-url="../../scenic/detail/scenic_detail?id={{item.id}}" wx:for="{{hotScenicList}}" wx:key="key">
+                    <text class="no">{{index+1}}</text> {{item.name}}</view>
+            </view>
+        </view>
+        <view class="item margin-top-s">
+            <view class="left bg2">
+                <view class="line1">攻略</view>
+                <view class="line2">人气榜</view>
+            </view>
+            <view class="right">
+                <view bindtap="url" class="line text-cut" data-url="../../album/detail/album_detail?id={{item.id}}" wx:for="{{hotAlbumList}}" wx:key="key">
+                    <text class="no">{{index+1}}</text> {{item.title}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{skin.IS_SUB}}">
+    <import src="../../tpls/menu_tpl.wxml"></import>
+    <template is="menuTpl" data="{{curMenu:'default_index',returnHome:false}}"></template>
+</block>

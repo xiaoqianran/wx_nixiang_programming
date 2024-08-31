@@ -1,0 +1,17 @@
+<view class="pop_zz" wx:if="{{innerShow}}"></view>
+<view class="weui-half-screen-dialog" wx:if="{{innerShow}}">
+    <view class="weui-half-screen-dialog__hd">
+        <text class="weui-half-screen-dialog__title">{{title}}</text>
+    </view>
+    <view class="weui-half-screen-dialog__bd">
+        <view class="dialog_tips">{{desc1}}</view>
+        <view bindtap="openPrivacyContract" class="dialog_tips blue">{{urlTitle}}</view>
+        <view class="dialog_tips">{{desc2}}</view>
+    </view>
+    <view class="weui-half-screen-dialog__ft">
+        <view class="weui-half-screen-dialog__btn-area">
+            <button bindtap="handleDisagree" class="weui-btn unAgree" id="disagree-btn" type="default">不同意</button>
+            <button bindagreeprivacyauthorization="handleAgree" class="weui-btn" id="agree-btn" openType="agreePrivacyAuthorization" type="default">同意并继续</button>
+        </view>
+    </view>
+</view>

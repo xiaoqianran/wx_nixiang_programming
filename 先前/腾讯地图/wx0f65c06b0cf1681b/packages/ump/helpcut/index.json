@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "砍价购",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light",
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_",
+    "d": "_",
+    "e": "_"
+  }
+}

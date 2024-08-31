@@ -1,0 +1,26 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view bindtap="hdDetails" class="tophd" data-newsid="{{item.id}}" wx:for="{{hdList}}" wx:key="key">
+        <image class="bhimg" mode="scaleToFill" src="{{item.pic}}"></image>
+        <view class="inner">
+            <text class="h6">{{item.name}}</text>
+            <view class="line"></view>
+            <view class="p">
+                <text>报名时间：{{item.entryPeriodFrom}} — {{item.entryPeriodTo}}</text>
+                <view class="p1" wx:if="{{item.entryPeriodType=='now'}}">报名中</view>
+                <view class="p2" wx:elif="{{item.entryPeriodType=='fet'}}">未开始</view>
+                <view class="p2" wx:else>已结束</view>
+            </view>
+            <view class="p">
+                <text>活动时间：{{item.lasePeriodFrom}} — {{item.lastPeriodTo}}</text>
+                <view class="p1" wx:if="{{item.lasePeriodType=='now'}}">进行中</view>
+                <view class="p2" wx:elif="{{item.lasePeriodType=='fet'}}">未开始</view>
+                <view class="p2" wx:else>已结束</view>
+            </view>
+            <view class="p red">
+                <image mode="scaleToFill" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/p1_ic.png"></image>
+                <text class="pa">{{item.dateDes}}</text>
+            </view>
+        </view>
+    </view>
+</view>

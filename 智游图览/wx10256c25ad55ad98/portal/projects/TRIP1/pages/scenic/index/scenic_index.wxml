@@ -1,0 +1,32 @@
+<view class="margin-top load loading text-l load-project" wx:if="{{!_params}}"></view>
+<block wx:else>
+    <import src="../../../../../tpls/public/list_load_tpl.wxml"></import>
+    <cmpt-comm-list _items="{{sortItems}}" _menus="{{sortMenus}}" _params="{{_params}}" bind:list="bindCommListCmpt" id="scenic-list-cmpt" placeholder="搜索" route="scenic/list" search="{{search}}" sortMenusDefaultIndex="0" topBottom="120" type="scenic-list">
+        <view class="scenic-list">
+            <view class="item-box" wx:for="{{dataList.list}}" wx:key="key">
+                <view bindtap="url" class="item1" data-url="../detail/scenic_detail?id={{item.id}}">
+                    <image class="loading" lazyLoad="{{true}}" mode="aspectFill" src="{{mediaSrvUrl+(item.pic==null?sceniccover:item.pic)}}">
+                        <text class="star">
+                            <text class="icon-favorfill" wx:for="{{tools.parseInt(item.star)}}" wx:key="key1"></text>
+                        </text>
+                    </image>
+                    <view class="right">
+                        <view class="line1 content-cut-one">{{item.title}}</view>
+                        <view class="line3 content-cut-two">{{item.desc}}</view>
+                    </view>
+                </view>
+                <view class="item2">
+                    <view bindtap="bindMapTap" class="scenic-fixed-map-btn" data-oid="{{item.id}}" wx:if="{{item.show_map}}">
+                        <text class="icon-explore"></text>
+                        <text style="font-size:22rpx;">导览</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <template is="listLoadTpl" data="{{skin:'load-project',dataList:dataList}}"></template>
+    </cmpt-comm-list>
+    <block wx:if="{{skin.IS_SUB}}">
+        <import src="../../tpls/menu_tpl.wxml"></import>
+        <template is="menuTpl" data="{{curMenu:'scenic_index',returnHome:false}}"></template>
+    </block>
+</block>

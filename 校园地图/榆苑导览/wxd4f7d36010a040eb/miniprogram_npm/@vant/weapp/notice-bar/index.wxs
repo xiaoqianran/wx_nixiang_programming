@@ -1,0 +1,1 @@
+var style = require('p_./miniprogram_npm/@vant/weapp/wxs/style.wxs');var addUnit = require('p_./miniprogram_npm/@vant/weapp/wxs/add-unit.wxs');function rootStyle(data){return(style(({color:data.color,'background-color':data.backgroundColor,background:data.background,})))};module.exports = ({rootStyle:rootStyle,});

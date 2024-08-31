@@ -1,0 +1,1 @@
+getApp();Page({data:{items:[{}],show:!1},onLoad:function(){console.log("onload");for(var o=[],t=0;t<200;t++){var a={},c=Math.floor(124*Math.random()+105);a.bg="background-color: rgb(".concat(c,", ").concat(c,", ").concat(c,")"),o.push(a)}this.setData({items:o})},tap:function(){this.setData({show:!0})}});

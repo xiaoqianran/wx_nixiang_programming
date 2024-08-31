@@ -1,0 +1,3 @@
+<view class="container">
+    <v-zhgeo bind:changeScenic="changeScenic" bind:redirectScenic="redirectScenic" bind:updateBarTitle="updateBarTitle" mode="{{mode}}" modeOid="{{modeOid}}" modeType="{{modeType}}" rootScenicId="{{rootScenicId}}"></v-zhgeo>
+</view>

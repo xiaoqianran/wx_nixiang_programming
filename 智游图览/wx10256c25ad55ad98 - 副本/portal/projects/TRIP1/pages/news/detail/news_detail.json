@@ -1,0 +1,1 @@
+{"usingComponents":{"cmpt-detail":"/portal/cmpts/biz/detail/detail_cmpt","cmpt-comm-list":"/portal/cmpts/public/list/comm_list_cmpt","cmpt-modal":"/portal/cmpts/public/modal/modal_cmpt","cmpt-picker":"/portal/cmpts/public/picker/picker_cmpt","mp-html":"/components/mp-html/index"},"enablePullDownRefresh":true,"navigationBarTitleText":"详细内容"}

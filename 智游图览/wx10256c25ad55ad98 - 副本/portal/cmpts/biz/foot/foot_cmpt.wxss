@@ -1,0 +1,1 @@
+@import "/portal/style/public/project.wxss";.site-footer{align-items:center;color:#aaa;display:-webkit-flex;display:flex;flex-direction:column;font-size:24rpx;justify-content:center;margin-bottom:20rpx;margin-top:20rpx;width:100%}

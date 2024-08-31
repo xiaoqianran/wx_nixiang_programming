@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "确认订单",
+  "navigationStyle": "custom",
+  "componentPlaceholder": {
+    "l": "_",
+    "m": "_",
+    "bd": "_",
+    "bf": "_",
+    "bg": "_"
+  }
+}

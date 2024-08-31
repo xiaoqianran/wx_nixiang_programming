@@ -1,0 +1,16 @@
+<navBar bindsearch="search" searchBar="{{true}}"></navBar>
+<view class="container index-daily">
+    <view class="page top_chPage ">
+        <view bindtap="topLink" class="li" data-index="0">推荐</view>
+        <view bindtap="topLink" class="li" data-index="1">公告</view>
+        <view bindtap="topLink" class="li" data-index="4">日常</view>
+        <view bindtap="topLink" class="li" data-index="2">资讯</view>
+        <view bindtap="topLink" class="li on {{!dailyIcon&&'daily'}}" data-index="5">同人</view>
+        <view bindtap="topLink" class="li" data-index="3">赛事</view>
+    </view>
+    <view class="index-daily-container">
+        <news-list bindCustomListChange="handleCustomListChange" newsList="{{listData}}" wxToken="{{wxToken}}" wx:if="{{listData&&listData.length&&listNull}}"></news-list>
+        <view class="null" wx:elif="{{listNull}}"> 暂没有发布的同人话题 </view>
+    </view>
+    <bottom-dh active="1" class="bottom-dhbox"></bottom-dh>
+</view>

@@ -1,0 +1,8 @@
+<view class="Empty" id="Empty" style="Empty">
+    <view class="Empty" wx:if="Empty"></view>
+    <view class="Empty" wx:elif="Empty"></view>
+    <view class="Empty" wx:elif="Empty">
+        <view class="Empty"></view>
+        <view class="Empty">Empty</view>
+    </view>
+</view>

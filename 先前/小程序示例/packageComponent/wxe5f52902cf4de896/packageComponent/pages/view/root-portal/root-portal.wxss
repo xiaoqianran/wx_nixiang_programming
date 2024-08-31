@@ -1,0 +1,1 @@
+@import "/common/reset.wxss";.dialog{align-items:center;background-color:#fff;border:.5px solid #eee;border-radius:10px;display:-webkit-flex;display:flex;flex-direction:row;height:100px;justify-content:center;width:200px}

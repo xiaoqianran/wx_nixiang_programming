@@ -1,0 +1,50 @@
+<view class="rolelist-page page-reset-container">
+    <navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="角色列表"></navBar>
+    <view class="rolelist-sort">
+        <picker bindchange="handlePickerChange" range="{{filterList}}" rangeKey="name" value="{{value}}">
+            <view class="picker"> {{filterList[value].name}} </view>
+        </picker>
+        <view class="sort {{sortDirection}}">
+            <view bindtap="handlerSort" class="sort-item {{sortName==='total_battle'?'total_battle':''}}" data-name="total_battle"> 场次 </view>
+            <view bindtap="handlerSort" class="sort-item {{sortName==='win_rate'?'win_rate':''}}" data-name="win_rate"> 胜率 </view>
+            <view bindtap="handlerSort" class="sort-item {{sortName==='top_hero_rank_score'?'top_hero_rank_score':''}}" data-name="top_hero_rank_score"> 认知分 </view>
+        </view>
+    </view>
+    <view class="rolelist" wx:if="{{userEx!=''&&userEx.herolist.length>0}}">
+        <view bindtap="goRole" class="li" data-heroid="{{item.hero_id}}" data-kill="{{item.kill}}" wx:for="{{userEx.herolist}}" wx:key="key">
+            <view class="ch1">
+                <view class="icon">
+                    <image mode="widthFix" src="{{item.headImg}}"></image>
+                </view>
+                <view class="name">{{item.hero_name}}</view>
+            </view>
+            <view class="ch2">
+                <view class="des">
+                    <view class="t1">总场数</view>
+                    <view class="t2">{{item.total_battle}}</view>
+                </view>
+                <view class="des">
+                    <view class="t1">胜场</view>
+                    <view class="t2">{{item.win_battle}}</view>
+                </view>
+                <view class="des">
+                    <view class="t1">胜率</view>
+                    <view class="t2">{{item.win_rate}}</view>
+                </view>
+                <view class="des pa">
+                    <view class="t1">最高认知分</view>
+                    <view class="t2">{{item.top_hero_rank_score}}</view>
+                </view>
+            </view>
+            <view class="kv">
+                <view class="out">
+                    <image mode="widthFix" src="{{item.kv}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="tips" wx:elif="{{userEx.length<=0||userEx.herolist.length<=0}}"> 暂无数据 </view>
+    <view class="gotorankBox">
+        <view bindtap="toRank" class="btn-gotorank">查看角色热度榜</view>
+    </view>
+</view>

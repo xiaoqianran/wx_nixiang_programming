@@ -1,0 +1,1 @@
+var i=require("../../utils/store");Page({data:{imageWidth:0,imageMargin:12,lineLimit:3,list:[]},onLoad:function(){var t=this.data,e=t.imageMargin,a=t.lineLimit,s=wx.getSystemInfoSync().screenWidth;this.setData({imageWidth:(s-4*e)/a,list:(0,i.getAlbum)()})}});

@@ -1,0 +1,1 @@
+.container{align-items:center;border:1px solid #ccc;border-radius:10px;display:-webkit-flex;display:flex;flex-direction:column;font-weight:700;justify-content:center;margin:20px;padding:20px}.email{color:#00f;text-decoration:underline}.hr{height:10px}

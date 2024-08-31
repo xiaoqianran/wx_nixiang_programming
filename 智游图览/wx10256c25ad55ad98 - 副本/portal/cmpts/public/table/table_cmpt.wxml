@@ -1,0 +1,11 @@
+<view bounces="{{false}}" class="table table-border" enhanced="{{true}}" scrollAnchoring="{{true}}" scrollX="{{true}}" scrollY="{{true}}">
+    <view class="thead thead-border">
+        <view class="td" style="width:200rpx;" wx:for="{{headers}}" wx:key="*this"> {{item.label}} </view>
+    </view>
+    <view class="tbody">
+        <view class="tbody-tr tbody-tr-stripe1  tbody-tr-border" wx:if="{{data.length>0}}" wx:for="{{data}}" wx:for-index="idx" wx:for-item="it" wx:key="*this">
+            <view class="td" style="width:200rpx; " wx:for="{{headers}}" wx:for-item="head" wx:key="*this"> {{it[ head['prop'] ]}} </view>
+        </view>
+        <view class="no-data" wx:if="{{data.length===0}}">{{msg}}</view>
+    </view>
+</view>

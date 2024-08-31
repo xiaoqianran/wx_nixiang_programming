@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "按名称、地址搜索门店",
+  "componentPlaceholder": {
+    "van-loading": "_",
+    "van-toast": "_",
+    "van-notify": "_",
+    "van-icon": "_"
+  }
+}

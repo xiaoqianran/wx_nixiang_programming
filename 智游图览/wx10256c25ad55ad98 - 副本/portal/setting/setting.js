@@ -1,0 +1,1 @@
+var E=require("../../index");module.exports={SERVER:(0,E.getServeUrl)()+"/api/portal",VER:"build 2022.08.14",COMPANY:"联系作者",IS_SUB:!1,IS_DEMO:!1,MOBILE_CHECK:!1,IMG_UPLOAD_SIZE:20,CACHE_IS_LIST:!0,CACHE_LIST_TIME:1800,CUSTOMER_SERVICE_CHAT_URL:"https://work.weixin.qq.com/kfid/kfcd53b57fc2a616020",CUSTOMER_SERVICE_CHAT_CORPID:"wwcd07dc8362163380"};

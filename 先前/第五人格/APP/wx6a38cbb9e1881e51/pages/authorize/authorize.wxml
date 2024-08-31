@@ -1,0 +1,14 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" home="{{false}}" iconTheme="black" id="navBar" title="网易第五人格"></navBar>
+<view class="mc">
+    <view class="box">
+        <view class="logobox">
+            <image src="{{imgUrl}}/icon.png"></image> 网易第五人格 申请使用 </view>
+        <view class="textbox">你的手机号码</view>
+        <view class="textbox2">参与活动需要手机号进行登录</view>
+        <view class="btnbox">
+            <button bindtap="skipLink" class="btn btn1">拒绝</button>
+            <button bindtap="goTransfer" class="btn" type="primary" wx:if="{{!!userPhone}}">允许</button>
+            <button bindgetphonenumber="getPhoneNumber" class="btn" openType="getPhoneNumber" type="primary" wx:else>允许</button>
+        </view>
+    </view>
+</view>

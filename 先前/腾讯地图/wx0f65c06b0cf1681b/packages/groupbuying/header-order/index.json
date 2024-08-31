@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "订单",
+  "navigationBarBackgroundColor": "#FFF",
+  "componentPlaceholder": {
+    "c": "_",
+    "d": "_"
+  }
+}

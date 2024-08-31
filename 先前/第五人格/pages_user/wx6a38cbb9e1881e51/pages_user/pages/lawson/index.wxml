@@ -1,0 +1,69 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" iconTheme="black" id="navBar" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page page1">
+        <view class="logo">
+            <view class="ex"></view>
+        </view>
+        <view bindtap="jumpLink" class="btn_qu"></view>
+        <view bindtap="popShow" class="btn_rule" data-name="popRuleShow"></view>
+        <view class="slogan"></view>
+        <view class="skinbox">
+            <view bindtap="handleBindUserDialog" class="bind" wx:if="{{!actUserInfo.uid}}">请先绑定角色</view>
+            <view class="bind" wx:else>{{actUserInfo.nickName||userInfo.nickname}}</view>
+            <view class="skin"></view>
+            <view class="ul">
+                <view class="li">
+                    <text class="desc">登录游戏1次（{{actUserInfo.login?1:0}}/1)</text>
+                    <view bindtap="reGetInfo" class="refresh"></view>
+                    <view class="btns btn_yet" wx:if="{{!actUserInfo.login}}"></view>
+                    <view class="btns btn_fet" wx:elif="{{actUserInfo.login}}"></view>
+                </view>
+                <view class="li">
+                    <text class="desc">分享小程序/活动海报
+1次 （{{actUserInfo.share?1:0}}/1）</text>
+                    <view bindtap="showSharePic" class="btns btn_share" wx:if="{{!actUserInfo.share}}"></view>
+                    <view bindtap="showSharePic" class="btns btn_fet" wx:elif="{{actUserInfo.share}}"></view>
+                </view>
+            </view>
+            <view class="btn_revice fet" wx:if="{{actUserInfo.receive}}"></view>
+            <view bindtap="handleBindUserDialog" class="btn_revice yet" wx:elif="{{!userInfo.idvId}}"></view>
+            <view class="btn_revice yet" wx:elif="{{!actUserInfo.login||!actUserInfo.share}}"></view>
+            <view bindtap="revicePr" class="btn_revice" wx:else></view>
+        </view>
+    </view>
+</view>
+<view class="popbox">
+    <view class="pop pop_rule" wx:if="{{popRuleShow}}">
+        <view class="pop_zz"></view>
+        <view class="inner">
+            <view bindtap="popHide" class="closePop" data-name="popRuleShow"></view>
+            <view class="_inner">
+                <text></text>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop_tips" wx:if="{{popTipsShow}}">
+        <view class="pop_zz"></view>
+        <view class="inner">
+            <view bindtap="popHide" class="closePop" data-name="popTipsShow"></view>
+            <view class="_inner">
+                <text>{{popTipsText}}</text>
+                <view bindtap="popHide" class="yes" data-name="popTipsShow"></view>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop_pic" wx:if="{{sharePicShow}}">
+        <view class="pop_zz"></view>
+        <view class="inner">
+            <image bindlongpress="doShareEvent" class="sharePic" showMenuByLongpress="true" src="{{imgUrl}}/active/lawson/share4.jpg"></image>
+            <text class="tips">长按图片保存到本地
+并分享给好友</text>
+            <button class="btns btn_share" openType="share"></button>
+            <view bindtap="popHide" class="closePop" data-name="sharePicShow"></view>
+        </view>
+    </view>
+</view>
+<bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages_user/pages/lawson/index" visible="{{!bindUserVisible}}"></bind-user>
+<view class="dialog" wx:if="{{messageTipGif}}">
+    <image class="datails_message-tip-gif" mode="widthFix" src="{{messageTipGifUrl}}"></image>
+</view>

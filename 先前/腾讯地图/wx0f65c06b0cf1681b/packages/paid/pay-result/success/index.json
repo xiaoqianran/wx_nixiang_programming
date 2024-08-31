@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "custom",
+  "disableScroll": true,
+  "componentPlaceholder": {
+    "j": "_",
+    "q": "_",
+    "r": "_",
+    "v": "_",
+    "w": "_",
+    "y": "view"
+  }
+}

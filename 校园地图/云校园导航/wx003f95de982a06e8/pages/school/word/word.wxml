@@ -1,0 +1,23 @@
+<view class="cu-bar search bg-white" id="search" style="position:fixed; top:0;z-index:99;width: 100%;">
+    <view class="search-form">
+        <input bindconfirm="search" bindinput="bindInput" confirmType="search" placeholder="输入关键词" style="padding-left: 15rpx;" type="text" value="{{inputValue}}"></input>
+    </view>
+    <view catchtap="search" class="action" style="width: 20%;">
+        <button class="cu-btn bg-green shadow-blur">搜索</button>
+    </view>
+</view>
+<scroll-view scrollIntoView="{{detail}}" scrollWithAnimation="true" scrollY="true" style="height: {{height+'px'}}; top: 50px;position: fixed;">
+    <view class="cu-card dynamic" id="id{{index}}" style="padding-bottom: 0;" wx:for="{{curWords}}" wx:key="index">
+        <view class="cu-item shadow padding-sm">
+            <view class="text-content">
+                <text class="text-blue text-xl">{{item.title}}</text>
+            </view>
+            <view class="content margin-sm">
+                <text userSelect decode="true">{{item.content}}</text>
+            </view>
+            <view bindtap="clickImg" class="img" data-id="{{index}}" data-url="{{items}}" wx:for="{{item.imageList}}" wx:for-index="id" wx:for-item="items" wx:key="index">
+                <image mode="aspectFit" src="{{items}}"></image>
+            </view>
+        </view>
+    </view>
+</scroll-view>

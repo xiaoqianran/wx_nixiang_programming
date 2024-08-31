@@ -1,0 +1,20 @@
+<swiper autoplay="{{autoplay}}" circular="{{circular}}" class="swiper-item" duration="{{duration}}" indicatorActiveColor="{{activeColor}}" indicatorColor="{{indicatorColor}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}">
+    <swiper-item wx:for="{{background}}" wx:key="*this">
+        <view>
+            <image bindload="imgHeight" bindtap="lookPhoto" class="swiper-item-image" data-src="{{item}}" mode="widthFix" src="{{item}}"></image>
+        </view>
+    </swiper-item>
+</swiper>
+<view bindtap="tomap" class="daohang" style="margin-left: {{windowWidth-80}}px;">
+    <text>地图
+导航</text>
+</view>
+<view class="title-font">
+    <view class="title-font-1"> {{school_information.school_name_full}} </view>
+    <view class="title-font-2"> {{school_information.school_name_English_full}} </view>
+</view>
+<view class="text-font">
+    <text decode="true" userSelect="true">&emsp;&emsp;{{school_information.text}}</text>
+</view>
+<view class="bottom-font"> 信息来源：学校官网
+</view>

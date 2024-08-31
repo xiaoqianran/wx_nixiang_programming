@@ -1,0 +1,22 @@
+<view class="margin-top load notexist text-l load-project" wx:if="{{isLoad===null}}"></view>
+<view class="margin-top load loading text-l load-project" wx:if="{{isLoad===false}}"></view>
+<view class="main padding-project" wx:if="{{isLoad&&isLogin}}">
+    <view class="article-box">
+        <view class="form-box card-project shadow-project">
+            <view class="form-group">
+                <view class="title text-cut">{{meet.MEET_TITLE}}</view>
+            </view>
+            <view bindtap="url" class="form-group" data-type="back">
+                <view class="title text-cut" style="padding-right:0">
+                    <text class="icon-calendar margin-right-xxs"></text>{{meet.dayDesc}} <text class="tag mid bg-orange light round margin-right">更改时段</text>
+                </view>
+            </view>
+        </view>
+        <view class="form-box card-project shadow-project margin-top">
+            <view class="form-group">
+                <view class="line-desc">请您填写资料，带<text class="text-red text-bold">*</text>号为必填项</view>
+            </view>
+        </view>
+    </view>
+    <button bindtap="bindCheckTap" class="btn-base btn-project" style="margin-bottom:100rpx;">提交</button>
+</view>

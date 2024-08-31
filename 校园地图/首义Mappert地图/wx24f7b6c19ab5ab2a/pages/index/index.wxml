@@ -1,0 +1,8 @@
+<view class="wrapper">
+    <view class="container">
+        <view class="title">双指缩放图片</view>
+        <scroll-view bindtouchmove="touchmoveCallback" bindtouchstart="touchstartCallback" class="images" scrollX="true" scrollY="true">
+            <image bindload="imgload" mode="aspectFit" src="../../static/map.jpg" style="width:{{scaleWidth}}px;height:{{scaleHeight}}px"></image>
+        </scroll-view>
+    </view>
+</view>

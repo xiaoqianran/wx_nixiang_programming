@@ -1,0 +1,81 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <button bindtap="showShare" class="invite" openType="share"></button>
+    <view class="page p1">
+        <view class="logo"></view>
+        <view class="timedes">
+            <text class="des">新版本开启时间：
+10月28日 维护后开启</text>
+        </view>
+        <view class="fu_bo">
+            <view class="slogan"></view>
+            <view class="jdtout">
+                <view class="jdtbox">
+                    <view class="jd_us"></view>
+                    <view class="jd_real" style="width: {{bfb}};"></view>
+                    <view class="prList">
+                        <view class="li {{unLockNum>0?'on':''}}">
+                            <view class="out">
+                                <view class="img pr2"></view>
+                                <view class="txt">记忆珍宝×1</view>
+                            </view>
+                            <view class="dess">100W</view>
+                        </view>
+                        <view class="li {{unLockNum>1?'on':''}}">
+                            <view class="out">
+                                <view class="img pr3"></view>
+                                <view class="txt">线索×88</view>
+                            </view>
+                            <view class="dess">300W</view>
+                        </view>
+                        <view class="li {{unLockNum>2?'on':''}}">
+                            <view class="out">
+                                <view class="img pr2"></view>
+                                <view class="txt">记忆珍宝×3</view>
+                            </view>
+                            <view class="dess">500W</view>
+                        </view>
+                    </view>
+                    <view class="prList2">
+                        <view class="li {{isOrder?'on':''}}">
+                            <view class="out">
+                                <view class="img pr1"></view>
+                                <view class="txt">预约礼包</view>
+                            </view>
+                        </view>
+                        <view class="li">
+                            <view class="out">
+                                <view class="img pr4"></view>
+                                <view class="txt">稀世时装</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="des">
+                    <view class="num r">达成预约人数后游戏内自动发放奖励，终极奖励需要参与游戏内活动领取</view>
+                </view>
+            </view>
+            <view bindtap="getSendmsgCol" class="orderBtn" wx:if="{{!isOrder}}"></view>
+            <view class="orderBtn grey" wx:else></view>
+            <view class="orderTips">全新版本将于10月28日重磅来袭！</view>
+        </view>
+    </view>
+    <view class="pop pop-zz" wx:if="{{popShow}}"></view>
+    <view class="pop pop-zx" wx:if="{{popZxShow}}">
+        <view bindtap="closePop" class="close"></view>
+        <view class="out">
+            <view bindtap="getSendmsgCol" class="order"></view>
+        </view>
+    </view>
+    <view class="pop pop-orderSuccess" wx:if="{{popYyShow}}">
+        <view bindtap="closePop" class="close"></view>
+        <view class="tips">恭喜你预约成功，后续奖励请留意微信通知</view>
+        <view bindtap="closePop" class="yes"></view>
+    </view>
+    <view class="pop pop-orderSuccess" wx:if="{{popTipsShow}}">
+        <view bindtap="closePop" class="close"></view>
+        <text class="tips">《第五人格 — 重逢之时》主线版本今日震撼开启，
+快启动游戏赢取稀世时装！</text>
+        <view bindtap="closePop" class="yes"></view>
+    </view>
+</view>

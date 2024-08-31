@@ -1,0 +1,1 @@
+.tab{white-space:nowrap}::-webkit-scrollbar{display:none}.tab .item{display:inline-block;height:90rpx;line-height:90rpx;margin:0 10rpx;padding:0 20rpx}.tab .item.cur{border-bottom:4rpx solid}

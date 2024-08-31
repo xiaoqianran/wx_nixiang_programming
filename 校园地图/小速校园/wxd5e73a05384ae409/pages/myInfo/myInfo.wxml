@@ -1,0 +1,46 @@
+<view class="main">
+    <view class="list">
+        <view class="list-line">
+            <text class="title"> 校区 </text>
+            <view class="list-right">
+                <radio-group bindchange="{{b}}" class="chooseCampus-wrapper">
+                    <label class="chooseCampus-box" wx:for="{{a}}" wx:key="d">
+                        <view>
+                            <radio checked="{{item.b}}" color="#148f77" value="{{item.a}}"></radio>
+                        </view>
+                        <view>{{item.c}}</view>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+        <view class="list-line">
+            <text class="title"> 姓名 </text>
+            <view class="list-right">
+                <view class="text">{{c}}</view>
+            </view>
+        </view>
+        <view class="list-line">
+            <text class="title"> 学号 </text>
+            <view class="list-right">
+                <view class="text">{{d}}</view>
+            </view>
+        </view>
+        <view class="list-line">
+            <text class="title"> 学院 </text>
+            <view class="list-right">
+                <view class="text">{{e}}</view>
+            </view>
+        </view>
+        <view class="list-line">
+            <text class="title"> 班级 </text>
+            <view class="list-right">
+                <view class="text">{{f}}班 </view>
+            </view>
+        </view>
+    </view>
+    <view class="save-tip">*以上信息来自学校系统，我们将严格遵照《隐私政策》及《用户协议》对您的信息进行使用和保护 </view>
+    <view class="save-tip">
+        <text bindtap="{{g}}" class="login-privacy">《用户协议》</text>
+        <text bindtap="{{h}}" class="login-privacy">《隐私政策》</text>
+    </view>
+</view>

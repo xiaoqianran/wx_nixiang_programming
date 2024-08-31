@@ -1,0 +1,28 @@
+<template name="menuTpl">
+    <view class="tab-bar">
+        <view bindtap="url" class="tab-bar-home" data-type="relaunch" data-url="/pages/home/index/home_index" wx:if="{{returnHome}}">
+            <text class="tab-bar-home-text icon-homefill text-grey"></text>
+        </view>
+        <view class="tab-bar-border"></view>
+        <view bindtap="url" class="tab-bar-item" data-type="relaunch" data-url="/portal/projects/TRIP1/pages/default/index/default_index">
+            <image class="tab-icon" src="/portal/projects/TRIP1/images/tabbar/home{{curMenu=='home_index'?'_cur':''}}.png"></image>
+            <view class="tab-text {{curMenu=='home_index'?'menu-project':''}}">首页</view>
+        </view>
+        <view bindtap="url" class="tab-bar-item" data-type="relaunch" data-url="/portal/projects/TRIP1/pages/scenic/index/scenic_index">
+            <image class="tab-icon" src="/portal/projects/TRIP1/images/tabbar/jing{{curMenu=='scenic_index'?'_cur':''}}.png"></image>
+            <view class="tab-text {{curMenu=='scenic_index'?'menu-project':''}}">景点</view>
+        </view>
+        <view bindtap="url" class="tab-bar-item" data-type="relaunch" data-url="portal/projects/TRIP1/pages/samap/samap" wx:if="{{skin.cate2!==false}}">
+            <image class="tab-icon" src="/portal/projects/TRIP1/images/tabbar/gong{{curMenu=='album_index'?'_cur':''}}.png"></image>
+            <view class="tab-text {{curMenu=='album_index'?'menu-project':''}}">地图</view>
+        </view>
+        <view bindtap="url" class="tab-bar-item" data-type="relaunch" data-url="/portal/projects/TRIP1/pages/about/service/about_service">
+            <image class="tab-icon" src="/portal/projects/TRIP1/images/tabbar/service{{curMenu=='service'?'_cur':''}}.png"></image>
+            <view class="tab-text {{curMenu=='service'?'menu-project':''}}">服务</view>
+        </view>
+        <view bindtap="url" class="tab-bar-item" data-type="relaunch" data-url="/portal/projects/TRIP1/pages/my/index/my_index">
+            <image class="tab-icon" src="/portal/projects/TRIP1/images/tabbar/my{{curMenu=='my_index'?'_cur':''}}.png"></image>
+            <view class="tab-text {{curMenu=='my_index'?'menu-project':''}}">我的</view>
+        </view>
+    </view>
+</template>

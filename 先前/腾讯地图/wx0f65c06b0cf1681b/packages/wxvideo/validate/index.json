@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "视频号验证",
+  "navigationBarBackgroundColor": "#fff",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_"
+  }
+}

@@ -1,0 +1,62 @@
+<view class="margin-top load notexist text-l load-project" wx:if="{{isLoad===null}}"></view>
+<view class="margin-top load loading text-l load-project" wx:if="{{isLoad===false}}"></view>
+<view class="main" wx:if="{{isLoad}}">
+    <view class="top-area">
+        <view class="top-title text-cut">{{meet.MEET_TITLE}}</view>
+        <view class="top-menu">
+            <view bindtap="bindShowMindTap" class="item {{showMind?'cur text-project':''}}">
+                <text class="icon-friend margin-right-xxs"></text>预约须知</view>
+            <view bindtap="bindShowTimeTap" class="item {{showTime?'cur text-project':''}}">
+                <text class="icon-remind margin-right-xxs"></text>可预约时段</view>
+        </view>
+    </view>
+    <view class="big-box">
+        <view class="article-box padding-project" wx:if="{{showMind}}">
+            <view class="article card-project shadow-project margin-top" wx:if="{{meet.MEET_CONTENT&&meet.MEET_CONTENT.length>0}}">
+                <block wx:for="{{meet.MEET_CONTENT}}" wx:key="key">
+                    <view class="content" wx:if="{{item.type=='text'}}">
+                        <text userSelect="{{true}}">{{item.val}}</text>
+                    </view>
+                    <view class="pics" wx:if="{{item.type=='img'}}">
+                        <image bindtap="url" class="loading" data-type="img" data-url="{{item.val}}" lazyLoad="true" mode="widthFix" showMenuByLongpress="{{true}}" src="{{item.val}}"></image>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <block wx:if="{{showTime}}">
+            <view class="meet-no-time text-grey" wx:if="{{!meet.MEET_DAYS_SET||meet.MEET_DAYS_SET.length==0}}">
+                <text class="icon-emoji"></text>
+                <view>暂无可预约时段，请选择其他</view>
+            </view>
+            <view class="vertical-box" wx:if="{{meet.MEET_DAYS_SET&&meet.MEET_DAYS_SET.length>0}}">
+                <scroll-view scrollWithAnimation scrollY class="vertical-nav nav" scrollTop="{{verticalNavTop}}" style="height:calc(100vh - 193rpx);">
+                    <view bindtap="bindTabSelectTap" class="item text-cut  {{index==tabCur?'cur text-project':''}}" data-idx="{{index}}" wx:if="{{item.times.length>0||canNullTime}}" wx:for="{{meet.MEET_DAYS_SET}}" wx:key="key"> {{item.day}} </view>
+                </scroll-view>
+                <scroll-view scrollWithAnimation scrollY bindscroll="bindVerticalMainScroll" class="vertical-main" scrollIntoView="main-{{mainCur}}" style="height:calc(100vh - 193rpx)">
+                    <view class="vertical-main-box" id="main-{{index}}" wx:if="{{item.times.length>0||canNullTime}}" wx:for="{{meet.MEET_DAYS_SET}}" wx:key="key">
+                        <view class="bar solid-bottom bg-white righ-tab-bar">
+                            <view class="action right-tab-tilte text-black"> {{item.dayDesc}} </view>
+                        </view>
+                        <view class="text-list">
+                            <view class="item text-grey" wx:if="{{item.times.length==0&&canNullTime}}">暂无可预约时段</view>
+                            <view bindtap="bindJoinTap" class="item" data-dayidx="{{index}}" data-timeidx="{{idx}}" wx:for="{{item.times}}" wx:for-index="idx" wx:for-item="itm" wx:key="key">
+                                <view class="time-text limit {{itm.error?'error':''}}">
+                                    <text>{{itm.start}}～{{itm.end}}</text>
+                                    <block wx:if="{{!itm.error}}">
+                                        <text class="limit-text" wx:if="{{meet.MEET_IS_SHOW_LIMIT==1&&itm.isLimit}}">({{itm.stat.succCnt}}<text style="margin:0 5rpx">/</text>{{itm.limit}})</text>
+                                        <text class="limit-text" wx:if="{{meet.MEET_IS_SHOW_LIMIT==1&&!itm.isLimit}}">(人数不限)</text>
+                                        <text class="limit-text" wx:if="{{meet.MEET_IS_SHOW_LIMIT==0}}">(可预约)</text>
+                                    </block>
+                                    <text class="limit-text" wx:else>({{itm.error}})</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </block>
+    </view>
+</view>
+<button bindtap="bindTopTap" class="btn-fixed bg-gray text-gray btn-top" style="bottom:60rpx" wx:if="{{topShow}}">
+    <text class="icon-top"></text>
+</button>

@@ -1,0 +1,27 @@
+<poster bind:fail="bindPosterFailListener" bind:success="bindPosterSuccessListener" config="{{posterConfig}}" hideLoading="{{true}}" id="poster" preload="{{false}}" wx:if="{{posterConfig}}"></poster>
+<view catchtouchmove="true" class="main-poster modal bottom-modal {{show?'show':''}}" style="z-index: 9999999999;">
+    <view class="dialog">
+        <view class="poster-img" wx:if="{{isCreate}}">
+            <image bindtap="url" class="shadow loading" data-type="img" data-url="{{img}}" mode="widthFix" showMenuByLongpress="{{true}}" src="{{img}}" wx:if="{{isLoad}}"></image>
+            <view class="load loading text-l" wx:else></view>
+            <view class="save-hint text-project" wx:if="{{isLoad}}">长按图片保存或者转发</view>
+        </view>
+        <view class="poster-share">
+            <button class="item item-share clearbtn" data-img="{{img}}" openType="share">
+                <view class="pic">
+                    <image src="images/wechat.png"></image>
+                </view>
+                <text>转发给朋友</text>
+            </button>
+            <view bindtap="bindPosterTap" class="item" style="padding-top:12rpx" wx:if="{{doPoster}}">
+                <view class="pic">
+                    <image class="friend" src="images/friend.png"></image>
+                </view>
+                <text>生成海报</text>
+            </view>
+        </view>
+        <view bindtap="bindCloseTap" class="line">
+            <view>关闭</view>
+        </view>
+    </view>
+</view>

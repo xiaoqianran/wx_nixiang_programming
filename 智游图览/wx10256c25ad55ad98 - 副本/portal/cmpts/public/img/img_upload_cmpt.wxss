@@ -1,0 +1,1 @@
+@import "/portal/style/base/comm.wxss";@import "/portal/style/public/project.wxss";.form-group .upload-img .img-no{border-top-left-radius:6rpx;bottom:0;height:35rpx;opacity:.9;padding:6rpx 12rpx;position:absolute;right:0}

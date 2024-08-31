@@ -1,0 +1,1 @@
+Component({properties:{height:{type:Number,value:0},index:{type:Number,value:0}},data:{},methods:{}});

@@ -1,0 +1,36 @@
+<view ariaModal="Empty" ariaRole="Empty" wx:if="Empty">
+    <view ariaLabel="Empty" ariaRole="Empty" bindtap="Empty" catch:touchmove="Empty" class="Empty" data-type="Empty" wx:if="Empty"></view>
+    <view catch:touchmove="Empty" class="Empty">
+        <view class="Empty">
+            <view bindtap="Empty" class="Empty" data-type="Empty" wx:if="Empty">
+                <view ariaRole="Empty" class="Empty" hoverClass="Empty">Empty<i class="Empty"></i>
+                </view>
+            </view>
+            <view class="Empty" tabindex="Empty">
+                <block wx:if="Empty">
+                    <text class="Empty">Empty</text>
+                    <text class="Empty">Empty</text>
+                </block>
+                <view class="Empty" wx:else>
+                    <slot name="Empty"></slot>
+                </view>
+            </view>
+            <view class="Empty">
+                <view class="Empty" hoverClass="Empty">Empty</view>
+            </view>
+        </view>
+        <view class="Empty">
+            <block wx:if="Empty">
+                <view class="Empty">Empty</view>
+                <view class="Empty">Empty</view>
+            </block>
+            <slot name="Empty" wx:else></slot>
+        </view>
+        <view class="Empty">
+            <view class="Empty" wx:if="Empty">
+                <button ariaRole="Empty" bindtap="Empty" class="Empty" data-index="Empty" type="Empty" wx:for="Empty" wx:key="index">Empty</button>
+            </view>
+            <slot name="Empty" wx:else></slot>
+        </view>
+    </view>
+</view>

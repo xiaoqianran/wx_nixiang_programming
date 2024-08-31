@@ -1,0 +1,15 @@
+<view class="Empty" style="Empty">
+    <view bindtouchend="Empty" bindtouchmove="Empty" bindtouchstart="Empty" bindtransitionend="Empty" change:disable="Empty" change:duration="Empty" change:prop="Empty" change:rebounce="Empty" change:show="Empty" class="Empty" disable="Empty" duration="Empty" prop="Empty" rebounce="Empty" show="Empty" style="Empty">
+        <slot></slot>
+    </view>
+    <view class="Empty">
+        <view class="Empty" style="Empty" wx:if="Empty">
+            <view class="Empty" wx:for="Empty" wx:key="index">
+                <view ariaRole="Empty" bindtap="Empty" class="Empty" data-data="Empty" data-index="Empty">
+                    <text wx:if="Empty">Empty</text>
+                    <image class="Empty" src="Empty" wx:else></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="b6dbb">
+    <b bind:_init="_tic" themeTag="{{themeTag}}" wx:if="{{opt.goodsActivity.periodbuy}}"></b>
+    <a bind:_init="_tic" wx:if="{{opt.goodsActivity.enjoyBuy}}"></a>
+    <c bind:_init="_tic" bind:share="_p" class="c4311c" data-t="{{ share:{en:'handleShareClick'} }}" goodsHaitaoTax="{{goodsHaitaoTax}}" isShowShareIcon="{{cloudConfig.isShowShareIcon}}" opt="{{opt}}" wx:if="{{opt.title}}"></c>
+</view>

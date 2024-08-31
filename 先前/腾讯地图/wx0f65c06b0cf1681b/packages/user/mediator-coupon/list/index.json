@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "跨店优惠券",
+  "enablePullDownRefresh": true,
+  "componentPlaceholder": {
+    "c": "_"
+  }
+}

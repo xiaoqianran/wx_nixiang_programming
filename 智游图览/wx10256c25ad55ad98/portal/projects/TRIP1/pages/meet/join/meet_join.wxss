@@ -1,0 +1,1 @@
+@import "/portal/style/public/detail.wxss";@import "/portal/projects/TRIP1/style/skin.wxss";.form-group .line-desc{color:#666;font-size:28rpx;text-align:center;width:100%}.submit-line{width:100%}

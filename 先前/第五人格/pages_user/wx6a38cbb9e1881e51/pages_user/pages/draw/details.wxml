@@ -1,0 +1,297 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page p2">
+        <view class="title" wx:if="{{!!drawDet.theme}}">{{drawDet.theme}}</view>
+        <view bindtap="copyCode" class="title2" data-code="pages_user/pages/draw/details?from=offline&id={{drawDet.id}}" wx:if="{{!!admin&&!!drawDet.offline}}">小程序页面路径为：pages_user/pages/draw/details?from=offline&id={{drawDet.id}} 点击复制</view>
+        <view class="mainbox">
+            <view class="part">
+                <view class="banner">
+                    <view wx:if="{{drawDet.lotteryType=='immediate'}}">
+                        <view wx:if="{{!drawDet.user.participated}}">
+                            <view class="state-icon no-join"></view>
+                        </view>
+                        <view wx:else>
+                            <view class="state-icon get" wx:if="{{drawDet.user.prized}}"></view>
+                            <view class="state-icon no-get" wx:else></view>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view wx:if="{{drawDet.lotteryState=='lottery'}}">
+                            <view class="state-icon get" wx:if="{{drawDet.user.prized}}"></view>
+                            <view class="state-icon no-get" wx:else></view>
+                        </view>
+                        <view wx:else>
+                            <view class="state-icon join" wx:if="{{drawDet.user.participated}}"></view>
+                            <view class="state-icon no-join" wx:else></view>
+                        </view>
+                    </view>
+                    <swiper autoplay="true" bindchange="swiperChange" class="swp-banner" duration="500" interval="4000">
+                        <swiper-item wx:for="{{drawDet.prizeList}}" wx:key="idx">
+                            <image bindtap="previewImage" class="in" data-src="{{item.prizeImage}}" mode="aspectFill" src="{{item.prizeImage}}"></image>
+                        </swiper-item>
+                    </swiper>
+                    <view class="dots">
+                        <view class="dot {{bannerIndex==index?'on':''}}" data-idex="{{index}}" wx:for="{{drawDet.prizeList}}" wx:key="key"></view>
+                    </view>
+                </view>
+                <view class="info">
+                    <view class="info2" wx:if="{{drawDet.lotteryType!=='immediate'}}">
+                        <view class="open" wx:if="{{drawDet.lotteryState=='lottery'}}">已开奖</view>
+                        <view class="open not" wx:else>未开奖</view>
+                    </view>
+                    <view class="fillin">
+                        <view class="li" wx:for="{{drawDet.prizeList}}" wx:key="key">
+                            <view class="left">{{item.prizeName}} x {{item.total}}份</view>
+                        </view>
+                    </view>
+                    <view class="type-show">
+                        <view wx:if="{{drawDet.lotteryType=='immediate'}}">
+                            <text class="type">即抽即中</text>
+                            <text class="get">{{drawDet.endTime}} 活动结束</text>
+                        </view>
+                        <view wx:else>
+                            <text class="type" wx:if="{{drawDet.lotteryType=='timer'}}">定时抽奖</text>
+                            <text class="type" wx:elif="{{drawDet.lotteryType=='threshold'}}">满人开奖</text>
+                            <text class="get">{{drawDet.luckyTime}} 自动开奖</text>
+                        </view>
+                    </view>
+                    <view class="time"> 活动参与时间：{{drawDet.startTime}}-{{drawDet.participateEndTime}} </view>
+                </view>
+            </view>
+            <view class="lotty-main" wx:if="{{drawDet.lotteryBtnState!=='btn_none'}}">
+                <view class="lottery-btn" wx:if="{{drawDet.lotteryBtnState=='btn_not_start'}}">活动未开始</view>
+                <view class="lottery-btn" wx:elif="{{drawDet.lotteryBtnState=='btn_participate'}}">
+                    <view bindtap="partImmediateLotty" wx:if="{{drawDet.lotteryType=='immediate'}}">参与抽奖</view>
+                    <view bindtap="partLotty" wx:else>参与抽奖</view>
+                </view>
+                <view class="lottery-btn" wx:elif="{{drawDet.lotteryBtnState=='btn_wait_lottery'}}">待开奖</view>
+                <view class="lottery-btn gray" wx:elif="{{drawDet.lotteryBtnState=='btn_activity_end'}}">活动已结束</view>
+                <view class="lottery-btn gray" wx:elif="{{drawDet.lotteryBtnState=='btn_condition_not_satisfied'}}">未满足开奖条件</view>
+            </view>
+            <view class="join-user" wx:if="{{drawDet.participatorCount&&drawDet.participatorCount!==0}}">
+                <view class="jl-tips">已有{{drawDet.participatorCount}}人参与</view>
+                <view class="user-list">
+                    <image src="{{item.userAvatar}}" wx:for="{{drawDet.participatorList}}" wx:key="idx"></image>
+                    <view class="more" wx:if="{{drawDet.participatorCount>6}}">...</view>
+                </view>
+            </view>
+            <view wx:if="{{drawDet.user.prized}}">
+                <view class="lotty-get-status" wx:if="{{drawDet.user.prizeList[0].prizeType=='physicals'}}">
+                    <view class="get-title">恭喜您抽中实物奖励！</view>
+                    <view class="get-name">{{drawDet.user.prizeList[0].prizeName}}</view>
+                    <view bindtap="inputAddressShow" class="get-address-btn" data-id="{{drawDet.user.prizeList[0].id}}" wx:if="{{drawDet.user.prizeList[0].deliveryState=='incomplete'}}">填写收货地址</view>
+                </view>
+                <view class="lotty-get-status" wx:elif="{{drawDet.user.prizeList[0].prizeType=='cdk'}}">
+                    <view class="get-dhm">
+                        <view class="dhm-title">兑换码： </view>
+                        <view class="dhm-btn"> 长按兑换码复制 </view>
+                    </view>
+                    <view class="get-gift">
+                        <text userSelect="true" wx:for="{{drawDet.user.prizeList[0].cdkList}}" wx:key="idx">{{item.content}}</text>
+                    </view>
+                </view>
+                <view class="lotty-get-status" wx:else>
+                    <view class="get-title">恭喜您中奖啦！</view>
+                    <view class="get-gift">
+                        <view class="gg"> {{drawDet.user.prizeList[0].prizeName}} x {{drawDet.user.prizeList[0].prizeUnitAmount}}</view>
+                    </view>
+                    <view class="get-tips" wx:if="{{drawDet.user.prizeList[0].prizeType=='virtual'}}">*本次奖励将直接发放到绑定游戏角色账户</view>
+                    <view class="get-tips" wx:else>*本次奖励将直接发放到当前微信账号下</view>
+                </view>
+            </view>
+            <view class="lottery-user" wx:if="{{drawDet.participatorCount&&drawDet.participatorCount!==0&&drawDet.lotteryState=='lottery'}}">
+                <view class="lu-title">中奖者名单</view>
+                <view class="lu-list">
+                    <image src="{{item.userAvatar}}" wx:for="{{drawDet.prizedParticipatorList}}" wx:key="idx"></image>
+                </view>
+            </view>
+            <view class="lotty-using">
+                <view class="using-title">抽奖说明</view>
+                <view class="using-content">
+                    <view class="uc">
+                        <rich-text mode="compat" nodes="{{drawDet.content}}"></rich-text>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="showAddressList" class="isadmin" wx:if="{{!!admin&&!!haveReal}}">
+                <text>查看中奖者信息 ></text>
+            </view>
+        </view>
+        <view class="outbox" style="display:none;">
+            <button bindgetphonenumber="getPhoneNumber" class="getPhoneNum" openType="getPhoneNumber" wx:if="{{userInfo.phone==null&&drawDet.peopleStatus==0}}"></button>
+            <view bindtap="joinNow" class="colbtn" wx:if="{{drawDet.peopleStatus==0&&drawDet.status==0}}">
+                <text>立即参与</text>
+            </view>
+            <view class="colbtn grey" wx:elif="{{drawDet.status==3}}">
+                <text>已关闭</text>
+            </view>
+            <view class="colbtn grey" wx:elif="{{drawDet.peopleStatus==0&&drawDet.status==2}}">
+                <text>活动结束</text>
+            </view>
+            <view class="colbtn wait" wx:elif="{{drawDet.status==1}}">
+                <text>结算中</text>
+            </view>
+            <view class="colbtn wait" wx:elif="{{drawDet.peopleStatus==1}}">
+                <text>待开奖</text>
+            </view>
+            <view class="drawRes de" wx:elif="{{drawDet.peopleStatus==2}}">
+                <view class="defeated"></view>
+                <text class="tips">呜呜呜，很遗憾未中奖～</text>
+            </view>
+            <view class="drawRes" wx:elif="{{drawDet.peopleStatus==3}}">
+                <view class="complete"></view>
+                <text class="tips red">恭喜你中奖啦，嘻嘻嘻～</text>
+                <text class="prize">奖品：{{drawRes.prizeType==2?drawRes.coinEach:''}}{{drawRes.result}}</text>
+                <view bindtap="inputAddressShow" class="btn" wx:if="{{drawRes.prizeType==0&&drawRes.type==0&&drawRes.addressStatus==0}}">填写收货地址</view>
+                <view class="tips small" wx:if="{{drawRes.prizeType==0&&drawRes.type==0&&drawRes.addressStatus==0}}">请在7天内填写收货地址，逾期将不能填写</view>
+                <view bindtap="showReceiveAward" class="btn" wx:if="{{drawRes.prizeType==0&&drawRes.type==0&&drawRes.addressStatus==1}}">查看发奖记录</view>
+                <view class="tips small" wx:if="{{drawRes.prizeType==0&&drawRes.type==1}}">奖品将会自动发放至参与抽奖时绑定的游戏账号，请注意查收</view>
+                <view bindtap="copyCode" class="tips small" data-code="{{drawRes.exchangeCode}}" wx:if="{{drawRes.prizeType==1}}">兑换码:{{drawRes.exchangeCode}} 点击复制</view>
+                <text class="tips small" wx:if="{{drawRes.prizeType==2}}">小程序代币将直接发放，用于小程序兑换商城中兑换奖励，
+请注意查收</text>
+            </view>
+        </view>
+        <view class="joinListbox">
+            <view class="num" wx:if="{{drawDet.peopleNum>0}}">已有{{drawDet.peopleNum}}人参与</view>
+            <view class="num" wx:elif="{{drawDet.lotteryPersonnelList.length==0&&drawDet.sign==0&&drawDet.status==0}}">还没有用户参与，快来做第一个吃螃蟹的人吧</view>
+            <view class="joinList">
+                <view class="li" wx:for="{{drawDet.lotteryPersonnelList}}" wx:key="key">
+                    <image src="{{item.headImage}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottomBar" wx:if="{{!admin}}">
+        <view class="btns">
+            <button bindtap="shareRecord" class="btn share" openType="share">
+                <view class="txt">分享抽奖</view>
+            </button>
+        </view>
+        <view bindtap="goNext" class="getnext">参与下一个抽奖</view>
+    </view>
+    <view class="bottomBar" wx:elif="{{admin}}">
+        <view class="btns">
+            <view bindtap="fixDraw" class="btn reinput" wx:if="{{drawDet.lotteryType!=2}}">
+                <view class="txt">编辑抽奖</view>
+            </view>
+            <view bindtap="closeDraw" class="btn close">
+                <view class="txt">关闭抽奖</view>
+            </view>
+        </view>
+        <button bindtap="shareRecord" class="sharethis" openType="share">分享该抽奖</button>
+    </view>
+    <view class="luckyPeopleList" wx:if="{{drawRes}}">
+        <view class="tit">
+            <text>中奖者名单</text>
+        </view>
+        <view class="kuang" wx:for="{{drawRes.prizeList}}" wx:key="key">
+            <view class="tt">{{item.awardName}}：{{item.prizeType==2?item.coinEach:''}}{{item.prizeName}}</view>
+            <view class="list" wx:if="{{!!item.personnelDtoList}}">
+                <view class="li {{item.big?'big':''}}" wx:for="{{item.personnelDtoList}}" wx:for-item="item2" wx:key="key2">
+                    <view class="img">
+                        <image src="{{item2.headImage}}"></image>
+                    </view>
+                    <view class="name">{{item2.nickName}}</view>
+                </view>
+            </view>
+            <view class="list" wx:else>
+                <view class="tips">暂无用户中奖</view>
+            </view>
+        </view>
+        <view bindtap="getMoreluckyPeople" class="getMore" wx:if="{{showGetMoreluckyPeople}}">点击加载更多</view>
+    </view>
+    <view class="pop pop-zz" wx:if="{{drawNowShow}}"></view>
+    <view class="pop pop-draw" wx:if="{{drawNowShow}}">
+        <view class="nines">
+            <view bindtap="joinNow" class="li {{drawResId==index?'on':''}}" data-id="{{index}}" wx:for="{{9}}" wx:key="key">
+                <view class="usfront"></view>
+                <view class="verso_wrap">
+                    <view class="out" wx:if="{{drawNowRes.prizeName!=null&&drawNowRes.prizeName!='感谢参与'}}">
+                        <image class="primg" mode="aspectFit" src="{{drawNowRes.prizeImage}}"></image>
+                        <text class="tips">{{drawNowRes.prizeType==2?drawNowRes.coinEach:''}}{{drawNowRes.prizeName}}</text>
+                    </view>
+                    <text class="tipsFalse" wx:else>很遗憾
+您未中奖</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop-joinSuc" wx:if="{{joinSucShow}}">
+        <view class="inner">
+            <view class="tit">参与成功</view>
+            <text class="des" wx:if="{{drawDet.lotteryType==0}}">开奖时间为<text class="red">{{drawDet.luckyDate}}</text>
+请留意开奖通知，不要错过哦~</text>
+            <text class="des" wx:elif="{{drawDet.lotteryType==1}}">
+                <text wx:if="{{drawDet.luckyPeopleNum-drawDet.peopleNum-1>0}}">还差<text class="res">{{drawDet.luckyPeopleNum-drawDet.peopleNum-1}}</text>人就开奖了
+</text>请留意开奖通知，不要错过哦~</text>
+            <view class="btns">
+                <button class="share" openType="share">分享给好友</button>
+                <view bindtap="hideJoinSuc" class="know">我知道了</view>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop-gzh gzh3" wx:if="{{gzhShow}}">
+        <view class="inner">
+            <view bindtap="hideGzh" class="close"></view>
+            <view class="tit">仅限【第五人格】公众号粉丝可参与</view>
+            <text class="des">1. 去客服对话扫码关注该公众号</text>
+            <view class="img4"></view>
+            <text class="des">2. 在公众号回复“{{drawDet.keyWord}}”参与抽奖</text>
+            <view class="img3"></view>
+            <view class="btns">
+                <button bindtap="copyCode" class="know" data-code="{{drawDet.keyWord}}" openType="contact" sendMessageImg="https://nie.res.netease.com/id5/m/zt/20201215094138/data/draw/share.jpg" sendMessagePath="/pages_user/pages/draw/details?id={{drawDet.id}}" sendMessageTitle="扫码进入公众号并回复关键词即可参与抽奖" showMessageCard="true">已复制关键词，去公众号回复</button>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop-gzh" wx:if="{{sph1Show}}">
+        <view class="inner">
+            <view bindtap="hidesph1" class="close"></view>
+            <view class="tit">完成视频号任务，返回小程序抽奖</view>
+            <text class="des">1. 打开视频号，点击下方第五人格头像</text>
+            <text class="des">2. 进入视频号主页，点击关注并观看任一视频，返回小程序即可抽奖</text>
+            <view class="img1"></view>
+            <view class="img2"></view>
+            <view class="btns">
+                <view bindtap="gzhvideoCol" class="know">去参与</view>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop-gzh gzh2" wx:if="{{sph2Show}}">
+        <view class="inner">
+            <view bindtap="hidesph2" class="close"></view>
+            <view class="tit">完成浏览公众号文章任务，返回小程序抽奖</view>
+            <text class="des">1. 点击立即参与浏览公众号文章15秒, 返回即可抽奖</text>
+            <view class="btns">
+                <view bindtap="gzharticleCol" class="know">去参与</view>
+            </view>
+        </view>
+    </view>
+    <view class="pop pop-gzh gzh2" wx:if="{{showCommentPop}}">
+        <view class="comment-inner">
+            <view class="gift_head {{!!drawDet.comment?'gift_head3':'gift_head2'}}"></view>
+            <view bindtap="closeCommentPop" class="closeBtn">
+                <image class="image" src="{{imgUrl}}/draw/pop-close.png"></image>
+            </view>
+            <view class="tit comment-tit" wx:if="{{!!drawDet.comment}}">点击复制评论内容，粘贴并完成发布即可抽奖</view>
+            <view class="tit comment-tit" wx:else>前往资讯按要求参与活动即可抽奖哦~</view>
+            <view class="btns">
+                <view bindtap="copyAndGo" class="know" wx:if="{{!!drawDet.comment}}">复制内容并打开</view>
+                <view bindtap="goComment" class="know" wx:else>立即前往</view>
+            </view>
+        </view>
+    </view>
+    <view class="pop-receiveAward" wx:if="{{receiveAwardShow}}">
+        <view class="inner">
+            <view bindtap="hideReceiveAward" class="close"></view>
+            <view class="tit">领取记录</view>
+            <view class="li">
+                <image class="in" mode="aspectFit" src="{{drawRes.prizeImage}}"></image>
+                <view class="name">
+                    <text>{{drawRes.result}}</text>
+                </view>
+                <view class="des">7个工作日内发放</view>
+            </view>
+        </view>
+    </view>
+    <bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" visible="{{!bindUserVisible}}"></bind-user>
+</view>

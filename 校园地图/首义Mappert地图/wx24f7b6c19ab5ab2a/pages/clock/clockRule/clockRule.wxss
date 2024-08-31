@@ -1,0 +1,1 @@
+.topbar{height:100%}.box-page{background:var(--Background-Medium,#f5f5f5);border-radius:20rpx;padding:32rpx 40rpx 200rpx}text{color:var(--Foreground-High,#292945)}

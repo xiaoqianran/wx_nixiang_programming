@@ -1,0 +1,43 @@
+<view class="top">
+    <picker bindchange="{{c}}" class="picker" range="{{d}}" value="{{e}}">
+        <label class="chooseWeek-content"> 第{{a}}周 <uni-icons bind:__l="__l" style="margin-left:5rpx" uI="5c8e5f9a-0" uP="{{b}}" wx:if="{{b}}"></uni-icons>
+        </label>
+    </picker>
+    <picker bindchange="{{h}}" class="picker" range="{{i}}" value="{{j}}">
+        <label class="chooseWeek-content">{{f}} <uni-icons bind:__l="__l" style="margin-left:5rpx" uI="5c8e5f9a-1" uP="{{g}}" wx:if="{{g}}"></uni-icons>
+        </label>
+    </picker>
+</view>
+<view class="middle">
+    <input bindinput="{{k}}" class="lessonNameInput" placeholder="请输入搜索内容" type="text"></input>
+    <uni-icons bind:__l="__l" bindclick="{{l}}" uI="5c8e5f9a-2" uP="{{m}}" wx:if="{{m}}"></uni-icons>
+</view>
+<view class="bottom" hidden="{{!q}}">
+    <view wx:for="{{n}}" wx:key="g">
+        <view class="lessonInfo">
+            <view class="lessonInfo-leftBox">
+                <view class="lessonName">{{item.a}}</view>
+                <view class="leftBoxLessonDetail">
+                    <image alt="" class="timetable-right-img" src="https://quickdo.top/images/rubLesson/icon/location.png"></image>
+                    <view class="lessonClassRoom">{{item.b}}{{item.c}}</view>
+                </view>
+            </view>
+            <view class="lessonInfo-rightBox">
+                <view class="rightBoxLessonDetail">
+                    <image alt="" class="timetable-right-img" src="https://quickdo.top/images/rubLesson/icon/teacher.png"></image>
+                    <view class="lessonDetailInfo">{{item.d}}</view>
+                </view>
+                <view class="rightBoxLessonDetail">
+                    <image alt="" class="timetable-right-img" src="https://quickdo.top/images/rubLesson/icon/week.png"></image>
+                    <view class="lessonDetailInfo">{{item.e}} · {{item.f}}节 </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <uni-load-more bind:__l="__l" bindclickLoadMore="{{o}}" uI="5c8e5f9a-3" uP="{{p}}" wx:if="{{p}}"></uni-load-more>
+</view>
+<kevy-empty bind:__l="__l" uI="5c8e5f9a-4" uP="{{s}}" wx:if="{{r}}"></kevy-empty>
+<uni-card bind:__l="__l" uI="5c8e5f9a-5" uP="{{t}}" uS="{{['d']}}" wx:if="{{t}}">
+    <view>*课程数据来源为教务处，若教务处课程信息变更可能存在信息误差</view>
+    <view>*以教师姓名查询时需输入完整姓名</view>
+</uni-card>

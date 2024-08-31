@@ -1,0 +1,1 @@
+var style = require('p_./miniprogram_npm/@vant/weapp/wxs/style.wxs');function rootStyle(data){return(style(({'background-color':data.plain ? '':data.color,color:data.textColor || data.plain ? data.textColor || data.color:'',})))};module.exports = ({rootStyle:rootStyle,});

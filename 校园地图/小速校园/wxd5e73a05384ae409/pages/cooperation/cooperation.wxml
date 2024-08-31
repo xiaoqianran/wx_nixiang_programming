@@ -1,0 +1,29 @@
+<view class="top-box">    小速校园是一个由高校学生发起的智慧校园项目，致力于帮助高校及中职院校改善移动信息查询体验，同时满足学生的学习、生活、娱乐需求。目前校速办拥有“小速校园”智慧校园小程序及同名公众号，在广东财经大学广州校区、佛山校区两个校区上线运营，服务约31000名学生。<view></view>    我们非常欢迎商家、学生社团、学生组织或个人与我们洽谈合作，也非常欢迎有能力、有兴趣、有信心的小伙伴加入到速办大家庭！小速校园团队将重视每一次合作的机会，如果您或您的团队有意愿与我们合作，请选择合作类别并填写对应表单，我们将会尽快与您取得联系并洽谈详细内容！ </view>
+<view>
+    <uni-collapse bind:__l="__l" uI="0c4229fb-0" uS="{{['d']}}">
+        <uni-collapse-item bind:__l="__l" uI="0c4229fb-1,0c4229fb-0" uP="{{c}}" uS="{{['d']}}" wx:if="{{c}}">
+            <view bindtap="{{b}}" class="QRbox">
+                <view class="QRtitle">校速办商务合作请扫描下方二维码填写合作表单，我们将会尽快与您取得联系。</view>
+                <image alt="" class="QRImg" showMenuByLongpress="true" src="{{a}}"></image>
+            </view>
+        </uni-collapse-item>
+        <uni-collapse-item bind:__l="__l" uI="0c4229fb-2,0c4229fb-0" uP="{{f}}" uS="{{['d']}}" wx:if="{{f}}">
+            <view bindtap="{{e}}" class="QRbox">
+                <view class="QRtitle"> 校速办作为一支最初由学生发起的项目团队，深知学生组织的不易与艰辛，我们愿意为非商业性质的学生社团或组织提供免费活动宣传服务，如果您的活动需要借助校速办平台及公众号进行宣传，无需担忧宣传费用问题，放心大胆的填写表单，我们将会尽快联系您~ </view>
+                <image alt="" class="QRImg" showMenuByLongpress="true" src="{{d}}"></image>
+            </view>
+        </uni-collapse-item>
+        <uni-collapse-item bind:__l="__l" uI="0c4229fb-3,0c4229fb-0" uP="{{i}}" uS="{{['d']}}" wx:if="{{i}}">
+            <view bindtap="{{h}}" class="QRbox">
+                <view class="QRtitle">校速办长期接受成员申请，充满激情的你赶快扫码填表加入我们吧！</view>
+                <image alt="" class="QRImg" showMenuByLongpress="true" src="{{g}}"></image>
+            </view>
+        </uni-collapse-item>
+        <uni-collapse-item bind:__l="__l" uI="0c4229fb-4,0c4229fb-0" uP="{{l}}" uS="{{['d']}}" wx:if="{{l}}">
+            <view bindtap="{{k}}" class="QRbox">
+                <view class="QRtitle">如果您在使用校速办相关服务的过程中遇到困惑或有好想法好建议，欢迎添加小速的微信进行反馈~</view>
+                <image alt="" class="QRImg" showMenuByLongpress="true" src="{{j}}"></image>
+            </view>
+        </uni-collapse-item>
+    </uni-collapse>
+</view>

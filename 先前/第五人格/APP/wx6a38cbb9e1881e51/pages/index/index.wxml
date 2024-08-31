@@ -1,0 +1,55 @@
+<view class="container">
+    <view class="pop_fu">
+        <view class="inner">
+            <cell bind:completemessage="completemessage" bind:startmessage="startmessage" contactText="" iconUrl="https://nie.res.netease.com/id5/m/zt/20201215094138/data/fu.png" url="https://work.weixin.qq.com/gm/ff9399fd2686916c0210603c89450b1a"></cell>
+        </view>
+    </view>
+    <view class="page page_banner">
+        <swiper autoplay="true" bindchange="swiperChange" class="swp-banner" duration="500" interval="4000">
+            <swiper-item bindtap="goDetails" data-appid="{{item.jumpAppid}}" data-from="banner" data-newsid="{{item.id}}" data-title="{{item.title}}" data-type="{{item.jumpType}}" data-url="{{item.jumpPath}}" wx:for="{{bannerList}}" wx:key="idx">
+                <image class="in" src="{{item.picUrl}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot {{bannerIndex==idx?'on':''}}" data-idex="{{key}}" wx:for="{{bannerList}}" wx:for-index="idx" wx:key="key"></view>
+        </view>
+    </view>
+    <view class="page top_chPage">
+        <view bindtap="topLink" class="li" data-index="4">
+            <image mode="scaleToFill" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/daily/nav1.png"></image>
+        </view>
+        <view bindtap="topLink" class="li" data-index="1">
+            <image mode="scaleToFill" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/daily/nav2.png"></image>
+        </view>
+        <view bindtap="topLink" class="li" data-index="2">
+            <image mode="scaleToFill" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/daily/nav3.png"></image>
+        </view>
+        <view bindtap="topLink" class="li" data-index="3">
+            <image mode="scaleToFill" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/daily/nav4.png"></image>
+        </view>
+    </view>
+    <view class="page page_med">
+        <view class="twice">
+            <news-list bindCustomListChange="handleCustomListChange" bindoldPlayPause="oldPlayPause" comId="newsList1" id="newsList1" minusIndex="{{2}}" newsList="{{newsList}}" wxToken="{{wxToken}}"></news-list>
+        </view>
+    </view>
+    <view class="page page_med">
+        <view class="twice">
+            <news-list addIndex="{{2}}" bindCustomListChange="handleCustomListChange" bindoldPlayPause="oldPlayPause" comId="newsList2" id="newsList2" newsList="{{newsList}}" wxToken="{{wxToken}}"></news-list>
+        </view>
+    </view>
+    <bottom-dh active="1" class="bottom-dhbox"></bottom-dh>
+    <view wx:if="{{!videoHidden}}">
+        <video-play bind:callHideVideo="callHideVideo" videoSrc="{{videoSrc}}"></video-play>
+    </view>
+    <view class="pop pop-zz" wx:if="{{popShow}}"></view>
+    <view bindtap="addTipsHide" class="pop pop-addTips" wx:if="{{addTipsShow}}">
+        <view class="i"></view>
+    </view>
+    <view class="pop pop-zx" wx:if="{{popZxShow}}">
+        <view class="out">
+            <view bindtap="closePop" class="close"></view>
+            <view bindtap="getSendmsgCol" class="order"></view>
+        </view>
+    </view>
+</view>

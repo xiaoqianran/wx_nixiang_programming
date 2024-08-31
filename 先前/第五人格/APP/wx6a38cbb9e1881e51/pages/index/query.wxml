@@ -1,0 +1,19 @@
+<navBar back="{{true}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#fff" home="{{true}}" iconTheme="white" title="">
+    <view class="lxy-nav-bar-search" slot="center">
+        <view class="lxy-nav-bar-search__icon"></view>
+        <view class="lxy-nav-bar-search__input">
+            <input autoFocus="true" bindconfirm="confirmSearch" bindinput="search" class="srch-ipt" confirmType="search" placeholder="搜索内容" placeholderClass="ipt-placeholder" type="text" value=""></input>
+        </view>
+    </view>
+</navBar>
+<view class="container">
+    <view class="page page_med">
+        <view class="twice">
+            <news-list bindCustomListChange="handleCustomListChange" newsList="{{newsList}}" wxToken="{{wxToken}}" wx:if="{{newsList.length}}"></news-list>
+            <view class="tips" wx:else>未找到相关资讯, 换个关键词试试吧~</view>
+        </view>
+    </view>
+    <view wx:if="{{!videoHidden}}">
+        <video-play bind:callHideVideo="callHideVideo" videoSrc="{{videoSrc}}"></video-play>
+    </view>
+</view>

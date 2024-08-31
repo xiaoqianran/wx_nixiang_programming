@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "navigationBarBackgroundColor": "#FFF",
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_",
+    "e": "_",
+    "f": "_",
+    "g": "_",
+    "h": "_"
+  }
+}

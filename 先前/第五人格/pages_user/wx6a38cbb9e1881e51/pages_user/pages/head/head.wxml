@@ -1,0 +1,312 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="main">
+        <view class="rule">
+            <image bindtap="rule" mode="" src="{{imgUrl+'/head/rule.png'}}"></image>
+            <image bindtap="record" mode="" src="{{imgUrl+'/head/draw_record.png'}}"></image>
+        </view>
+        <view class="role" wx:if="{{userInfo.idvId}}">
+            <text>{{userInfo.nickname}}</text>
+        </view>
+        <view bindtap="bindRole" class="role" wx:else>
+            <text>请绑定角色</text>
+        </view>
+        <view class="draw">
+            <view class="draw_btn">
+                <image bindtap="{{yc&&'drawOnce'}}" class="btn" mode="" src="{{imgUrl+'/head/new/one_draw.png'}}"></image>
+                <image bindtap="{{yc&&'drawMany'}}" class="btn" mode="" src="{{imgUrl+'/head/new/many_draw.png'}}"></image>
+            </view>
+            <view class="draw_text">
+                <view class="num">
+                    <text class="color">{{num}}</text>
+                </view>
+                <image bindtap="{{yc&&'break'}}" mode="" src="{{imgUrl+'/head/break.png'}}"></image>
+            </view>
+        </view>
+        <view class="task">
+            <view class="title">
+                <image mode="" src="{{imgUrl+'/head/new/head_title.png'}}"></image>
+            </view>
+            <view class="task_main" wx:if="{{stage==1}}">
+                <view class="stage">
+                    <view bindtap="taskStage" class="stage1" data-index="1"></view>
+                    <view bindtap="taskStage" class="stage2" data-index="2"></view>
+                </view>
+                <view class="taskBox">
+                    <view class="box">
+                        <view class="task1" wx:for="{{taskList1}}" wx:key="id">
+                            <view wx:if="{{item.id==='0cfefd8703e911eda72a0242ac110003'}}">
+                                <view bindtap="gowc" class="btn" data-taskId="{{item.id}}" wx:if="{{item.status==0}}"></view>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/09开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                            </view>
+                        </view>
+                        <view class="task2" wx:for="{{taskList1}}" wx:key="id">
+                            <view wx:if="{{item.id==='933311e58a2c456ebcd888bad886e01b'}}">
+                                <view bindtap="gowc" class="btn_zh" data-taskId="{{item.id}}" wx:if="{{item.status==0}}"></view>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/09开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                                <image bindtap="{{yc&&'sx'}}" mode="" src="{{imgUrl+'/head/new/break.png'}}" wx:if="{{item.status==0}}"></image>
+                            </view>
+                        </view>
+                        <view class="task3" wx:for="{{taskList1}}" wx:key="id">
+                            <view wx:if="{{item.id==='f3e28987dd9b4d4a9b05522591260f50'}}">
+                                <button bindtap="gowc" class="btn" data-taskId="{{item.id}}" openType="{{userInfo.idvId&&'share'}}" wx:if="{{item.status==0}}"></button>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/09开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                            </view>
+                        </view>
+                        <view class="task4" wx:for="{{taskList1}}" wx:key="id">
+                            <view wx:if="{{item.id==='4a3dfca703e911eda72a0242ac110003'}}">
+                                <view bindtap="gowc" class="btn_zh" data-taskId="{{item.id}}" wx:if="{{item.status==0}}"></view>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/09开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                                <image bindtap="{{yc&&'sx1'}}" mode="" src="{{imgUrl+'/head/new/break.png'}}" wx:if="{{item.status==0}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="task_main2" wx:else>
+                <view class="stage">
+                    <view bindtap="taskStage" class="stage2" data-index="1"></view>
+                    <view bindtap="taskStage" class="stage1" data-index="2"></view>
+                </view>
+                <view class="taskBox taskBox2">
+                    <view class="box">
+                        <view class="task5" wx:for="{{taskList2}}" wx:key="id">
+                            <view wx:if="{{item.id==='5f26a49803e911eda72a0242ac110003'}}">
+                                <view bindtap="gowc" class="btn" data-taskId="{{item.id}}" wx:if="{{item.status==0}}"></view>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/13开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                            </view>
+                        </view>
+                        <view class="task6" wx:for="{{taskList2}}" wx:key="id">
+                            <view wx:if="{{item.id==='241c22ee121243a68dc34145ebd96111'}}">
+                                <view bindtap="gowc" class="btn" data-taskId="{{item.id}}" wx:if="{{item.status==0}}"></view>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/13开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                            </view>
+                        </view>
+                        <view class="task7" wx:for="{{taskList2}}" wx:key="id">
+                            <view wx:if="{{item.id==='d1441dc932884ff8bca07aa8800e9902'}}">
+                                <view bindtap="gowc" class="btn" data-taskId="{{item.id}}" wx:if="{{item.status==0}}"></view>
+                                <view class="ylq" data-taskId="{{item.id}}" wx:elif="{{item.status==1}}"></view>
+                                <view class="wks" data-taskId="{{item.id}}" wx:elif="{{item.status==3}}">02/13开启</view>
+                                <view class="yjs" data-taskId="{{item.id}}" wx:elif="{{item.status==2}}"></view>
+                                <view bindtap="goSuccess" class="lq" data-taskId="{{item.id}}" wx:else></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="rule_tc" wx:if="{{ruleFlag}}">
+        <view class="ruleText">
+            <image mode="" src="{{imgUrl+'/head/rule_title.png'}}"></image>
+            <scroll-view class="scorll" scrollY="true">
+                <image mode="" src="{{imgUrl+'/head/new/rule_new.png'}}" style="width: 560rpx; height: 1587rpx;"></image>
+            </scroll-view>
+        </view>
+        <image bindtap="close" mode="" src="{{imgUrl+'/head/x.png'}}"></image>
+    </view>
+    <view class="record" wx:if="{{recordFalg}}">
+        <view class="record_main">
+            <scroll-view class="scorll" scrollY="true">
+                <view class="record_text" wx:for="{{recordTc}}" wx:key="winTime">
+                    <image mode="" src="{{item.prizeUrl}}"></image>
+                    <view class="record_title">
+                        <text style="color: #7b4b9c; font-size: 30rpx;">{{item.prizeName}}</text>
+                        <text style="font-size: 24rpx; color: #8e7c9a;">领取时间：{{item.winTime}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        <image bindtap="close" class="close" mode="" src="{{imgUrl+'/head/x.png'}}"></image>
+    </view>
+    <view class="once_tc" wx:if="{{onceFlag}}">
+        <view class="draw_once">
+            <image mode="" src="{{imgUrl+'/head/draw_title.png'}}"></image>
+            <view class="once_main">
+                <image mode="" src="{{onceData.prizeUrl}}"></image>
+                <text>{{onceData.prizeName}}</text>
+            </view>
+            <view class="once_btn">
+                <button bindtap="happy" class="btn">开心收下</button>
+                <image mode="" src="{{imgUrl+'/head/new/draw_text.png'}}" style="width: 417rpx; height: 23rpx;"></image>
+            </view>
+        </view>
+    </view>
+    <view class="many_tc" wx:if="{{manyFalg}}">
+        <view class="many">
+            <view bindtap="happy" class="btn"></view>
+        </view>
+    </view>
+    <view class="answer" wx:if="{{answerflag}}">
+        <view class="answer_box">
+            <view class="answer_title">
+                <text>知识问答({{answerNum.length}}/2)</text>
+            </view>
+            <view class="answer_main">
+                <view class="answer_ti" style="color: #7b4b9c;">
+                    <text class="answer_text">{{answerList[0].question}}</text>
+                    <view class="answer_change">
+                        <view bindtap="change1" class="ti {{answerList[0].answer=='A'&&answer_class1?'bor':''}} " data-index="0" data-option="A">
+                            <view class="success" wx:if="{{answerChange[0].A==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[0].optionA}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[0].A==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[0].optionA}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[0].optionA}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="change1" class="ti {{answerList[0].answer=='B'&&answer_class1?'bor':''}} " data-index="0" data-option="B">
+                            <view class="success" wx:if="{{answerChange[0].B==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[0].optionB}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[0].B==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[0].optionB}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[0].optionB}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="change1" class="ti {{answerList[0].answer=='C'&&answer_class1?'bor':''}} " data-index="0" data-option="C">
+                            <view class="success" wx:if="{{answerChange[0].C==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[0].optionC}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[0].C==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[0].optionC}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[0].optionC}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="change1" class="ti {{answerList[0].answer=='D'&&answer_class1?'bor':''}} " data-index="0" data-option="D">
+                            <view class="success" wx:if="{{answerChange[0].D==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[0].optionD}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[0].D==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[0].optionD}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[0].optionD}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="answer_ti" style="color: #7b4b9c;">
+                    <text class="answer_text"> {{answerList[1].question}}</text>
+                    <view class="answer_change">
+                        <view bindtap="change" class="ti {{answerList[1].answer=='A'&&answer_class?'bor':''}} " data-index="1" data-option="A">
+                            <view class="success" wx:if="{{answerChange[1].A==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[1].optionA}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[1].A==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[1].optionA}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[1].optionA}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="change" class="ti {{answerList[1].answer=='B'&&answer_class?'bor':''}} " data-index="1" data-option="B">
+                            <view class="success" wx:if="{{answerChange[1].B==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[1].optionB}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[1].B==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[1].optionB}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[1].optionB}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="change" class="ti {{answerList[1].answer=='C'&&answer_class?'bor':''}} " data-index="1" data-option="C">
+                            <view class="success" wx:if="{{answerChange[1].C==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[1].optionC}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[1].C==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[1].optionC}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[1].optionC}}</text>
+                            </view>
+                        </view>
+                        <view bindtap="change" class="ti {{answerList[1].answer=='D'&&answer_class?'bor':''}} " data-index="1" data-option="D">
+                            <view class="success" wx:if="{{answerChange[1].D==0}}">
+                                <image class="icon" mode="" src="{{imgUrl+'/head/default.png'}}"></image>
+                                <text>{{answerList[1].optionD}}</text>
+                            </view>
+                            <view class="success" style="color: green;" wx:elif="{{answerChange[1].D==1}}">
+                                <icon type="success_no_circle"></icon>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/success.png'}}"></image>
+                                <text>{{answerList[1].optionD}}</text>
+                            </view>
+                            <view class="success" style="color: red;" wx:else>
+                                <text>X</text>
+                                <image class="icon" mode="" src="{{imgUrl+'/head/error.png'}}"></image>
+                                <text>{{answerList[1].optionD}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="answer_btn">
+                <button class="btn" wx:if="{{answerNum.length<2}}">立即领取</button>
+                <button bindtap="receive" class="btn1" wx:else>立即领取</button>
+            </view>
+        </view>
+        <image bindtap="close" class="close" mode="" src="{{imgUrl+'/head/x.png'}}"></image>
+    </view>
+    <bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/home/home/home" visible="{{!bindUserVisible}}"></bind-user>
+</view>
+<view class="loading" wx:if="{{isLoading}}"></view>

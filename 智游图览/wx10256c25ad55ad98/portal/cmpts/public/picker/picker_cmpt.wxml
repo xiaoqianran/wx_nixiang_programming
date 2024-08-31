@@ -1,0 +1,11 @@
+<picker bindchange="bindChange" class="{{disabled?'disabled':''}}" disabled="{{disabled}}" mode="selector" range="{{options}}" rangeKey="{{labelKey}}" value="{{idx==-1?0:idx}}" wx:if="{{steps==1}}">
+    <view class="picker-cmpt outside-picker-class" wx:if="{{!isSlot}}">
+        <block wx:if="{{labelKey}}">{{options[idx].label||noDataHint}}</block>
+        <block wx:else>{{options[idx]||noDataHint}}</block>
+    </view>
+    <slot wx:else></slot>
+</picker>
+<picker bindchange="bindChange" bindtap="bindTap" class="{{disabled?'disabled':''}}" disabled="{{disabled}}" mode="multiSelector" range="{{options}}" rangeKey="{{labelKey}}" value="{{idx}}" wx:if="{{steps>1}}">
+    <view class="picker-cmpt outside-picker-class" wx:if="{{!isSlot}}"> {{multiDesc||noDataHint}} </view>
+    <slot wx:else></slot>
+</picker>

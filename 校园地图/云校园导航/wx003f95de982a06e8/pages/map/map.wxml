@@ -1,0 +1,73 @@
+<view class="card">
+    <view class="card-top">
+        <view class="card-top-left" style="width:{{windowWidth-130}}px;">
+            <view class="card-top-left-view up">
+                <view class="card-top-circle start"></view>
+                <input bindtap="tosearch" class="card-top-input" data-search_id="{{1}}" disabled="true" placeholder="当前地点/起点" value="{{start.name}}"></input>
+            </view>
+            <view class="card-top-left-view">
+                <view class="card-top-circle end"></view>
+                <input bindtap="tosearch" class="card-top-input" data-search_id="{{w}}" disabled="true" placeholder="请选择终点" value="{{end.name}}"></input>
+            </view>
+        </view>
+        <view class="card-top-middle">
+            <image bindtap="exchange" class="card-top-middle-button" mode="" src="{{exchange}}"></image>
+        </view>
+        <view class="card-top-right">
+            <view bindtap="formSubmit" class="card-top-right-button"> 路线 </view>
+        </view>
+    </view>
+</view>
+<view class="relative">
+    <scroll-view scrollLeft="{{scrollLeft}}" scrollWithAnimation="true" scrollX="true">
+        <view class="card-bottom-category" style="width: {{site_data.length*75}}px;">
+            <view bindtap="changeCategory" class="card-bottom-category-label {{index==category?'choose':''}}" id="{{index}}" wx:for="{{site_data}}" wx:key="id"> {{item.name}} </view>
+        </view>
+    </scroll-view>
+</view>
+<map bindmarkertap="markertap" enablePoi="{{enablepoi}}" id="map" includePoints="" latitude="41.736111100798105" longitude="123.24984587564089" markers="{{markers}}" minScale="{{minscale}}" polyline="{{polyline}}" scale="{{scale}}" showLocation="{{showLocation}}" style="width: 100%; height: {{windowHeight-180}}px;" subkey="{{subKey}}">
+    <view class="map_right_card" style="margin-top: {{windowHeight-375}}px;">
+        <view class="location">
+            <image bindtap="restore" class="img" src="{{restore}}" wx:if="{{polyline.length!=0}}"></image>
+        </view>
+        <view class="location">
+            <image bindtap="location" class="img" src="{{location}}"></image>
+        </view>
+    </view>
+    <view class="map_right_card" style="margin-top: {{windowHeight-245}}px;width: 100%;">
+        <view class="duration_and_distance" style="width: 100%;">
+            <view class="duration_and_distance_style">
+                <view class="duration_and_distance_text" wx:if="{{polyline.length!=0}}">耗时：{{duration}}分钟 距离：{{distance}}米</view>
+            </view>
+            <view class="location">
+                <image bindtap="toinstruction" class="img" src="{{use}}"></image>
+            </view>
+        </view>
+    </view>
+</map>
+<view class="card-bottom">
+    <view bindtap="clickButton" class="card-bottom-button">
+        <view wx:if="{{polyline.length==0}}"> 🏫 {{site_data[category].name}} 有 {{site_data[category].list.length}} 个地点 </view>
+        <view wx:if="{{polyline.length!=0}}"> 🧭 路线详情 </view>
+    </view>
+</view>
+<mp-dialog bindbuttontap="mapmarker_choose" buttons="{{buttons}}" show="{{dialogShow_site}}" title="{{card.name}}">
+    <view>
+        <image bindtap="lookPhoto" data-src="{{card.img}}" mode="heightFix" src="{{card.img}}" style="height:270rpx;"></image>
+        <view style="font-size:90%">{{card.aliases}}</view>
+        <view>{{card.desc}}</view>
+    </view>
+</mp-dialog>
+<mp-dialog bindbuttontap="mapmarker_close" buttons="{{button}}" show="{{dialogShow_category}}" title="{{site_data[category].name}}">
+    <view wx:for="{{site_data[category].list}}" wx:key="id">
+        <view>{{index+1}}.{{item.name}}</view>
+    </view>
+</mp-dialog>
+<mp-dialog bindbuttontap="mapmarker_close" buttons="{{button}}" show="{{dialogShow_road}}" title="路线详情">
+    <view class="road r_duration_and_distance">耗时：{{duration}}分钟 距离：{{distance}}米</view>
+    <view class="road road_start">起点：{{start.name}}</view>
+    <view wx:for="{{steps}}" wx:key="id">
+        <view class="road">{{index+1}}.{{item.instruction}}</view>
+    </view>
+    <view class="road road_end">终点：{{end.name}}</view>
+</mp-dialog>

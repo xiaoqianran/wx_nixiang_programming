@@ -1,0 +1,88 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "zhgeo-plugin": {
+      "version": "latest",
+      "provider": "wx3fe0bd34d4615f50",
+      "subpackage": "__APP__"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "tabBar": {
+    "custom": false,
+    "backgroundColor": "#FFFFFF",
+    "color": "#999999",
+    "selectedColor": "#00C176",
+    "list": [
+      {
+        "pagePath": "portal/projects/TRIP1/pages/default/index/default_index",
+        "text": "首页",
+        "iconPath": "portal/projects/TRIP1/images/tabbar/home.png",
+        "selectedIconPath": "portal/projects/TRIP1/images/tabbar/home_cur.png"
+      },
+      {
+        "pagePath": "portal/projects/TRIP1/pages/scenic/index/scenic_index",
+        "text": "景点",
+        "iconPath": "portal/projects/TRIP1/images/tabbar/jing.png",
+        "selectedIconPath": "portal/projects/TRIP1/images/tabbar/jing_cur.png"
+      },
+      {
+        "pagePath": "portal/projects/TRIP1/pages/samap/samap",
+        "text": "地图",
+        "iconPath": "portal/projects/TRIP1/images/tabbar/gong.png",
+        "selectedIconPath": "portal/projects/TRIP1/images/tabbar/gong_cur.png"
+      },
+      {
+        "pagePath": "portal/projects/TRIP1/pages/about/service/about_service",
+        "text": "服务",
+        "iconPath": "portal/projects/TRIP1/images/tabbar/service.png",
+        "selectedIconPath": "portal/projects/TRIP1/images/tabbar/service_cur.png"
+      },
+      {
+        "pagePath": "portal/projects/TRIP1/pages/my/index/my_index",
+        "text": "我的",
+        "iconPath": "portal/projects/TRIP1/images/tabbar/my.png",
+        "selectedIconPath": "portal/projects/TRIP1/images/tabbar/my_cur.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "地图",
+    "navigationBarTextStyle": "black"
+  },
+  "pages": [
+    "portal/projects/TRIP1/pages/default/index/default_index",
+    "portal/projects/TRIP1/pages/samap/samap",
+    "portal/projects/TRIP1/pages/about/index/about_index",
+    "portal/projects/TRIP1/pages/search/search",
+    "portal/projects/TRIP1/pages/my/index/my_index",
+    "portal/projects/TRIP1/pages/my/reg/my_reg",
+    "portal/projects/TRIP1/pages/my/edit/my_edit",
+    "portal/projects/TRIP1/pages/my/foot/my_foot",
+    "portal/projects/TRIP1/pages/my/fav/my_fav",
+    "portal/projects/TRIP1/pages/news/index/news_index",
+    "portal/projects/TRIP1/pages/news/detail/news_detail",
+    "portal/projects/TRIP1/pages/meet/index/meet_index",
+    "portal/projects/TRIP1/pages/meet/calendar/meet_calendar",
+    "portal/projects/TRIP1/pages/meet/join/meet_join",
+    "portal/projects/TRIP1/pages/meet/detail/meet_detail",
+    "portal/projects/TRIP1/pages/meet/self/meet_self",
+    "portal/projects/TRIP1/pages/meet/my_join_list/meet_my_join_list",
+    "portal/projects/TRIP1/pages/meet/my_join_detail/meet_my_join_detail",
+    "portal/projects/TRIP1/pages/album/detail/album_detail",
+    "portal/projects/TRIP1/pages/album/index/album_index",
+    "portal/projects/TRIP1/pages/scenic/detail/scenic_detail",
+    "portal/projects/TRIP1/pages/scenic/index/scenic_index",
+    "portal/projects/TRIP1/pages/about/service/about_service",
+    "pages/index/index",
+    "portal/lib/citySelector/switchcity/switchcity"
+  ]
+}

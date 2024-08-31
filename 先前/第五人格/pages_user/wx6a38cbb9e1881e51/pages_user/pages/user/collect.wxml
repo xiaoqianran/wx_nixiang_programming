@@ -1,0 +1,289 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view bindtap="hideTips" class="popTips" wx:if="{{showTips}}">
+        <view class="i"></view>
+    </view>
+    <view class="pageheadbg {{gameId==null?'small':''}}">
+        <view class="page head">
+            <view class="zz">
+                <view class="iconBox">
+                    <view class="zs"></view>
+                    <view class="headimg">
+                        <view class="headzs"></view>
+                        <image src="{{userInfo.avatarUrl}}"></image>
+                    </view>
+                    <view class="nameBox">
+                        <text class="name">{{userInfo.nickName}}</text>
+                    </view>
+                    <view bindtap="changeName" class="change">
+                        <text>修改个人信息</text>
+                    </view>
+                    <view class="desc">
+                        <text bindtap="goMyJoin">我参与的<text class="num">{{drawJoinNum}}</text>
+                        </text>
+                        <text class="pa">|</text>
+                        <text bindtap="goMyRecord">中奖记录<text class="num">{{drawSuccNum}}</text>
+                        </text>
+                    </view>
+                </view>
+                <view bindtap="goShopping" class="shopping">
+                    <text>商城</text>
+                </view>
+            </view>
+        </view>
+        <view class="page top" wx:if="{{gameId!=null}}">
+            <image class="headimg" src="{{user.headimg}}" wx:if="{{user.headimg}}"></image>
+            <image class="headcover" src="{{user.headcover}}" wx:if="{{user.headcover}}"></image>
+            <view class="name">{{!!gameId?user.role_name:'请先绑定游戏角色'}}</view>
+            <view class="small" wx:if="{{gameId}}">ID:{{gameId}}</view>
+            <view bindtap="goMyco" class="chBind" wx:if="{{gameId}}">定制图鉴</view>
+        </view>
+        <view class="page page_co" wx:if="{{gameId!=null}}">
+            <view class="inner">
+                <view class="li">
+                    <view class="bq">
+                        <view class="ic">{{user.skin?user.skin:0}}</view>
+                        <text>时装</text>
+                    </view>
+                    <view class="num">
+                        <view class="skin {{skinList[0].quality==5?'gold':''}} {{skinList[0].quality==6?'rainbow':''}}" wx:if="skinList!=''">
+                            <image src="{{loadPath}}{{skinList[0].iconPath}}"></image>
+                            <text>{{skinList[0].useName}}</text>
+                            <view class="bz bz{{skinList[0].discontinuedSign}}" wx:if="{{skinList[0].discontinuedSign}}"></view>
+                        </view>
+                    </view>
+                    <view class="det">
+                        <view class="sli">
+                            <text class="ail">稀世</text>
+                            <text class="ber">{{user.skin_quality5?user.skin_quality5:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">奇珍</text>
+                            <text class="ber">{{user.skin_quality4?user.skin_quality4:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">独特</text>
+                            <text class="ber">{{user.skin_quality3?user.skin_quality3:0}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="bq">
+                        <view class="ic">{{user.carry?user.carry:0}}</view>
+                        <text>随身物品</text>
+                    </view>
+                    <view class="num">
+                        <view class="additions  {{additionsList[0].quality==5?'gold':additionsList[0].quality==6?'rainbow':''}}" wx:if="additionsList!=''">
+                            <image src="{{loadPath}}{{additionsList[0].iconPath}}"></image>
+                            <view class="bz bz{{additionsList[0].discontinuedSign}}" wx:if="{{additionsList[0].discontinuedSign}}"></view>
+                        </view>
+                    </view>
+                    <view class="det">
+                        <view class="sli">
+                            <text class="ail">稀世</text>
+                            <text class="ber">{{user.carry_quality5?user.carry_quality5:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">奇珍</text>
+                            <text class="ber">{{user.carry_quality4?user.carry_quality4:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">独特</text>
+                            <text class="ber">{{user.carry_quality3?user.carry_quality3:0}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="bq">
+                        <view class="ic">{{user.pet?user.pet:0}}</view>
+                        <text>随从</text>
+                    </view>
+                    <view class="num">
+                        <view class="entourage {{entourageList[0].quality==4?'gold':''}} {{entourageList[0].quality==3?'iron':''}}" wx:if="entourageList!=''">
+                            <image src="{{loadPath}}{{entourageList[0].iconPath}}"></image>
+                        </view>
+                    </view>
+                    <view class="det">
+                        <view class="sli">
+                            <text class="ail">稀世</text>
+                            <text class="ber">{{user.pet_quality5?user.pet_quality5:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">奇珍</text>
+                            <text class="ber">{{user.pet_quality4?user.pet_quality4:0}}</text>
+                        </view>
+                        <view class="sli">
+                            <text class="ail">独特</text>
+                            <text class="ber">{{user.pet_quality3?user.pet_quality3:0}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="eights">
+                <view class="li {{user.hero==user.allHero?'allhave':''}}">
+                    <view class="ic ic1"></view>
+                    <text class="des">角色数</text>
+                    <text class="num">{{user.hero?user.hero:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic2"></view>
+                    <text class="des">涂鸦</text>
+                    <text class="num">{{user.graffiti?user.graffiti:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic3"></view>
+                    <text class="des">头像</text>
+                    <text class="num">{{user.portrait?user.portrait:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic4"></view>
+                    <text class="des">头像框</text>
+                    <text class="num">{{user.frame?user.frame:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic5"></view>
+                    <text class="des">等待动作</text>
+                    <text class="num">{{user.wait_act?user.wait_act:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic6"></view>
+                    <text class="des">个性动作</text>
+                    <text class="num">{{user.per_act?user.per_act:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic7"></view>
+                    <text class="des">追击音乐</text>
+                    <text class="num">{{user.music?user.music:0}}</text>
+                </view>
+                <view class="li">
+                    <view class="ic ic8"></view>
+                    <text class="des">归宿分</text>
+                    <text class="num">{{user.home_score?user.home_score:0}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="page page_bind" wx:if="{{gameId==null}}">
+            <view class="img"></view>
+            <view bindtap="handleBind" class="ttt" data-count="0">绑定游戏角色</view>
+        </view>
+    </view>
+    <view class="page greed" wx:if="{{gameId!=null}}">
+        <view class="greedbox">
+            <view class="skinbigbox">
+                <view class="boxtop">
+                    <view class="cott">奇珍、稀世时装展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="skinbox">
+                        <view class="li {{item.quality==5?'gold':''}}  {{item.quality==6?'rainbow':''}}" wx:if="{{item.quality==4||item.quality==5||item.quality==6}}" wx:for="{{skinList}}" wx:key="key">
+                            <view class="bz bz{{item.discontinuedSign}}" wx:if="{{item.discontinuedSign}}"></view>
+                            <image lazyLoad="true" src="{{loadPath}}{{item.iconPath}}"></image>
+                            <text>{{item.useName}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view class="additionsbigbox">
+                <view class="boxtop">
+                    <view class="cott">随身物品展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="additionsbox">
+                        <view class="li {{item.quality==5?'gold':item.quality==6?'rainbow':''}}" wx:for="{{additionsList}}" wx:key="key">
+                            <image lazyLoad="true" src="{{loadPath}}{{item.iconPath}}"></image>
+                            <view class="bz bz{{item.discontinuedSign}}" wx:if="{{item.discontinuedSign}}"></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view class="entouragebigbox">
+                <view class="boxtop">
+                    <view class="cott">随从展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="entouragebox">
+                        <view class="li {{item.quality==4?'gold':''}} {{item.quality==3?'iron':''}}" wx:for="{{entourageList}}" wx:key="key">
+                            <image lazyLoad="true" src="{{loadPath}}{{item.iconPath}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view class="framebigbox">
+                <view class="boxtop">
+                    <view class="cott">头像框展示区</view>
+                </view>
+                <view class="boxcenter">
+                    <view class="framebox">
+                        <view class="li" wx:for="{{frameList}}" wx:key="key">
+                            <image lazyLoad="true" src="{{loadPath}}{{item.iconPath}}"></image>
+                        </view>
+                    </view>
+                </view>
+                <view class="boxbottom"></view>
+            </view>
+            <view bindtap="getCode" class="getcode_btn" wx:if="{{canGetMyCode}}">
+                <image class="bg" src="{{imgUrl}}/user/btn_bd.png"></image>
+                <text>获取我的验证码</text>
+            </view>
+        </view>
+    </view>
+    <view class="fixbtns" wx:if="{{gameId!=null&&gameId!=''}}">
+        <view class="in_in">
+            <view class="tips">生成图鉴后可长按点击屏幕保存图片至手机相册</view>
+            <view bindtap="getSysInfo" class="buildImg">一键生成图鉴</view>
+        </view>
+    </view>
+    <view class="canvasbox {{showCanvas?'on':''}}">
+        <image bindtap="canvasHide" mode="widthFix" showMenuByLongpress="true" src="{{loadImagePath}}" wx:if="{{loadImagePath&&timeEights}}"></image>
+    </view>
+    <view class="saveTips" hidden="{{!showCanvas||timeEights}}">
+        <view class="tips">图鉴生成中，生成后请按以下步骤操作保存哦~</view>
+        <image class="gif" src="{{imgUrl}}/precious/save.gif"></image>
+    </view>
+    <canvas canvasId="mycanvas" id="mycanvas" style="width: {{_canvasw}}px; height: {{_canvasH}}px"></canvas>
+    <bindgame bindPopShow="{{bindPopShow}}" bindbindCol="bindCol" userName="{{user.role_name}}" wxToken="{{wxToken}}"></bindgame>
+    <bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages_user/pages/user/collect" visible="{{!bindUserVisible}}"></bind-user>
+    <view class="loading" wx:if="{{isLoading}}"></view>
+    <view class="dialog" wx:if="{{messageTipGif}}">
+        <image class="datails_message-tip-gif" mode="widthFix" src="{{messageTipGifUrl}}"></image>
+    </view>
+    <view class="user_model" wx:if="{{flag}}">
+        <view class="content_model">
+            <view class="title_model">
+                <text>个人信息</text>
+            </view>
+            <view class="center_model">
+                <view class="user_picture">
+                    <text>我的头像</text>
+                    <view class="picture">
+                        <image src="{{nameImg}}"></image>
+                        <image src="{{imgUrl+'/personal/forward.png'}}"></image>
+                        <button bindchooseavatar="changPicture" openType="chooseAvatar"></button>
+                    </view>
+                </view>
+                <view bindtap="nameInput" class="user_name">
+                    <text>我的昵称</text>
+                    <view class="name" wx:if="{{flagName}}">
+                        <text>{{inputText}}</text>
+                        <image mode="" src="{{imgUrl+'/personal/forward.png'}}"></image>
+                    </view>
+                    <view class="input" wx:else>
+                        <input bindblur="inputBlur" bindinput="inputChang" focus="{{!flagName}}" maxlength="{{inputFlag?inputText.length:-1}}" value="{{inputText}}" type="nickname"></input>
+                    </view>
+                </view>
+                <view class="tips">
+                    <text>昵称限制2-32个字符，一个汉字为2个字符</text>
+                </view>
+                <view bindtap="subimt" class="preserve">
+                    <text>保存修改</text>
+                </view>
+            </view>
+            <view bindtap="close" class="close">
+                <image mode="" src="{{imgUrl+'/personal/X.png'}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

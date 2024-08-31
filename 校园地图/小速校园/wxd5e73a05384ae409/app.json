@@ -1,0 +1,76 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于在校园出行中为您提供位置参考"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#2ec4b6",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/plan/plan",
+        "text": "速办",
+        "iconPath": "static/plan.png",
+        "selectedIconPath": "static/plan-select.png"
+      },
+      {
+        "pagePath": "pages/tabbar/travel/travel",
+        "text": "出行",
+        "iconPath": "static/travel.png",
+        "selectedIconPath": "static/travel-select.png"
+      },
+      {
+        "pagePath": "pages/tabbar/tools/tools",
+        "text": "生活",
+        "iconPath": "static/tool.png",
+        "selectedIconPath": "static/tool-select.png"
+      },
+      {
+        "pagePath": "pages/tabbar/me/me",
+        "text": "我的",
+        "iconPath": "static/me.png",
+        "selectedIconPath": "static/me-select.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "navigationBarTitleText": "",
+    "backgroundColor": "#F8F8F8"
+  },
+  "pages": [
+    "pages/tabbar/plan/plan",
+    "pages/tabbar/tabbar",
+    "pages/tabbar/travel/travel",
+    "pages/tabbar/tools/tools",
+    "pages/tabbar/me/me",
+    "pages/login/login",
+    "pages/scores/scores",
+    "pages/myInfo/myInfo",
+    "pages/allSchedule/allSchedule",
+    "pages/feedback/feedback",
+    "pages/userAgreement/userAgreement",
+    "pages/schoolCalendar/schoolCalendar",
+    "pages/userAgreement/privacPpolicy/privacPpolicy",
+    "pages/exam/exam",
+    "pages/addressList/addressList",
+    "pages/campusNotice/campusNotice",
+    "pages/aboutSmallProgram/aboutSmallProgram",
+    "pages/secondClass/secondClass",
+    "pages/emptyClassrooms/emptyClassrooms",
+    "pages/cooperation/cooperation",
+    "pages/webViewPage/webViewPage",
+    "pages/rubLesson/rubLesson",
+    "pages/bookSearch/bookSearch",
+    "pages/checkCredit/checkCredit",
+    "pages/campusActivities/campusActivities",
+    "pages/secondClass/activity/activity"
+  ]
+}

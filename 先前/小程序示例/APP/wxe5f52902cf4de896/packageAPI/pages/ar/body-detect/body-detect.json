@@ -1,0 +1,6 @@
+{
+  "pageOrientation": "auto",
+  "disableScroll": true,
+  "renderer": "webview",
+  "navigationBarTitleText": "实时人体检测"
+}

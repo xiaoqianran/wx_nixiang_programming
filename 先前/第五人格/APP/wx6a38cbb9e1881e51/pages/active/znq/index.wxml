@@ -1,0 +1,317 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page p1">
+        <view bindtap="showPrlist" class="myPr"></view>
+        <view class="slogan"></view>
+        <view class="tips" wx:if="{{gameId==''}}">
+            <text>绑定角色后才能抽奖哦~</text>
+            <text bindtap="handleBind" data-sbex="true"> 【绑定角色】</text>
+        </view>
+        <view class="tips" wx:if="{{gameId!=null&&gameId!=''}}">当前绑定角色：{{usnickname}}<text bindtap="handleBind" data-sbex="true">【切换】</text>
+        </view>
+    </view>
+    <view class="page p2">
+        <view class="prdes">抽奖券：{{drawChance}}</view>
+        <view class="textlb">
+            <swiper autoplay="{{true}}" class="swpbox" duration="{{500}}" indicatorDots="{{indicatorDots}}" interval="{{2000}}" vertical="{{true}}">
+                <swiper-item catchtouchmove="catchTouchMove" class="swiper-item" wx:for="{{lbList}}" wx:key="key">
+                    <view>{{item.wxName}}抽中了{{item.prizeName}}</view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view bindtap="handleShoppingMall" class="goDh" data-type="0"></view>
+        <view class="proutbox">
+            <view class="prbox">
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=0}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x1</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=1}}"></view>
+                    <view class="icon">
+                        <view class="znqlb"></view>
+                        <view class="txt">x3280</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=2}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x1</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=3}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x3</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=4}}"></view>
+                    <view class="icon">
+                        <view class="szq"></view>
+                        <view class="txt">x18</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=5}}"></view>
+                    <view class="yk"></view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=6}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x1</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=7}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x2</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=8}}"></view>
+                    <view class="icon">
+                        <view class="szq"></view>
+                        <view class="txt">x28</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=9}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x2</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=10}}"></view>
+                    <view class="icon">
+                        <view class="yb"></view>
+                        <view class="txt">x5</view>
+                    </view>
+                </view>
+                <view class="li">
+                    <view class="red"></view>
+                    <view class="yellow" hidden="{{nowCh!=11}}"></view>
+                    <view class="yk"></view>
+                </view>
+            </view>
+            <view bindtap="priceDraw" class="draw"></view>
+            <button bindgetphonenumber="getPhoneNumber" class="draw" openType="getPhoneNumber" wx:if="{{!userPhone}}"></button>
+        </view>
+    </view>
+    <view class="page p3">
+        <view class="ul">
+            <view class="li" wx:for="{{taskList}}" wx:key="key">
+                <view class="left {{index==1?'pa':''}}">{{item.taskName}}<text>(<text class="p"></text>{{index==2?'+2':'+1'}})</text>
+                    <view class="s" wx:if="{{index==1}}">(上限3次)</view>
+                </view>
+                <view bindtap="doWork" class="right" data-index="{{index}}" data-task="{{item.id}}" wx:if="{{item.status==0&&index==0}}">立即签到</view>
+                <view bindtap="doWork" class="right" data-index="{{index}}" data-task="{{item.id}}" wx:elif="{{item.status==0&&index==1}}">点击查询</view>
+                <view bindtap="doWork" class="right" data-index="{{index}}" data-task="{{item.id}}" wx:elif="{{item.status==0}}">去完成</view>
+                <view class="right yet" wx:elif="{{item.status==1&&index==1}}">已完成(1/1)</view>
+                <view class="right yet" wx:elif="{{item.status==2&&index==1}}">已达上限</view>
+                <view class="right yet" wx:elif="{{item.status==2}}">已完成</view>
+            </view>
+        </view>
+    </view>
+    <view class="page p4">
+        <view class="textbox">
+            <view class="tit">活动时间</view>
+            <view class="p center">2022年4月2日10：30 至 2022年4月20日23：59</view>
+            <view class="line"></view>
+            <view class="tit">活动规则</view>
+            <view class="p dian">
+                <view class="num">1</view>绑定游戏角色后完成签到任务点击抽奖按钮即可参与抽奖，抽奖100%中奖；</view>
+            <view class="p dian">
+                <text class="num">2</text>完成活动任务可获得抽奖次数，最多可获得10次抽奖次数，任务与抽奖次数对应如下表所示： <view class="table">
+                    <view class="th">
+                        <view class="td">活动任务</view>
+                        <view class="td">可获得抽奖次数</view>
+                        <view class="td">任务完成上限次数</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">在活动界面首次签到</view>
+                        <view class="td">1</view>
+                        <view class="td">1</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">每日完成1局对局</view>
+                        <view class="td">1</view>
+                        <view class="td">3</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">添加官方企微好友</view>
+                        <view class="td">2</view>
+                        <view class="td">1</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">生成战绩图并分享</view>
+                        <view class="td">1</view>
+                        <view class="td">1</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">生成时装图鉴并分享</view>
+                        <view class="td">1</view>
+                        <view class="td">1</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">查看资讯并发表1次评论</view>
+                        <view class="td">1</view>
+                        <view class="td">1</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">分享本活动海报</view>
+                        <view class="td">1</view>
+                        <view class="td">1</view>
+                    </view>
+                </view> 抽奖奖品中奖概率 <view bindtap="showGlbox" class="wen">?</view>
+                <view></view> 抽奖券有效期截止至4月20日晚上23：59，逾期未使用的抽奖券将自动失效； </view>
+            <view class="p dian">
+                <view class="num">3</view>关于代币使用说明： 抽中代币后可点击上方[兑换商城]兑换游戏奖励，兑换后奖励将在48小时内发放至绑定的游戏账户；</view>
+            <view class="p dian">
+                <view class="num">4</view>单个微信所绑定的游戏账号仅可获得1次参与本活动的机会，单个微信更换游戏账号将无法重复参与本活动；</view>
+            <view class="p dian">
+                <view class="num">5</view>活动期间，如发现有通过不正当手段（包括但不限于侵犯第三人合法权益权益、作弊、扰乱系统、实施网络攻击、恶意套现、批量注册、用机器模拟客户端进行的各类操作等）参加活动而有碍其他用户公平参加本次活动或有违反活动目的之行为。 活动举办方有权取消此类用户获奖资格并追回活动过程中获取的赠品或权益，同时有权临时或永久禁止此类用户使用本小程序。 若违规行为对活动举办方造成损失，举办方将通过法律途径追责。</view>
+            <view class="line"></view>
+            <view class="tit big">
+                <text>特殊奖品的发放说明</text>
+            </view>
+            <view class="p dian">
+                <view class="num">1</view>四面骰子爱好者30天（折现）奖励将在活动结束后的7个工作日内（4月29日前），以支付宝转账的形式，打入中奖人所填写的信息账户，请中奖的侦探于4月25日23：59分前准确填写相关信息，如因本人错填信息导致的打款失败，将不再进行二次打款；</view>
+            <view class="p dian">
+                <view class="num">2</view>3280回声将由工作人员确认后进行人工发放，请中奖的侦探请中奖的侦探于4月25日23：59分前准确填写相关信息，14个工作日内将有工作人员与你进行联系。</view>
+        </view>
+    </view>
+    <view bindtap="canvasHide" class="canvasbox {{showCanvas?'on':''}}">
+        <image bindlongpress="saveCode" mode="widthFix" src="{{loadImagePath}}"></image>
+        <canvas canvasId="mycanvas" id="mycanvas" style="width: {{_canvasw}}px; height: {{_canvasH}}px"></canvas>
+    </view>
+    <view class="friendbox {{showAddfri?'on':''}}">
+        <view bindtap="hideAddfri" class="popzz"></view>
+        <image bindlongpress="finishAddfri" bindtap="hideAddfri" class="small" mode="aspectFit" showMenuByLongpress="true" src="{{imgUrl}}/znq/code2.jpg"></image>
+    </view>
+    <view class="friendbox {{showSharePic?'on':''}}">
+        <view bindtap="hideSharePic" class="popzz"></view>
+        <image bindlongpress="finishShareTask" bindtap="hideSharePic" class="small" mode="aspectFit" showMenuByLongpress="true" src="{{imgUrl}}/znq/share4.jpg"></image>
+    </view>
+    <view class="pop-prlistbox" wx:if="{{prlistShow}}">
+        <view bindtap="hidePrlistbox" class="popzz"></view>
+        <view class="inner">
+            <view bindtap="hidePrlistbox" class="close"></view>
+            <view class="ul">
+                <view class="li" wx:for="{{prlist}}" wx:key="key">
+                    <view class="pr">
+                        <image class="szq" src="{{imgUrl}}/znq/ic/2.png" wx:if="{{item.prizeType==0}}"></image>
+                        <image class="yb" src="{{imgUrl}}/znq/ic/3.png" wx:if="{{item.prizeType==1}}"></image>
+                        <image class="lb" src="{{imgUrl}}/znq/ic/1.png" wx:if="{{item.prizeType==2}}"></image>
+                        <image class="yk" src="{{imgUrl}}/znq/ic/4.png" wx:if="{{item.prizeType==3}}"></image>
+                    </view>
+                    <view class="prdes">{{item.prizeName}}</view>
+                    <view class="prdesTime">获奖时间：{{item.winTime}}</view>
+                    <view class="btn2" wx:if="{{item.prizeType==0||item.prizeType==1}}">已发放</view>
+                    <view bindtap="inputAdd" class="btn" data-id="{{item.id}}" data-type="{{item.prizeType}}" wx:if="{{(item.prizeType==2||item.prizeType==3)&&item.receiveStatus!=2}}">填写联系方式</view>
+                    <view class="btn2" wx:elif="{{(item.prizeType==2||item.prizeType==3)&&item.receiveStatus==2}}">已安排发货</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="pop-prbox" wx:if="{{prShow}}">
+        <view bindtap="hidePrbox" class="popzz"></view>
+        <view class="inner">
+            <view bindtap="hidePrbox" class="close"></view>
+            <view class="prdes">{{prdet.prizeName}}</view>
+            <view class="pr">
+                <image class="szq" src="{{imgUrl}}/znq/ic/2.png" wx:if="{{prdet.prizeType==0}}"></image>
+                <image class="yb" src="{{imgUrl}}/znq/ic/3.png" wx:if="{{prdet.prizeType==1}}"></image>
+                <image class="lb" src="{{imgUrl}}/znq/ic/5.png" wx:if="{{prdet.prizeType==2}}"></image>
+                <image class="yk" src="{{imgUrl}}/znq/ic/4.png" wx:if="{{prdet.prizeType==3}}"></image>
+            </view>
+            <view bindtap="handleShoppingMall" class="btn" wx:if="{{prdet.prizeType==0||prdet.prizeType==1}}">立即兑换</view>
+            <view bindtap="inputAdd" class="btn" data-id="{{prdet.personId}}" data-type="{{prdet.prizeType}}" wx:if="{{prdet.prizeType==2||prdet.prizeType==3}}">填写联系方式</view>
+        </view>
+    </view>
+    <view class="pop-tipss" wx:if="{{tipsShow}}">
+        <view bindtap="hideTips" class="closeboard"></view>
+        <view class="inner">
+            <view class="tt">公告</view>
+            <text class="des pa">各位侦探们好~春暖花开的季节里，【网易第五人格】小程序也终于与大家正式见面啦~</text>
+            <text class="des">为了回馈侦探们的热情！小五赶快为大家额外申请了奖励，将于4月7日9点30分准时在小程序兑换商城补货上架~</text>
+            <text class="des">目前兑换商城内奖励的兑换价为周年庆活动价～请侦探们尽快兑换！本次活动结束后将恢复商城常规兑换价，具体价格如下：</text>
+            <text class="des pd">10线索——1银币
+                10碎片——3银币
+                1天角色体验卡——5银币
+                3天角色体验卡——14银币
+                1天奇珍时装体验卡——7银币
+                3天奇珍时装体验卡——19银币
+                【头像】官方Q群——30银币
+            </text>
+            <text class="des">侦探们的反馈小五都收到啦，我们会认真参考侦探们的建议，努力把小程序打造成最方便最有趣的第五人格官方工具，也感谢大家对小程序的热情与支持！</text>
+            <view bindtap="hideTips" class="btnss">我知道啦</view>
+        </view>
+    </view>
+    <view class="pop-glbox" wx:if="{{glShow}}">
+        <view bindtap="hideGlbox" class="popzz"></view>
+        <view class="inner">
+            <view bindtap="hideGlbox" class="close"></view>
+            <view class="table">
+                <view class="th">
+                    <view class="td">抽奖奖品</view>
+                    <view class="td">概率</view>
+                </view>
+                <view class="tr">
+                    <view class="td">1银币</view>
+                    <view class="td">60.5000%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">2银币</view>
+                    <view class="td">20.0000%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">3银币</view>
+                    <view class="td">14.5000%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">5银币</view>
+                    <view class="td">4.4705%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">四面骰子爱好者30天（折现）</view>
+                    <view class="td">0.5000%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">18时装券</view>
+                    <view class="td">0.0200%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">28时装券</view>
+                    <view class="td">0.0090%</view>
+                </view>
+                <view class="tr">
+                    <view class="td">3280回声</view>
+                    <view class="td">0.0005%</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="loading" wx:if="{{isLoading}}"></view>
+    <bindgame bindPopShow="{{bindPopShow}}" bindbindCol="bindCol" hideClose="{{hideBindClose}}" sbex="{{sbex}}" userName="{{user.role_name}}" wxToken="{{wxToken}}"></bindgame>
+    <bind-user bindCustomClose="handleBind" bindbindCol="bindCol" visible="{{!bindUserVisible}}"></bind-user>
+</view>

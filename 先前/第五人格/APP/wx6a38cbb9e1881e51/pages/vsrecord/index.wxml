@@ -1,0 +1,615 @@
+<navBar back="{{!!taskId}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="p1p2out">
+        <view class="page p1">
+            <image class="headimg" src="{{user.headimg}}" wx:if="{{user.headimg}}"></image>
+            <image class="headcover" src="{{user.headcover}}" wx:if="{{user.headcover}}"></image>
+            <view bindtap="chBind" class="namebox" wx:if="{{user.role_name||user.role_id}}">
+                <view class="name">{{user.role_name}} </view>
+                <view class="bq" wx:if="{{badgeTop!=null&&badgeTop>-1}}">
+                    <image class="ic" src="{{imgUrl}}/vsrecord/ic/rank_{{badgeCard}}.png"></image>
+                    <text>{{badgeTop}}th{{badgeName}}</text>
+                </view>
+                <view class="small">{{user.role_id}}</view>
+            </view>
+            <view bindtap="handleToggleBind" class="changebind" data-sbex="true" wx:if="{{user.role_name||user.role_id}}"></view>
+        </view>
+        <view class="page p2-user-data">
+            <view class="nav_list">
+                <view class="col">
+                    <picker bindchange="handleToggleRole" data-id="1" range="{{array3}}" value="{{index}}">
+                        <view class="chres">{{arrayValRole}}</view>
+                    </picker>
+                </view>
+                <view class="col">
+                    <picker bindchange="handleToggleDataType" data-id="1" range="{{array}}" value="{{index}}">
+                        <view class="chres">{{arrayValTime}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view catchtap="handleBindUserDialog" class="un_login_btn" wx:if="{{!(user&&user.role_id)}}"> 绑定角色后可查看 </view>
+            <view class="line-chart" wx:else>
+                <ec-canvas canvasId="mychart-bar" id="mychart-dom-bar"></ec-canvas>
+            </view>
+            <block wx:if="{{userCivPvpPart&&userButPvpPart}}">
+                <view class="null-tip" wx:if="{{!dataType&&identity&&!userButPvpPart.length}}">您近期没有参与过排位对局</view>
+                <view class="null-tip" wx:elif="{{!dataType&&!identity&&!userCivPvpPart.length}}">您近期没有参与过排位对局</view>
+            </block>
+        </view>
+        <view class="page p2">
+            <view bindtap="swpNext" class="after"></view>
+            <swiper bindchange="swiperChange" class="swp-banner" current="{{swpIndex}}" duration="500" hidden="{{detOrEasy==0}}" interval="4000">
+                <swiper-item class="swpbox">
+                    <view class="col">
+                        <picker bindchange="bindPickerChange" data-id="2" range="{{array}}" value="{{index}}">
+                            <view class="chres">{{arrayVal2}}</view>
+                        </picker>
+                    </view>
+                    <view class="out" wx:if="{{arrayVal2=='当前赛季'}}">
+                        <view class="tips">* 最佳演绎次数只统计近30场排位/匹配</view>
+                        <view class="numlist" wx:if="{{isSurvi}}">
+                            <view class="list">
+                                <view class="li">
+                                    <view class="ic szcs"></view>
+                                    <view class="des">累计逃脱</view>
+                                    <view class="des pa">{{userEx.saiji_escape_battle}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconzbmz"></view>
+                                    <view class="des">砸板命中</view>
+                                    <view class="des pa">{{userEx.saiji_board_hit}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic pbzs"></view>
+                                    <view class="des">破译台数</view>
+                                    <view class="des pa">{{userEx.saiji_fix}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljjd"></view>
+                                    <view class="des">累计救人</view>
+                                    <view class="des pa">{{userEx.saiji_save}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconzl"></view>
+                                    <view class="des">治疗次数</view>
+                                    <view class="des pa">{{userEx.saiji_cure}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljkjzs"></view>
+                                    <view class="des">累计牵制</view>
+                                    <view class="des pa">{{userEx.saiji_tease}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                            <view class="list_bottom">
+                                <view class="lb">
+                                    <text class="">排位场次</text>
+                                    <text>{{user.civ_battle_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜场</text>
+                                    <text>{{user.civ_win_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜率</text>
+                                    <text>{{user.civ_win_rate}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>最佳演绎</text>
+                                    <text>{{qsMvp}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="numlist" wx:else>
+                            <view class="list">
+                                <view class="li">
+                                    <view class="ic cjqz"></view>
+                                    <view class="des">累计淘汰</view>
+                                    <view class="des pa">{{userEx.saiji_kill_num}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconsz"></view>
+                                    <view class="des">四抓场数</view>
+                                    <view class="des pa">{{userEx.saiji_killall}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjpy"></view>
+                                    <view class="des">破板总数</view>
+                                    <view class="des pa">{{userEx.saiji_break_board}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjjr"></view>
+                                    <view class="des">累计击倒</view>
+                                    <view class="des pa">{{userEx.saiji_attack_down}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljzl"></view>
+                                    <view class="des">累计恐惧震慑</view>
+                                    <view class="des pa">{{userEx.saiji_terror_shock}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconzsl"></view>
+                                    <view class="des">四抓率</view>
+                                    <view class="des pa">{{userEx.saiji_killall_rate}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                            <view class="list_bottom">
+                                <view class="lb">
+                                    <text class="">排位场次</text>
+                                    <text>{{user.but_battle_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜场</text>
+                                    <text>{{user.but_win_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜率</text>
+                                    <text>{{user.but_win_rate}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>最佳演绎</text>
+                                    <text>{{jgMvp}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="out" wx:else>
+                        <view class="numlist" wx:if="{{isSurvi}}">
+                            <view class="list">
+                                <view class="li">
+                                    <view class="ic szcs"></view>
+                                    <view class="des">累计逃脱</view>
+                                    <view class="des pa">{{userEx.total_escape_battle}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconzbmz"></view>
+                                    <view class="des">砸板命中</view>
+                                    <view class="des pa">{{userEx.total_board_hit}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic pbzs"></view>
+                                    <view class="des">破译台数</view>
+                                    <view class="des pa">{{userEx.total_fix}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljjd"></view>
+                                    <view class="des">累计救人</view>
+                                    <view class="des pa">{{userEx.total_save}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconzl"></view>
+                                    <view class="des">治疗次数</view>
+                                    <view class="des pa">{{userEx.total_cure}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljkjzs"></view>
+                                    <view class="des">累计牵制</view>
+                                    <view class="des pa">{{userEx.total_tease}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                            <view class="list_bottom">
+                                <view class="lb">
+                                    <text class="">排位场次</text>
+                                    <text>{{user.civ_total_battle_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜场</text>
+                                    <text>{{user.civ_total_win_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜率</text>
+                                    <text>{{user.civ_total_win_rate}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>最佳演绎</text>
+                                    <text>{{user.civ_total_mvp}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="numlist" wx:else>
+                            <view class="list">
+                                <view class="li">
+                                    <view class="ic cjqz"></view>
+                                    <view class="des">累计淘汰</view>
+                                    <view class="des pa">{{userEx.total_kill_num}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconsz"></view>
+                                    <view class="des">四抓场数</view>
+                                    <view class="des pa">{{userEx.total_killall}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjpy"></view>
+                                    <view class="des">破板总数</view>
+                                    <view class="des pa">{{userEx.total_break_board}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjjr"></view>
+                                    <view class="des">累计击倒</view>
+                                    <view class="des pa">{{userEx.total_attack_down}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljzl"></view>
+                                    <view class="des">累计恐惧震慑</view>
+                                    <view class="des pa">{{userEx.total_terror_shock}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic iconzsl"></view>
+                                    <view class="des">四抓率</view>
+                                    <view class="des pa">{{userEx.total_killall_rate}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                            <view class="list_bottom">
+                                <view class="lb">
+                                    <text class="">排位场次</text>
+                                    <text>{{user.but_total_battle_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜场</text>
+                                    <text>{{user.but_total_win_num}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>胜率</text>
+                                    <text>{{user.but_total_win_rate}}</text>
+                                </view>
+                                <view class="lb">
+                                    <text>最佳演绎</text>
+                                    <text>{{user.but_total_mvp}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="desc">
+                        <view class="ic ic3"></view>荣誉数据 <view bindtap="changeDetOrEasy" class="change" data-id="0">查看基础数据<view class="ic ic4"></view>
+                        </view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="swpbox">
+                    <view class="col">
+                        <picker bindchange="bindPickerChange" data-id="3" range="{{array}}" value="{{index}}">
+                            <view class="chres">{{arrayVal3}}</view>
+                        </picker>
+                    </view>
+                    <view class="out" wx:if="{{arrayVal3=='当前赛季'}}">
+                        <view class="numlist" wx:if="{{isSurvi}}">
+                            <view class="list2">
+                                <view class="li">
+                                    <view class="ic szcs"></view>
+                                    <view class="des">逃脱率</view>
+                                    <view class="des pa">{{userEx.saiji_escape_rate}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic pbzs"></view>
+                                    <view class="des">场均破译</view>
+                                    <view class="des pa">{{userEx.saiji_avg_fix}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljjd"></view>
+                                    <view class="des">场均救人</view>
+                                    <view class="des pa">{{userEx.saiji_avg_save}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljkjzs"></view>
+                                    <view class="des">场均牵制</view>
+                                    <view class="des pa">{{userEx.saiji_avg_tease}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic szl"></view>
+                                    <view class="des">场均演绎积分</view>
+                                    <view class="des pa">{{userEx.civ_saiji_avg_score}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="numlist" wx:else>
+                            <view class="list2">
+                                <view class="li">
+                                    <view class="ic cjqz"></view>
+                                    <view class="des">场均淘汰</view>
+                                    <view class="des pa">{{userEx.saiji_avg_kill}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjpy"></view>
+                                    <view class="des">场均破板</view>
+                                    <view class="des pa">{{userEx.saiji_avg_break_board}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjjr"></view>
+                                    <view class="des">场均击倒</view>
+                                    <view class="des pa">{{userEx.saiji_avg_attack_down}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljzl"></view>
+                                    <view class="des">场均恐惧震慑</view>
+                                    <view class="des pa">{{userEx.saiji_avg_terror_shock}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic zbmz"></view>
+                                    <view class="des">场均演绎积分</view>
+                                    <view class="des pa">{{userEx.but_saiji_avg_score}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="out" wx:else>
+                        <view class="numlist" wx:if="{{isSurvi}}">
+                            <view class="list2">
+                                <view class="li">
+                                    <view class="ic szcs"></view>
+                                    <view class="des">逃脱率</view>
+                                    <view class="des pa">{{userEx.total_escape_rate}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic pbzs"></view>
+                                    <view class="des">场均破译</view>
+                                    <view class="des pa">{{userEx.total_avg_fix}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljjd"></view>
+                                    <view class="des">场均救人</view>
+                                    <view class="des pa">{{userEx.total_avg_save}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljkjzs"></view>
+                                    <view class="des">场均牵制</view>
+                                    <view class="des pa">{{userEx.total_avg_tease}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic szl"></view>
+                                    <view class="des">场均演绎积分</view>
+                                    <view class="des pa">{{userEx.civ_total_avg_score}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="numlist" wx:else>
+                            <view class="list2">
+                                <view class="li">
+                                    <view class="ic cjqz"></view>
+                                    <view class="des">场均淘汰</view>
+                                    <view class="des pa">{{userEx.total_avg_kill}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjpy"></view>
+                                    <view class="des">场均破板</view>
+                                    <view class="des pa">{{userEx.total_avg_break_board}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic cjjr"></view>
+                                    <view class="des">场均击倒</view>
+                                    <view class="des pa">{{userEx.total_avg_attack_down}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic ljzl"></view>
+                                    <view class="des">场均恐惧震慑</view>
+                                    <view class="des pa">{{userEx.total_avg_terror_shock}}</view>
+                                    <view class="line"></view>
+                                </view>
+                                <view class="li">
+                                    <view class="ic zbmz"></view>
+                                    <view class="des">场均演绎积分</view>
+                                    <view class="des pa">{{userEx.but_total_avg_score}}</view>
+                                    <view class="line"></view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="desc">
+                        <view class="ic ic2"></view>平均数据 <view bindtap="changeDetOrEasy" class="change" data-id="0">查看基础数据<view class="ic ic4"></view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="page p3">
+        <view class="inline inline1">
+            <view class="col">
+                <view class="chres">最近常玩</view>
+                <view bindtap="goRolelist" class="tips">查看全部 ></view>
+            </view>
+            <view class="rolelist">
+                <view wx:if="{{lastUseList!=''}}">
+                    <view bindtap="goRole" class="li" data-campid="{{item.campId}}" data-heroid="{{item.heroId}}" wx:for="{{lastUseList}}" wx:key="key">
+                        <view class="icon">
+                            <image src="{{imgUrl}}/vsrecord/headimg2/{{item.heroId}}.jpg"></image>
+                        </view>
+                        <view class="name">{{item.heroIdValue}}</view>
+                    </view>
+                </view>
+                <view class="tips" wx:else> 暂无数据 </view>
+            </view>
+        </view>
+        <view class="inline inline2">
+            <view class="line"></view>
+            <view bindtap="toRank" class="rankBtn"></view>
+        </view>
+    </view>
+    <view class="page p4">
+        <view class="col col1">
+            <view class="chres">
+                <text>战绩记录</text>
+            </view>
+            <view class="right2">
+                <view class="li li1" wx:if="{{liansheng>1}}">
+                    <text class="ls inl">{{liansheng}}</text>
+                    <text class="inl">连胜</text>
+                    <text class="lsl">{{liansheng}}</text>
+                </view>
+                <view class="li li3" wx:elif="{{pinju>1}}">发挥稳定</view>
+            </view>
+        </view>
+        <view class="col col2">
+            <picker bindchange="bindPickerComChange" range="{{array2}}" rangeKey="name" value="{{array2Val}}">
+                <view class="chres2">{{array2[array2Index].name}}</view>
+            </picker>
+            <view class="number">
+                <view class="left" wx:if="{{numberChangeQs!=0||numberChangeJg!=0}}">今日段位分：求生者<text class="{{numberChangeQs<0?'blue':''}}{{numberChangeQs>0?'red':''}}">{{numberChangeQs<0?-numberChangeQs:numberChangeQs}}</text>
+                    <view class="ic {{numberChangeQs<0?'down':'up'}}" wx:if="{{numberChangeQs!=0}}"></view>，监管者<text class="{{numberChangeJg<0?'blue':''}}{{numberChangeJg>0?'red':''}}">{{numberChangeJg<0?-numberChangeJg:numberChangeJg}}</text>
+                    <view class="ic {{numberChangeJg<0?'down':'up'}}" wx:if="{{numberChangeJg!=0}}"></view>
+                </view>
+                <view class="left" wx:else>今日段位分暂无变化</view>
+            </view>
+        </view>
+        <view class="out">
+            <view class="inner">
+                <view wx:if="{{userRecordUse!=''}}">
+                    <view bindtap="goDetail" class="li" data-index="{{index}}" wx:for="{{userRecordUse}}" wx:key="key">
+                        <view class="name  {{item.mvpScore==item.score?'mvp':''}}">
+                            <image src="{{imgUrl}}/vsrecord/headimg2/{{item.heroId}}.jpg"></image>
+                        </view>
+                        <view class="tt2">
+                            <view class="t">
+                                <text class="trv {{item.teamResultValue=='失败'?'on':item.teamResultValue=='平局'?'ping':''}}">{{item.teamResultValue}}</text>
+                                <text class="bmv">{{item.battleModeValue}}</text>
+                            </view>
+                            <view class="b">
+                                <text class="">总分</text>
+                                <text class="st">{{item.score}}</text>
+                            </view>
+                        </view>
+                        <view class="tt8 ">
+                            <view class="t">
+                                <image class="timg" src="{{imgUrl}}/vsrecord/mvp2.png" wx:if="{{item.mvpScore==item.score}}"></image>
+                                <text class="">{{item.selfResultValue}}</text>
+                            </view>
+                            <view class="b">
+                                <text class="">{{item.showTime}}</text>
+                            </view>
+                        </view>
+                        <view class="xb" wx:if="{{item.canGoDetail}}"></view>
+                    </view>
+                </view>
+                <view class="tips" wx:else> 无更多记录 </view>
+            </view>
+        </view>
+        <view class="bottom_box"></view>
+    </view>
+    <view bindtap="hideTips" class="popTips" wx:if="{{showTips}}">
+        <view class="i"></view>
+        <view class="t"></view>
+        <view class="i2"></view>
+        <view class="i3"></view>
+    </view>
+    <view class="pop pop-zx" wx:if="{{popZxShow}}">
+        <view class="out">
+            <view bindtap="closePop" class="close"></view>
+            <view bindtap="goActive" class="order"></view>
+        </view>
+    </view>
+    <view bindtap="handleShareTipsClick" class="page-dialog share-dialog" wx:if="{{shareTipsStatus}}">
+        <view class="tip-image"></view>
+    </view>
+    <view bindtap="canvasHide" class="canvasbox {{showCanvas?'on':''}}">
+        <image bindlongpress="saveCode" mode="widthFix" src="{{loadImagePath}}"></image>
+    </view>
+    <view class="loading" wx:if="{{isLoading}}"></view>
+    <canvas canvasId="mycanvas" class="mycanvas" id="mycanvas" style="width: {{_canvasw}}px; height: {{_canvasH}}px"></canvas>
+    <text bindtap="chBind" class="devbind" wx:if="{{canShowDev}}">开发版下
+点此绑定</text>
+    <bindgame bindHandleBindFirst="handleBindFirst" bindHandleDefine="handleDefine" bindPopShow="{{bindPopShow}}" bindbindCol="bindCol" hideClose="{{hideBindClose}}" sbex="{{sbex}}" userName="{{user.role_name}}" wxToken="{{wxToken}}"></bindgame>
+    <bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages/vsrecord/index" visible="{{!bindUserVisible}}"></bind-user>
+    <view class="dialog" wx:if="{{messageTipGif}}">
+        <image class="datails_message-tip-gif" mode="widthFix" src="{{messageTipGifUrl}}"></image>
+    </view>
+    <bottom-dh active="2" class="bottom-dhbox"></bottom-dh>
+    <view class="tcbox" wx:if="{{checkRoleFlag}}">
+        <view class="checkRole">
+            <view class="title">切换角色</view>
+            <view class="context">
+                <view class="cc">
+                    <view class="page p1">
+                        <image class="headimg" src="{{user.headimg}}" wx:if="{{user.headimg}}"></image>
+                        <image class="headcover" src="{{user.headcover}}" wx:if="{{user.headcover}}"></image>
+                        <view bindtap="chBind" class="namebox" wx:if="{{user.role_name||user.role_id}}">
+                            <view class="name">{{user.role_name}} </view>
+                            <view class="bq" wx:if="{{badgeTop!=null&&badgeTop>-1}}">
+                                <image class="ic" src="{{imgUrl}}/vsrecord/ic/rank_{{badgeCard}}.png"></image>
+                                <text>{{badgeTop}}th{{badgeName}}</text>
+                            </view>
+                            <view class="small">{{user.role_id}}</view>
+                        </view>
+                    </view>
+                    <view bindtap="handUnBindProcess" class="cbtn" wx:if="{{user.role_name||user.role_id}}">解绑</view>
+                </view>
+                <view class="cc check">
+                    <view class="page p1">
+                        <view bindtap="chBind" class="namebox" wx:if="{{user.role_name||user.role_id}}">
+                            <view class="name">{{user.role_name}} </view>
+                            <view class="bq" wx:if="{{badgeTop!=null&&badgeTop>-1}}">
+                                <image class="ic" src="{{imgUrl}}/vsrecord/ic/rank_{{badgeCard}}.png"></image>
+                                <text>{{badgeTop}}th{{badgeName}}</text>
+                            </view>
+                            <view class="small">{{user.role_id}}</view>
+                        </view>
+                    </view>
+                    <view class="cchoose"></view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="closePop" class="out"></view>
+    </view>
+    <view class="tcbox" wx:if="{{bindVisibleDialog}}">
+        <view class="dialog-unbind">
+            <view class="unbind-add">
+                <view class="add-title">问卷解绑流程</view>
+                <view class="add-tips">填写并提交解绑申请问卷，等待工作人员审核确认即可完成解绑</view>
+                <view bindtap="goAsk" class="add-go">＞＞ 点我前往问卷 ＜＜</view>
+            </view>
+            <view class="title">游戏解绑流程</view>
+            <view class="inner">
+                <view class="step-text">
+                    <text class="t1">步骤1：</text>
+                    <text class="t2">游戏内点击设置→安全→绑定码</text>
+                </view>
+                <view class="image-tip image-tip1"></view>
+                <view class="step-text">
+                    <text class="t1">步骤2：</text>
+                    <text class="t2">如需解除绑定，则点击绑定码，选择
+角色进行解绑即可</text>
+                </view>
+                <view class="image-tip image-tip2"></view>
+            </view>
+            <view bindtap="handleBindUserClose" class="define"></view>
+        </view>
+    </view>
+</view>

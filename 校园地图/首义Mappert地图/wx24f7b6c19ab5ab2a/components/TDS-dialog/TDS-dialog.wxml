@@ -1,0 +1,10 @@
+<view bindtap="close" catchtouchmove="true" class="mask" data-theme="{{theme}}" style="z-index: 99999;animation-name: {{maskAnimationName}};" wx:if="{{showOut}}">
+    <view catchtap="catch" class="dialog flex dialog--{{layout}} {{gradient?'Thematic-gradient':''}} {{gradient?'theme':'duoduo-card'}}-shadow" style="animation-name: {{animationName}};">
+        <view class="dialog-title">
+            <text class="H3 dialog-title-head fill-availavle" wx:if="{{isHead}}">{{headTitle}}</text>
+            <text class="Paragraphs1 dialog-title-sub fill-available" wx:if="{{isSub&&subTitle!=''}}">{{subTitle}}</text>
+        </view>
+        <slot name="swap"></slot>
+        <slot name="button"></slot>
+    </view>
+</view>

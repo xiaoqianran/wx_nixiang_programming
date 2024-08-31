@@ -1,0 +1,14 @@
+<view bindtap="close" catchtouchmove="true" class="container container-{{type}}" style="animation-name: {{animationName}};z-index: 99999;" wx:if="{{showOut}}">
+    <view catchtap="catch" class="binDing-box binDing-box-{{type}} binDing-box-{{unusual}}">
+        <image class="bg-built" src="{{schoolBuiltSrc}}" wx:if="{{type=='normal'&&showSchoolBuiltSrc}}"></image>
+        <view class="binDing binDing-{{type}}">
+            <view class="dialogDes" wx:if="{{title!=''||stitle!=''}}">
+                <view class="{{showSchoolBuiltSrc?'bd-text':''}} school-text school-text-{{font}}">{{title}}</view>
+                <view class="bd-stext bd-stext-{{sfont}}">{{stitle}}</view>
+            </view>
+            <view style="width: 100%;">
+                <slot></slot>
+            </view>
+        </view>
+    </view>
+</view>

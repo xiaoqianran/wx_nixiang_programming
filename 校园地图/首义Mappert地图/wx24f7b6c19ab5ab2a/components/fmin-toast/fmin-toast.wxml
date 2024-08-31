@@ -1,0 +1,11 @@
+<view catchtouchmove="true" class="toast" style="animation-name: {{animationName}};z-index: 99999;" wx:if="{{showToast}}">
+    <view class="t-body {{backgroundColorType}}">
+        <image class="icon" src="/static/toast/toast-{{image}}.svg" wx:if="{{image}}"></image>
+        <view class="title" wx:if="{{image}}">
+            <text>{{title}}</text>
+        </view>
+        <view class="ltitle" wx:else>
+            <text>{{title}}</text>
+        </view>
+    </view>
+</view>

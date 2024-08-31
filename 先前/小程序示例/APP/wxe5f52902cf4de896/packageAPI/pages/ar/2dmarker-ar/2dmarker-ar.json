@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "2DMarkerAR",
+  "disableScroll": true,
+  "renderer": "webview"
+}

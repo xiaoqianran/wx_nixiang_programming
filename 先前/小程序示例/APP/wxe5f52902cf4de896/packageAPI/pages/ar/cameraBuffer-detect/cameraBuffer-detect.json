@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "相机帧测试",
+  "disableScroll": true,
+  "renderer": "webview"
+}

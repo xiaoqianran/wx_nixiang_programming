@@ -1,0 +1,1 @@
+.guanli{align-items:center;background-color:#a6dadb;border:2rpx solid aqua;color:#deb887;display:-webkit-flex;display:flex;flex-direction:row;font-size:x-large;font-weight:800;height:70rpx;justify-content:center;margin-left:150rpx;margin-top:40rpx;padding-bottom:10rpx;padding-top:10rpx;width:60%}.image{height:450rpx;width:100%}.qq{margin-top:80rpx}

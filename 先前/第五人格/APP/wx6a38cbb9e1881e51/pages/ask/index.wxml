@@ -1,0 +1,127 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="unbind-ask">
+    <view class="ask-top">
+        <view class="title">第五人格小程序解绑申请</view>
+        <view class="txt">由于目前小程序和藏宝阁系统暂时还未能实现数据联通，账号交易后的用户，或者账号丢失的用户，需要通过本问卷进行申请，待核实后由工作员进行解绑，由于流程时间较长，建议各位访客上架账号至藏宝阁前，先在游戏内进行小程序解绑</view>
+        <view class="txt tit">解绑时间流程说明</view>
+        <view class="txt">①)第一周(无论周几)发起申请，都需要经过一个审核周和一个解绑周，才会解绑成功</view>
+        <view class="txt">如:本周周一或本周周日申请，经过一个审核周和一个解绑周，将在解绑周(下下周)的周三成功解绑</view>
+        <view class="txt">解绑需要按要求填写下列信息，请如实填写，否则不予解绑</view>
+    </view>
+    <view class="ask-form">
+        <form catchsubmit="formSubmit">
+            <view class="page-section">
+                <view class="page-section-title">1.请选择您需要问卷审核解绑的原因</view>
+                <view class="page-section-title">特别说明：丢失账号，可通过<text bindtap="goSite" class="t1">客服中心（点击此处进入客服中心）</text>找回，渠道账号亦可找回 <text bindtap="clearChoose" class="t2">[清除选择]</text>
+                </view>
+                <radio-group bindchange="radioChange" name="radio">
+                    <radio checked="{{applyType==='1'}}" class="choose" value="1">账号丢失无法登录，无法解绑</radio>
+                    <radio checked="{{applyType==='2'}}" class="choose" value="2">账号上架藏宝阁无法登录游戏，无法解绑</radio>
+                </radio-group>
+            </view>
+            <view wx:if="{{applyType==2}}">
+                <view class="page-section">
+                    <view class="page-section-title">2.请上传您当前绑定小程序的账号截图（需清晰显示游戏昵称和个人账号）并确保上一次对局时间超过7天</view>
+                    <view class="page-example">
+                        <image class="pe1" src="{{imgUrl}}/example0.png"></image>
+                    </view>
+                    <view class="page-section-input">
+                        <view class="imagebox" wx:if="{{!!bindPic}}">
+                            <view bindtap="comImgDelete" class="close" data-type="bindPic"></view>
+                            <image bindtap="previewImage" class="comPic" data-src="{{bindPic}}" mode="widthFix" src="{{bindPic}}"></image>
+                        </view>
+                        <view bindtap="chooseImg" class="uploadPic" data-type="bindPic" wx:if="{{!bindPic}}"></view>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">3.请上传藏宝阁卖号上架信息截图（不可打码）示例：</view>
+                    <view class="page-example">
+                        <image class="pe2" src="{{imgUrl}}/example3.png"></image>
+                    </view>
+                    <view class="page-section-input">
+                        <view class="imagebox" wx:if="{{!!cbgPic}}">
+                            <view bindtap="comImgDelete" class="close" data-type="cbgPic"></view>
+                            <image bindtap="previewImage" class="comPic" data-src="{{cbgPic}}" mode="widthFix" src="{{cbgPic}}"></image>
+                        </view>
+                        <view bindtap="chooseImg" class="uploadPic" data-type="cbgPic" wx:if="{{!cbgPic}}"></view>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">4.请上传藏宝阁卖号售出提示截图（不可打码）示例：</view>
+                    <view class="page-example">
+                        <image class="pe3" src="{{imgUrl}}/example4.png"></image>
+                    </view>
+                    <view class="page-section-input">
+                        <view class="imagebox" wx:if="{{!!cbgSellPic}}">
+                            <view bindtap="comImgDelete" class="close" data-type="cbgSellPic"></view>
+                            <image bindtap="previewImage" class="comPic" data-src="{{cbgSellPic}}" mode="widthFix" src="{{cbgSellPic}}"></image>
+                        </view>
+                        <view bindtap="chooseImg" class="uploadPic" data-type="cbgSellPic" wx:if="{{!cbgSellPic}}"></view>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">5.请输入需要解绑的游戏数字ID(请再次确认无误)</view>
+                    <view class="page-section-input">
+                        <input bindinput="idvIdVal" type="number" value="{{idvId}}"></input>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">6.请填写您的微信账号(特殊情况与你取得联系)</view>
+                    <view class="page-section-input">
+                        <input bindinput="wxUserVal" type="text" value="{{wxUser}}"></input>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">7.请填写您的微信昵称</view>
+                    <view class="page-section-input">
+                        <input bindinput="wxNameVal" type="text" value="{{wxName}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="page-section">
+                    <view class="page-section-title">2.请上传您当前绑定小程序的账号截图（需清晰显示游戏昵称和个人账号）并确保上一次对局时间超过7天</view>
+                    <view class="page-example">
+                        <image class="pe1" src="{{imgUrl}}/example0.png"></image>
+                    </view>
+                    <view class="page-section-input">
+                        <view class="imagebox" wx:if="{{!!bindPic}}">
+                            <view bindtap="comImgDelete" class="close" data-type="bindPic"></view>
+                            <image bindtap="previewImage" class="comPic" data-src="{{bindPic}}" mode="widthFix" src="{{bindPic}}"></image>
+                        </view>
+                        <view bindtap="chooseImg" class="uploadPic" data-type="bindPic" wx:if="{{!bindPic}}"></view>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">3.请输入需要解绑的游戏数字ID(请再次确认无误)</view>
+                    <view class="page-section-input">
+                        <input bindinput="idvIdVal" type="number" value="{{idvId}}"></input>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">4.请说明您因何种原因导致账号丢失无法找回</view>
+                    <view class="page-section-input">
+                        <input bindinput="applyMsgVal" type="text" value="{{applyMsg}}"></input>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">5.请填写您的微信账号(特殊情况与你取得联系)</view>
+                    <view class="page-section-input">
+                        <input bindinput="wxUserVal" type="text" value="{{wxUser}}"></input>
+                    </view>
+                </view>
+                <view class="page-section">
+                    <view class="page-section-title">6.请填写您的微信昵称</view>
+                    <view class="page-section-input">
+                        <input bindinput="wxNameVal" type="text" value="{{wxName}}"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="btn-area">
+                <button formType="submit" type="primary">提交</button>
+            </view>
+        </form>
+    </view>
+</view>
+<privacy-popup></privacy-popup>
+<wxs module="detailsWXS" src="index.wxs"/>

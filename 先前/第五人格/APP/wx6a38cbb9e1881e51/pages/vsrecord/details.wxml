@@ -1,0 +1,151 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page p1">
+        <view class="headout">
+            <view class="namebox">
+                <view class="name">
+                    <image class="headimg" src="{{headimg}}"></image>
+                    <text>{{vsdata.roleName}}</text>
+                </view>
+                <view class="gameid">
+                    <view class="ic zjyy" wx:if="{{vsdata.score==vsdata.mvpScore}}"></view>
+                    <view class="ic py" wx:if="{{vsdata.is_max_fix_rate}}"></view>
+                    <view class="ic zbmz" wx:if="{{vsdata.is_max_put_down_plate}}"></view>
+                    <view class="ic help" wx:if="{{vsdata.is_max_rescue_num}}"></view>
+                    <view class="ic zl" wx:if="{{vsdata.is_max_treatment_num}}"></view>
+                    <view class="ic qz" wx:if="{{vsdata.is_max_pin_down_time}}"></view>
+                </view>
+                <view class="scorebox">
+                    <view class="tt3">
+                        <text class="t1">阵营</text>
+                        <text class="t2">{{vsdata.campId==1?'监管者':'求生者'}}</text>
+                    </view>
+                    <view class="tt3">
+                        <text class="t1">模式</text>
+                        <text class="t2">{{vsdata.battleModeValue}}</text>
+                    </view>
+                    <view class="tt3">
+                        <text class="t1">总分</text>
+                        <text class="t2">{{vsdata.score}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="headbox">
+                <view class="t {{vsdata.teamResultValue=='平局'?'ping':''}}{{vsdata.teamResultValue=='失败'||vsdata.teamResultValue=='迷失'?'on':''}}"></view>
+            </view>
+        </view>
+        <view class="detbox">
+            <view class="li">
+                <text class="b">总场数</text>
+                <text class="t">{{userEx.total_battle}}</text>
+            </view>
+            <view class="li">
+                <text class="b">胜场</text>
+                <text class="t">{{userEx.win_battle}}</text>
+            </view>
+            <view class="li">
+                <text class="b">胜率</text>
+                <text class="t">{{userEx.win_rate}}</text>
+            </view>
+            <view class="li">
+                <text class="b">认知分</text>
+                <text class="t">{{userEx.top_hero_rank_score}}</text>
+            </view>
+            <view class="icon">
+                <image src="{{userEx.headImg}}"></image>
+                <text class="b">{{userEx.hero_name}}</text>
+            </view>
+        </view>
+        <view class="desc">
+            <text>{{vsdata.showTime}} <text>{{vsdata.battleModeValue}}</text> {{vsdata.spaceNoValue}}</text>
+        </view>
+    </view>
+    <view class="page p2">
+        <view class="tit">监管者</view>
+        <view class="inner">
+            <view wx:for="{{vsdata.playerInfo}}" wx:key="key">
+                <view class="li {{vsdata.roleName==item.role_name?'my':''}}" wx:if="{{item.camp_id==1}}">
+                    <view class="head">
+                        <view class="headimg {{item.ismvp?'mvp':''}}">
+                            <image src="{{item.headimg}}"></image>
+                        </view>
+                        <view class="name">{{item.role_name}}</view>
+                        <view class="ic">
+                            <image class="dw" src="{{imgUrl}}/vsrecord/ic/j{{item.before_pvp_star>=25?'8':item.before_pvp_part}}.png" wx:if="{{item.before_pvp_part}}"></image>
+                            <view class="lv">{{item.before_pvp_level_num}}</view>
+                        </view>
+                        <view class="status">{{item.selfResultValue}}</view>
+                    </view>
+                    <view class="msg">
+                        <view class="ci">
+                            <view class="txt">剩余密码机数量</view>
+                            <view class="num">{{item.generator_left_num}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">破坏板子数</view>
+                            <view class="num">{{item.destroy_plate_num}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">命中求生者次数</view>
+                            <view class="num">{{item.hit_num}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">恐惧震慑次数</view>
+                            <view class="num">{{item.frighten_num}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">击倒次数</view>
+                            <view class="num">{{item.knock_down_num}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tit">求生者</view>
+        <view class="inner qsz">
+            <view wx:for="{{vsdata.playerInfo}}" wx:key="key">
+                <view class="li {{vsdata.roleName==item.role_name?'my':''}}" wx:if="{{item.camp_id==2}}">
+                    <view class="line"></view>
+                    <view class="head">
+                        <view class="headimg {{item.ismvp?'mvp':''}}">
+                            <image src="{{item.headimg}}"></image>
+                        </view>
+                        <view class="name">{{item.role_name}}</view>
+                        <view class="ic">
+                            <image class="dw" src="{{imgUrl}}/vsrecord/ic/q{{item.before_pvp_star>=25?'8':item.before_pvp_part}}.png" wx:if="{{item.before_pvp_part}}"></image>
+                            <view class="lv">{{item.before_pvp_level_num}}</view>
+                        </view>
+                        <view class="status">{{item.selfResultValue}}</view>
+                        <view class="ic py" wx:if="{{item.is_max_fix_rate}}"></view>
+                        <view class="ic zbmz" wx:if="{{item.is_max_put_down_plate}}"></view>
+                        <view class="ic help" wx:if="{{item.is_max_rescue_num}}"></view>
+                        <view class="ic zl" wx:if="{{item.is_max_treatment_num}}"></view>
+                        <view class="ic qz" wx:if="{{item.is_max_pin_down_time}}"></view>
+                    </view>
+                    <view class="msg">
+                        <view class="ci">
+                            <view class="txt">破译进度</view>
+                            <view class="num">{{item.fix_rate}}%</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">砸板命中次数</view>
+                            <view class="num">{{item.put_down_plate}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">救人次数</view>
+                            <view class="num">{{item.rescue_num}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">治疗次数</view>
+                            <view class="num">{{item.treatment_num}}</view>
+                        </view>
+                        <view class="ci">
+                            <view class="txt">牵制监管者/秒</view>
+                            <view class="num">{{item.pin_down_time}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

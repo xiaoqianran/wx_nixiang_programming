@@ -1,0 +1,5 @@
+{
+  "pageOrientation": "auto",
+  "renderer": "webview",
+  "navigationBarTitleText": "屏幕旋转"
+}

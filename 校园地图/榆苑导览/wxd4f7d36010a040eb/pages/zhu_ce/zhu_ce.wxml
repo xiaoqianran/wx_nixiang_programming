@@ -1,0 +1,27 @@
+<form bindsubmit="submit">
+    <view class="all">
+        <van-cell-group>
+            <van-field clearable required bind:click-icon="onClickIcon" class="upload_1" icon="question-o" label="姓名" name="name" placeholder="请输入姓名" size="large" value="{{name}}"></van-field>
+            <view class="nv">
+                <radio-group name="fenlei">
+                    <radio value="男">男</radio>
+                    <radio value="女">女</radio>
+                </radio-group>
+            </view>
+            <van-field clearable required bind:click-icon="onClickIcon" class="upload_1" icon="question-o" label="年龄" name="age" placeholder="请输入年龄" size="large" value="{{age}}"></van-field>
+            <van-field clearable required bind:click-icon="onClickIcon" class="upload_1" icon="question-o" label="学号" name="xuehao" placeholder="请输入学号" size="large" value="{{xuehao}}"></van-field>
+            <van-field required border="{{false}}" class="upload_1" icon="question-o" label="电话" name="number" placeholder="请输入电话" size="large" type="number" value="{{number}}"></van-field>
+            <van-field required bind:click-icon="onClickIcon" border="{{false}}" class="upload_1" icon="question-o" label="简介" name="address" placeholder="请输入个人简介" size="large" type="text" value="{{address}}"></van-field>
+        </van-cell-group>
+    </view>
+    <scroll-view class="img" scrollY="true">
+        <block wx:for="{{img}}">
+            <image src="{{item}}" style="width:40%;height:300rpx"></image>
+            <button bindtap="delete" data-id="{{index}}" data-src="{{item}}" plain="true" size="mini" type="warn">删除图片</button>
+        </block>
+        <view class="anniu">
+            <button bindtap="upload_img" size="mini" style="position: fixed;bottom: 200rpx;" type="warn">添加图片</button>
+        </view>
+    </scroll-view>
+    <button class="button" formType="submit" style="right:180rpx;bottom: 150rpx;" type="primary">提交</button>
+</form>

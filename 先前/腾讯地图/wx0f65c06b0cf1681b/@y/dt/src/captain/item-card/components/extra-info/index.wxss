@@ -1,0 +1,1 @@
+.goods-ext-info{display:-webkit-flex;display:flex;justify-content:space-between;align-items:center}.goods-ext-info .item{height:20px}.goods-ext-info.left{justify-content:flex-start}.goods-ext-info.right{justify-content:flex-end}

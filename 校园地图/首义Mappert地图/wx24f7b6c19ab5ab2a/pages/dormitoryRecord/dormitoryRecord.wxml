@@ -1,0 +1,176 @@
+<topbar back="{{true}}" title="{{topbarTitle}}">
+    <view class="containerBox">
+        <view class="headBox" style="height: {{(274-topbarHeight)*2}}rpx;">
+            <image class="wave" src="{{baseIcon+'wave.svg'}}"></image>
+            <image class="mountain" src="{{baseIcon+'mountain.svg'}}"></image>
+            <image bindtap="{{inquireFlag==0?'openInputDialog':''}}" class="dormitoryBuilding" src="{{baseIcon+'dormitoryBuilding.svg'}}"></image>
+            <view class="locationBox">
+                <image class="locationIcon" src="{{baseIcon+'location.svg'}}"></image>
+                <text class="locationText">{{geoLocation}}</text>
+            </view>
+            <view class="basicAttribute">
+                <view class="locationData">
+                    <text class="campusLocation">{{campusLocation}}</text>
+                    <text class="dormitoryNumber">{{dormitoryNumber}}</text>
+                    <text class="dormitoryFloor">{{dormitoryFloor}}</text>
+                </view>
+                <view bindtap="openInputDialog" class="searchButton">
+                    <image class="searchIcon" src="/static/search.svg"></image>
+                    <text class="searchText" style="{{inquireFlagShow?'background-color:#8DD1B4':''}}">{{inquireFlag==0?'搜索宿舍':'重新搜索'}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="dataBox">
+            <view style="width: 100%;" wx:if="{{inquireFlag!==0}}">
+                <view class="essentialDataBox">
+                    <view class="essentialData">
+                        <view class="essentialItem">
+                            <text class="essentialItemTitle" style="opacity: 0.5;">{{essentialDataTitle[0].text}}</text>
+                            <text class="essentialItemTitle">{{essentialDataTitle[0].data}}</text>
+                        </view>
+                        <image class="horizenLine" src="{{baseIcon+'line.svg'}}"></image>
+                        <view class="essentialItem">
+                            <text class="essentialItemTitle" style="opacity: 0.5;">{{essentialDataTitle[1].text}}</text>
+                            <text class="essentialItemTitle">{{essentialDataTitle[1].data}}</text>
+                        </view>
+                        <image class="horizenLine" src="{{baseIcon+'line.svg'}}"></image>
+                        <view class="essentialItem">
+                            <text class="essentialItemTitle" style="opacity: 0.5;">{{essentialDataTitle[2].text}}</text>
+                            <text class="essentialItemTitle">{{essentialDataTitle[2].data}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="detailDataBox">
+                    <view class="detailDataBasic">
+                        <view class="detailDataBasicTitle">
+                            <view class="circle"></view>
+                            <text class="titleStyle">{{detailDataBasic.title}}</text>
+                        </view>
+                        <view class="detailDataBasicItem" wx:for="{{detailDataBasic.sub}}" wx:key="index">
+                            <view class="textDescription">
+                                <image class="desIcon" src="{{baseIcon+item.icon+'.svg'}}"></image>
+                                <view class="desTextBox">
+                                    <text class="desText" style="font-size: 25rpx;">{{item.text}}</text>
+                                    <text class="desText" style="font-size: 21rpx;opacity: 0.6;{{item.text=='宿舍谁住过？'?'font-weight: 700;':''}}">{{item.data}}</text>
+                                </view>
+                            </view>
+                            <view bindtap="previewImage" class="bedStructure" wx:if="{{item.text=='床铺尺寸'}}">
+                                <image class="bedStructureImg" src="{{bedStructureUrl}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="detailDataEssential">
+                        <view class="detailDataEssentialBox">
+                            <view class="detailDataEssentialTitle">
+                                <view class="circle"></view>
+                                <text class="titleStyle">{{detailDataEssential.title}}</text>
+                            </view>
+                            <view class="detailDataEssentialItem" wx:for="{{detailDataEssential.sub}}" wx:key="index">
+                                <view class="itemContent">
+                                    <view class="itemContentIconBox">
+                                        <image class="itemIcon" src="{{baseIcon+item.icon+'.svg'}}"></image>
+                                        <view class="itemTextBox">
+                                            <text class="itemText">{{item.text}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="checkBoxGroup" wx:if="{{!item.data[0].name}}">
+                                        <view class="checkBox" wx:for="{{item.data}}" wx:key="checkNum">
+                                            <image class="checkIcon" src="{{baseIcon+'Frame.svg'}}"></image>
+                                            <view class="itemBox" style="{{item=='外阳台'?'font-weight: 700;':''}}">{{item}}</view>
+                                        </view>
+                                    </view>
+                                    <view class="checkBoxGroup" wx:if="{{item.data[0].name}}">
+                                        <view class="anotherCheckBox" wx:for="{{item.data}}" wx:key="index">
+                                            <image class="checkIcon" src="{{baseIcon+'Frame.svg'}}"></image>
+                                            <view class="itemBox" style="width: 504rpx;">{{item.name}} <view style="{{item.name=='风景'?'font-weight: 700;':''}}" wx:for="{{item.value}}" wx:for-item="arr" wx:key="index">{{arr}}</view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="openInputDialog" class="noDataBox" wx:if="{{inquireFlag==0}}">
+                <image class="noDataIcon" src="/static/noData.svg"></image>
+                <text class="noDataText">点击寝室搜索获取寝室信息</text>
+            </view>
+        </view>
+    </view>
+    <dialogTitle bindtapBg="closeBindDialog" showDialog="{{inputDialog}}" type="half-screen">
+        <view class="dialogBox">
+            <view class="informationGroup" wx:if="{{!showSelector}}">
+                <view class="dialogTitle">
+                    <image class="titleIcon" src="/static/dialog/building.svg"></image>
+                    <text class="titleText">请选择你要查询的宿舍</text>
+                </view>
+                <view class="inputGroup">
+                    <view bindtap="selectFloor" class="inputBox" id="floor">
+                        <view class="inputArea">
+                            <view class="infoArea">
+                                <text class="placeholder">请选择寝室楼</text>
+                                <text class="inputValue">{{inquireDormitoryData.dormitoryFloor}}</text>
+                            </view>
+                            <image class="dropIcon" src="/static/dialog/drop.svg"></image>
+                        </view>
+                    </view>
+                    <view bindtap="selectFloor" class="inputBox" id="number">
+                        <view class="inputArea">
+                            <view class="infoArea">
+                                <text class="placeholder">请选择寝室号</text>
+                                <text class="inputValue">{{inquireDormitoryData.dormitoryNumber}}</text>
+                            </view>
+                            <image class="dropIcon" src="/static/dialog/drop.svg"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="selector" wx:if="{{showSelector}}">
+                <picker-view bindchange="selectFloorPicker" indicatorStyle="height: 56px;opacity: 0;" maskStyle="opacity: 0;z-index: 0" style="width: 100%; height: 336rpx;line-height:112rpx;position: relative;" value="{{id}}">
+                    <view class="box">
+                        <view style="font-size: 30rpx;height: 100%;align-items: center;text-align: center;position: relative;right: 7rpx;" wx:if="{{anotherPicker}}">楼</view>
+                    </view>
+                    <picker-view-column wx:if="{{!anotherPicker}}">
+                        <view class="{{index==id[0]?'active':'noactive'}}" wx:for="{{pickerData}}" wx:key="index">{{item}}</view>
+                    </picker-view-column>
+                    <picker-view-column wx:if="{{anotherPicker}}">
+                        <view class="{{index==id[0]?'active':'noactive'}}" wx:for="{{pickerData.arrs}}" wx:key="index">{{item}}</view>
+                    </picker-view-column>
+                    <picker-view-column wx:if="{{anotherPicker}}">
+                        <view class="{{index==id[1]?'active':'noactive'}}" wx:for="{{pickerData.myarr}}" wx:key="index">{{item}}</view>
+                    </picker-view-column>
+                </picker-view>
+            </view>
+            <view class="buttonGroup">
+                <view class="cancelBtn">
+                    <view class="textBox">
+                        <text bindtap="cancel" class="cancelText">取消</text>
+                    </view>
+                </view>
+                <view class="confirmBtn">
+                    <view class="textBox">
+                        <text bindtap="confirm" class="confirmText">确定</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </dialogTitle>
+    <dialogTitle schoolBuiltSrc="https://introduce.mcdd.top/schoolBuilt/zhonglou.svg" showDialog="{{copyDialog}}" stitle="可能因为网络问题查询失败，可以尝试重试或反馈给我们" title="查询错误">
+        <view bindtap="returnHome" class="tryBtnBox">
+            <view class="tryBtn">
+                <view class="textBox">
+                    <text class="trytext">返回主页重新查询</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="copyNanNan" class="copyBtnBox">
+            <view class="copyBtn">
+                <view class="textBox">
+                    <text class="copytext">点击复制南南微信号</text>
+                </view>
+            </view>
+        </view>
+    </dialogTitle>
+    <toast id="toast"></toast>
+</topbar>

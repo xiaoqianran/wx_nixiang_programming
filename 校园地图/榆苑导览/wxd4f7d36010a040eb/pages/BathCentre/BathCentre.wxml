@@ -1,0 +1,23 @@
+<van-notice-bar leftIcon="volume-o" text="{{nt}}"></van-notice-bar>
+<swiper autoplay="true" circular="true" class="container" easingFunction="easeInCubic" indicatorDots="ture" interval="4000">
+    <swiper-item wx:for="{{sr}}">
+        <image class="img" src="{{item}}" style="width: 100%; height:500rpx;"></image>
+    </swiper-item>
+</swiper>
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"></cu-custom>
+<view class="margin-xl bg-white padding-xl radius shadow-lg">
+    <view class="text-center margin-bottom text-lg  text-blue" style="font-size: large;font-weight: 600;">欢迎来到{{name}}</view>
+    <view class="text-content">
+        <view class=" margin-bottom text-lg text-yellow" style="font-weight: 700;">{{yuanxi1}}</view>
+        <view style="font-weight: 500;">{{qq}}</view>
+        <view class=" margin-bottom text-lg text-yellow" style="font-weight: 700;">{{yuanxi2}}</view>
+        <view style="font-weight: 500;">{{re}}</view>
+        <view class=" margin-bottom text-lg text-yellow" style="font-weight: 700;">{{yuanxi3}}</view>
+        <view style="font-weight: 500;">{{re1}}</view>
+        <view class=" margin-bottom text-lg text-yellow" style="font-weight: 700;">{{yuanxi4}}</view>
+        <view style="font-weight: 500;">{{re2}}</view>
+    </view>
+</view>
+<view class="padding flex flex-direction">
+    <button bindtap="daohang" class="cu-btn bg-red margin-tb-sm lg" style="position: fixed;bottom: 0rpx;left: 25%;">地图导航</button>
+</view>

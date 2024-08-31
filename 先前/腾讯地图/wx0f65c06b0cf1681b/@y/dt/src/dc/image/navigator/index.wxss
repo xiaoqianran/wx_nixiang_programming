@@ -1,0 +1,1 @@
+.btn{padding:0;border-radius:0;background-color:transparent}.btn,.btn:after,.btn:before{border:none}.weapp-chat-btn{display:-webkit-flex;display:flex;flex-wrap:wrap}.chat-btn:after{display:none;visibility:hidden}.navigator{height:100%;width:100%}

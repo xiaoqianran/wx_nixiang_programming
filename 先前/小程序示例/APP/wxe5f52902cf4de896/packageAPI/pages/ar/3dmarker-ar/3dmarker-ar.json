@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "3D Marker",
+  "enablePullDownRefresh": true,
+  "renderer": "webview"
+}

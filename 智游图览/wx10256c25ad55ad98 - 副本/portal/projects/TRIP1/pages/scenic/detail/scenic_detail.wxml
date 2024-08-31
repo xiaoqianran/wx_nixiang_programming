@@ -1,0 +1,22 @@
+<view class="margin-top load notexist text-l load-project" wx:if="{{isLoad===null}}"></view>
+<view class="margin-top load loading text-l load-project" wx:if="{{isLoad===false}}"></view>
+<block wx:if="{{isLoad}}">
+    <cmpt-swiper height="420" images="{{scenic.coverpic}}" indicatorActiveColor="#00C176" mode="aspectFill"></cmpt-swiper>
+    <view class="main">
+        <view class="header shadow-project">
+            <view class="line1">{{scenic.title}}</view>
+            <view class="line2" wx:if="{{scenic.updateTime}}">
+                <text class="icon-time margin-right-xxs"></text>{{scenic.updateTime}}</view>
+            <view class="line3" wx:if="{{scenic.address}}">
+                <text class="icon-location margin-right-xxs"></text>{{scenic.address}}</view>
+        </view>
+        <view class="content shadow-project">
+            <view class="item">
+                <view class="desc">
+                    <mp-html content="{{scenic.content}}"></mp-html>
+                </view>
+            </view>
+        </view>
+    </view>
+    <cmpt-detail bg="{{skin.PROJECT_COLOR}}" cover="{{scenic.coverpic}}" desc="查看景点详情" favType="{{scenic.favType}}" mode="mode1" oid="{{scenic.id}}" showMap="{{scenic.show_map}}" title="{{scenic.title}}" topBtnShow="{{topBtnShow}}"></cmpt-detail>
+</block>

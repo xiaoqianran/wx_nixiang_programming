@@ -1,0 +1,1 @@
+App({onLaunch:function(){},globalData:{userInfo:null,changeRootScenic:{sid:null,default_index:!1,scenic_index:!1,samap:!1,about_service:!1,my_index:!1}},indexData:null});

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "领取优惠",
+  "enablePullDownRefresh": true,
+  "componentPlaceholder": {
+    "b": "_"
+  }
+}

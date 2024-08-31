@@ -1,0 +1,100 @@
+<view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+        <view class="title">
+            <view class="text-cut">来是偶然，去是必然，尽其当然，顺其自然</view>
+        </view>
+        <view class="content">
+            <image mode="aspectFill" src="cloud://cloud1-1gmtfygm44383cc0.636c-cloud1-1gmtfygm44383cc0-1307330927/school_map/school_photo/school_photo_2/mmexport1633091654083.jpg" style="height: 400rpx; width: 100%;"></image>
+            <view class="desc">
+                <view class="text-content" style="height: 250rpx;"> 会挽雕弓如满月，西北望，射天狼。</view>
+                <view>
+                    <view class="cu-tag bg-red light sm round">信息工程学院</view>
+                    <view class="cu-tag bg-green light sm round">物联网</view>
+                    <view class="cu-tag bg-green light sm round">20级</view>
+                    <view class="cu-tag bg-green light sm round">微信小程序开发</view>
+                    <view class="cu-tag bg-green light sm round">arduino</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+        <view class="title">
+            <view class="text-cut">人生没有彩排，每一天都是现场直播</view>
+        </view>
+        <view class="content">
+            <image mode="aspectFill" src="cloud://cloud1-1gmtfygm44383cc0.636c-cloud1-1gmtfygm44383cc0-1307330927/school_map/school_photo/school_photo_2/微信图片_20220501235943.jpg" style="height: 400rpx;"></image>
+            <view class="desc">
+                <view class="text-content" style="height: 300rpx;font-size: smaller;"> 具有良好的团队合作精神与较好的个人亲和力；举止优雅，有亲和力，精力充沛，做事有条理，责任感强；具有优秀的思维、沟通和学习能力，热爱团队工作。为此我更加坚信自己的理想，并努力将这点微薄的力量奉献给社会。</view>
+                <view>
+                    <view class="cu-tag bg-red light sm round">信息工程学院</view>
+                    <view class="cu-tag bg-green light sm round">物联网</view>
+                    <view class="cu-tag bg-green light sm round">20级</view>
+                    <view class="cu-tag bg-green light sm round">JAVA web</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+        <view class="title">
+            <view class="text-cut">在去做很重要的事情之前，用力捶打自己的胸口，让疼痛、闷响和心跳给自己勇气</view>
+        </view>
+        <view class="content">
+            <image mode="aspectFill" src="cloud://cloud1-1gmtfygm44383cc0.636c-cloud1-1gmtfygm44383cc0-1307330927/school_map/school_photo/school_photo_2/bc459e4c3f4e39d0921f41c3e6d1fad.jpg" style="height: 400rpx;"></image>
+            <view class="desc">
+                <view class="text-content" style="height: 360rpx;font-size: smaller;"> 本人于2020年进入榆林学院学习。我的性格沉稳，能坐得住，对IT行业的工作，具有非常好的适应能力，而且为人谦和，具有很强的组织和协调能力 ，富有的事业心和责任感使我能够面对任何困难和挑战，在接下来的学习生活中，本人愿意吃苦，会以积极向上的心态面对工作，也希望不断学习以提升自己，为自己创造更好的未来。</view>
+                <view>
+                    <view class="cu-tag bg-red light sm round">信息工程学院</view>
+                    <view class="cu-tag bg-green light sm round">物联网</view>
+                    <view class="cu-tag bg-green light sm round">20级</view>
+                    <view class="cu-tag bg-green light sm round">数据录入</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+        <view class="title">
+            <view class="text-cut">相信自己</view>
+        </view>
+        <view class="content">
+            <image mode="aspectFill" src="cloud://cloud1-1gmtfygm44383cc0.636c-cloud1-1gmtfygm44383cc0-1307330927/school_map/voiew/微信图片_20220503133632.jpg" style="height: 400rpx;"></image>
+            <view class="desc">
+                <view class="text-content" style="height: 300rpx;font-size: smaller;"> 就读于西安工程大学计算机学院，对待事物保持持久热情，与他人真诚相待，吃苦耐劳，踏实肯干。</view>
+                <view>
+                    <view class="cu-tag bg-red light sm round">计算机工程学院</view>
+                    <view class="cu-tag bg-green light sm round">软件工程</view>
+                    <view class="cu-tag bg-green light sm round">20级</view>
+                    <view class="cu-tag bg-green light sm round">软件开发</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view>
+    <view wx:for="{{zong}}" wx:key="id">
+        <view class="cu-card article {{isCard?'no-card':''}}">
+            <view class="cu-item shadow">
+                <view class="title">
+                    <view class="text-cut">{{item.name}}</view>
+                </view>
+                <view class="content">
+                    <image mode="aspectFill" src="{{item.src}}" style="height: 300rpx;"></image>
+                    <view class="desc">
+                        <view class="text-content" style="height: 200rpx;font-size: smaller;">{{item.address}}</view>
+                        <view>
+                            <view class="cu-tag bg-red light sm round">{{item.age}}</view>
+                            <view class="cu-tag bg-green light sm round">{{item.number}}</view>
+                            <view class="cu-tag bg-green light sm round">{{item.xuehao}}</view>
+                            <view class="cu-tag bg-red light sm round">{{item.fenlei}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

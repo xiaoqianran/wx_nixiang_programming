@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "componentPlaceholder": {
+    "b": "_",
+    "i": "_",
+    "j": "_"
+  },
+  "navigationBarBackgroundColor": "#FFCE00",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "收藏有礼"
+}

@@ -1,0 +1,1 @@
+.double-tap-gesture-handler{display:block;height:100%;width:100%}.image-wrapper{left:0;position:absolute;top:0;transform-origin:center;will-change:transform}.image,.image-wrapper{height:100%;width:100%}

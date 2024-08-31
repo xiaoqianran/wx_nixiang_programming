@@ -1,0 +1,1 @@
+@import "/common/reset.wxss";.flex-wrp{align-items:center;display:-webkit-flex;display:flex;margin-top:30px;width:100vw}.flex-item{font-size:13px;height:150px;width:100px}.flex-item-V{height:100px;width:150px}

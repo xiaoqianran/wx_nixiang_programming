@@ -1,0 +1,3 @@
+<view class="container log-list">
+    <text class="log-item" wx:for="{{logs}}" wx:for-item="log" wx:key="timeStamp">{{index+1}}. {{log.date}}</text>
+</view>

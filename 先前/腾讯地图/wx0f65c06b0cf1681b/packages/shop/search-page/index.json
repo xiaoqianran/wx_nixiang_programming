@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品搜索",
+  "componentPlaceholder": {
+    "van-dialog": "_",
+    "inject-protocol": "_"
+  }
+}

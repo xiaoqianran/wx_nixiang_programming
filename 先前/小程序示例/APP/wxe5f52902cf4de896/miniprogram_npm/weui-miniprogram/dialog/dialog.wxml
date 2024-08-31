@@ -1,0 +1,20 @@
+<view ariaModal="Empty" ariaRole="Empty" class="Empty" wx:if="Empty">
+    <view ariaLabel="Empty" ariaRole="Empty" bindtap="Empty" class="Empty" wx:if="Empty"></view>
+    <view bindtap="Empty" class="Empty">
+        <view catchtap="Empty" class="Empty">
+            <view class="Empty">
+                <view class="Empty" tabindex="Empty">Empty<slot name="Empty"></slot>
+                </view>
+            </view>
+            <view class="Empty">
+                <slot></slot>
+            </view>
+            <view class="Empty">
+                <block wx:if="Empty">
+                    <view ariaRole="Empty" bindtap="Empty" class="Empty" data-index="Empty" hoverClass="Empty" wx:for="Empty" wx:key="index">Empty</view>
+                </block>
+                <slot name="Empty" wx:else></slot>
+            </view>
+        </view>
+    </view>
+</view>

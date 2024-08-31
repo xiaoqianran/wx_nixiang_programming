@@ -1,0 +1,4 @@
+<view class="van-config-provider" style="{{computed.mapThemeVarsToCSSVars(themeVars)}}">
+    <slot></slot>
+</view>
+<wxs module="computed" src="index.wxs"/>

@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="top">
+        <image class="headimg" src="{{imgUrl}}/saishi/my/headimg_test.png"></image>
+        <text class="name">{{gameId?roleName:'请先绑定游戏角色'}}</text>
+        <text class="id" wx:if="{{gameId}}">ID：{{gameId}}</text>
+        <view bindtap="chBind" class="chBind" wx:if="{{gameId}}">切换角色</view>
+    </view>
+    <view class="bar" data-active="{{active}}" wx:if="{{gameId}}">
+        <view class="inner">
+            <view bindtap="topbarJump" class="li {{active==idx?'':'big'}}" data-index="{{idx}}" wx:for="{{btnList}}" wx:for-index="idx" wx:for-item="btn" wx:key="key">
+                <image class="bg" src="{{active==idx?imgUrl+'/saishi/my/topbar_s2.png':imgUrl+'/saishi/my/topbar_b2.png'}}"></image>
+                <text class="des">{{btn.name}}</text>
+            </view>
+        </view>
+    </view>
+</view>

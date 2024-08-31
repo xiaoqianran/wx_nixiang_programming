@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "人手三维识别",
+  "disableScroll": true,
+  "renderer": "webview"
+}

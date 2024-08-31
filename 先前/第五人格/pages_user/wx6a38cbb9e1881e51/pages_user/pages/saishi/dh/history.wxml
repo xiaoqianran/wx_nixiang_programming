@@ -1,0 +1,51 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view>
+        <view class="page page_topbar">
+            <view class="bi">
+                <view class="silver">银币 <text>{{user.silverCoin}}</text>
+                </view>
+                <view class="gold">时装券 <text>{{user.goldCoin}}</text>
+                </view>
+            </view>
+            <view class="bar">
+                <view bindtap="chType" class="{{viewType==0?'on':''}}" data-type="0">收 入</view>
+                <view bindtap="chType" class="{{viewType==1?'on':''}}" data-type="1">支 出</view>
+            </view>
+        </view>
+        <view class="page page_det">
+            <view class="main" wx:if="{{viewType==0}}">
+                <view class="tips" wx:if="{{historyListGet!=''}}">时装券暂无上限，银币上限750个</view>
+                <view wx:if="{{historyListGet!=''}}">
+                    <view class="li" data-code="{{item.id}}" wx:for="{{historyListGet}}" wx:key="key">
+                        <view class="tt">{{item.businessNote}}</view>
+                        <view class="date">{{item.createTime}}</view>
+                        <view class="bi">
+                            <view class="gold" wx:if="{{item.coinType=='gold'}}">+{{item.amount}}</view>
+                            <view class="silver" wx:if="{{item.coinType=='silver'}}">+{{item.amount}}</view>
+                            <view class="" wx:if="{{item.amount==0}}">{{item.businessNote}}已达上限</view>
+                        </view>
+                        <view class="line"></view>
+                    </view>
+                </view>
+                <view class="tiippss" wx:else>暂无数据</view>
+            </view>
+            <view class="main" wx:else>
+                <view wx:if="{{historyListUse!=''}}">
+                    <view bindtap="copyCode" class="li" data-code="{{item.activeCode}}" wx:for="{{historyListUse}}" wx:key="key">
+                        <view class="tt">{{item.businessNote}}</view>
+                        <view class="dhm" wx:if="{{item.activeCode}}">兑换码: {{item.activeCode}}</view>
+                        <view class="date">{{item.createTime}}</view>
+                        <view class="bi">
+                            <view class="gold" wx:if="{{item.coinType=='gold'}}">-{{item.amount}}</view>
+                            <view class="silver" wx:if="{{item.coinType=='silver'}}">-{{item.amount}}</view>
+                        </view>
+                        <view bindtap="goDetail" class="detail" data-id="{{item.businessId}}">查看订单详情</view>
+                        <view class="line"></view>
+                    </view>
+                </view>
+                <view class="tiippss" wx:else>暂无数据</view>
+            </view>
+        </view>
+    </view>
+</view>

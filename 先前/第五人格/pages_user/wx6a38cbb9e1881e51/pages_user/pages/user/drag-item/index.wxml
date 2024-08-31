@@ -1,0 +1,6 @@
+<view catchtap="itemClick" class="li {{itemData.quality==5?'gold':''}} {{itemData.quality==6?'rainbow':''}}">
+    <view class="bz bz{{itemData.discontinuedSignInt}}" wx:if="{{itemData.discontinuedSignInt}}"></view>
+    <image lazyLoad="true" src="{{imgUrl}}/greed{{itemData.iconPath}}"></image>
+    <text>{{itemData.useName}}</text>
+    <view bindtap="skindel" class="delete" data-faindex="{{index1}}" data-index="{{index2}}"></view>
+</view>

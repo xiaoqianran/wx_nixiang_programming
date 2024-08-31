@@ -1,0 +1,8 @@
+<view class="Empty">
+    <navigator appId="Empty" bindcomplete="Empty" bindfail="Empty" bindsuccess="Empty" class="Empty" extraData="Empty" hoverClass="Empty" hoverStartTime="Empty" hoverStayTime="Empty" hoverStopPropagation="Empty" openType="Empty" path="Empty" target="Empty" url="Empty" version="Empty" wx:for="Empty" wx:key="index">
+        <view class="Empty">
+            <image alt class="Empty" src="Empty"></image>
+        </view>
+        <view class="Empty">Empty</view>
+    </navigator>
+</view>

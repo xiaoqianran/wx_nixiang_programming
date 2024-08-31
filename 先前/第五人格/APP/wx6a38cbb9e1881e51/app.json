@@ -1,0 +1,464 @@
+{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取您的位置信息用于小程序定位"
+    },
+    "scope.userLocationBackground": {
+      "desc": "获取您的位置信息用于小程序定位"
+    }
+  },
+  "plugins": {
+    "contactPlugin": {
+      "version": "1.4.4",
+      "provider": "wx104a1a20c3f81ec2",
+      "subpackage": "__APP__"
+    },
+    "materialPlugin": {
+      "version": "1.0.5",
+      "provider": "wx4d2deeab3aed6e5a",
+      "subpackage": "__APP__"
+    }
+  },
+  "style": "v2",
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "__usePrivacyCheck__": true,
+  "subPackages": [
+    {
+      "root": "pages_user/",
+      "name": "pages_user",
+      "pages": [
+        "pages/saishi/dh/index",
+        "pages/saishi/dh/history",
+        "pages/saishi/dh/list",
+        "pages/saishi/dh/detail",
+        "pages/draw/addinput",
+        "pages/draw/addlist",
+        "pages/draw/details",
+        "pages/draw/list",
+        "pages/signin/index",
+        "pages/user/collect",
+        "pages/user/mycollect",
+        "pages/panda/panda",
+        "pages/head/head",
+        "pages/paomian/index",
+        "pages/zbtxpx/index",
+        "pages/zbtxpx/list",
+        "pages/lawson/index",
+        "pages/rank/index",
+        "pages/p5/index"
+      ]
+    },
+    {
+      "root": "pages_duck/",
+      "name": "pages_duck",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no/",
+      "name": "pages_duck_no",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_mz/",
+      "name": "pages_duck_no_mz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_xh/",
+      "name": "pages_duck_xh",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_xh/",
+      "name": "pages_duck_no_xh",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_dh/",
+      "name": "pages_duck_dh",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_dh/",
+      "name": "pages_duck_no_dh",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_lc/",
+      "name": "pages_duck_lc",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_lc/",
+      "name": "pages_duck_no_lc",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_ys/",
+      "name": "pages_duck_ys",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_ys/",
+      "name": "pages_duck_no_ys",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_jz/",
+      "name": "pages_duck_jz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_jz/",
+      "name": "pages_duck_no_jz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_appointment/",
+      "name": "pages_appointment",
+      "pages": [
+        "pages/appointment/index"
+      ]
+    },
+    {
+      "root": "pages_duck_cf/",
+      "name": "pages_duck_cf",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_cf/",
+      "name": "pages_duck_no_cf",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_qm/",
+      "name": "pages_duck_qm",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_qm/",
+      "name": "pages_duck_no_qm",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_gy/",
+      "name": "pages_duck_gy",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_gy/",
+      "name": "pages_duck_no_gy",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_wymz/",
+      "name": "pages_duck_no_wymz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_sys/",
+      "name": "pages_duck_sys",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_sys/",
+      "name": "pages_duck_no_sys",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_lx/",
+      "name": "pages_duck_lx",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_lx/",
+      "name": "pages_duck_no_lx",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_xm/",
+      "name": "pages_duck_xm",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_xm/",
+      "name": "pages_duck_no_xm",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_mangzhong/",
+      "name": "pages_duck_mangzhong",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_mangzhong/",
+      "name": "pages_duck_no_mangzhong",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_xz/",
+      "name": "pages_duck_xz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_xz/",
+      "name": "pages_duck_no_xz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_xs/",
+      "name": "pages_duck_xs",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_xs/",
+      "name": "pages_duck_no_xs",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_sysxt/",
+      "name": "pages_duck_sysxt",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_sysxt/",
+      "name": "pages_duck_no_sysxt",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_citygz/",
+      "name": "pages_duck_citygz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_citygz/",
+      "name": "pages_duck_no_citygz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_citybj/",
+      "name": "pages_duck_citybj",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_citybj/",
+      "name": "pages_duck_no_citybj",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_yhc/",
+      "name": "pages_duck_no_yhc",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_citycq/",
+      "name": "pages_duck_citycq",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_citycq/",
+      "name": "pages_duck_no_citycq",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_citywh/",
+      "name": "pages_duck_citywh",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_citywh/",
+      "name": "pages_duck_no_citywh",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_ds/",
+      "name": "pages_duck_ds",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_ds/",
+      "name": "pages_duck_no_ds",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_cityhz/",
+      "name": "pages_duck_cityhz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_cityhz/",
+      "name": "pages_duck_no_cityhz",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_cityqd/",
+      "name": "pages_duck_cityqd",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_cityqd/",
+      "name": "pages_duck_no_cityqd",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_lq/",
+      "name": "pages_duck_lq",
+      "pages": [
+        "pages/duck/index"
+      ]
+    },
+    {
+      "root": "pages_duck_no_lq/",
+      "name": "pages_duck_no_lq",
+      "pages": [
+        "pages/duck/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "网易第五人格",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "defaultShareAppMessage": {
+      "title": "欢迎使用我的小程序",
+      "path": "/pages/index/index",
+      "imageUrl": "https://example.com/images/logo.png"
+    }
+  },
+  "pages": [
+    "pages/home/home/home",
+    "pages/vsrecord/index",
+    "pages/active/index",
+    "pages/active/znq/index",
+    "pages/vsrecord/rolelist",
+    "pages/active/znq/addinput",
+    "pages/index/daily/index",
+    "pages/index/fan/fan",
+    "pages/vsrecord/details",
+    "pages/vsrecord/role",
+    "pages/order/order",
+    "pages/details/index",
+    "pages/out/out",
+    "pages/index/index",
+    "pages/index/newszx",
+    "pages/active/myactive",
+    "pages/index/newsgg",
+    "pages/index/query",
+    "pages/saishi/my/bar",
+    "pages/saishi/team/list",
+    "pages/saishi/team/team",
+    "pages/saishi/now/number",
+    "pages/saishi/persent/persent",
+    "pages/saishi/video/list",
+    "pages/saishi/video/video",
+    "pages/saishi/all/all",
+    "pages/dh/dh",
+    "pages/components/drag/index",
+    "pages/transfer/transfer",
+    "pages/authorize/authorize",
+    "pages/more/index",
+    "pages/ask/index"
+  ]
+}

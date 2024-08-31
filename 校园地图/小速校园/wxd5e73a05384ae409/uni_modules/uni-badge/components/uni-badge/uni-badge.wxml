@@ -1,0 +1,4 @@
+<view class="uni-badge--x">
+    <slot></slot>
+    <text bindtap="{{g}}" class="{{[c,'uni-badge']}}" style="{{d+';'+e+';'+f}}" wx:if="{{a}}">{{b}}</text>
+</view>

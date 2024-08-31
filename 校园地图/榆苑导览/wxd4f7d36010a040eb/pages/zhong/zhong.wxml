@@ -1,0 +1,6 @@
+<image class="image" src="cloud://cloud1-1gmtfygm44383cc0.636c-cloud1-1gmtfygm44383cc0-1307330927/swiper-school/校徽.jpeg"></image>
+<view class="qq">
+    <view bindtap="jiaru" class="guanli">词条修改</view>
+    <view bindtap="jiaru2" class="guanli">人员加入</view>
+    <view bindtap="jiaru3" class="guanli">点位审核</view>
+</view>

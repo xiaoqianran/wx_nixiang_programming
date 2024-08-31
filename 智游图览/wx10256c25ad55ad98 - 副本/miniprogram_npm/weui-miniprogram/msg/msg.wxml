@@ -1,0 +1,27 @@
+<view class="Empty">
+    <view class="Empty">
+        <icon size="Empty" type="Empty" wx:if="Empty"></icon>
+        <image class="Empty" mode="Empty" src="Empty" wx:elif="Empty"></image>
+    </view>
+    <view class="Empty">
+        <view class="Empty">Empty</view>
+        <view class="Empty">Empty<slot name="Empty" wx:if="Empty"></slot>
+        </view>
+        <slot name="Empty"></slot>
+    </view>
+    <view class="Empty">
+        <view class="Empty">
+            <slot name="Empty"></slot>
+        </view>
+    </view>
+    <view class="Empty">
+        <view class="Empty">
+            <slot name="Empty"></slot>
+        </view>
+    </view>
+    <view class="Empty">
+        <view class="Empty">
+            <slot name="Empty"></slot>
+        </view>
+    </view>
+</view>

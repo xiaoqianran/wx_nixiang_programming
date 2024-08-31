@@ -1,0 +1,7 @@
+<view baseData="{{baseData}}" change:baseData="{{handler.baseDataObserver}}" change:list="{{handler.listObserver}}" class="item-wrap item-wrap-class" list="{{list}}" style="{{wrapStyle}}">
+    <view bind:longpress="{{handler.longPress}}" catch:touchend="{{dragging?handler.touchEnd:''}}" catch:touchmove="{{dragging?handler.touchMove:''}}" class="item" data-index="{{index}}" style="width: {{100/columns}}%" wx:for="{{list}}" wx:key="id">
+        <slot name="{{item.slot}}" wx:if="{{item.extraNode}}"></slot>
+        <item bind:click="itemClick" bind:del="skindel" columns="{{columns}}" data-index="{{index}}" itemData="{{item.data}}" liIndex="{{liIndex}}" wx:else></item>
+    </view>
+</view>
+<wxs module="handler" src="index.wxs"/>

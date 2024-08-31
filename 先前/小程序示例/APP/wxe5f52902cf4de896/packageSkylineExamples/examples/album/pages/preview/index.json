@@ -1,0 +1,7 @@
+{
+  "renderer": "skyline",
+  "navigationStyle": "custom",
+  "backgroundColorContent": "#00000000",
+  "disableScroll": true,
+  "componentFramework": "glass-easel"
+}

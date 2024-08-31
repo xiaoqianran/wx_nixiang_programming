@@ -1,0 +1,1 @@
+var r=require("../../common/vendor.js")._export_sfc({data:function(){return{src:""}},onLoad:function(r){var e=r.src;this.src=e},methods:{}},[["render",function(r,e,n,t,c,o){return{a:c.src}}]]);wx.createPage(r);

@@ -1,0 +1,1 @@
+.avatar{display:-webkit-flex;display:flex;justify-content:center;margin-bottom:25px}.avatar-img{border-radius:50%;width:50%}.city,.country,.province{padding-right:5px}

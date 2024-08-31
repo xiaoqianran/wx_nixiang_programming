@@ -1,0 +1,9 @@
+<view ariaRole="Empty" class="Empty">
+    <view ariaDescribedby="Empty" ariaLabelledby="Empty" ariaRole="Empty" ariaSelected="Empty" bindtap="Empty" class="Empty" data-index="Empty" wx:for="Empty" wx:key="index">
+        <view ariaHidden="Empty" id="Empty" style="Empty">
+            <image class="Empty" src="Empty"></image>
+            <mp-badge ariaLabel="Empty" content="Empty" style="Empty" wx:if="Empty"></mp-badge>
+        </view>
+        <view ariaHidden="Empty" class="Empty" id="Empty">Empty</view>
+    </view>
+</view>

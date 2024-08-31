@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "custom",
+  "backgroundColor": "#f7f7f7",
+  "componentPlaceholder": {
+    "b": "_",
+    "c": "_",
+    "d": "_",
+    "g": "_",
+    "h": "_",
+    "i": "_"
+  }
+}

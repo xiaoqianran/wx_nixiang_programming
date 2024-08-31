@@ -1,0 +1,1 @@
+exports.tips={loading:"加载中...",network:"请检查网络连接后重试",error:"系统拥堵，请稍后重试",search:"请先搜索噢~",data:"没有数据噢"};

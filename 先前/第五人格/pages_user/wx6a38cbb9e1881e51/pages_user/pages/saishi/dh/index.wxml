@@ -1,0 +1,171 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view wx:if="{{prDetailShow==0}}">
+        <view class="page page_topbar">
+            <view class="userInfo">
+                <image src="{{user.userAvatarUrl}}" wx:if="{{user.userAvatarUrl}}"></image>
+                <image src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/home/unlogin-head.png" wx:else></image>
+                <text wx:if="{{user.idvId}}">{{user.nickname}}</text>
+                <text wx:else>未绑定</text>
+            </view>
+            <view class="jbybBox">
+                <text class="yb">银币 {{user.silverCoin}}</text>
+                <text class="jb">时装券 {{user.goldCoin}}</text>
+                <text bindtap="showTips" class="wen">?</text>
+            </view>
+            <view class="dhzh">
+                <view bindtap="goList" class="orderList">订单列表</view>
+                <view bindtap="goHistory" class="goHistory">兑换明细</view>
+            </view>
+        </view>
+        <view class="page page_det">
+            <view class="center">
+                <view class="centerBox">
+                    <text class="Top">兑换专区</text>
+                </view>
+                <view class="main">
+                    <view bindtap="goDetails" class="li" data-newsid="{{item.id}}" wx:for="{{prList}}" wx:key="key">
+                        <image src="{{item.prizeImage}}"></image>
+                        <view class="tt">{{item.prizeName}}</view>
+                        <view class="jbybBox">
+                            <text class="{{item.coinType=='gold'?'yb jbBox':'yb'}}">{{item.unitAmount}}</text>
+                        </view>
+                        <view class="kc" wx:if="{{item.stock<10000}}">{{'库存:'+item.stock}}</view>
+                        <view class="kc" wx:else>库存:999+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page page_des" wx:elif="{{prDetailShow==1}}">
+        <view class="kuai">
+            <view class="center">
+                <image src="{{prDetailInfo.prizeImage}}"></image>
+            </view>
+        </view>
+        <view class="kuai">
+            <view class="center twoKuai">
+                <view class="des">
+                    <text class="left jb" wx:if="{{prDetailInfo.coinType=='gold'}}">{{prDetailInfo.unitAmount}}</text>
+                    <text class="left yb" wx:else>{{prDetailInfo.unitAmount}}</text>
+                </view>
+                <text class="desc">{{prDetailInfo.prizeName}}</text>
+                <text class="right CenterRight">库存：{{prDetailInfo.stock}}</text>
+            </view>
+        </view>
+        <view class="kuai">
+            <view class="center threeKuai">
+                <view class="pr-des One">
+                    <text class="right">{{prDetailInfo.prizeDescription}}</text>
+                </view>
+                <view wx:if="{{notEnoughFlag}}">
+                    <view class="not-enough">积分不足</view>
+                    <view class="bttom_btn dont">积分兑换</view>
+                </view>
+                <view wx:else>
+                    <view class="bttom_btn dont" wx:if="{{prDetailInfo.stock>0&&prDetailInfo.exchangeLimit>0&&prDetailInfo.exchangeCount>=prDetailInfo.exchangeLimit}}"> 已达兑换上限 </view>
+                    <view bindtap="ljdh" class="bttom_btn" wx:elif="{{prDetailInfo.stock>0&&prDetailInfo.exchangeLimit<=0||prDetailInfo.exchangeCount<prDetailInfo.exchangeLimit}}"> 积分兑换 </view>
+                    <view class="bttom_btn dont" wx:else> 库存不足 </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="change-success" wx:elif="{{prDetailShow==2}}">
+        <view class="success-tips">
+            <image src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/success.png"></image> 交易成功 </view>
+        <view bindtap="watchOrder" class="watch-order">查看订单</view>
+    </view>
+    <view class="pop-zz"></view>
+    <view class="pop-tipss" wx:if="{{tipsShow}}">
+        <view bindtap="hideTips" class="closeboard"></view>
+        <view class="inner">
+            <view class="tt">说明</view>
+            <text class="des">1. 时装券可通过活动获得，可用于兑换游戏商城内常驻奇珍时装和稀世时装（非限时限定类）。
+2. 银币可通过参与小程序内的活动获得，可用于兑换游戏内虚拟道具等。
+            </text>
+            <view bindtap="hideTips" class="btnss">我知道啦</view>
+        </view>
+    </view>
+    <view class="pop-dh1" hidden="{{!popDh1Show}}">
+        <view class="inner">
+            <view bindtap="popDh1Close" class="close"></view>
+            <view class="goods-show">
+                <view class="gs-left">
+                    <image src="{{prDetailInfo.prizeImage}}"></image>
+                </view>
+                <view class="gs-right">
+                    <view class="price">
+                        <text class="left jb" wx:if="{{prDetailInfo.coinType=='gold'}}">{{prDetailInfo.unitAmount}}</text>
+                        <text class="left yb" wx:else>{{prDetailInfo.unitAmount}}</text>
+                    </view>
+                    <view class="stock">库存{{prDetailInfo.stock}}</view>
+                </view>
+            </view>
+            <view class="inl">
+                <text class="left">购买数量</text>
+                <view class="right">
+                    <text class="maxBuy" wx:if="{{prDetailInfo.exchangeLimit>0}}"> 限购 {{prDetailInfo.exchangeLimit}} 件</text>
+                    <view bindtap="dhNum1Reduce" class="l {{canDhReduce?'':'df'}}">-</view>
+                    <view class="c">{{dhNum1}}</view>
+                    <view bindtap="dhNum1Add" class="r {{canDhAdd?'':'df'}}">+</view>
+                </view>
+            </view>
+            <view class="inl">
+                <button bindtap="priceDh" class="dh-btn" disabled="{{!canDh}}" wx:if="{{prDetailInfo.unitAmount==0}}"> 免费领取 </button>
+                <button bindtap="priceDh" class="dh-btn" disabled="{{!canDh}}" wx:else>积分兑换</button>
+            </view>
+        </view>
+    </view>
+    <view class="pop-dh2" hidden="{{!popDh2Show}}">
+        <view class="inner">
+            <view bindtap="popDh2Close" class="close"></view>
+            <view class="tit">兑换详情</view>
+            <view class="inputbox">
+                <text class="left">收货人</text>
+                <input bindinput="nameVal" class="input" maxlength="20" placeholder="收货人姓名" placeholderClass="phcolor" type="text" value="{{nameVal}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">手机号码</text>
+                <input bindinput="telVal" class="input" maxlength="11" placeholder="手机号" placeholderClass="phcolor" type="text" value="{{telVal}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">省市区/县</text>
+                <picker bindchange="bindRegionChange" class="input max" customItem="{{customItem}}" mode="region" value="{{region}}">
+                    <view class="pa">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+                </picker>
+            </view>
+            <view class="inputbox">
+                <text class="left">详细地址</text>
+                <input bindinput="addressVal" class="input" maxlength="100" placeholder="请输入详细地址" placeholderClass="phcolor" type="text" value="{{addressVal}}"></input>
+            </view>
+            <view class="inl pa">
+                <text class="left">兑换数量</text>
+                <view class="right">
+                    <text class="maxBuy" wx:if="{{prDetailInfo.exchangeLimit>0}}"> 限购 {{prDetailInfo.exchangeLimit}} 件</text>
+                    <view bindtap="dhNum1Reduce" class="l {{canDhReduce?'':'df'}}">-</view>
+                    <view class="c">{{dhNum1}}</view>
+                    <view bindtap="dhNum1Add" class="r {{canDhAdd?'':'df'}}">+</view>
+                </view>
+            </view>
+            <view class="inl">
+                <view class="hj">
+                    <view class="b">
+                        <text class="tt">合计：</text>
+                        <text class="red">{{dhNum1SumDes_gold}}</text>
+                        <text class="red">时装券</text>
+                        <text class="red"> {{dhNum1SumDes_silver}}</text>
+                        <text class="red">银币</text>
+                    </view>
+                    <view class="s">
+                        <text class="tt">余额：</text>
+                        <text>{{usersy_gold}}</text>
+                        <text>时装券</text>
+                        <text> {{usersy_silver}}</text>
+                        <text>银币</text>
+                    </view>
+                </view>
+                <view bindtap="priceDh" class="dh">兑换</view>
+            </view>
+        </view>
+    </view>
+</view>

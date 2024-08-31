@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "权益卡",
+  "navigationBarBackgroundColor": "#FFF",
+  "enablePullDownRefresh": true,
+  "componentPlaceholder": {
+    "d": "_"
+  }
+}

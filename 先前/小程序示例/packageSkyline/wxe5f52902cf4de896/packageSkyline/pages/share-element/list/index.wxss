@@ -1,0 +1,1 @@
+.card-list{bottom:0;display:-webkit-flex;display:flex;flex-direction:row;justify-content:space-between;padding:32px;position:absolute;width:100%}.card-item{height:64px;width:64px}.img-wrp,share-element{height:100%;width:100%}.img-wrp{background-color:#a1cfec8b;border-radius:32px;overflow:hidden}image{height:100%;width:100%}

@@ -1,0 +1,31 @@
+<view class="{{['uni-card',p&&'uni-card--full',q&&'uni-card--shadow',r&&'uni-card--border']}}" style="{{'margin:'+s+';'+'padding:'+t+';'+'box-shadow:'+v}}">
+    <slot name="cover" wx:if="{{$slots.cover}}"></slot>
+    <block wx:else>
+        <view class="uni-card__cover" wx:if="{{a}}">
+            <image bindtap="{{b}}" class="uni-card__cover-image" mode="widthFix" src="{{c}}"></image>
+        </view>
+    </block>
+    <slot name="title" wx:if="{{$slots.title}}"></slot>
+    <block wx:else>
+        <view class="uni-card__header" wx:if="{{d}}">
+            <view bindtap="{{j}}" class="uni-card__header-box">
+                <view class="uni-card__header-avatar" wx:if="{{e}}">
+                    <image class="uni-card__header-avatar-image" mode="aspectFit" src="{{f}}"></image>
+                </view>
+                <view class="uni-card__header-content">
+                    <text class="uni-card__header-content-title uni-ellipsis">{{g}}</text>
+                    <text class="uni-card__header-content-subtitle uni-ellipsis" wx:if="{{h}}">{{i}}</text>
+                </view>
+            </view>
+            <view bindtap="{{l}}" class="uni-card__header-extra">
+                <text class="uni-card__header-extra-text">{{k}}</text>
+            </view>
+        </view>
+    </block>
+    <view bindtap="{{n}}" class="uni-card__content" style="{{'padding:'+m}}">
+        <slot></slot>
+    </view>
+    <view bindtap="{{o}}" class="uni-card__actions">
+        <slot name="actions"></slot>
+    </view>
+</view>

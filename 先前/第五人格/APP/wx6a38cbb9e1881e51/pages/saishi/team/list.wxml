@@ -1,0 +1,10 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page list">
+        <view bindtap="goTeamList" class="li" data-index="{{i}}" data-name="{{item.wyId}}" wx:for="{{allComData}}" wx:for-index="i" wx:key="key">
+            <image class="img" src="{{imgUrl}}/p1/test.jpg"></image>
+            <text class="des">{{item.eventName}}</text>
+        </view>
+    </view>
+    <bottom-dh active="1"></bottom-dh>
+</view>

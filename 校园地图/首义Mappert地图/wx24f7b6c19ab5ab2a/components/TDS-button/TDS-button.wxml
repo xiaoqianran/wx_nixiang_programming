@@ -1,0 +1,7 @@
+<view catch:tap="{{State=='disabled'?'disabled':''}}" class="button button-style-{{buttonStyle}}-{{State}} button-size-{{Size}}" data-theme="{{theme}}" style="{{State=='loading'&&Size=='small'?'display:none':''}}; background-color:{{'var('+Background+')'}};color:{{'var('+buttonColor+')'}};border-color:{{'var('+borderColor+')'}}">
+    <view class="button-label">
+        <text class="Button-Label" wx:if="{{State!='loading'}}">{{Label}}</text>
+        <image class="button-loading" src="/static/svg/loading{{buttonStyle=='tertiary'||buttonStyle=='text'?'_green_line':'_white_line'}}.svg" wx:else></image>
+    </view>
+    <view bind:tap="TDSButtonEventsTrack" class="button-click fill"></view>
+</view>

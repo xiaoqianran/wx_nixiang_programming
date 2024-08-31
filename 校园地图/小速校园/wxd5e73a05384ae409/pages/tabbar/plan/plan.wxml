@@ -1,0 +1,230 @@
+<view>
+    <view>
+        <view class="notice">
+            <view class="notice-title-box">
+                <image alt="" class="notice-icon" src="https://quickdo.top/images/tools/icon/notice.png"></image>
+                <swiper circular autoplay="true" class="bar-swiper" displayMultipleItems="1" interval="3500" vertical="true">
+                    <swiper-item class="swiper-item" wx:for="{{a}}" wx:key="c">
+                        <view class="{{item.b}}">{{item.a}}</view>
+                    </swiper-item>
+                </swiper>
+            </view>
+        </view>
+        <view class="countdown">
+            <view>
+                <swiper autoplay="{{true}}" circular="true" class="swiperbox" duration="{{500}}" indicatorDots="{{true}}" interval="{{3000}}">
+                    <block wx:if="{{b}}">
+                        <swiper-item wx:for="{{c}}" wx:key="c">
+                            <view bindtap="{{item.b}}">
+                                <image src="{{item.a}}" style="width:100%;height:240rpx;border-radius:5px"></image>
+                            </view>
+                        </swiper-item>
+                    </block>
+                    <block wx:else>
+                        <swiper-item wx:for="{{d}}" wx:key="c">
+                            <view bindtap="{{item.b}}">
+                                <image src="{{item.a}}" style="width:100%;height:240rpx;border-radius:5px"></image>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+        </view>
+        <view class="fuction-bar">
+            <view bindtap="{{item.d}}" class="fuction-bar-btn-box" wx:for="{{e}}" wx:key="c">
+                <image alt="" class="fuction-bar-btn-box-img" src="{{item.a}}"></image>
+                <text class="fuction-bar-btn-box-text">{{item.b}}</text>
+            </view>
+            <view bindtap="{{f}}" class="fuction-bar-btn-box">
+                <image alt="" class="fuction-bar-btn-box-ipimg" src="https://quickdo.top/images/plan/IP.png"></image>
+                <text class="fuction-bar-btn-box-text">小速</text>
+            </view>
+            <view bindtap="{{item.d}}" class="fuction-bar-btn-box" wx:for="{{g}}" wx:key="c">
+                <image alt="" class="fuction-bar-btn-box-img" src="{{item.a}}"></image>
+                <text class="fuction-bar-btn-box-text">{{item.b}}</text>
+            </view>
+        </view>
+        <view class="middle-box">
+            <view class="top-box-title">
+                <view class="top-box-name">
+                    <view class="aBlock"></view> 今日课程 <text class="timetable-time" wx:if="{{h}}">{{i}}(第{{j}}周) </text>
+                    <text class="timetable-time" wx:else>{{k}}(假期快乐) </text>
+                </view>
+                <view bindtap="{{l}}" class="top-box-view zkb">  周课表 > </view>
+            </view>
+            <block wx:if="{{m}}">
+                <view bindtap="{{item.r}}" class="middle-box-content" wx:for="{{n}}" wx:key="q">
+                    <view class="{{['timetable-detail',item.m]}}" wx:if="{{item.a}}">
+                        <view class="timetable-left">
+                            <view class="timetable-left-timeBox">
+                                <text class="timetable-detail-second-line-text" wx:if="{{item.b}}">{{item.c}}</text>
+                            </view>
+                        </view>
+                        <view class="timetable-middle">
+                            <text class="timetable-detail-classname">{{item.d}}</text>
+                            <view class="timetable-classroom">
+                                <image alt="" class="timetable-right-img" src="{{item.e}}"></image>
+                                <text class="timetable-detail-classroom">{{item.f}}</text>
+                            </view>
+                        </view>
+                        <view class="timetable-right">
+                            <view class="timetable-right-box">
+                                <image alt="" class="timetable-right-img" src="{{item.g}}"></image>
+                                <text class="timetable-detail-place">{{item.h}}</text>
+                            </view>
+                            <view class="timetable-right-box">
+                                <image alt="" class="timetable-right-img" src="{{item.i}}"></image>
+                                <text class="timetable-detail-place" wx:if="{{item.j}}">{{item.k}}节 第{{item.l}}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <block wx:if="{{item.n}}">
+                        <view class="{{['timetable-detail',item.p]}}" wx:for="{{item.o}}" wx:for-item="item1" wx:key="l">
+                            <view class="timetable-left">
+                                <view class="timetable-left-timeBox">
+                                    <text class="timetable-detail-second-line-text" wx:if="{{item1.a}}">{{item1.b}}</text>
+                                </view>
+                            </view>
+                            <view class="timetable-middle">
+                                <text class="timetable-detail-classname">{{item1.c}}</text>
+                                <view class="timetable-classroom">
+                                    <image alt="" class="timetable-right-img" src="{{item1.d}}"></image>
+                                    <text class="timetable-detail-classroom">{{item1.e}}</text>
+                                </view>
+                            </view>
+                            <view class="timetable-right">
+                                <view class="timetable-right-box">
+                                    <image alt="" class="timetable-right-img" src="{{item1.f}}"></image>
+                                    <text class="timetable-detail-place">{{item1.g}}</text>
+                                </view>
+                                <view class="timetable-right-box">
+                                    <image alt="" class="timetable-right-img" src="{{item1.h}}"></image>
+                                    <text class="timetable-detail-place" wx:if="{{item1.i}}">{{item1.j}}节 第{{item1.k}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </block>
+            <view wx:if="{{o}}">
+                <view class="top-box-title">
+                    <view class="top-box-name">
+                        <view class="aBlock"></view> 明日课程 <text class="timetable-time" wx:if="{{p}}">{{q}}(第{{r}}周) </text>
+                        <text class="timetable-time" wx:else>{{s}}(假期快乐) </text>
+                    </view>
+                </view>
+                <block wx:if="{{t}}">
+                    <view bindtap="{{item.m}}" class="middle-box-content" wx:for="{{v}}" wx:key="l">
+                        <view class="timetable-detail timetable-detail-nopass" wx:if="{{item.a}}">
+                            <view class="timetable-left">
+                                <view class="timetable-left-timeBox">
+                                    <text class="timetable-detail-second-line-text" wx:if="{{item.b}}">{{item.c}}</text>
+                                </view>
+                            </view>
+                            <view class="timetable-middle">
+                                <text class="timetable-detail-classname">{{item.d}}</text>
+                                <view class="timetable-classroom">
+                                    <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/location.png"></image>
+                                    <text class="timetable-detail-classroom">{{item.e}}</text>
+                                </view>
+                            </view>
+                            <view class="timetable-right">
+                                <view class="timetable-right-box">
+                                    <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/teacher.png"></image>
+                                    <text class="timetable-detail-place">{{item.f}}</text>
+                                </view>
+                                <view class="timetable-right-box">
+                                    <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/week.png"></image>
+                                    <text class="timetable-detail-place" wx:if="{{item.g}}">{{item.h}}节 第{{item.i}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <block wx:if="{{item.j}}">
+                            <view class="timetable-detail timetable-detail-nopass" wx:for="{{item.k}}" wx:for-item="item2" wx:key="i">
+                                <view class="timetable-left">
+                                    <view class="timetable-left-timeBox">
+                                        <text class="timetable-detail-second-line-text" wx:if="{{item2.a}}">{{item2.b}}</text>
+                                    </view>
+                                </view>
+                                <view class="timetable-middle">
+                                    <text class="timetable-detail-classname">{{item2.c}}</text>
+                                    <view class="timetable-classroom">
+                                        <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/location.png"></image>
+                                        <text class="timetable-detail-classroom">{{item2.d}}</text>
+                                    </view>
+                                </view>
+                                <view class="timetable-right">
+                                    <view class="timetable-right-box">
+                                        <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/teacher.png"></image>
+                                        <text class="timetable-detail-place">{{item2.e}}</text>
+                                    </view>
+                                    <view class="timetable-right-box">
+                                        <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/week.png"></image>
+                                        <text class="timetable-detail-place" wx:if="{{item2.f}}">{{item2.g}}节 第{{item2.h}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                </block>
+            </view>
+            <view bindtap="{{x}}" class="timetable-detail timetable-detail-nopass" wx:if="{{w}}">
+                <view class="timetable-left">
+                    <view class="timetable-left-timeBox">
+                        <text class="timetable-detail-second-line-text"> 00:00  ~  24:00 </text>
+                    </view>
+                </view>
+                <view class="timetable-middle">
+                    <text class="timetable-detail-classname">你还未登录哦!</text>
+                    <text class="timetable-detail-second-line-text">小速校园</text>
+                </view>
+                <view class="timetable-right">
+                    <view class="timetable-right-box">
+                        <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/location.png"></image>
+                        <text class="timetable-detail-place"> 速办课堂 </text>
+                    </view>
+                    <view class="timetable-right-box">
+                        <image alt="" class="timetable-right-img" src="https://quickdo.top/images/plan/todaySchedule/week.png"></image>
+                        <text class="timetable-detail-place"> 第1(周) 1-2节 </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="end-box">
+            <view class="top-box-title">
+                <view class="top-box-name">
+                    <view class="aBlock"></view> 校园生活 </view>
+            </view>
+            <view wx:for="{{y}}" wx:key="h">
+                <view bindtap="{{item.g}}" class="campusNotice">
+                    <view>
+                        <text class="notice-sign" style="{{'background-color:'+item.b+';'+'color:'+item.c}}">{{item.a}}</text>
+                    </view>
+                    <text>{{item.d}}</text>
+                    <view class="campusNotice-time">
+                        <image alt="" class="notice-img" src="https://quickdo.top/images/me/logo.png"></image>
+                        <text class="campusNotice-time-text">{{item.e}}·{{item.f}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="end-box">
+            <view class="top-box-title">
+                <view class="top-box-name">
+                    <view class="aBlock"></view> 校园通知 </view>
+            </view>
+            <view wx:for="{{z}}" wx:key="h">
+                <view bindtap="{{item.g}}" class="campusNotice">
+                    <view>
+                        <text class="notice-sign" style="{{'background-color:'+item.b+';'+'color:'+item.c}}">{{item.a}}</text>
+                    </view>
+                    <text>{{item.d}}</text>
+                    <view class="campusNotice-time">
+                        <image alt="" class="notice-img" src="{{A}}"></image>
+                        <text class="campusNotice-time-text">{{item.e}}·{{item.f}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

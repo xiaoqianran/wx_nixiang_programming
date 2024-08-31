@@ -1,0 +1,8 @@
+<image src="cloud://cloud1-1gmtfygm44383cc0.636c-cloud1-1gmtfygm44383cc0-1307330927/swiper-school/图书管.jpeg" style="width: 100%;height: 400rpx;"></image>
+<form bindsubmit="submit" class="form">
+    <van-cell-group>
+        <van-field clearable required bind:click-icon="onClickIcon" icon="question-o" label="用户名" name="pwd" placeholder="请输入用户名" size="large" value="{{pwd}}"></van-field>
+        <van-field required border="{{ture}}" label="密码" name="zhanghu" placeholder="请输入密码" size="large" type="password" value="{{zhanghu}}"></van-field>
+    </van-cell-group>
+    <button class="button" formType="submit" plain="false" type="primary">登录</button>
+</form>

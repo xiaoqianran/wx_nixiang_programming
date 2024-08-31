@@ -1,0 +1,1 @@
+var e=require("../data");Component({properties:{idx:{type:Number,value:-1,observer:function(a){this.setData({cardData:e.cardList[a]})}}},data:{cardData:{}},onShareAppMessage:function(){return{title:"共享元素动画",path:"packageSkyline/pages/share-element/card/index"}}});

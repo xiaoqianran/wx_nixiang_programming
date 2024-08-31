@@ -1,0 +1,12 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "route-select": "../../components/route-select/route-select",
+    "header": "../../components/header/header",
+    "driving-route": "../../components/driving-route/driving-route",
+    "transit-route": "../../components/transit-route/transit-route",
+    "walk-route": "../../components/walk-route/walk-route",
+    "route-detail": "../../components/route-detail/route-detail"
+  },
+  "navigationStyle": "custom"
+}

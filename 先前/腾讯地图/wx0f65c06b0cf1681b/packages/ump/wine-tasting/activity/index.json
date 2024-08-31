@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "活动详情",
+  "navigationStyle": "custom",
+  "backgroundColor": "#FFF",
+  "componentPlaceholder": {
+    "g": "_",
+    "h": "_",
+    "i": "_"
+  }
+}

@@ -1,0 +1,24 @@
+<view class="top-bar" style=" background:rgba({{bgColor}},0),">
+    <view style="height:{{statusBarHeight}}px;"></view>
+    <view class="capsule-box" style="height:{{capsuleBoxHeight}}px;">
+        <view class="barLineItem">
+            <view bindtap="returnPage" class="returnButton">
+                <image class="returnSvg" src="{{BackIcon}}" style="width: 24rpx;" wx:if="{{back}}"></image>
+            </view>
+        </view>
+        <view class="barLineItem">
+            <view class="barText {{titleColor}}" style="color: rgba(255,255,255,{{rgba}});">{{title}} </view>
+        </view>
+        <view class="barLineItem">
+            <view style="width: 150rpx;"></view>
+        </view>
+    </view>
+</view>
+<scroll-view bindscroll="scroll" scrollY="true" style="height: {{screenHeight}}px;" wx:if="{{immersion}}">
+    <view style="height:{{statusBarHeight+capsuleBoxHeight}}px;width: 100%;"></view>
+    <slot></slot>
+</scroll-view>
+<block wx:else>
+    <view style="height:{{statusBarHeight+capsuleBoxHeight}}px;width: 100%;"></view>
+    <slot></slot>
+</block>

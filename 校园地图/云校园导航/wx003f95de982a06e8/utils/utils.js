@@ -1,0 +1,1 @@
+module.exports={weatherKey:"79260c1ccab949a099849a782cdb8559",miniprogram_name:"沈工大校园导航",information:{type:"",author:"2019级软件工程吴警",teacher:"韦林"}};

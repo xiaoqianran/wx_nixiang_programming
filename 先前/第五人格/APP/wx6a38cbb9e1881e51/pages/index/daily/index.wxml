@@ -1,0 +1,8 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" iconTheme="black" title="第五茶话会"></navBar>
+<view class="container index-daily">
+    <view class="index-daily-container">
+        <news-list bindCustomListChange="handleCustomListChange" newsList="{{listData}}" wxToken="{{wxToken}}" wx:if="{{listData&&listData.length&&listNull}}"></news-list>
+        <view class="null" wx:elif="{{listNull}}"> 暂没有发布的日常话题 </view>
+    </view>
+    <bottom-dh active="1" class="bottom-dhbox"></bottom-dh>
+</view>

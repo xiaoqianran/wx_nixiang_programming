@@ -1,0 +1,24 @@
+<van-notice-bar leftIcon="volume-o" text="{{nt}}"></van-notice-bar>
+<view class="page-body">
+    <view class="page-section page-section-gap">
+        <map bindcallouttap="getmarkid" bindlabeltap="getmarkid" bindmarkertap="getmarkid" class="map" enable3D="ture" enableOverlooking="ture" enablePoi="{{false}}" enableRotate="ture" enableSatellite="{{satellite}}" enableScroll="ture" enableTraffic="ture" id="myMap" joinCluster="ture" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" polygons="{{polygons}}" polyline="{{polyline}}" rotate="{{rotate}}" scale="{{scale}}" showCompass="ture" skew="{{skew}}">
+            <view class="pizhu1">
+                <cover-view bindtap="jingdian" class="wenzi">景点</cover-view>
+                <cover-view bindtap="zhuanxian" class="wenzi">旅游专线</cover-view>
+                <cover-view bindtap="fanwe" class="wenzi">显示范围</cover-view>
+                <cover-view bindtap="weixing" class="wenzi">开启星图</cover-view>
+                <cover-view bindtap="weixing1" class="wenzi">关闭星图</cover-view>
+                <cover-view bindtap="removeMarker" class="wenzi">隐藏</cover-view>
+            </view>
+            <view class="pizhu">
+                <cover-view bindtap="door" class="wenzi">大门</cover-view>
+                <cover-view bindtap="teachmark" class="wenzi">教学楼</cover-view>
+                <cover-view bindtap="restmark" class="wenzi">宿舍楼</cover-view>
+                <cover-view bindtap="canteen" class="wenzi">食堂</cover-view>
+                <cover-view bindtap="yule" class="wenzi">娱乐</cover-view>
+                <cover-view bindtap="shop" class="wenzi">消费</cover-view>
+                <cover-view bindtap="allmark" class="wenzi">榆林学院</cover-view>
+            </view>
+        </map>
+    </view>
+</view>

@@ -1,0 +1,1 @@
+var n=require("../../../../../util/util.js");Page({data:{crossAxisCount:4,crossAxisGap:8,mainAxisGap:4,gridList:(0,n.generateGridList)(1e3,4)},onLoad:function(n){},onReady:function(){},onShow:function(){},onHide:function(){},onUnload:function(){},onPullDownRefresh:function(){},onReachBottom:function(){},onShareAppMessage:function(){}});

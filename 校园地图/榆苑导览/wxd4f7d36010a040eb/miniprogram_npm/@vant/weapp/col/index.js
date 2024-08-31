@@ -1,0 +1,1 @@
+Object.defineProperty(exports,"__esModule",{value:!0});var e=require("../common/relation");(0,require("../common/component").VantComponent)({relation:(0,e.useParent)("row"),props:{span:Number,offset:Number}});

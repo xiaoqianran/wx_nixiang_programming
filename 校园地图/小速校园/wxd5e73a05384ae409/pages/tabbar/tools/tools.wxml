@@ -1,0 +1,69 @@
+<view>
+    <view class="notice">
+        <view class="notice-title-box">
+            <image alt="" class="notice-icon" src="https://quickdo.top/images/tools/icon/notice.png"></image>
+            <swiper circular autoplay="true" class="bar-swiper" displayMultipleItems="1" interval="3500" vertical="true">
+                <swiper-item class="swiper-item" wx:for="{{a}}" wx:key="d">
+                    <view bindtap="{{item.c}}" class="{{item.b}}">{{item.a}}</view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="top-box">
+        <view class="top-box-title">
+            <view class="top-box-name">
+                <view class="aBlock"></view> 校园服务 </view>
+            <view class="top-box-view"> 掌上校园，就在速办 </view>
+        </view>
+        <view class="top-box-fuctionbar-box">
+            <view bindtap="{{b}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/grade.png"></image>
+                <text class="btn-title">学业成绩</text>
+            </view>
+            <view bindtap="{{c}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/secondClass.png"></image>
+                <text class="btn-title">第二课堂</text>
+            </view>
+            <view bindtap="{{d}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/calendar.png"></image>
+                <text class="btn-title">校历</text>
+            </view>
+            <view bindtap="{{e}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/emptyClassrooms.png"></image>
+                <text class="btn-title">查空教室</text>
+            </view>
+            <view bindtap="{{f}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/commonInfo.png"></image>
+                <text class="btn-title">校内常用信息</text>
+            </view>
+            <view bindtap="{{g}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/examPlaces.png"></image>
+                <text class="btn-title">考场安排</text>
+            </view>
+            <view bindtap="{{h}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/rubClass.png"></image>
+                <text class="btn-title">蹭课</text>
+            </view>
+            <view bindtap="{{i}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/bookSearch.png"></image>
+                <text class="btn-title">图书查询</text>
+            </view>
+            <view bindtap="{{j}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/credits.png"></image>
+                <text class="btn-title">学分查询</text>
+            </view>
+            <view bindtap="{{k}}" class="btn">
+                <image alt="" class="btn-img" src="https://quickdo.top/images/tools/toolsBar/secondClassActivity.png"></image>
+                <text class="btn-title">第二课堂活动</text>
+            </view>
+        </view>
+    </view>
+    <view class="middle-box">
+        <view class="top-box-title">
+            <view class="top-box-name">
+                <view class="aBlock"></view> 速吃速玩 </view>
+            <text class="top-box-text"> 美好生活，从吃开始 </text>
+        </view>
+        <image bindtap="{{item.c}}" class="discount" mode="widthFix" src="{{item.a}}" wx:for="{{l}}" wx:key="b"></image>
+    </view>
+</view>

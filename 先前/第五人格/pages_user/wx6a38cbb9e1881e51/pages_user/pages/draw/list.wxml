@@ -1,0 +1,52 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="page p1 {{admin?'four':''}}">
+        <view bindtap="viewChange" class="ch {{listType==0?'on':''}}" data-change="0">
+            <view class="ic ic1"></view>
+        </view>
+        <view bindtap="viewChange" class="ch {{listType==1?'on':''}}" data-change="1">
+            <view class="ic ic2"></view>
+        </view>
+        <view bindtap="viewChange" class="ch {{listType==2?'on':''}}" data-change="2">
+            <view class="ic ic3"></view>
+        </view>
+    </view>
+    <view class="blank_box" wx:if="{{drawList==''}}">
+        <view class="imagebox"></view>
+    </view>
+    <view class="page p2" wx:else>
+        <view bindtap="goDetail" class="mainbox" data-id="{{item.id}}" data-idex="{{index}}" data-status="{{item.status}}" wx:for="{{drawList}}" wx:key="key">
+            <view class="part">
+                <view class="bz" wx:if="{{item.user.prized}}"></view>
+                <view class="banner" wx:if="{{item.page}}">
+                    <image class="in" mode="aspectFill" src="{{item.page.headImage}}"></image>
+                </view>
+                <view class="info">
+                    <view class="title">{{item.title}}</view>
+                    <view class="type-show">
+                        <text class="type" wx:if="{{item.lotteryType=='timer'}}">定时抽奖</text>
+                        <text class="type" wx:elif="{{item.lotteryType=='threshold'}}">满人开奖</text>
+                        <text class="type" wx:elif="{{item.lotteryType=='immediate'}}">即抽即中</text>
+                        <text class="get not" wx:if="{{item.lotteryState=='not_lottery'}}">未开奖</text>
+                        <text class="get" wx:elif="{{item.lotteryState=='lottery'}}">已开奖</text>
+                    </view>
+                    <view class="state-show">
+                        <text class="state" wx:if="{{item.state=='init'}}">未开始</text>
+                        <text class="state green" wx:elif="{{item.state=='starting'}}">进行中</text>
+                        <text class="state" wx:elif="{{item.state=='end'}}">已结束</text> {{item.endTime}} 结束 </view>
+                    <view class="bar">
+                        <view class="zan">
+                            <image src="{{item.page.sponsorImage}}"></image>
+                            <view class="des">{{item.page.sponsorName}}</view>
+                        </view>
+                        <view class="btn already" wx:if="{{item.user.participated}}">已参与</view>
+                        <view class="btn " wx:else>点击参与</view>
+                    </view>
+                </view>
+                <view class="already-get" wx:if="{{item.user.prized}}">
+                    <image src="{{item.page.luckImage}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

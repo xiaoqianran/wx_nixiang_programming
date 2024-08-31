@@ -1,0 +1,1 @@
+@import "/common/reset.wxss";camera{height:250px}.preview-tips{margin:10px 0;text-align:center}.photo,.video{margin-top:25px;width:100%}.first-btn,form{margin-top:15px}.weui-cell__bd{align-items:center;display:-webkit-flex;display:flex;justify-content:flex-start;min-height:30px;padding:10px 0}.info-container{margin:12px;text-align:center}

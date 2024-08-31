@@ -1,0 +1,18 @@
+<view bind:tap="onClick" class="custom-class {{utils.bem( 'slider',{disabled:disabled,vertical:vertical} )}}" style="{{wrapperStyle}}">
+    <view class="{{utils.bem('slider__bar')}}" style="{{barStyle}}; {{style( {backgroundColor:activeColor} )}}">
+        <view bind:touchcancel="onTouchEnd" bind:touchend="onTouchEnd" bind:touchstart="onTouchStart" catch:touchmove="onTouchMove" class="{{utils.bem('slider__button-wrapper-left')}}" data-index="{{0}}" wx:if="{{range}}">
+            <slot name="left-button" wx:if="{{useButtonSlot}}"></slot>
+            <view class="{{utils.bem('slider__button')}}" wx:else></view>
+        </view>
+        <view bind:touchcancel="onTouchEnd" bind:touchend="onTouchEnd" bind:touchstart="onTouchStart" catch:touchmove="onTouchMove" class="{{utils.bem('slider__button-wrapper-right')}}" data-index="{{1}}" wx:if="{{range}}">
+            <slot name="right-button" wx:if="{{useButtonSlot}}"></slot>
+            <view class="{{utils.bem('slider__button')}}" wx:else></view>
+        </view>
+        <view bind:touchcancel="onTouchEnd" bind:touchend="onTouchEnd" bind:touchstart="onTouchStart" catch:touchmove="onTouchMove" class="{{utils.bem('slider__button-wrapper')}}" wx:if="{{!range}}">
+            <slot name="button" wx:if="{{useButtonSlot}}"></slot>
+            <view class="{{utils.bem('slider__button')}}" wx:else></view>
+        </view>
+    </view>
+</view>
+<wxs module="utils" src="../wxs/utils.wxs"/>
+<wxs module="style" src="../wxs/style.wxs"/>

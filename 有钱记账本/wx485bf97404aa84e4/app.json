@@ -1,0 +1,52 @@
+{
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#6190E8",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "屎记",
+        "pagePath": "pages/index/index",
+        "iconPath": "asset/a.png",
+        "selectedIconPath": "asset/a_active.png"
+      },
+      {
+        "text": "小组",
+        "pagePath": "pages/group/index",
+        "iconPath": "asset/b.png",
+        "selectedIconPath": "asset/b_active.png"
+      },
+      {
+        "text": "统计",
+        "pagePath": "pages/statistics/index",
+        "iconPath": "asset/d.png",
+        "selectedIconPath": "asset/d_active.png"
+      },
+      {
+        "text": "设置",
+        "pagePath": "pages/setting/index",
+        "iconPath": "asset/setting.png",
+        "selectedIconPath": "asset/setting_active.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/group/index",
+    "pages/newGroup/index",
+    "pages/setting/index",
+    "pages/joinGroup/index",
+    "pages/feedBack/index",
+    "pages/statistics/index",
+    "pages/analyzeList/index",
+    "pages/analyzeDetail/index",
+    "pages/forbes/index"
+  ]
+}

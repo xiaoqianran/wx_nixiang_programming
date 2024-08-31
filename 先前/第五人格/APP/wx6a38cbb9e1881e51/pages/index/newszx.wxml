@@ -1,0 +1,13 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" iconTheme="black" title="官方资讯"></navBar>
+<view class="container">
+    <view class="page page_med">
+        <view class="twice">
+            <news-list newsList="{{newsList}}" wxToken="{{wxToken}}" wx:if="{{newsList&&newsList.length&&listNull}}"></news-list>
+            <view class="list-null" wx:elif="{{listNull}}"> 暂没有发布的资讯话题 </view>
+        </view>
+    </view>
+    <bottom-dh active="1"></bottom-dh>
+    <view wx:if="{{!videoHidden}}">
+        <video-play bind:callHideVideo="callHideVideo" videoSrc="{{videoSrc}}" wxToken="{{wxToken}}"></video-play>
+    </view>
+</view>

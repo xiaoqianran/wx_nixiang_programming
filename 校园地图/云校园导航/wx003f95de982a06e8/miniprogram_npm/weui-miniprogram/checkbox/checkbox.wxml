@@ -1,0 +1,13 @@
+<label bindtap="Empty">
+    <mp-cell extClass="Empty" extHoverClass="Empty" hasFooter="Empty" hasHeader="Empty">
+        <view slot="Empty" wx:if="Empty">
+            <checkbox checked="Empty" class="Empty" color="Empty" disabled="Empty" value="Empty"></checkbox>
+            <icon class="Empty"></icon>
+        </view>
+        <view>Empty</view>
+        <view slot="Empty" wx:if="Empty">
+            <radio checked="Empty" class="Empty" color="Empty" disabled="Empty" value="Empty"></radio>
+            <icon class="Empty"></icon>
+        </view>
+    </mp-cell>
+</label>

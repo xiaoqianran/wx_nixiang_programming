@@ -1,0 +1,19 @@
+<view class="uni-collapse-item">
+    <view bindtap="{{i}}" class="{{['uni-collapse-item__title',j&&'is-open',k&&'uni-collapse-item-border']}}">
+        <view class="uni-collapse-item__title-wrap">
+            <slot name="title" wx:if="{{$slots.title}}"></slot>
+            <view class="{{['uni-collapse-item__title-box',d&&'is-disabled']}}" wx:else>
+                <image class="uni-collapse-item__title-img" src="{{b}}" wx:if="{{a}}"></image>
+                <text class="uni-collapse-item__title-text">{{c}}</text>
+            </view>
+        </view>
+        <view class="{{[g&&'uni-collapse-item__title-arrow-active',h&&'uni-collapse-item--animation','uni-collapse-item__title-arrow']}}" wx:if="{{e}}">
+            <uni-icons bind:__l="__l" uI="0a5e2af1-0" uP="{{f}}" wx:if="{{f}}"></uni-icons>
+        </view>
+    </view>
+    <view class="{{['uni-collapse-item__wrap',o&&'is--transition']}}" style="{{'height:'+p}}">
+        <view class="{{['uni-collapse-item__wrap-content',m&&'open',n&&'uni-collapse-item--border']}}" id="{{l}}" ref="collapse--hook">
+            <slot></slot>
+        </view>
+    </view>
+</view>

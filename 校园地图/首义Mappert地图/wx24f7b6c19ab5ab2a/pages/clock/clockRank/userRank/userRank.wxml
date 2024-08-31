@@ -1,0 +1,90 @@
+<view class="topbar fill" style="height: {{navBarHeight}}px; {{navFixed?'background-color: var(--Foreground-Primary);':''}}">
+    <view class="topbar-title H3 fill {{navFixed?'font--white':''}}" style="{{middlePlace}}">{{placeName}}</view>
+    <image bind:tap="backPage" class="topbar-icon" mode="" src="{{navFixed?svgPathList.topbarWhite:svgPathList.topbarBlack}}" style="{{middlePlace}}"></image>
+</view>
+<view class="canvas">
+    <image class="canvas-background fill" mode="" src="{{canvasUrl}}"></image>
+</view>
+<view class="nav fill" data-theme="SMP" style="{{navFixed?navFixed:'background-color: #8F7053'}}">
+    <view class="nav-span"></view>
+    <image class="nav-lawn fill" mode="" src="{{pngUrlList.navLawn}}"></image>
+    <view class="nav-title flex-spacebetween">
+        <view class="H3 font--white">用户排名-第{{currentCycle+1}}期</view>
+        <view bind:tap="openRulesDialog" class="nav-rules flex-spacebetween">
+            <view class="Button-Label font--white">排行规则</view>
+            <image class="small" mode="" src="{{pngUrlList.questionMark}}"></image>
+        </view>
+    </view>
+</view>
+<view class="nav-fill fill" hidden="{{!navFixed}}"></view>
+<view bind:tap="tapUserCard" class="flex-spacebetween fill card {{index%2==0?'card-background--dark':'card-background--light'}}" wx:for="{{userRankList}}" wx:key="index">
+    <view class="flex-center">
+        <view class="card-rank flex-center Button-Label font--white">
+            <image class="rank-icon" mode="aspectFill" src="{{index==0?pngUrlList.rankTop1:index==1?pngUrlList.rankTop2:pngUrlList.rankTop3}}" wx:if="{{index<3}}"></image>
+            <block wx:else> {{index+1}} </block>
+        </view>
+        <view class="card-box flex-center">
+            <image class="card-box__photo" mode="aspectFit" src="{{item.image}}"></image>
+        </view>
+        <view class="card-name">
+            <view class="Paragraphs1 font--white">{{item.username}}</view>
+            <view class="card-rewarded flex-center" hidden="{{index>2||index<0||id!=0}}">
+                <image class="gift" mode="" src="{{pngUrlList.rewardedGift}}"></image>
+                <view class="Paragraphs3 font--white flex-center">抽奖+{{index==0?3:index==1?2:1}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="flex stretch card-num">
+        <image class="card-lightning" mode="" src="{{pngUrlList.lightning}}"></image>
+        <view class="user-num Paragraphs1 font--white">{{item.clockNum}}次</view>
+    </view>
+</view>
+<view class="card"></view>
+<view class="flex-center" hidden="{{userRankList.length>0}}">
+    <image class="empty" mode="" src="http://introduce.mcdd.top/sp-web-imageBank-202407280407-kcak02.png"></image>
+</view>
+<view bind:tap="openDialog" class="login {{!uid?'flex':'flex-spacebetween'}}" data-theme="SMP">
+    <block wx:if="{{uid}}">
+        <view class="flex-center">
+            <view class="flex-center Button-Label font--white">
+                <image class="rank-icon" mode="aspectFill" src="{{userIndex==0?pngUrlList.rankTop1:userIndex==1?pngUrlList.rankTop2:pngUrlList.rankTop3}}" wx:if="{{userIndex<3&&userIndex>=0}}"></image>
+                <block wx:else>
+                    <view class="rank-icon flex-center" wx:if="{{userInfo!=undefined&&userIndex!=-1}}">{{userIndex}}</view>
+                    <view wx:else>未上榜</view>
+                </block>
+            </view>
+            <view class="card-box flex-center">
+                <image class="card-box__photo" mode="aspectFit" src="{{userInfo.image}}"></image>
+            </view>
+            <view class="font--white">
+                <view class="Paragraphs1">{{userInfo.username}}</view>
+                <view class="Paragraphs2 font--gray">{{uid}}</view>
+            </view>
+        </view>
+        <view class="flex stretch card-num">
+            <image class="card-lightning" mode="" src="{{pngUrlList.lightning}}"></image>
+            <view class="Paragraphs1 font--white">{{userInfo.clockNum}}次</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="login-box">
+            <image class="card-box__photo" mode="" src="{{pngUrlList.mapLogo}}"></image>
+        </view>
+        <view class="Paragraphs1 font--white flex-center">未登录（点击登录）</view>
+    </block>
+</view>
+<TDS-dialog headTitle="此功能只能微信授权后使用哦~" layout="left" showDialog="{{showDialog}}" subTitle="微信授权后解锁全部功能">
+    <view class="fill flex-spacebetween" slot="button">
+        <TDS-button Label="取消" Size="medium" bind:tap="closeDialog" buttonStyle="tertiary" class="dialog-button"></TDS-button>
+        <TDS-button Label="授权" Size="medium" bind:tap="jumpToLogin" class="dialog-button"></TDS-button>
+    </view>
+</TDS-dialog>
+<view catch:touchmove="true" class="flex-center mask" data-theme="SMP" wx:if="{{isRuleDialog}}">
+    <view class="rule">
+        <view class="H3 fill flex-center">排行规则</view>
+        <view class="rule-content">
+            <text class="Paragraphs1">{{ruleText}}</text>
+        </view>
+        <TDS-button Label="我知道了" bind:tap="closeDialog"></TDS-button>
+    </view>
+</view>

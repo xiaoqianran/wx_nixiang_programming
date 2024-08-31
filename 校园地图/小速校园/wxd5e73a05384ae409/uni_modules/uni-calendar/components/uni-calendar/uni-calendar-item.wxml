@@ -1,0 +1,8 @@
+<view bindtap="{{G}}" class="{{['uni-calendar-item__weeks-box','data-v-5a374cbc',C&&'uni-calendar-item--disable',D&&'uni-calendar-item--isDay',E&&'uni-calendar-item--checked',F&&'colorWhite']}}">
+    <view class="uni-calendar-item__weeks-box-item data-v-5a374cbc">
+        <text class="{{['uni-calendar-item__weeks-box-text','data-v-5a374cbc',b&&'uni-calendar-item--isDay-text',c&&'colorRed',d&&'colorWhite',e&&'uni-calendar-item--isDay',f&&'uni-calendar-item--checked',g&&'uni-calendar-item--disable']}}">{{a}}</text>
+        <text class="{{['uni-calendar-item__weeks-lunar-text','data-v-5a374cbc',j&&'colorWhite',k&&'uni-calendar-item--isDay-text',l&&'uni-calendar-item--isDay',m&&'uni-calendar-item--checked']}}" wx:if="{{h}}">{{i}}</text>
+        <text class="{{['uni-calendar-item__weeks-lunar-text','data-v-5a374cbc',p&&'uni-calendar-item--isDay-text',q&&'uni-calendar-item--isDay',r&&'uni-calendar-item--checked',s&&'uni-calendar-item--disable',t&&'colorRed']}}" wx:if="{{n}}">{{o}}</text>
+        <text class="{{['uni-calendar-item__weeks-lunar-text','data-v-5a374cbc',x&&'uni-calendar-item--isDay-text',y&&'uni-calendar-item--isDay',z&&'uni-calendar-item--extra',A&&'uni-calendar-item--checked',B&&'uni-calendar-item--disable']}}" wx:if="{{v}}">{{w}}</text>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="pop-dh2">
+        <view class="inner">
+            <view class="inputbox">
+                <text class="left">姓名：</text>
+                <input bindinput="nameVal" class="input" maxlength="20" placeholder="请输入收货人姓名" placeholderClass="phcolor" type="text" value="{{addressInfo.name}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">电话：</text>
+                <input bindinput="telVal" class="input" maxlength="11" placeholder="请输入收货人电话" placeholderClass="phcolor" type="number" value="{{addressInfo.phoneNo}}"></input>
+            </view>
+            <view class="inputbox">
+                <text class="left">地区：</text>
+                <picker bindchange="bindRegionChange" class="picker" customItem="{{customItem}}" mode="region" value="{{region}}">
+                    <view>{{region[0]}} {{region[1]}} {{region[2]}}</view>
+                </picker>
+            </view>
+            <view class="inputbox big">
+                <text class="left">详细地址：</text>
+                <textarea adjustPosition="{{false}}" bindinput="addressVal" class="textarea" maxlength="100" placeholder="请输入详细地址" placeholderClass="phcolor2" showConfirmBar="{{false}}" type="text" value="{{addressInfo.detailedAddress}}"></textarea>
+            </view>
+        </view>
+    </view>
+    <view class="bottomBar">
+        <view bindtap="priceDh" class="submit">提交</view>
+    </view>
+</view>

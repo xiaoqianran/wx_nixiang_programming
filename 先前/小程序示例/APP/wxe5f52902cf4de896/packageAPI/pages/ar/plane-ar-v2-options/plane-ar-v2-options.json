@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "平面AR附加能力",
+  "disableScroll": true,
+  "renderer": "webview"
+}

@@ -1,0 +1,1 @@
+var n=require("../../../../../util/util");Page({data:{list:(0,n.generateList)(20)},back:function(){wx.navigateBack({})},onLoad:function(n){},onReady:function(){},onShow:function(){},onHide:function(){},onUnload:function(){},onPullDownRefresh:function(){},onReachBottom:function(){},onShareAppMessage:function(){}});

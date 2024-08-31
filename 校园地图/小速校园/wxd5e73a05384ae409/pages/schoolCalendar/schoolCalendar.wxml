@@ -1,0 +1,32 @@
+<view class="box">
+    <uni-calendar bind:__l="__l" uI="0ede5bc3-0" uP="{{a}}" wx:if="{{a}}"></uni-calendar>
+    <view class="schoolCalendar-tips">
+        <view>小速贴士：</view>
+        <view style="text-align:center;font-weight:700">2024-2025-1</view>
+        <view style="margin-left:10px;font-weight:700">一、教职工</view>
+        <view style="margin-left:25px">干部职工9月5日开始上班，教师9月6日回校报到。</view>
+        <view style="margin-left:10px;font-weight:700">二、普教本科生</view>
+        <view style="margin-left:25px">)2021-2023级学生和2024级专升本学生9月7-8日报到注册，9月9日正式上课，第1-16周授课，第17-18 周期末集中考试</view>
+        <view style="margin-left:25px"> (二)2024 级学生(不含专升本学生)9月7-8日报到，9月9-14日集中入学教育共5天,9月18日正式上课。第 2-16 周授课，第17周期末集中考试.2024 级学生军训时间为第18-19周。</view>
+        <view style="margin-left:10px;font-weight:700">三、硕士研究生</view>
+        <view style="margin-left:25px">（一）2022-2023级全日制学生9月6日报到注册;非全日制学生9月7日报到注册。第1-16周授课，第17周期末集中考试。</view>
+        <view style="margin-left:25px">（二）2024级全日制新生9月9-10日报到，开学第一周入学教育;2024级非全日制新生9月15日报到。第2-17 周授课，第18周期末集中考试。</view>
+        <view style="margin-left:10px;font-weight:700">四、毕业工作安排</view>
+        <view style="margin-left:25px">(一)学位评定委员会第18周召开。</view>
+    </view>
+    <view class="schoolCalendar-tips">
+        <view>小速贴士：</view>
+        <view style="text-align:center;font-weight:700">2024-2025-2</view>
+        <view style="margin-left:10px;font-weight:700">一、教职工</view>
+        <view style="margin-left:25px">干部职工2月27日开始上班，教师2月28日回校报到。</view>
+        <view style="margin-left:10px;font-weight:700">二、普教本科生</view>
+        <view style="margin-left:25px">（一）3月1-2日报到注册，3月3日正式上课。</view>
+        <view style="margin-left:25px"> （二）第1-16周授课，第17周复习、第18周期末集中考试,第19周2023级学生进行思想政治综合实践，2022、2023级学生进行湾区经济与社会调查。</view>
+        <view style="margin-left:10px;font-weight:700">三、硕士研究生</view>
+        <view style="margin-left:25px">（一）全日制学生2月28日报到注册，非全日制学生3月1日报到注册。</view>
+        <view style="margin-left:25px">（二）3月3日正式上课，第1-16周授课，第17周期末集中考试。</view>
+        <view style="margin-left:10px;font-weight:700">四、毕业工作安排</view>
+        <view style="margin-left:25px">（一）学位评定委员会第16周召开。</view>
+        <view style="margin-left:25px">（二）2025年毕业典礼6月下旬举行。</view>
+    </view>
+</view>

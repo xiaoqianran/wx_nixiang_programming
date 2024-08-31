@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "全部权益",
+  "navigationBarBackgroundColor": "#FFF",
+  "enablePullDownRefresh": true,
+  "componentPlaceholder": {
+    "c": "_"
+  }
+}

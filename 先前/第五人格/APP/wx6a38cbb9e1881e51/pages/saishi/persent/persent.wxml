@@ -1,0 +1,10 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" color="#000" iconTheme="black" title="官方赛事"></navBar>
+<view class="container">
+    <view class="page page_med">
+        <news-list newsList="{{newsList}}" wxToken="{{wxToken}}"></news-list>
+    </view>
+    <bottom-dh active="1"></bottom-dh>
+    <view wx:if="{{!videoHidden}}">
+        <video-play bind:callHideVideo="callHideVideo" videoSrc="{{videoSrc}}"></video-play>
+    </view>
+</view>

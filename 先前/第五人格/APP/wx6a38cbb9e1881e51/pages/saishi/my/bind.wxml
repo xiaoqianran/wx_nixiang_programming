@@ -1,0 +1,69 @@
+<view class="container">
+    <view catchtouchmove="{{true}}" class="pop pop-zz {{bindPopShow||bindTipsPopShow||firstBindPopShow?'on':''}}"></view>
+    <view catchtouchmove="{{true}}" class="pop pop-bind {{bindPopShow?'on':''}} {{sbex?'sbex':''}}">
+        <image bindtap="closeBind" class="close" src="{{imgUrl}}/user/close.png" wx:if="{{!hideClose}}"></image>
+        <view class="inner">
+            <view class="tit" wx:if="{{!sbex}}">
+                <text>首次绑定游戏角色，100%必得</text>
+                <text class="pa">【58线索和1天奇珍时装体验卡】</text>
+            </view>
+            <view class="tit" wx:else>
+                <text>绑定游戏角色</text>
+            </view>
+            <view class="select">
+                <input alwaysEmbed="{{true}}" bindinput="idVal" class="select_input" maxlength="30" placeholder="请输入游戏ID" type="number" value="{{idVal}}"></input>
+            </view>
+            <view class="select pa">
+                <input alwaysEmbed="{{true}}" bindinput="codeVal" class="select_input" maxlength="20" placeholder="请输入绑定码" type="text" value="{{codeVal}}"></input>
+            </view>
+            <view class="btns">
+                <view bindtap="inputClear" class="re">
+                    <text>重 置</text>
+                </view>
+                <view bindtap="bindInit" class="bind">
+                    <text>绑 定</text>
+                </view>
+            </view>
+            <view bindtap="showBindTips" class="bindtips">绑定码获取教程</view>
+        </view>
+    </view>
+    <view class="pop pop-bindTips {{bindTipsPopShow?'on':''}}">
+        <image bindtap="closeBindTips" class="close" src="{{imgUrl}}/user/close.png"></image>
+        <view class="tit">内容说明</view>
+        <view class="line"></view>
+        <view class="inner">
+            <text>1. 游戏内点击设置→安全→绑定码</text>
+            <image bindtap="previewImage" class="pic" data-src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/pic1.jpg" mode="widthFix" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/pic1.jpg"></image>
+            <text>2. 复制小程序绑定码，返回小程序进行绑定即可</text>
+            <text class="str">注意绑定过程中不要退出游戏/关闭绑定界面，否则绑定码将会失效</text>
+            <image bindtap="previewImage" class="pic" data-src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/pic2.jpg" mode="widthFix" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/pic2.jpg"></image>
+            <text>3. 如需解除绑定，则点击绑定码，选择角色进行解绑即可</text>
+            <image bindtap="previewImage" class="pic" data-src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/pic3.jpg" mode="widthFix" src="https://nie.res.netease.com/id5/m/zt/20201215094138/data/active/pic3.jpg"></image>
+        </view>
+        <view bindtap="closeBindTips" class="yes">确 认</view>
+    </view>
+    <view class="pop pop-firstBind {{firstBindPopShow?'on':''}}">
+        <image bindtap="closeFirstBindPop" class="close" src="{{imgUrl}}/user/close.png" wx:if="{{!hideClose}}"></image>
+        <view class="inner">
+            <view class="tit">
+                <text>恭喜获得58线索和1天奇珍时装体验卡！</text>
+                <text class="pa">（奖励48小时内将以游戏邮件形式发送）</text>
+            </view>
+            <view class="inblock">
+                <view class="_in">
+                    <view class="img img1"></view>
+                    <view class="des">58线索</view>
+                </view>
+                <view class="_in">
+                    <view class="img img2"></view>
+                    <view class="des">1天奇珍时装体验卡</view>
+                </view>
+            </view>
+            <view class="btns">
+                <view bindtap="closeFirstBindPop" class="jump">
+                    <text>确定</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

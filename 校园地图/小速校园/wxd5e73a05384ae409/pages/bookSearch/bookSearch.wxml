@@ -1,0 +1,65 @@
+<view class="top">
+    <uni-card bind:__l="__l" uI="700da4e3-0" uP="{{a}}" uS="{{['d']}}" wx:if="{{a}}">
+        <view>*数据源自图书馆书目检索系统，请到对应区域以索书号寻书，借阅书籍需携带学生卡到服务台借阅。</view>
+        <view>电子书直接复制链接到浏览器即可阅读。</view>
+    </uni-card>
+    <view class="search">
+        <view class="search-input-wrapper">
+            <picker bindchange="{{d}}" class="search-picker" range="{{e}}" value="{{f}}">
+                <label class="picker-content">{{b}} <uni-icons bind:__l="__l" style="margin-left:5rpx" uI="700da4e3-1" uP="{{c}}" wx:if="{{c}}"></uni-icons>
+                </label>
+            </picker>
+            <input bindinput="{{g}}" class="search-input" placeholder="请输入搜索内容" type="text"></input>
+            <uni-icons bind:__l="__l" bindclick="{{h}}" uI="700da4e3-2" uP="{{i}}" wx:if="{{i}}"></uni-icons>
+        </view>
+    </view>
+</view>
+<view class="body">
+    <view wx:for="{{j}}" wx:key="l">
+        <view class="list">
+            <view class="list-top">
+                <view class="list-left">
+                    <image alt="" class="list-img" mode="widthFix" src="{{item.a}}"></image>
+                </view>
+                <view class="list-body">
+                    <view class="list-title">{{item.b}}</view>
+                    <view class="list-detail">
+                        <view class="p callNo bold" wx:if="{{item.c}}">{{item.d}}</view>
+                        <view class="p">{{item.e}}/{{item.f}}</view>
+                        <view class="p">{{item.g}}</view>
+                        <view class="p list-tip">{{item.h}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="list-bottom">
+                <view class="list-holdings">
+                    <uni-collapse bind:__l="__l" uI="{{item.j}}" uS="{{['d']}}">
+                        <uni-collapse-item bind:__l="__l" uI="{{item1.g}}" uP="{{item1.h}}" uS="{{['title','d']}}" wx:for="{{item.i}}" wx:for-item="item1" wx:key="f">
+                            <view slot="title" style="margin-bottom:10rpx;line-height:30px">
+                                <uni-tag bind:__l="__l" uI="{{item1.a}}" uP="{{k}}" wx:if="{{k}}"></uni-tag>
+                                <text style="margin-left:10rpx">{{item1.b}}</text>
+                            </view>
+                            <view class="content">
+                                <view>条码号：{{item1.c}}</view>
+                                <view class="bold">索书号：{{item1.d}}</view>
+                                <view>状态：{{item1.e}}</view>
+                            </view>
+                        </uni-collapse-item>
+                    </uni-collapse>
+                </view>
+                <view class="list-holdings">
+                    <view class="eholadings">
+                        <view bindtap="{{item1.f}}" title="{{item1.d}}" wx:for="{{item.k}}" wx:for-item="item1" wx:key="e">
+                            <view slot="title" style="margin-bottom:10rpx">
+                                <uni-tag bind:__l="__l" uI="{{item1.a}}" uP="{{l}}" wx:if="{{l}}"></uni-tag>
+                                <uni-tag bind:__l="__l" uI="{{item1.b}}" uP="{{m}}" wx:if="{{m}}"></uni-tag>
+                                <text style="margin-left:10rpx">{{item1.c}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<kevy-empty bind:__l="__l" uI="700da4e3-8" uP="{{n}}" wx:if="{{n}}"></kevy-empty>

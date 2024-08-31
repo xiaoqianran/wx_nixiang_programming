@@ -1,0 +1,21 @@
+<view class="main main-search">
+    <view class="bar search bg-white">
+        <view class="search-form round">
+            <text class="icon-search"></text>
+            <input bindconfirm="bindSearchConfirm" confirmType="search" maxlength="20" value="{{search}}" placeholder="请输入搜索内容" type="text"></input>
+            <text bindtap="bindClearKeyTap" class="icon-roundclosefill text-l text-gray clear" wx:if="{{search.length>0}}"></text>
+        </view>
+        <view class="action">
+            <button bindtap="url" class="btn {{source=='admin'?'bg-admin':'bg-project'}} text-white shadow-blur round" data-type="back">返回</button>
+        </view>
+    </view>
+    <view class="his">
+        <view class="title">
+            <view class="tit">历史记录</view>
+            <text bindtap="bindDelHisTap" class="del text-small icon-delete"></text>
+        </view>
+        <view class="search-content">
+            <view bindtap="bindKeyTap" class="btn mid  round text-darkgreen" data-key="{{item}}" wx:for="{{hisKeys}}" wx:key="key">{{item}}</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,4 @@
+<topBar back="{{true}}" title="{{place}}" titleColor="rgba-black">
+    <pano autoinit="{{false}}" bind:touchmove="touchmove" entryid="{{entrypanoid}}" entryname="{{entrypanoname}}" height="240" key="{{key}}" panolist="{{panolist}}" width="320"></pano>
+    <toast id="toast"></toast>
+</topBar>

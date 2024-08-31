@@ -1,0 +1,51 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" id="navBar" title="全服角色数据榜"></navBar>
+<view class="container">
+    <view class="swichTab">
+        <view bindtap="chType" class="tabjgz {{viewType==1?'':'hide'}}" data-index="1"></view>
+        <view bindtap="chType" class="tabqsz {{viewType==2?'on':''}}" data-index="2"></view>
+    </view>
+    <view class="tierBox">
+        <view bindtap="allDw" class="tierItem {{tierIndex<0?'on':''}}">全部段位</view>
+        <view class="tierList">
+            <view class="navs" wx:for="{{tiersList}}" wx:key="index">
+                <view bindtap="switchDw" class="navItem {{tierIndex===index?'choose':''}}" data-info="{{index}}" data-key="{{item.key}}">
+                    <image src="{{tiersPic1[index]}}" wx:if="{{viewType==1}}"></image>
+                    <image src="{{tiersPic2[index]}}" wx:if="{{viewType==2}}"></image> {{item.name}} </view>
+            </view>
+        </view>
+    </view>
+    <view class="typeBox" wx:if="{{viewType==2}}">
+        <view bindtap="alltype" class="typeItem {{dataIndex<0?'on':''}}">全部定位</view>
+        <view class="types">
+            <view bindtap="switchDw2" class="type typejy {{dataIndex==0?'on':''}}" data-index="0"></view>
+            <view bindtap="switchDw2" class="type typeqz {{dataIndex==1?'on':''}}" data-index="1"></view>
+            <view bindtap="switchDw2" class="type typepy {{dataIndex==2?'on':''}}" data-index="2"></view>
+            <view bindtap="switchDw2" class="type typefz {{dataIndex==3?'on':''}}" data-index="3"></view>
+        </view>
+    </view>
+    <view class="tips1">*数据范围：{{start_time[0]}}年{{start_time[1]}}月{{start_time[2]}}日-{{end_time[0]}}年{{end_time[1]}}月{{end_time[2]}}日国服对应段位数据</view>
+    <view class="list {{viewType==2?'pa':''}}">
+        <view class="rolelist-sort">
+            <view class="role">角色</view>
+            <view class="sort {{sortClass}}">
+                <view bindtap="handlerSort" class="sort-item {{sortName==='use_rate'?'use_rate':''}}" data-index="1" data-name="use_rate"> 出场率 </view>
+                <view bindtap="handlerSort" class="sort-item win {{sortName==='win_rate'?'win_rate':''}}" data-index="2" data-name="win_rate"> 胜率 </view>
+                <view bindtap="handlerSort" class="sort-item {{sortName==='ping_rate'?'ping_rate':''}}" data-index="3" data-name="ping_rate"> 平率 </view>
+                <view bindtap="handlerSort" class="sort-item ban {{sortName==='ban_rate'?'ban_rate':''}}" data-index="5" data-name="ban_rate"> 禁用率 </view>
+            </view>
+        </view>
+        <view class="rolelist">
+            <view bindtap="goRole" class="list-item" data-campid="{{item.camp_id}}" data-id="{{item.hero_id}}" wx:for="{{newroleData}}" wx:key="index">
+                <view class="role-icon" data-index="{{item.hero_id}}">
+                    <image mode="widthFix" src="{{imgUrl}}/vsrecord/headimg2/{{item.hero_id}}.jpg"></image>
+                </view>
+                <view class="role-name">{{item.name}}</view>
+                <view class="rate rate1 {{sortName==='use_rate'?'fontColor':''}}">{{item.use_rate}}%</view>
+                <view class="rate rate2 {{sortName==='win_rate'?'fontColor':''}}">{{item.win_rate}}%</view>
+                <view class="rate rate3 {{sortName==='ping_rate'?'fontColor':''}}">{{item.ping_rate}}%</view>
+                <view class="rate rate3 {{sortName==='ban_rate'?'fontColor':''}}">{{item.ban_rate}}%</view>
+            </view>
+        </view>
+    </view>
+</view>
+<bind-user bindCustomClose="handleBind" bindCustomReject="handleCustomReject" bindbindCol="bindCol" thisPage="pages_user/pages/rank/index" visible="{{!bindUserVisible}}"></bind-user>

@@ -1,0 +1,13 @@
+<view ariaModal="Empty" class="Empty" tabindex="Empty" wx:if="Empty">
+    <view class="Empty">Empty</view>
+    <swiper autoplay="Empty" bindchange="Empty" bindtap="Empty" class="Empty" current="Empty" duration="Empty" indicatorDots="Empty">
+        <swiper-item wx:for="Empty" wx:key="index">
+            <image class="Empty" mode="Empty" src="Empty"></image>
+        </swiper-item>
+    </swiper>
+    <view class="Empty" wx:if="Empty">
+        <view ariaLabel="Empty" ariaRole="Empty" bindtap="Empty" class="Empty" hoverClass="Empty">
+            <i class="Empty"></i>
+        </view>
+    </view>
+</view>

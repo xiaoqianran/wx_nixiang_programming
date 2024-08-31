@@ -1,0 +1,9 @@
+<view class="t-content data-v-7911a894">
+    <view class="{{['data-v-7911a894','t-wh',i]}}">
+        <view class="t-empty data-v-7911a894" wx:if="{{a}}">
+            <image class="t-icon data-v-7911a894" src="{{b}}" style="{{'width:'+c+';'+'height:'+d}}"></image>
+            <view class="t-text data-v-7911a894" style="{{'color:'+g+';'+'font-size:'+h}}" wx:if="{{e}}">{{f}}</view>
+        </view>
+        <slot></slot>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+<van-search background="#0081ff" bind:search="search" inputAlign="center" placeholder="请输入搜索关键词" value="{{value}}"></van-search>
+<view class="ci">目前的词条：{{pp}}</view>
+<view class="ci2">-------------------------------修改后的词条-------------------------------</view>
+<form bindsubmit="submit">
+    <textarea class="containe" name="detail" placeholder="{{pp}}" style="height: 500rpx;width: 100%;position: fixed;margin-top: 40rpx;" type="text"></textarea>
+    <button class="button" formType="submit" size="default" type="primary"> 提交 </button>
+</form>

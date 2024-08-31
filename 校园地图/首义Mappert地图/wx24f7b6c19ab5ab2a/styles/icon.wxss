@@ -1,0 +1,1 @@
+.large-XL{height:52rpx;width:52rpx}.large,.large-XL{flex-shrink:0}.large{height:48rpx;width:48rpx}.medium{height:44rpx;width:44rpx}.medium,.small{flex-shrink:0}.small{height:36rpx!important;width:36rpx!important}.mini{height:32rpx;width:32rpx}.close,.mini{flex-shrink:0}.close{height:20rpx;width:20rpx}

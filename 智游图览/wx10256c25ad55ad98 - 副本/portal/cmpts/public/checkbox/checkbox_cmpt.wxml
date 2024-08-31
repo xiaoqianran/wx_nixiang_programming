@@ -1,0 +1,8 @@
+<checkbox-group bindchange="bindChange" class="checkbox-group">
+    <view class="item" wx:for="{{sourceData}}" wx:key="key">
+        <label class="item-label">
+            <checkbox checked="{{tools.includes(itemMulti,item)}}" class="item-checkbox" disabled="{{disabled}}" value="{{item}}"></checkbox>
+            <text>{{item}}</text>
+        </label>
+    </view>
+</checkbox-group>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "购物车",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "componentPlaceholder": {
+    "g": "_",
+    "h": "_"
+  }
+}

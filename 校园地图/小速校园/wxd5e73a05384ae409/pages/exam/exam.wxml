@@ -1,0 +1,29 @@
+<view class="page">
+    <uni-card bind:__l="__l" uI="7f164a23-0" uP="{{a}}" uS="{{['d']}}" wx:if="{{a}}">
+        <view>*数据来自教务系统，仅显示【集中考试】安排，仅供参考，请以教务系统为准。</view>
+        <view>*分散考试(随堂考)由任课老师自主安排，教务系统无相关数据，请注意任课老师通知。</view>
+    </uni-card>
+    <view class="exam-area">
+        <block wx:if="{{b}}">
+            <view wx:for="{{c}}" wx:key="j">
+                <view class="exam-wrapper">
+                    <view class="left">
+                        <view class="top">
+                            <view class="{{['tag',item.b]}}">{{item.a}}</view>
+                            <view class="name">{{item.c}}</view>
+                        </view>
+                        <view class="bottom">({{item.d}}){{item.e}}</view>
+                    </view>
+                    <view class="right">
+                        <view class="top">{{item.f}}</view>
+                        <view class="bottom">
+                            <view>{{item.g}}</view>
+                            <view hidden="{{!item.i}}">准考证号：{{item.h}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <kevy-empty bind:__l="__l" uI="7f164a23-1" uP="{{d}}" wx:if="{{d}}"></kevy-empty>
+</view>

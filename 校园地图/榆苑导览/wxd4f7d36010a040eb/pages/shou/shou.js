@@ -1,0 +1,1 @@
+Page({data:{},tiao:function(){wx.switchTab({url:"../index/index"})},onLoad:function(n){},onReady:function(){},onShow:function(){},onHide:function(){},onUnload:function(){},onPullDownRefresh:function(){},onReachBottom:function(){},onShareAppMessage:function(){}});

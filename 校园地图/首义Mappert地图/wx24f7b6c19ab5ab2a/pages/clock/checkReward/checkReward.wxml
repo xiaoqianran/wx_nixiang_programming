@@ -1,0 +1,42 @@
+<topbar BackIcon="/static/back_white.svg" back="{{true}}" class="topbar fill flex column" immersion="{{true}}" title="{{topbarTitle}}" titleColor="--Foreground-Low">
+    <view class="box--page flex column fill-available">
+        <view class="box--user-info flex-spacebetween">
+            <view class="flex--user-info flex-center">
+                <image mode="" src="{{userInfo.loginHead}}"></image>
+                <view class="text_user-info flex column">
+                    <view class="H3">{{userInfo.uname}}</view>
+                    <view class="Paragraphs1">{{userInfo.userId}}</view>
+                </view>
+            </view>
+            <view class="box--reward flex-center column">
+                <span class="title_reward flex-center">
+                    <image mode="" src="{{svgUrlList.giftFace}}"></image>
+                    <view class="Paragraphs1">奖券数量</view>
+                </span>
+                <view class="num_reward H3"> {{clockReward.length}} </view>
+            </view>
+        </view>
+        <view class="box--history-check fill-available flex column">
+            <view bind:tap="copyButton" class="title_history-check flex-center column">
+                <text class="copy-title_history-check Paragraphs2">点我复制南南微信</text>
+                <text class="tips-title_history-check Paragraphs2">将该页面截图即可作为凭证联系南南兑奖哦~</text>
+            </view>
+            <view class="height--history-check">
+                <view style="border-bottom: 2rpx solid var(--Border-Bounds);" wx:for="{{clockReward}}" wx:key="index">
+                    <TDS-card SubTitle="{{item.source}}" Text2="{{item.type}}*{{item.num}}" showSubTitle="{{true}}" showText1="{{false}}">
+                        <view class="flex-center fit gap8" slot="swap2">
+                            <TDS-tag AdaptiveLabel="{{item.isCashed?'已兑奖':'未兑奖'}}" AdaptiveWidth="{{true}}" Color="{{typeKey[item.isCashed]['backgroundColor']}}_Foreground-High" FixedWidth="{{false}}" IconPath="{{svgUrlList[ typeKey[item.isCashed]['icon'] ]}}" class="fit"></TDS-tag>
+                        </view>
+                        <view class="flex stretch fill gap8" slot="swap3">
+                            <TDS-tag AdaptiveLabel="获取时间：{{item.awardTime}}" AdaptiveWidth="{{true}}" Color="Background-Medium_Foreground-High" FixedWidth="{{false}}" class="fit" showIcon="{{false}}"></TDS-tag>
+                            <TDS-tag AdaptiveLabel="奖券编号：{{item.ref}}" AdaptiveWidth="{{true}}" Color="Background-Medium_Foreground-High" FixedWidth="{{false}}" class="fit" showIcon="{{false}}"></TDS-tag>
+                        </view>
+                        <view class="flex stretch fill " slot="swap4" wx:if="{{item.isCashed}}">
+                            <TDS-tag AdaptiveLabel="兑奖时间：{{item.cashTime}}" AdaptiveWidth="{{true}}" Color="Background-Medium_Foreground-High" FixedWidth="{{false}}" class="fit" showIcon="{{false}}"></TDS-tag>
+                        </view>
+                    </TDS-card>
+                </view>
+            </view>
+        </view>
+    </view>
+</topbar>

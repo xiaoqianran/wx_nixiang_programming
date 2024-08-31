@@ -1,0 +1,76 @@
+<view class="topbar fill" style="height: {{navBarHeight}}px; {{navFixed?'background-color: var(--Foreground-Primary);':''}}">
+    <view class="topbar-title H3 fill" style="{{middlePlace}}">打卡榜单</view>
+    <image bind:tap="backPage" class="topbar-icon" mode="" src="{{topbarBlack}}" style="{{middlePlace}}"></image>
+    <image class="topbar-background fill" mode="" src="{{pngUrlList.navBackground}}" style="height: {{navBarHeight}}px;"></image>
+</view>
+<view class="canvas flex-center" style="height: calc({{navBarHeight}}px + 212rpx);">
+    <image class="canvas-background fill" mode="" src="{{pngUrlList.canvasBackground}}" style="height: calc(100% - {{navBarHeight}}px);"></image>
+    <view class="canvas-box flex">
+        <view class="canvas-liarbry flex-center" wx:for="{{canvasUrlList}}" wx:key="index">
+            <image bind:tap="tabCycle" class="{{item.empty?'canvas-liarbry--lock':'canvas-liarbry--default'}} {{index==currentCycle?'canvas-liarbry--selected':''}}" id="{{index}}" mode="aspectFit" src="{{item.empty?pngUrlList.lock:item.url}}"></image>
+        </view>
+    </view>
+</view>
+<view class="nav fill" data-theme="SMP" style="{{navFixed?navFixed:'background-color: #8F7053;'}}">
+    <view class="nav-span"></view>
+    <image class="nav-lawn fill" mode="" src="{{pngUrlList.navLawn}}"></image>
+    <view class="nav-title flex-spacebetween">
+        <view class="H3 font--white">地点排名-第{{currentCycle+1}}期</view>
+        <view bind:tap="openRulesDialog" class="nav-rules flex-spacebetween">
+            <view class="Button-Label font--white">排行规则</view>
+            <image class="small" mode="" src="{{pngUrlList.questionMark}}"></image>
+        </view>
+    </view>
+    <view class="tips flex-spacebetween">
+        <image class="tips-icon" mode="" src="{{pngUrlList.wink}}"></image>
+        <view class="Paragraphs3">看看都有哪些人在打卡~</view>
+    </view>
+</view>
+<view class="nav-fill fill" hidden="{{!navFixed}}"></view>
+<view bind:tap="jumpToUserRank" class="flex-spacebetween card fill {{index%2==0?'card-background--dark':'card-background--light'}}" data-cycleId="{{item.cycleId}}" data-name="{{item.name}}" id="{{index}}" wx:for="{{rankList}}" wx:key="index">
+    <view class="flex-center">
+        <view class="card-rank flex-center Button-Label font--white">
+            <image class="rank-icon" mode="aspectFill" src="{{index==0?pngUrlList.rankTop1:index==1?pngUrlList.rankTop2:pngUrlList.rankTop3}}" wx:if="{{index<3}}"></image>
+            <block wx:else> {{index+1}} </block>
+        </view>
+        <view class="card-box flex-center">
+            <image class="card-box__photo" mode="aspectFit" src="{{item.url}}"></image>
+        </view>
+        <view class="Paragraphs1 font--white">{{item.name}}</view>
+    </view>
+    <view class="flex-center">
+        <image class="card-lightning" mode="" src="{{pngUrlList.lightning}}"></image>
+        <view class="card-num Paragraphs1 font--white">{{item.num}}次</view>
+        <image class="mini" mode="" src="{{pngUrlList.arrowRight}}"></image>
+    </view>
+</view>
+<view catch:touchmove="true" class="flex-center mask" data-theme="SMP" hidden="{{!isRewarded}}">
+    <view class="dewarded">
+        <view class="dewarded-title">
+            <view class="Paragraphs1 font--black">你是{{clcleNameNew}}榜首地点的贡献榜第{{userRank==1?'一':userRank==2?'二':'三'}}！</view>
+            <view class="H2 font--black"> 获得额外周边抽奖机会*{{userRank==1?3:userRank==2?2:1}} <text class="Paragraphs1 font--gray">{{currentDate}}</text>
+            </view>
+        </view>
+        <view class="flex-center user-info-box column">
+            <image class="user-photo" mode="" src="{{userPhoto}}"></image>
+            <view class="H3 font--black">{{userName}}</view>
+            <view class="Paragraphs1 font--gray">{{uid}}</view>
+        </view>
+        <view class="Paragraphs1">
+            <view class="font--highlight">将该卡片或获奖记录截图</view>
+            <view class="font--gray">点击下方按钮复制南南微信</view>
+            <view class="font--gray">就可以联系南南前往抽奖啦~</view>
+        </view>
+        <TDS-button Label="点击复制南南微信" Size="large" bind:tap="copyWeiChat" class="fill"></TDS-button>
+        <TDS-button Label="我知道了" Size="large" bind:tap="closeDialog" buttonStyle="tertiary" class="fill" data-id="{{clcleName}}"></TDS-button>
+    </view>
+</view>
+<view catch:touchmove="true" class="flex-center mask" data-theme="SMP" wx:if="{{isRuleDialog}}">
+    <view class="rule">
+        <view class="H3 fill flex-center">排行规则</view>
+        <view class="rule-content">
+            <text class="Paragraphs1 font--gray">{{ruleText}}</text>
+        </view>
+        <TDS-button Label="我知道了" bind:tap="closeDialog"></TDS-button>
+    </view>
+</view>

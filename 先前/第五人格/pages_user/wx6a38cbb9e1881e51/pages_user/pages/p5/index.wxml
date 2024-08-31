@@ -1,0 +1,3 @@
+<view class="wrap">
+    <view bindtap="subscribe" class="btn"></view>
+</view>

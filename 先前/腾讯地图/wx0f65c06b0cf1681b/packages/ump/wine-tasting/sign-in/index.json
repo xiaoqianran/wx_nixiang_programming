@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "签到",
+  "navigationBarBackgroundColor": "#FFF",
+  "backgroundColor": "#FFF",
+  "componentPlaceholder": {
+    "a": "_",
+    "b": "_"
+  }
+}

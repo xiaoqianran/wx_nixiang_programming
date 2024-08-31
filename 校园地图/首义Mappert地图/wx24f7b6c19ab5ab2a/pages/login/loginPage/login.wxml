@@ -1,0 +1,21 @@
+<TDS-topbar returnButton="{{false}}" title="{{loginTitle}}">
+    <view class="bg_icon flex fill">
+        <view class="bg_icon_image flex column">
+            <image mode="aspectFit" src="https://big-event-xxz.oss-cn-beijing.aliyuncs.com/37dd63ed-cbb3-4cea-8809-354a0d826fe9.svg"></image>
+            <image class="flex-center column" mode="" src="https://big-event-xxz.oss-cn-beijing.aliyuncs.com/324c0255-f23c-4f19-9457-19ad8433efb0.svg"></image>
+        </view>
+    </view>
+    <view class="login flex column">
+        <view class="login_label flex column H3">
+            <text>申请获取以下权限</text>
+            <view class="Paragraphs1">
+                <view>获取你的公开信息（昵称、头像等）</view>
+                <view>授权以解锁打卡、排行榜等功能</view>
+            </view>
+        </view>
+        <view class="login_button flex column">
+            <button bindchooseavatar="{{!finishJump?'userLogin':''}}" bindtap="tapLogin" class="flex-center Button-Label" openType="{{chooseAvatar?'chooseAvatar':''}}">微信用户一键登录</button>
+            <button bind:tap="back" class="flex-center Button-Label">取消登录</button>
+        </view>
+    </view>
+</TDS-topbar>

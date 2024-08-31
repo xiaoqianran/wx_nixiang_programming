@@ -1,0 +1,1 @@
+var e={requestUrl:"https://mp.weixin.qq.com",host:"14592619.qcloud.la",envId:"release-b86096",demoImageFileId:"cloud://release-b86096.7265-release-b86096-1258211818/demo.jpg",demoVideoFileId:"cloud://release-b86096.7265-release-b86096/demo.mp4"};module.exports=e;

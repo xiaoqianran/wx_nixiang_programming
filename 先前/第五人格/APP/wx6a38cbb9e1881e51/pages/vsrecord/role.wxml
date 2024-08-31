@@ -1,0 +1,316 @@
+<navBar back="{{true}}" background="#fff" bindback="handlerGobackClick" bindhome="handlerGohomeClick" color="#000" home="{{true}}" iconTheme="black" title="网易第五人格"></navBar>
+<view class="container">
+    <view class="p1p2out">
+        <view class="page p1">
+            <image class="headimg" src="{{imgUrl}}/vsrecord/headimg2/{{heroId}}.jpg" wx:if="{{!!heroId}}"></image>
+            <view class="namebox">
+                <view class="name">{{useAllData.hero_name}}<text>{{zy}}者</text>
+                </view>
+                <view class="gameid">{{arrayVal=='当前赛季'?useSaijiData.play_hour:useAllData.play_hour}}</view>
+            </view>
+        </view>
+        <view class="page p2">
+            <view bindchange="swiperChange" class="swp-banner" current="{{swpIndex}}" duration="500" interval="4000">
+                <view class="swpbox">
+                    <view class="col">
+                        <picker bindchange="bindPickerChange" data-id="1" range="{{array}}" value="{{index}}">
+                            <view class="chres">{{arrayVal1}}</view>
+                        </picker>
+                    </view>
+                    <view class="out" wx:if="{{arrayVal1=='当前赛季'}}">
+                        <view class="numlist" wx:if="{{isSurvi}}">
+                            <view class="li">
+                                <view class="ic zcs"></view>
+                                <view class="des pa">{{useSaijiData.total_battle}}</view>
+                                <view class="des">总场数</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sc"></view>
+                                <view class="des pa">{{useSaijiData.win_battle}}</view>
+                                <view class="des">胜场</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sl"></view>
+                                <view class="des pa">{{useSaijiData.win_rate}}</view>
+                                <view class="des">胜率</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljtt"></view>
+                                <view class="des pa">{{useSaijiData.escape_battle}}</view>
+                                <view class="des">累计逃脱</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic zbmz"></view>
+                                <view class="des pa">{{useSaijiData.board_hit}}</view>
+                                <view class="des">砸板命中</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic cjpy"></view>
+                                <view class="des pa">{{useSaijiData.fix}}</view>
+                                <view class="des">破译台数</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic cjjr"></view>
+                                <view class="des pa">{{useSaijiData.save}}</view>
+                                <view class="des">累计救人</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljzl"></view>
+                                <view class="des pa">{{useSaijiData.cure}}</view>
+                                <view class="des">累计治疗</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic cjqz"></view>
+                                <view class="des pa">{{useSaijiData.tease}}</view>
+                                <view class="des">累计牵制</view>
+                            </view>
+                        </view>
+                        <view class="numlist" wx:else>
+                            <view class="li">
+                                <view class="ic zcs"></view>
+                                <view class="des pa">{{useSaijiData.total_battle}}</view>
+                                <view class="des">总场数</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sc"></view>
+                                <view class="des pa">{{useSaijiData.win_battle}}</view>
+                                <view class="des">胜场</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sl"></view>
+                                <view class="des pa">{{useSaijiData.win_rate}}</view>
+                                <view class="des">胜率</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljtaotai"></view>
+                                <view class="des pa">{{useSaijiData.kill}}</view>
+                                <view class="des">累计淘汰</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic szcs"></view>
+                                <view class="des pa">{{useSaijiData.killall}}</view>
+                                <view class="des">四抓场数</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic pbzs"></view>
+                                <view class="des pa">{{useSaijiData.break_board}}</view>
+                                <view class="des">破板总数</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljjd"></view>
+                                <view class="des pa">{{useSaijiData.attack_down}}</view>
+                                <view class="des">累计击倒</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljkjzs"></view>
+                                <view class="des pa">{{useSaijiData.terror_shock}}</view>
+                                <view class="des">累计恐惧震慑</view>
+                            </view>
+                            <view class="li">
+                                <view class="ic szl"></view>
+                                <view class="des pa">{{useSaijiData.killall_per}}</view>
+                                <view class="des">四抓率</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="out" wx:if="{{arrayVal1=='全部赛季'}}">
+                        <view class="numlist" wx:if="{{isSurvi}}">
+                            <view class="li">
+                                <view class="ic zcs"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.total_battle}}</view>
+                                    <view class="des">总场数</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sc"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.win_battle}}</view>
+                                    <view class="des">胜场</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sl"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.win_rate}}</view>
+                                    <view class="des">胜率</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljtt"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.escape_battle}}</view>
+                                    <view class="des">累计逃脱</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic zbmz"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.board_hit}}</view>
+                                    <view class="des">砸板命中</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic cjpy"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.fix}}</view>
+                                    <view class="des">破译台数</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic cjjr"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.save}}</view>
+                                    <view class="des">累计救人</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljzl"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.cure}}</view>
+                                    <view class="des">累计治疗</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic cjqz"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.tease}}</view>
+                                    <view class="des">累计牵制</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="numlist" wx:else>
+                            <view class="li">
+                                <view class="ic zcs"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.total_battle}}</view>
+                                    <view class="des">总场数</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sc"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.win_battle}}</view>
+                                    <view class="des">胜场</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic sl"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.win_rate}}</view>
+                                    <view class="des">胜率</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljtaotai"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.kill}}</view>
+                                    <view class="des">累计淘汰</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic szcs"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.killall}}</view>
+                                    <view class="des">四抓场数</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic pbzs"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.break_board}}</view>
+                                    <view class="des">破板总数</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljjd"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.attack_down}}</view>
+                                    <view class="des">累计击倒</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic ljkjzs"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.terror_shock}}</view>
+                                    <view class="des">累计恐惧震慑</view>
+                                </view>
+                            </view>
+                            <view class="li">
+                                <view class="ic szl"></view>
+                                <view class="inum">
+                                    <view class="des pa">{{useAllData.killall_per}}</view>
+                                    <view class="des">四抓率</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page p3">
+        <view class="inner">
+            <view class="col">
+                <view class="chres">角色全服数据</view>
+                <picker bindchange="bindTiersChange" class="picker" range="{{tiersList}}" rangeKey="name" value="{{tiersIndex}}">
+                    <view class="duan">{{tiersObj.name}}<view class="i"></view>
+                    </view>
+                </picker>
+                <view bindtap="toRank" class="btn">查看角色热度榜</view>
+            </view>
+            <text class="tips">*数据范围：{{start_time[0]}}年{{start_time[1]}}月{{start_time[2]}}日-{{end_time[0]}}年{{end_time[1]}}月{{end_time[2]}}日国服对应段位数据</text>
+            <view class="databox">
+                <view class="li">
+                    <image class="headimg" src="{{imgUrl}}/vsrecord/headimg2/{{roleRank.hero_id}}.jpg" wx:if="{{roleRank.hero_id}}"></image>
+                    <text class="des2">{{roleRank.name}}</text>
+                </view>
+                <view class="li">
+                    <text>出场率</text>
+                    <text class="des2">{{roleRank.use_rate}}%</text>
+                </view>
+                <view class="li">
+                    <text>胜率</text>
+                    <text class="des2">{{roleRank.win_rate}}%</text>
+                </view>
+                <view class="li">
+                    <text>平率</text>
+                    <text class="des2">{{roleRank.ping_rate}}%</text>
+                </view>
+                <view class="li">
+                    <text>禁用率</text>
+                    <text class="des2">{{roleRank.ban_rate}}%</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="page p4">
+        <view class="col">
+            <view class="chres">游戏对局</view>
+        </view>
+        <view class="out">
+            <view class="inner">
+                <view wx:if="{{userRecordUse!=''}}">
+                    <view class="li" wx:for="{{userRecordUse}}" wx:key="key">
+                        <view class="name  {{item.mvpScore==item.score?'mvp':''}}">
+                            <image src="{{imgUrl}}/vsrecord/headimg2/{{item.heroId}}.jpg"></image>
+                        </view>
+                        <view class="tt1 on">
+                            <text class="t {{item.teamResultValue=='失败'?'on':item.teamResultValue=='平局'?'ping':''}}">{{item.teamResultValue}}</text>
+                            <text class="b">总分:</text>
+                        </view>
+                        <view class="tt3 {{item.campId==1?'red':''}}">
+                            <text class="t1">{{item.battleModeValue}}</text>
+                            <text class="t2">{{item.score}}</text>
+                        </view>
+                        <view class="tt2">
+                            <text class="t">{{item.selfResultValue}}</text>
+                            <text class="b">{{item.showTime}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="tips" wx:else> 当前模式暂无更多对局 </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<van-notice-bar leftIcon="volume-o" text="👉请耐心等待时间😚，您提交的点位正在审核中，审核通过会在第一时间通知您，感谢您的理解😘"></van-notice-bar>
+<form bindsubmit="submit">
+    <view class="all">
+        <van-cell-group>
+            <van-field clearable required bind:click-icon="onClickIcon" class="upload_1" icon="question-o" label="id" name="id" placeholder="请输入位置id大于50" size="large" value="{{id}}"></van-field>
+            <van-field clearable required bind:click-icon="onClickIcon" class="upload_1" icon="question-o" label="latitude" name="latitude" placeholder="请输入经度" size="large" value="{{latitude}}"></van-field>
+            <van-field clearable required bind:click-icon="onClickIcon" class="upload_1" icon="question-o" label="longitude" name="longitude" placeholder="请输入纬度" size="large" value="{{longitude}}"></van-field>
+            <van-field required border="{{false}}" class="upload_1" icon="question-o" label="名字" name="name" placeholder="请输入点位名字" size="large" type="number" value="{{name}}"></van-field>
+            <van-field required bind:click-icon="onClickIcon" border="{{false}}" class="upload_1" icon="question-o" label="通知简介" name="nt" placeholder="请输入位置通知" size="large" type="text" value="{{nt}}"></van-field>
+            <van-field required bind:click-icon="onClickIcon" border="{{false}}" class="upload_1" icon="question-o" label="位置简介" name="pp" placeholder="请输入位置简介" size="large" type="text" value="{{pp}}"></van-field>
+            <van-field required bind:click-icon="onClickIcon" border="{{false}}" class="upload_1" icon="question-o" label="联系方式" name="number" placeholder="请输入您的联系方式" size="large" type="text" value="{{number}}"></van-field>
+        </van-cell-group>
+    </view>
+    <scroll-view class="img" scrollY="true">
+        <block wx:for="{{img}}">
+            <image src="{{item}}" style="width:40%;height:300rpx"></image>
+            <button bindtap="delete" data-id="{{index}}" data-src="{{item}}" plain="true" size="mini" type="warn">删除图片</button>
+        </block>
+        <view class="anniu">
+            <button bindtap="upload_img" size="mini" style="position: fixed;bottom: 30rpx;" type="warn">添加图片</button>
+        </view>
+    </scroll-view>
+    <button class="button" formType="submit" style="right:180rpx;bottom: 20rpx;" type="primary">提交</button>
+</form>
